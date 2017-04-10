@@ -87,5 +87,6 @@ namespace MinecaRTS
         public abstract void Update();
         public abstract void Render(SpriteBatch spriteBatch);
         public abstract void HandleMessage();
+        public abstract void RenderDebug(SpriteBatch spriteBatch);
     }
 }

@@ -10,26 +10,34 @@ namespace MinecaRTS
     {
         private T _owner;
         private State<T> _currentState;
-        private State<T> _prevState;
+        // TODO: Add previous state if needed.
         // TODO: Add global state if needed.
+
+        public State<T> CurrentState
+        {
+            get { return _currentState; }
+        }
 
         public StateMachine(T owner)
         {
             _owner = owner;
             _currentState = null;
-            _prevState = null;
         }
 
-        public void Update()
+        public void Execute()
         {
             if (_currentState != null)
                 _currentState.Execute(_owner);
         }
 
-        public ChangeState(State<T>)
+        public void ChangeState(State<T> newState)
         {
+            if (_currentState != null)
+                _currentState.Exit(_owner);
 
+
+            _currentState = newState;
+            _currentState.Enter(_owner);
         }
-
     }
 }

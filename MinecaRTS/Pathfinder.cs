@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 
@@ -16,74 +17,34 @@ namespace MinecaRTS
         private static Cell Current;
         private static List<Cell> Open;
         private static List<Cell> Closed;
-        private static Grid Grid;
-
-        private static bool CanBeConsidered(Cell cell)
-        {
-            if (!cell.Passable)
-                return false;
-
-            if (Closed.Contains(cell))
-                return false;
-
-            if (Open.Contains(cell))
-                return false;
-
-            return true;
-        }
+        private static Grid Grid;       
 
         private static List<Cell> GetAdjacentCells(Cell cell)
         {
+            var result = new List<Cell>();
+
             Point index = Grid.IndexAt(cell.Pos);
 
-            Cell n = Grid[index.Col(), index.Row() - 1];
-            Cell s = Grid[index.Col(), index.Row() + 1];
-            Cell e = Grid[index.Col() + 1, index.Row()];
-            Cell w = Grid[index.Col() - 1, index.Row()];
-
-            var result = new List<Cell> { n, s, e, w };
-
-            // Add diagonals if each component is free.
-            if (n.Passable && e.Passable)
-                result.Add(Grid[index.Col() + 1, index.Row() - 1]); // North East
-            if (n.Passable && w.Passable)
-                result.Add(Grid[index.Col() - 1, index.Row() - 1]); // North West
-            if (s.Passable && e.Passable)
-                result.Add(Grid[index.Col() + 1, index.Row() + 1]); // South East
-            if (s.Passable && w.Passable)
-                result.Add(Grid[index.Col() - 1, index.Row() + 1]); // South West            
+            result.Add(Grid[index.Col(), index.Row() - 1]); // N
+            result.Add(Grid[index.Col(), index.Row() + 1]); // S
+            result.Add(Grid[index.Col() + 1, index.Row()]); // E
+            result.Add(Grid[index.Col() - 1, index.Row()]); // W    
 
             return result;
-        }
-
-        private static void GetScore(Cell cell)
-        {
-            // GREEDY BEST FIRST
-            // TODO: G score is borked.
-            cell.Score = Vector2.Distance(cell.Pos, Target.Pos);
-
-            //// H score - Euclidian distance to target.
-            //float h = Vector2.Distance(cell.Pos, Target.Pos);
-
-            //// G score - cost of taking path so far.
-            //float g = 0;
-
-            //Cell c = cell;
-
-            //while (c.Parent != null)
-            //{
-            //    g += c.Parent.Score;
-            //    c = c.Parent;
-            //}
-
-            //g /= 30;
-
-            // F score - total cost.
-            //cell.Score = 50 + g + h;
-        }
+        }        
 
         private static void GetNextCurrentCell()
         {
+            // Get target if it's in the open.
+            foreach (Cell c in Open)
+            {
+                if (c == Target)
+                {
+                    Current = c;
+                    return;
+                }
+            }
+
             // TODO: Implement priority queue.
             Open.Sort((x, y) => x.Score.CompareTo(y.Score));
 
@@ -97,31 +58,19 @@ namespace MinecaRTS
             Current = Open[0];
         }
 
-        public static List<Cell> SearchAStar(Grid grid, Cell source, Cell target, Unit unit, bool smoothed = false)
+        /// <summary>
+        /// Runs Dijkstra's to find the closest cell with a resource of the specified type.
+        /// </summary>
+        public static List<Cell> SearchClosestResource(Grid grid, Cell source, ResourceType desiredResource, Unit unit, bool smoothed = false)
         {
-            // Don't fetch a path to the same cell.
-            if (source == target)
-                return new List<Cell>();
+            // Initialize relevant search details and add first node to closed list.
+            Setup(grid, source);
+            Target = null;
 
-
-            // TODO: SERIOUSLY clean this up - copy the AI textbook. This is UNACCEPTABLY slow.
-            Grid = grid;
-            Source = source;
-            Current = source;
-            Target = target;
-            Open = new List<Cell>();
-            Closed = new List<Cell>();
-
-            // Start search by adding source node to closed list.
-            Closed.Add(Current);
-
-            // Source cell can't have a parent.
-            Current.Parent = null;
-
-            // Until we consider the target node.
-            while (Current != Target)
+            // Until we are considering a node with the desired resource that is not overcrowded.
+            while (!TerminationCondition())
             {
-                #region /--- PATH CALC DEBUG ---\
+                #region /--- RESOURCE PATH CALC DEBUG ---\
                 if (Debug.OptionActive(DebugOption.CalcPath))
                 {
                     Input.UpdateStates();
@@ -136,7 +85,121 @@ namespace MinecaRTS
                     foreach (Cell cell in Closed)
                         Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
 
-                    // Render open list yellow
+                    // Render open list cream.
+                    foreach (Cell cell in Open)
+                        Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
+
+                    // Render source red
+                    Game1.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
+
+                    // Render current purple
+                    Game1.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
+
+                    // Render path to current pink
+                    Cell c = Current;
+                    while (c.Parent != null)
+                    {
+                        Game1.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
+                        c = c.Parent;
+                    }
+
+                    // Render cell scores in black text.
+                    foreach (Cell openCell in Open)
+                    {
+                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.Mid, Color.Black);
+                    }
+
+                    Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
+
+                    Game1.Instance.spriteBatch.End();
+
+                    Game1.Instance.GraphicsDevice.Present();
+                }
+
+                //System.Threading.Thread.Sleep(1000);
+
+                #endregion /--- RESOURCE PATH CALC DEBUG ---\
+
+                // Get adjacent nodes, calculate score and add to open list.
+                foreach (Cell cell in GetAdjacentCells(Current))
+                {
+                    if (CellCanBeConsidered(cell))
+                    {
+                        cell.Parent = Current;
+                        cell.Score = cell.Parent.Score + 1; // 1 minimum cost.
+                        Open.Add(cell);
+                    }
+                }
+
+                // Neighbours have been added, evaluate best node.
+                GetNextCurrentCell();
+            }
+
+            // Target has been found. Retrace our steps to find path.
+            var path = RetracePath();
+
+            // Don't smooth super short paths.
+            if (smoothed && path.Count > 2)
+                path = SmoothPath(unit, path);
+
+            return path;
+
+            // The method used to determine if cells can be considered for this search.
+            bool CellCanBeConsidered(Cell cell)
+            {
+                if (!cell.Passable && cell.ResourceType != desiredResource)
+                    return false;
+
+                if (Open.Contains(cell))
+                    return false;
+
+                if (Closed.Contains(cell))
+                    return false;
+
+                return true;
+            }
+
+            // The method used to determine if we've found what we're looking for.
+            bool TerminationCondition()
+            {
+                if (Current.ResourceType != desiredResource)
+                    return false;
+                else if (Current.Resource != null && Current.Resource.Harvesters < 1)
+                    return true;
+
+                return false;
+            }
+        }           
+
+        public static List<Cell> SearchGreedy(Grid grid, Cell source, Cell target, Unit unit, bool smoothed = false)
+        {
+            // Don't fetch a path to the same cell.
+            if (source == target)
+                return new List<Cell>();
+
+            // Initialise relevant search details and add first node to closed list. 
+            Setup(grid, source);
+            Target = target;
+
+            // Until we consider the target node.
+            while (Current != Target)
+            {
+                #region /--- GREEDY PATH CALC DEBUG ---\
+                if (Debug.OptionActive(DebugOption.CalcPath))
+                {
+                    Input.UpdateStates();
+                    Game1.Instance.GraphicsDevice.Clear(Color.Gray);
+                    Debug.HandleInput();
+
+                    Game1.Instance.spriteBatch.Begin();
+
+                    Grid.Render(Game1.Instance.spriteBatch);
+
+                    // Render closed list pale blue.
+                    foreach (Cell cell in Closed)
+                        Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
+
+                    // Render open list cream.
                     foreach (Cell cell in Open)
                         Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
 
@@ -151,11 +214,16 @@ namespace MinecaRTS
 
                     // Render path to current pink
                     Cell c = Current;
-
                     while (c.Parent != null)
                     {
                         Game1.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
                         c = c.Parent;
+                    }
+
+                    // Render cell scores in black text.
+                    foreach (Cell openCell in Open)
+                    {
+                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.Mid, Color.Black);
                     }
 
                     Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
@@ -165,19 +233,19 @@ namespace MinecaRTS
                     Game1.Instance.GraphicsDevice.Present();
                 }
 
-                //System.Threading.Thread.Sleep(50);
+                //System.Threading.Thread.Sleep(1000);
 
-                #endregion /--- PATH CALC DEBUG ---\
+                #endregion /--- GREEDY PATH CALC DEBUG ---\
 
                 // Get adjacent nodes, calculate score and add to open list.
                 foreach (Cell cell in GetAdjacentCells(Current))
                 {
-                    if (CanBeConsidered(cell))
+                    if (cell.Passable && !Closed.Contains(cell) && !Open.Contains(cell))
                     {
                         cell.Parent = Current;
-                        GetScore(cell);
+                        cell.Score = Vector2.Distance(cell.Mid, Target.Mid);
                         Open.Add(cell);
-                    }
+                    }                    
                 }
 
                 // Neighbours have been added, evaluate best node.
@@ -185,15 +253,7 @@ namespace MinecaRTS
             }
 
             // Target has been found. Retrace our steps to find path.
-            var path = new List<Cell>();
-            path.Add(Current);
-
-            // Retrace steps until we get back to source node.
-            while (Current.Parent != Source)
-            {
-                path.Insert(0, Current.Parent);
-                Current = Current.Parent;
-            }
+            var path = RetracePath();
 
             // Don't smooth super short paths.
             if (smoothed && path.Count > 2)
@@ -334,6 +394,34 @@ namespace MinecaRTS
             }
 
             return true;
+        }
+
+        private static List<Cell> RetracePath()
+        {
+            var path = new List<Cell>();
+            path.Add(Current);
+
+            // Retrace steps until we get back to source node.
+            while (Current.Parent != Source)
+            {
+                path.Insert(0, Current.Parent);
+                Current = Current.Parent;
+            }
+
+            return path;
+        }
+
+        private static void Setup(Grid grid, Cell source)
+        {
+            Grid = grid;
+            Source = source;
+            Current = source;
+
+            Open = new List<Cell>();
+            Closed = new List<Cell>();
+
+            Closed.Add(Current);
+            Current.Parent = null;
         }
     }
 }

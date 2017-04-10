@@ -17,6 +17,7 @@ namespace MinecaRTS
 
         public readonly Grid Grid;
         public readonly List<Unit> Units;
+        public readonly List<Building> Buildings;
         public List<Unit> SelectedUnits;
         public HumanPlayer _playerOne;
         public PlayerData _playerOneData;
@@ -30,6 +31,7 @@ namespace MinecaRTS
             HEIGHT = Grid.Height;
 
             Units = new List<Unit>();
+            Buildings = new List<Building>();
             SelectedUnits = new List<Unit>();
             _playerOneData = new PlayerData(this);
             _playerOne = new HumanPlayer(_playerOneData);
@@ -38,6 +40,22 @@ namespace MinecaRTS
         public void HandleInput()
         {
             _playerOne.HandleInput();
+
+            if (Input.KeyTyped(Keys.W))
+            {
+                foreach (Unit u in Units)
+                {
+                    u.pathHandler.GetPathToClosestResource(ResourceType.Wood);
+                }
+            }
+
+            if (Input.KeyTyped(Keys.S))
+            {
+                foreach (Unit u in Units)
+                {
+                    u.pathHandler.GetPathToClosestResource(ResourceType.Stone);
+                }
+            }
         }
 
         public void Update()
@@ -50,6 +68,9 @@ namespace MinecaRTS
         {
             // TODO: Only render what's on the screen.
             Grid.Render(spriteBatch);
+
+            foreach (Building b in Buildings)
+                b.Render(spriteBatch);
 
             foreach (Unit u in Units)
                 u.Render(spriteBatch);
@@ -65,8 +86,21 @@ namespace MinecaRTS
             Units.Add(new Unit(_playerOneData, pos, scale));
         }
 
+        public void AddWorker(Vector2 pos, Vector2 scale)
+        {
+            Units.Add(new Worker(_playerOneData, pos, scale));
+        }
+
+        public void AddBuilding(Building building)
+        {
+            Buildings.Add(building);
+        }
+
         public void RenderDebug(SpriteBatch spriteBatch)
         {
+            // TODO: A lot of this can be put inside Unit Classes which would remove
+            // a bunch of the "fuck it everything's public".
+
             if (Debug.OptionActive(DebugOption.ShowPaths))
             {
                 foreach (Unit u in Units)
@@ -96,6 +130,14 @@ namespace MinecaRTS
                                                 Color.Red, 
                                                 3);
                     }                    
+                }
+            }
+
+            if (Debug.OptionActive(DebugOption.ShowStates))
+            {
+                foreach (Unit u in Units)
+                {
+                    u.RenderDebug(spriteBatch);
                 }
             }
         }

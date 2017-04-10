@@ -13,6 +13,7 @@ namespace MinecaRTS
     /// </summary>
     public class PlayerData
     {
+        // This represents the facade. All queries are done through this and the real world figures it out.
         public World world;
 
         public PlayerData(World w)
@@ -38,6 +39,18 @@ namespace MinecaRTS
             foreach (Unit u in world.SelectedUnits)
             {
                 u.pathHandler.GetPathTo(pos);
+            }
+        }
+
+        public void OrderWorkersToGatherClosestResource(ResourceType desiredResource)
+        {
+            foreach (Worker w in world.Units)
+            {
+                w.pathHandler.GetPathToClosestResource(desiredResource);
+                w.resourceType = desiredResource;
+                w.resourceDropOff = world.Buildings[0];
+                w.resourceTarget = w.pathHandler._path.Last();
+                w.FSM.ChangeState(MoveToResource.Instance);
             }
         }
 
@@ -73,6 +86,20 @@ namespace MinecaRTS
             result.Remove(unit);
 
             return result;
+        }
+
+        // TODO: As more building types exist, this will take some sort of parameter
+        // indicating what kind of building it is (enum or actual object).
+        // Returns if the placement was successful so the bot knows whether or not to exit "placing building mode".
+        public bool PlaceBuilding(Building building)
+        {
+            if (world.Grid.RectIsClear(building.CollisionRect))
+            {
+                world.AddBuilding(building);
+                return true;
+            }
+
+            return false;
         }
     }
 }

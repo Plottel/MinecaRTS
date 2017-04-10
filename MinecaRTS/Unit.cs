@@ -67,6 +67,13 @@ namespace MinecaRTS
 
         public override void HandleMessage()
         {
+            return;
+        }
+
+        public override void RenderDebug(SpriteBatch spriteBatch)
+        {
+            // TODO: Maybe some stuff in here about collision boxes or... something?
+            // Possibly can encapuslate some of the World Debug stuff here.
         }
     }
 }

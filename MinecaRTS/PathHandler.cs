@@ -28,7 +28,7 @@ namespace MinecaRTS
         /// <summary>
         /// The current path.
         /// </summary>
-        private List<Cell> _path;
+        public List<Cell> _path;
 
         /// <summary>
         /// The index in the path the unit is currently moving towards.
@@ -105,6 +105,17 @@ namespace MinecaRTS
             return distanceFromCell <= _waypointThreshold;
         }
 
+        public void GetPathToClosestResource(ResourceType resource)
+        {
+            var sourceCell = _grid.CellAt(_owner.Mid);
+
+            _path = Pathfinder.SearchClosestResource(_grid, sourceCell, resource, _owner, true);
+            _pathIndex = 0;
+
+            if (_path.Count > 0)
+                _owner.FollowPath = true;
+        }
+
         /// <summary>
         /// Generates a path to the target position.
         /// If owner is set to follow paths, this will orient owner towards first cell in path.
@@ -117,7 +128,7 @@ namespace MinecaRTS
 
             if (targetCell.Passable)
             {
-                _path = Pathfinder.SearchAStar(_grid, sourceCell, targetCell, _owner, true);
+                _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, true);
                 _pathIndex = 0;
 
                 if (_path.Count > 0)

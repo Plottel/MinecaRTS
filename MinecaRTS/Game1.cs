@@ -24,6 +24,11 @@ namespace MinecaRTS
         {
             Instance = this;
 
+            // Setup all the state singletons.
+            new MoveToResource();
+            new ReturnResource();
+
+
             world = new World();
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1366;
@@ -70,6 +75,7 @@ namespace MinecaRTS
 
             Input.UpdateStates();
 
+            Debug.ClearHookedText();
             Debug.HandleInput();
 
             if (editMode)
@@ -104,6 +110,7 @@ namespace MinecaRTS
             world.RenderDebug(spriteBatch);
 
             Debug.RenderDebugOptionStates(spriteBatch);
+            Debug.RenderHookedText(spriteBatch);
 
             spriteBatch.End();
 

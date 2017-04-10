@@ -152,6 +152,21 @@ namespace MinecaRTS
         }
 
         /// <summary>
+        /// Specifies if every cell the passed in rectangle touches is traversable.
+        /// If the rect touches 1 or more unpassable cells, this returns false.
+        /// </summary>
+        public bool RectIsClear(Rectangle rect)
+        {
+            foreach (Cell c in CellsInRect(rect))
+            {
+                if (!c.Passable)
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Returns a list of cells the passed in Rectangle touches.
         /// </summary>
         public List<Cell> CellsInRect(Rectangle rect)

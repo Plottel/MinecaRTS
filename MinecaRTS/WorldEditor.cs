@@ -29,7 +29,25 @@ namespace MinecaRTS
                 world.Grid.AddRows(1);
 
             if (Input.KeyTyped(Keys.U))
-                world.AddUnit(Camera.VecToWorld(Input.MousePos), new Vector2(20, 20));
+                world.AddWorker(Camera.VecToWorld(Input.MousePos), new Vector2(20, 20));
+
+            // Make the cell a tree (get wood)
+            if (Input.KeyDown(Keys.W))
+            {
+                cell.Passable = false;
+                cell.Color = Color.Gray;
+                cell.Resource = new Resource(cell.Pos, new Vector2(Cell.CELL_SIZE, Cell.CELL_SIZE), ResourceType.Wood);
+                cell.ResourceType = ResourceType.Wood;
+            }
+
+            // Make the cell stone
+            if (Input.KeyDown(Keys.S))
+            {
+                cell.Passable = false;
+                cell.Color = Color.Gray;
+                cell.Resource = new Resource(cell.Pos, new Vector2(Cell.CELL_SIZE, Cell.CELL_SIZE), ResourceType.Stone);
+                cell.ResourceType = ResourceType.Stone;
+            }
 
             // Make the cell a wall.
             if (Input.LeftMouseDown())
@@ -42,6 +60,7 @@ namespace MinecaRTS
             if (Input.RightMouseDown())
             {
                 cell.Passable = true;
+                cell.Resource = null;
                 cell.Color = Color.Gray;
             }
         }
