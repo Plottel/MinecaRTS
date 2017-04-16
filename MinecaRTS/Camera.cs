@@ -15,7 +15,7 @@ namespace MinecaRTS
 
         public static int X
         {
-            get { return Pos.X; }
+            get { return Math.Max(Pos.X, 0); }
 
             // Clamp to within screen boundary.
             set
@@ -31,7 +31,7 @@ namespace MinecaRTS
 
         public static int Y
         {
-            get { return Pos.Y; }
+            get { return Math.Max(Pos.Y, 0); }
             set
             {
                 if (value < 0)

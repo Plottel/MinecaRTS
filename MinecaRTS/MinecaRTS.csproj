@@ -46,11 +46,14 @@
     <Compile Include="Cell.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="EntityRegistry.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="HumanPlayer.cs" />
     <Compile Include="Input.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="MsgBoard.cs" />
     <Compile Include="Pathfinder.cs" />
     <Compile Include="PathHandler.cs" />
     <Compile Include="PlayerData.cs" />

@@ -18,6 +18,8 @@ namespace MinecaRTS
         private PlayerData _data;
         private List<Unit> _neighbours;
 
+        public bool separationOn = true;
+
         // Vectors for Obstacle Avoidance calculation - primarly debug.
         // TODO: Clean this up!!!!
         public Vector2 from1, to1, from2, to2;
@@ -41,7 +43,9 @@ namespace MinecaRTS
 
             _neighbours = _data.GetUnitsInRadius(_owner, Unit.NEIGHBOUR_RADIUS);
 
-            force += Separation();
+            if (separationOn)
+                force += Separation();
+
             force += UnpassableCellAvoidance();
 
             return force;
@@ -56,7 +60,8 @@ namespace MinecaRTS
                 Vector2 toNeighbour = _owner.Mid - u.Mid;
 
                 // Scale based on inverse distance to neighbour.
-                force += Vector2.Normalize(toNeighbour) / toNeighbour.Length();
+                if (toNeighbour.Length() > 0)
+                    force += Vector2.Normalize(toNeighbour) / toNeighbour.Length();
             }
 
             return force * 20;
@@ -133,23 +138,15 @@ namespace MinecaRTS
             }
 
             // If we found a wall, change force based on how close.
+            // TODO: Base it on distance.
 
             // Return resultant force.
             wallPushForce = force;
             return force;
         }
 
-        public void EnforceZeroOverlap()
+        public void ZeroOverlapCells()
         {
-            foreach (Unit collider in _data.GetCollidingUnits(_owner))
-            {
-                Vector2 toOwner = _owner.Mid - collider.Mid;
-                float distanceApart = toOwner.Length();
-                float amountOfOverlap = (_owner.Scale.Length() / 2) + (collider.Scale.Length() / 2) - distanceApart;
-
-                _owner.Pos += (toOwner / distanceApart) * amountOfOverlap;
-            }
-
             foreach (Cell cell in _data.world.Grid.CellsInRect(_owner.CollisionRect))
             {
                 if (!cell.Passable)
@@ -161,6 +158,18 @@ namespace MinecaRTS
                     _owner.Pos += (toOwner / distanceApart) * amountOfOverlap;
                 }
             }
+        }
+
+        public void ZeroOverlapUnits()
+        {
+            foreach (Unit collider in _data.GetCollidingUnits(_owner))
+            {
+                Vector2 toOwner = _owner.Mid - collider.Mid;
+                float distanceApart = toOwner.Length();
+                float amountOfOverlap = (_owner.Scale.Length() / 2) + (collider.Scale.Length() / 2) - distanceApart;
+
+                _owner.Pos += (toOwner / distanceApart) * amountOfOverlap;
+            }                       
         }
     }
 }

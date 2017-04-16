@@ -26,6 +26,7 @@ namespace MinecaRTS
 
             // Setup all the state singletons.
             new MoveToResource();
+            new HarvestResource();
             new ReturnResource();
 
 

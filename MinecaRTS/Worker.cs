@@ -14,12 +14,22 @@ namespace MinecaRTS
         // TODO: This will eventually be an Interface rather than Building
         // to accommodate town centres and minecarts together.
 
-        public Building resourceDropOff;
-        public Cell resourceTarget;
+        public Building resourceReturnBuilding;
+        public Cell targetResourceCell;
         public ResourceType resourceType = ResourceType.None;
+        public uint timeSpentHarvesting = 0;
+
+        // Two variable names, but below are terrible....
+        // Stone, Wood, None
+
+        // ResourceType resourceTypeIAmLookingFor
+        // ResourceType resourceTypeIAmHolding
+        // seeking
+        // carrying
+
+        // help..
 
         private StateMachine<Worker> _fsm;
-
 
         public StateMachine<Worker> FSM
         {
@@ -37,17 +47,27 @@ namespace MinecaRTS
             _fsm.Execute();
         }
 
-        public override void HandleMessage()
+        public override void HandleMessage(Message message)
         {
-            return;
+            FSM.HandleMessage(message);
+        }
+
+        public override void ExitState()
+        {
+            FSM.ChangeState(null);
         }
 
         public override void RenderDebug(SpriteBatch spriteBatch)
         {
             base.RenderDebug(spriteBatch);
 
+            if (targetResourceCell != null)
+                spriteBatch.FillRectangle(targetResourceCell.RenderRect, Color.GreenYellow);
+
             if (FSM.CurrentState != null)
                 spriteBatch.DrawString(Debug.debugFont, FSM.CurrentState.GetType().Name, RenderMid - Scale / 2, Color.Black);
+
+            Debug.HookText("Time spent harvesting: " + timeSpentHarvesting.ToString());
         }
     }
 }

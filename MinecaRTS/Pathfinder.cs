@@ -61,14 +61,19 @@ namespace MinecaRTS
         /// <summary>
         /// Runs Dijkstra's to find the closest cell with a resource of the specified type.
         /// </summary>
-        public static List<Cell> SearchClosestResource(Grid grid, Cell source, ResourceType desiredResource, Unit unit, bool smoothed = false)
+        public static List<Cell> SearchDijkstra(Grid grid, 
+                                                Cell source, 
+                                                Unit unit, 
+                                                Func<Cell, bool> considerationCondition, 
+                                                Func<Cell, bool> terminationCondition, 
+                                                bool smoothed = false)
         {
             // Initialize relevant search details and add first node to closed list.
             Setup(grid, source);
             Target = null;
 
             // Until we are considering a node with the desired resource that is not overcrowded.
-            while (!TerminationCondition())
+            while (!terminationCondition(Current))
             {
                 #region /--- RESOURCE PATH CALC DEBUG ---\
                 if (Debug.OptionActive(DebugOption.CalcPath))
@@ -106,7 +111,7 @@ namespace MinecaRTS
                     // Render cell scores in black text.
                     foreach (Cell openCell in Open)
                     {
-                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.Mid, Color.Black);
+                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.RenderMid, Color.Black);
                     }
 
                     Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
@@ -123,7 +128,7 @@ namespace MinecaRTS
                 // Get adjacent nodes, calculate score and add to open list.
                 foreach (Cell cell in GetAdjacentCells(Current))
                 {
-                    if (CellCanBeConsidered(cell))
+                    if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
                     {
                         cell.Parent = Current;
                         cell.Score = cell.Parent.Score + 1; // 1 minimum cost.
@@ -143,35 +148,15 @@ namespace MinecaRTS
                 path = SmoothPath(unit, path);
 
             return path;
-
-            // The method used to determine if cells can be considered for this search.
-            bool CellCanBeConsidered(Cell cell)
-            {
-                if (!cell.Passable && cell.ResourceType != desiredResource)
-                    return false;
-
-                if (Open.Contains(cell))
-                    return false;
-
-                if (Closed.Contains(cell))
-                    return false;
-
-                return true;
-            }
-
-            // The method used to determine if we've found what we're looking for.
-            bool TerminationCondition()
-            {
-                if (Current.ResourceType != desiredResource)
-                    return false;
-                else if (Current.Resource != null && Current.Resource.Harvesters < 1)
-                    return true;
-
-                return false;
-            }
         }           
 
-        public static List<Cell> SearchGreedy(Grid grid, Cell source, Cell target, Unit unit, bool smoothed = false)
+        public static List<Cell> SearchGreedy(Grid grid, 
+                                              Cell source, 
+                                              Cell target, 
+                                              Unit unit, 
+                                              Func<Cell, bool> considerationCondition, 
+                                              Func<Cell, Cell, bool> terminationCondition, 
+                                              bool smoothed = false)
         {
             // Don't fetch a path to the same cell.
             if (source == target)
@@ -182,7 +167,7 @@ namespace MinecaRTS
             Target = target;
 
             // Until we consider the target node.
-            while (Current != Target)
+            while (!terminationCondition(Current, Target))
             {
                 #region /--- GREEDY PATH CALC DEBUG ---\
                 if (Debug.OptionActive(DebugOption.CalcPath))
@@ -223,7 +208,7 @@ namespace MinecaRTS
                     // Render cell scores in black text.
                     foreach (Cell openCell in Open)
                     {
-                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.Mid, Color.Black);
+                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.RenderMid, Color.Black);
                     }
 
                     Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
@@ -231,16 +216,16 @@ namespace MinecaRTS
                     Game1.Instance.spriteBatch.End();
 
                     Game1.Instance.GraphicsDevice.Present();
-                }
 
-                //System.Threading.Thread.Sleep(1000);
+                    //System.Threading.Thread.Sleep(1000);
+                }                
 
                 #endregion /--- GREEDY PATH CALC DEBUG ---\
 
                 // Get adjacent nodes, calculate score and add to open list.
                 foreach (Cell cell in GetAdjacentCells(Current))
                 {
-                    if (cell.Passable && !Closed.Contains(cell) && !Open.Contains(cell))
+                    if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
                     {
                         cell.Parent = Current;
                         cell.Score = Vector2.Distance(cell.Mid, Target.Mid);

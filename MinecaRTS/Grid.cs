@@ -43,7 +43,14 @@ namespace MinecaRTS
         /// <returns></returns>
         public Cell this[int col, int row]
         {
-            get { return _cells[col][row]; }
+            get
+            {
+                if (col < 0 || col > Cols - 1 || row < 0 || row > Rows - 1)
+                    return null;
+                else
+                    return _cells[col][row];
+            }
+
             set { _cells[col][row] = value; }
         }
 
@@ -119,6 +126,15 @@ namespace MinecaRTS
         }
 
         /// <summary>
+        /// Null checks the passed in cell and adds it to the list if it is not null.
+        /// </summary>
+        public void AddCell(Cell cell, ICollection<Cell> list)
+        {
+            if (cell != null)
+                list.Add(cell);
+        }
+
+        /// <summary>
         /// Returns the cell at the given position.
         /// </summary>
         /// <param name="pos">The position to check.</param>
@@ -127,7 +143,7 @@ namespace MinecaRTS
             int col = (int)Math.Floor((pos.X - Pos.X) / Cell.CELL_SIZE);
             int row = (int)Math.Floor((pos.Y - Pos.Y) / Cell.CELL_SIZE);
 
-            return _cells[col][row];
+            return this[col, row];
         }
 
         /// <summary>
@@ -180,7 +196,7 @@ namespace MinecaRTS
             {
                 for (int row = min.Row(); row <= max.Row(); row++)
                 {
-                    result.Add(_cells[col][row]);
+                    AddCell(this[col, row], result);
                 }
             }
 
@@ -229,9 +245,9 @@ namespace MinecaRTS
             for (int x = (int)v1.X; x < maxX; x++)
             {
                 if (isSteep)
-                    result.Add(CellAt(new Vector2(y, x)));
+                    AddCell(CellAt(new Vector2(y, x)), result);
                 else
-                    result.Add(CellAt(new Vector2(x, y)));
+                    AddCell(CellAt(new Vector2(x, y)), result);
 
                 error -= dy;
 

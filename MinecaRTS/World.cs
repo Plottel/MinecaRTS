@@ -45,7 +45,7 @@ namespace MinecaRTS
             {
                 foreach (Unit u in Units)
                 {
-                    u.pathHandler.GetPathToClosestResource(ResourceType.Wood);
+                    u.pathHandler.GetPathToClosestUnsaturatedResource(ResourceType.Wood);
                 }
             }
 
@@ -53,7 +53,7 @@ namespace MinecaRTS
             {
                 foreach (Unit u in Units)
                 {
-                    u.pathHandler.GetPathToClosestResource(ResourceType.Stone);
+                    u.pathHandler.GetPathToClosestUnsaturatedResource(ResourceType.Stone);
                 }
             }
         }
@@ -62,6 +62,16 @@ namespace MinecaRTS
         {
             foreach (Unit u in Units)
                 u.Update();
+
+            // TODO: SO BAD TAKE RESOURCES OUT OF BEING AN OBJECT IN A CELL.
+            for (int col = 0; col < Grid.Cols; col++)
+            {
+                for (int row = 0; row < Grid.Rows; row++)
+                {
+                    if (Grid[col, row].Resource != null)
+                        Grid[col, row].Resource.Update();
+                }
+            }
         }
 
         public void Render(SpriteBatch spriteBatch)
@@ -93,6 +103,9 @@ namespace MinecaRTS
 
         public void AddBuilding(Building building)
         {
+            foreach (Cell cell in Grid.CellsInRect(building.CollisionRect))
+                cell.Passable = false;
+
             Buildings.Add(building);
         }
 

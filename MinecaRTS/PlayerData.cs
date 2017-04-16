@@ -39,6 +39,7 @@ namespace MinecaRTS
             foreach (Unit u in world.SelectedUnits)
             {
                 u.pathHandler.GetPathTo(pos);
+                u.ExitState(); // Change to "Neutral state"
             }
         }
 
@@ -46,10 +47,9 @@ namespace MinecaRTS
         {
             foreach (Worker w in world.Units)
             {
-                w.pathHandler.GetPathToClosestResource(desiredResource);
                 w.resourceType = desiredResource;
-                w.resourceDropOff = world.Buildings[0];
-                w.resourceTarget = w.pathHandler._path.Last();
+                w.resourceReturnBuilding = null;
+                w.targetResourceCell = null;
                 w.FSM.ChangeState(MoveToResource.Instance);
             }
         }
@@ -100,6 +100,26 @@ namespace MinecaRTS
             }
 
             return false;
+        }
+
+        public Building GetClosestResourceReturnBuilding(Unit u)
+        {
+            float closestDistance = float.MaxValue;
+            Building closestBuilding = null;
+
+            foreach (Building b in world.Buildings)
+            {
+                float distance = Vector2.Distance(u.Mid, b.Mid);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestBuilding = b;
+                }
+            }
+
+            return closestBuilding;
+
         }
     }
 }

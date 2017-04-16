@@ -35,9 +35,18 @@ namespace MinecaRTS
             if (_currentState != null)
                 _currentState.Exit(_owner);
 
-
             _currentState = newState;
-            _currentState.Enter(_owner);
+
+            if (_currentState != null)
+                _currentState.Enter(_owner);
+        }
+
+        public void HandleMessage(Message message)
+        {
+            if (_currentState != null)
+                _currentState.HandleMessage(_owner, message);
+            else
+                throw new Exception("Message Type: " + message.msg.ToString() + " could not be handled.");
         }
     }
 }

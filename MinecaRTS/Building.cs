@@ -24,10 +24,13 @@ namespace MinecaRTS
             spriteBatch.FillRectangle(RenderRect, new Color(153, 255, 153));
         }
 
-        public override void HandleMessage()
+        public override void HandleMessage(Message message)
         {
             return;
         }
+
+        public override void ExitState()
+        { }
 
         public override void RenderDebug(SpriteBatch spriteBatch)
         {

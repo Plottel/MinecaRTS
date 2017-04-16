@@ -11,6 +11,6 @@ namespace MinecaRTS
         public abstract void Enter(T owner);
         public abstract void Exit(T owner);
         public abstract void Execute(T owner);
-        //TODO: Add handle message
+        public abstract void HandleMessage(T owner, Message message);
     }
 }

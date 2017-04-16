@@ -105,15 +105,102 @@ namespace MinecaRTS
             return distanceFromCell <= _waypointThreshold;
         }
 
-        public void GetPathToClosestResource(ResourceType resource)
+        /// <summary>
+        /// Gets a Greedy path to the passed in building.
+        /// Cheats by making all cells the building touches temporarily passable for searching.
+        /// </summary>
+        /// <param name="building"></param>
+        public void GetPathToBuilding(Building building)
         {
-            var sourceCell = _grid.CellAt(_owner.Mid);
+            // TODO: Possible optimisation by making target a Cell on the edge of building from which unit will approach.
+            // Prevents a possibly long List.Contains() for every node.
 
-            _path = Pathfinder.SearchClosestResource(_grid, sourceCell, resource, _owner, true);
+            var sourceCell = _grid.CellAt(_owner.Mid);
+            var targetCell = _grid.CellAt(building.Mid);
+
+            // Temporarily make Building cells passable.
+            var cellsBuildingIsTouching = _grid.CellsInRect(building.CollisionRect);
+
+            foreach (Cell c in cellsBuildingIsTouching)
+                c.Passable = true;
+
+            // Get the path
+            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, ConsiderationCondition, TerminationCondition, true);
             _pathIndex = 0;
 
             if (_path.Count > 0)
                 _owner.FollowPath = true;
+
+            // Revert Building cells to !Passable
+            foreach (Cell c in cellsBuildingIsTouching)
+                c.Passable = false;
+
+            // Consideration condition for getting a path to a building.
+            bool ConsiderationCondition(Cell cell)
+            {
+                return cell.Passable;
+            }
+
+            // Termination condition for getting a path to a building
+            bool TerminationCondition(Cell current, Cell target)
+            {
+                return current == target;
+            }
+        }
+
+        public void GetPathToClosestUnsaturatedResource(ResourceType resource)
+        {
+            var sourceCell = _grid.CellAt(_owner.Mid);
+
+            if (resource == ResourceType.Wood)
+                _path = Pathfinder.SearchDijkstra(_grid, sourceCell, _owner, ConsiderationConditionWood, TerminationConditionWood, true);
+            else if (resource == ResourceType.Stone)
+                _path = Pathfinder.SearchDijkstra(_grid, sourceCell, _owner, ConsiderationConditionStone, TerminationConditionStone, true);
+            else
+                throw new Exception("Cannot fetch a path for None resource");
+
+            _pathIndex = 0;
+
+            if (_path.Count > 0)
+                _owner.FollowPath = true;
+
+            bool ConsiderationConditionWood(Cell cell)
+            {
+                if (cell.Passable)
+                    return true;
+
+                // If not passable, cell can be considered if it has the right resource.
+                return cell.ResourceType == ResourceType.Wood;
+            }
+
+            bool ConsiderationConditionStone(Cell cell)
+            {
+                if (cell.Passable)
+                    return true;
+
+                // If not passable, cell can be considered if it has the right resource.
+                return cell.ResourceType == ResourceType.Stone;
+            }
+
+            bool TerminationConditionWood(Cell current)
+            {
+                if (current.ResourceType != ResourceType.Wood)
+                    return false;
+                else if (current.Resource == null)
+                    return false;
+
+                return !current.Resource.IsSaturated;
+            }
+
+            bool TerminationConditionStone(Cell current)
+            {
+                if (current.ResourceType != ResourceType.Stone)
+                    return false;
+                else if (current.Resource == null)
+                    return false;
+
+                return !current.Resource.IsSaturated;
+            }
         }
 
         /// <summary>
@@ -126,14 +213,23 @@ namespace MinecaRTS
             var sourceCell = _grid.CellAt(_owner.Mid);
             var targetCell = _grid.CellAt(targetPos);
 
-            if (targetCell.Passable)
-            {
-                _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, true);
-                _pathIndex = 0;
+            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, ConsiderationCondition, TerminationCondition, true);
+            _pathIndex = 0;
 
-                if (_path.Count > 0)
-                    _owner.FollowPath = true;
-            }            
+            if (_path.Count > 0)
+                _owner.FollowPath = true;
+
+            // Consideration condition for a standard path.
+            bool ConsiderationCondition(Cell cell)
+            {
+                return cell.Passable;
+            }
+
+            // Termination condition for a standard path.
+            bool TerminationCondition(Cell current, Cell target)
+            {
+                return current == target;
+            }
         }
 
         public void RenderPath(SpriteBatch spriteBatch)

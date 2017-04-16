@@ -34,7 +34,7 @@ namespace MinecaRTS
         /// </summary>
         public bool FollowPath { get; set; }
 
-        public Unit(PlayerData data, Vector2 pos = new Vector2(), Vector2 scale = new Vector2()) : base(pos, scale)
+        public Unit(PlayerData data, Vector2 pos, Vector2 scale) : base(pos, scale)
         {
             Vel = new Vector2();
             pathHandler = new PathHandler(this, data.world.Grid);
@@ -55,9 +55,12 @@ namespace MinecaRTS
 
             Vel = vel;
 
-            Pos += Vel * 2;
+            //Vel = Vel.Truncate(3);
 
-            _steering.EnforceZeroOverlap();
+            Pos += Vel * 2;           
+
+            // Zero overlap makes it super jittery.
+            _steering.ZeroOverlapCells();
         }        
 
         public override void Render(SpriteBatch spriteBatch)
@@ -65,7 +68,7 @@ namespace MinecaRTS
             spriteBatch.FillRectangle(RenderRect, Color.DarkBlue);
         }
 
-        public override void HandleMessage()
+        public override void HandleMessage(Message message)
         {
             return;
         }
@@ -74,6 +77,10 @@ namespace MinecaRTS
         {
             // TODO: Maybe some stuff in here about collision boxes or... something?
             // Possibly can encapuslate some of the World Debug stuff here.
+        }
+
+        public override void ExitState()
+        {
         }
     }
 }
