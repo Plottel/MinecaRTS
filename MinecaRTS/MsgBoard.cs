@@ -26,7 +26,7 @@ namespace MinecaRTS
     {
         private static HashSet<Message> messages = new HashSet<Message>();
 
-        public static void SendMessage(Entity receiver, Message message)
+        private static void SendMessage(Entity receiver, Message message)
         {
             receiver.HandleMessage(message);
         }

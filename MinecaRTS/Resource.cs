@@ -9,14 +9,17 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    // TODO: Probably (almost certainly) doesn't need to inherit from Entity
     public class Resource : Entity
     {
-        public const int HARVEST_DURATION = 300;
+        public const int HARVEST_DURATION = 60;
         public const int MAX_HARVESTERS = 3;
+        public const int HARVEST_AMOUNT = 5;
+        public const int MAX_VALUE = 100;
 
         public ResourceType Type;
         private Color _color;
-        private int _value = 100;
+        private int _value = MAX_VALUE;
         private HashSet<Worker> _harvesters = new HashSet<Worker>();
 
         public Resource(Vector2 pos, Vector2 scale, ResourceType t) : base(pos, scale)
@@ -29,9 +32,25 @@ namespace MinecaRTS
                 _color = new Color(64, 64, 64);
         }
 
+        public HashSet<Worker> Harvesters
+        {
+            get { return _harvesters; }
+        }
+
         public bool IsSaturated
         {
             get { return _harvesters.Count >= 3; }
+        }
+
+        public bool IsDepleted
+        {
+            get { return _value <= 0; }
+        }
+
+        public void GiveResources(Worker harvester)
+        {
+            harvester.resrcHolding = Type;
+            _value -= HARVEST_AMOUNT;
         }
 
         public void RemoveHarvester(Worker harvester)
@@ -55,7 +74,18 @@ namespace MinecaRTS
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.FillRectangle(RenderRect.GetInflated(-4, -4), _color);
+            if (_value == 100)
+                spriteBatch.FillRectangle(RenderRect.GetInflated(-4, -4), _color);
+            else if (_value > 80)
+                spriteBatch.FillRectangle(RenderRect.GetInflated(-6, -6), _color);
+            else if (_value > 60)
+                spriteBatch.FillRectangle(RenderRect.GetInflated(-8, -8), _color);
+            else if (_value > 40)
+                spriteBatch.FillRectangle(RenderRect.GetInflated(-10, -10), _color);
+            else if (_value > 20)
+                spriteBatch.FillRectangle(RenderRect.GetInflated(-12, -12), _color);
+            else
+                spriteBatch.FillRectangle(RenderRect.GetInflated(-13, -13), _color);
         }
 
         public override void HandleMessage(Message message)

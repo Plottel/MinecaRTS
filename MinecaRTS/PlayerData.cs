@@ -16,9 +16,32 @@ namespace MinecaRTS
         // This represents the facade. All queries are done through this and the real world figures it out.
         public World world;
 
+        private uint _wood = 0;
+        private uint _stone = 0;
+
+        public uint Wood
+        {
+            get { return _wood; }
+        }
+
+        public uint Stone
+        {
+            get { return _stone; }
+        }
+
         public PlayerData(World w)
         {
             world = w;
+        }
+
+        public void GiveResources(uint amount, ResourceType type)
+        {
+            if (type == ResourceType.Wood)
+                _wood += amount;
+            else if (type == ResourceType.Stone)
+                _stone += amount;
+            else
+                throw new Exception("Invalid resource type in PlayerData.GiveResources");
         }
 
         public void SelectUnitsInRect(Rectangle selectAt)
@@ -47,7 +70,7 @@ namespace MinecaRTS
         {
             foreach (Worker w in world.Units)
             {
-                w.resourceType = desiredResource;
+                w.resrcLookingFor = desiredResource;
                 w.resourceReturnBuilding = null;
                 w.targetResourceCell = null;
                 w.FSM.ChangeState(MoveToResource.Instance);

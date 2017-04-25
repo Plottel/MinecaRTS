@@ -8,6 +8,6 @@ namespace MinecaRTS
 {
     public enum MessageType
     {
-        HarvestDone = 1
+        ResourceDepleted = 1
     }
 }

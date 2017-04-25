@@ -114,14 +114,18 @@ namespace MinecaRTS
                         Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.RenderMid, Color.Black);
                     }
 
+                    // Render each resource
+                    foreach (Resource r in Game1.Instance.world.Resources.Values)
+                        r.Render(Game1.Instance.spriteBatch);
+
                     Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
 
                     Game1.Instance.spriteBatch.End();
 
                     Game1.Instance.GraphicsDevice.Present();
-                }
 
-                //System.Threading.Thread.Sleep(1000);
+                    System.Threading.Thread.Sleep(50);
+                }                
 
                 #endregion /--- RESOURCE PATH CALC DEBUG ---\
 
@@ -217,7 +221,7 @@ namespace MinecaRTS
 
                     Game1.Instance.GraphicsDevice.Present();
 
-                    //System.Threading.Thread.Sleep(1000);
+                    System.Threading.Thread.Sleep(50);
                 }                
 
                 #endregion /--- GREEDY PATH CALC DEBUG ---\
@@ -367,7 +371,7 @@ namespace MinecaRTS
 
                 Game1.Instance.GraphicsDevice.Present();
 
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(50);
             }                
 
             #endregion /--- PATH SMOOTHING DEBUG ---\

@@ -35,7 +35,7 @@ namespace MinecaRTS
 
             // TODO: This check will be more robust to check if the resource has expired???
             // should just Greedy if already has target resource.
-            owner.pathHandler.GetPathToClosestUnsaturatedResource(owner.resourceType);
+            owner.pathHandler.GetPathToClosestUnsaturatedResource(owner.resrcLookingFor);
             owner.targetResourceCell = owner.pathHandler._path.Last();
         }
 
@@ -99,8 +99,12 @@ namespace MinecaRTS
 
         public override void Execute(Worker owner)
         {
-            if (owner.CollisionRect.GetInflated(5, 5).Intersects(owner.resourceReturnBuilding.CollisionRect))           
+            if (owner.CollisionRect.GetInflated(5, 5).Intersects(owner.resourceReturnBuilding.CollisionRect))
+            {
+                owner.DepositResources();
                 owner.FSM.ChangeState(MoveToResource.Instance);
+            }
+                
         }
 
         public override void HandleMessage(Worker owner, Message message)
@@ -133,13 +137,13 @@ namespace MinecaRTS
         public override void Enter(Worker owner)
         {
             // If arrived at a saturated resource, re-evaluate.
-            if (owner.targetResourceCell.Resource.IsSaturated)
+            if (owner.TargetResource.IsSaturated)
             {
                 owner.FSM.ChangeState(MoveToResource.Instance);
                 return;
             }
 
-            owner.targetResourceCell.Resource.AddHarvester(owner);
+            owner.TargetResource.AddHarvester(owner);
             owner._steering.separationOn = false;
             owner.timeSpentHarvesting = 0;
             owner.FollowPath = false;
@@ -150,31 +154,22 @@ namespace MinecaRTS
         {
             owner._steering.separationOn = true;
             owner.timeSpentHarvesting = 0;
-            owner.targetResourceCell.Resource.RemoveHarvester(owner);
+
+            if (owner.TargetResource != null)
+                owner.TargetResource.RemoveHarvester(owner);
         }
 
         public override void Execute(Worker owner)
         {
             if (++owner.timeSpentHarvesting >= Resource.HARVEST_DURATION)
+            {
+                owner._data.world.HarvestResource(owner, owner.TargetResource);
                 owner.FSM.ChangeState(ReturnResource.Instance);
+            }                
         }
 
         public override void HandleMessage(Worker owner, Message message)
         {
-            switch (message.msg)
-            {
-                case MessageType.HarvestDone:
-                    {
-                        owner.FSM.ChangeState(ReturnResource.Instance);
-                        break;
-
-                    }
-
-                default:
-                    {
-                        throw new Exception("Message type: " + message.msg.ToString() + " could not be handled.");
-                    }
-            }
         }
     }
 }

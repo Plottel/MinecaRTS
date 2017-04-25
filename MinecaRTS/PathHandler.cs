@@ -148,13 +148,13 @@ namespace MinecaRTS
             }
         }
 
-        public void GetPathToClosestUnsaturatedResource(ResourceType resource)
+        public void GetPathToClosestUnsaturatedResource(ResourceType resourceType)
         {
             var sourceCell = _grid.CellAt(_owner.Mid);
 
-            if (resource == ResourceType.Wood)
+            if (resourceType == ResourceType.Wood)
                 _path = Pathfinder.SearchDijkstra(_grid, sourceCell, _owner, ConsiderationConditionWood, TerminationConditionWood, true);
-            else if (resource == ResourceType.Stone)
+            else if (resourceType == ResourceType.Stone)
                 _path = Pathfinder.SearchDijkstra(_grid, sourceCell, _owner, ConsiderationConditionStone, TerminationConditionStone, true);
             else
                 throw new Exception("Cannot fetch a path for None resource");
@@ -169,8 +169,13 @@ namespace MinecaRTS
                 if (cell.Passable)
                     return true;
 
-                // If not passable, cell can be considered if it has the right resource.
-                return cell.ResourceType == ResourceType.Wood;
+                Resource resource = _owner._data.world.GetResourceFromCell(cell);
+
+                if (resource == null)
+                    return false;
+
+                // Valid if resource is the correct type and not saturated.
+                return resource.Type == ResourceType.Wood && !resource.IsSaturated;
             }
 
             bool ConsiderationConditionStone(Cell cell)
@@ -178,28 +183,37 @@ namespace MinecaRTS
                 if (cell.Passable)
                     return true;
 
-                // If not passable, cell can be considered if it has the right resource.
-                return cell.ResourceType == ResourceType.Stone;
+                Resource resource = _owner._data.world.GetResourceFromCell(cell);
+
+                if (resource == null)
+                    return false;
+
+                // Valid if resource is the correct type and not saturated.
+                return resource.Type == ResourceType.Wood && !resource.IsSaturated;
             }
 
             bool TerminationConditionWood(Cell current)
             {
-                if (current.ResourceType != ResourceType.Wood)
+                Resource resource = _owner._data.world.GetResourceFromCell(current);
+
+                if (resource == null)
                     return false;
-                else if (current.Resource == null)
+                else if (resource.Type != ResourceType.Wood)
                     return false;
 
-                return !current.Resource.IsSaturated;
+                return !resource.IsSaturated;
             }
 
             bool TerminationConditionStone(Cell current)
             {
-                if (current.ResourceType != ResourceType.Stone)
+                Resource resource = _owner._data.world.GetResourceFromCell(current);
+
+                if (resource == null)
                     return false;
-                else if (current.Resource == null)
+                else if (resource.Type != ResourceType.Stone)
                     return false;
 
-                return !current.Resource.IsSaturated;
+                return !resource.IsSaturated;
             }
         }
 

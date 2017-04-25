@@ -122,8 +122,6 @@ namespace MinecaRTS
                         spriteBatch.FillRectangle(c.RenderRect, new Color(Color.Red, 100));
                 }
             }
-
-
         }
     }
 }

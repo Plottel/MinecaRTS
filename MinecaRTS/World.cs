@@ -19,6 +19,9 @@ namespace MinecaRTS
         public readonly List<Unit> Units;
         public readonly List<Building> Buildings;
         public List<Unit> SelectedUnits;
+        public readonly Dictionary<Cell, Resource> Resources;
+
+
         public HumanPlayer _playerOne;
         public PlayerData _playerOneData;
 
@@ -32,6 +35,8 @@ namespace MinecaRTS
 
             Units = new List<Unit>();
             Buildings = new List<Building>();
+            Resources = new Dictionary<Cell, Resource>();
+
             SelectedUnits = new List<Unit>();
             _playerOneData = new PlayerData(this);
             _playerOne = new HumanPlayer(_playerOneData);
@@ -62,16 +67,6 @@ namespace MinecaRTS
         {
             foreach (Unit u in Units)
                 u.Update();
-
-            // TODO: SO BAD TAKE RESOURCES OUT OF BEING AN OBJECT IN A CELL.
-            for (int col = 0; col < Grid.Cols; col++)
-            {
-                for (int row = 0; row < Grid.Rows; row++)
-                {
-                    if (Grid[col, row].Resource != null)
-                        Grid[col, row].Resource.Update();
-                }
-            }
         }
 
         public void Render(SpriteBatch spriteBatch)
@@ -87,6 +82,9 @@ namespace MinecaRTS
 
             foreach (Unit u in SelectedUnits)
                 spriteBatch.DrawRectangle(u.RenderRect.GetInflated(3, 3), Color.SpringGreen);
+
+            foreach (Resource r in Resources.Values)
+                r.Render(spriteBatch);
 
             _playerOne.Render(spriteBatch);
         }
@@ -107,6 +105,49 @@ namespace MinecaRTS
                 cell.Passable = false;
 
             Buildings.Add(building);
+        }
+
+        public void AddResourceToCell(Resource resource, Cell cell)
+        {
+            // If cell already has a resource, overwrite to new resource
+            if (Resources.ContainsKey(cell))
+                Resources[cell] = resource;
+            else
+                Resources.Add(cell, resource);
+        }
+
+        public void RemoveResourceFromCell(Cell cell)
+        {
+            Resources.Remove(cell);
+        }
+
+        public bool CellHasResource(Cell cell)
+        {
+            return Resources.ContainsKey(cell);
+        }
+
+        public Resource GetResourceFromCell(Cell cell)
+        {
+            if (Resources.ContainsKey(cell))
+                return Resources[cell];
+            else
+                return null;
+        }
+
+        public void HarvestResource(Worker harvester, Resource resource)
+        {
+            resource.GiveResources(harvester);
+
+            // If resource needs to be removed, tell all relevant Workers to find a new target resource.
+            if (resource.IsDepleted)
+            {
+                Cell resourceCell = Grid.CellAt(resource.Mid);
+
+                Resources.Remove(resourceCell);
+
+                foreach (Worker w in resource.Harvesters)
+                    w.FSM.ChangeState(MoveToResource.Instance);
+            }                
         }
 
         public void RenderDebug(SpriteBatch spriteBatch)

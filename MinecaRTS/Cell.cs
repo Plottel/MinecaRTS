@@ -26,14 +26,6 @@ namespace MinecaRTS
         /// </summary>
         public Color Color { get; set; }
 
-        /// <summary>
-        /// The resource contained in the cell (if any).
-        /// </summary>
-        public Resource Resource = null;
-
-        // TODO: BAD. Wrapper variable to prevent null checking in pathfinding.
-        public ResourceType ResourceType = ResourceType.None;
-
         // TODO: This will need to be taken out of the data structure to allow facade to operate properly.
         // For path planning, each team will have a different view of what is passable.
         #region     /------ Pathfinding Details ------\
@@ -104,9 +96,6 @@ namespace MinecaRTS
         public void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.FillRectangle(RenderRect, Color);
-
-            if (Resource != null)
-                Resource.Render(spriteBatch);
         }
     }
 }
