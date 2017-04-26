@@ -22,7 +22,7 @@ namespace MinecaRTS
 
         public Game1()
         {
-            Instance = this;
+            Instance = this;            
 
             // Setup all the state singletons.
             new MoveToResource();
@@ -62,6 +62,14 @@ namespace MinecaRTS
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Debug.debugFont = Content.Load<SpriteFont>("DebugFont");
+
+            Worker.walkSS.texture = Content.Load<Texture2D>("images/worker/worker_walk");
+            Worker.walkSS.cols = 7;
+            Worker.walkSS.rows = 8;
+            Worker.walkSS.cellWidth = 26;
+            Worker.walkSS.cellHeight = 35;
+
+            Worker.walkFrames = AnimationCreator.CreateWorkerWalk();
         }
 
         protected override void UnloadContent()

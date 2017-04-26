@@ -29,6 +29,8 @@ namespace MinecaRTS
         public PlayerData _data;
         public SteeringBehaviours _steering;
 
+        public Animation animation;
+
         /// <summary>
         /// Specifies if the unit's PathHandler should update.
         /// </summary>
@@ -40,6 +42,7 @@ namespace MinecaRTS
             pathHandler = new PathHandler(this, data.world.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
+            animation = new Animation(Worker.walkSS.texture, Worker.walkFrames, true);
         }
 
         /// <summary>
@@ -47,6 +50,8 @@ namespace MinecaRTS
         /// </summary>
         public override void Update()
         {
+            animation.Update();
+
             Vector2 vel = Vector2.Zero;
             vel += _steering.Calculate();
 
@@ -65,7 +70,8 @@ namespace MinecaRTS
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.FillRectangle(RenderRect, Color.DarkBlue);
+            animation.Render(spriteBatch, new Rectangle(Pos.ToPoint(), Scale.ToPoint()));
+            //spriteBatch.FillRectangle(RenderRect, Color.DarkBlue);
         }
 
         public override void HandleMessage(Message message)

@@ -25,3 +25,7 @@ C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\obj\x86\Debug\MinecaRTS.csprojResolveA
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\obj\x86\Debug\MinecaRTS.exe
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\obj\x86\Debug\MinecaRTS.pdb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\DebugFont.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_chop.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_logs.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_mine.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_walk.xnb

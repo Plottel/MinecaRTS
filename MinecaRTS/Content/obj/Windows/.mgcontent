@@ -5,5 +5,9 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/DebugFont.spritefont</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/worker/worker_chop.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/worker/worker_logs.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/worker/worker_mine.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/worker/worker_walk.png</File>
   </SourceFiles>
 </SourceFileCollection>

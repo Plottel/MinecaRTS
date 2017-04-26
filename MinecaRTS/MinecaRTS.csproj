@@ -41,10 +41,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animation.cs" />
+    <Compile Include="AnimationCreator.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Debug.cs" />
+    <Compile Include="Dir.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EntityRegistry.cs" />
     <Compile Include="ExtensionMethods.cs" />

@@ -11,6 +11,10 @@ namespace MinecaRTS
 {
     public class Worker : Unit
     {
+        public static SpriteSheet walkSS;
+        public static List<Frame> walkFrames;
+
+
         // TODO: This will eventually be an Interface rather than Building
         // to accommodate town centres and minecarts together.
 

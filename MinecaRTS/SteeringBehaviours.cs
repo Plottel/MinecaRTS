@@ -137,8 +137,9 @@ namespace MinecaRTS
                 }
             }
 
-            // If we found a wall, change force based on how close.
-            // TODO: Base it on distance.
+            // If really close to a wall, apply a stronger force.
+            if (closestDistance < 30)
+                force *= 20;
 
             // Return resultant force.
             wallPushForce = force;
