@@ -54,6 +54,18 @@ namespace MinecaRTS
             get { return _frames[(int)_currentFrameIndex]; }
         }
 
+        public void ChangeScript(List<Frame> newFrames, bool looped, bool resetIndex)
+        {
+            _frames = newFrames;
+            _looped = looped;
+
+            if (resetIndex)
+            {
+                _currentFrameIndex = 0;
+                _timeOnCurrentFrame = 0;
+            }                
+        }
+
         public void Update()
         {
             if (++_timeOnCurrentFrame >= CurrentFrame.duration)
@@ -69,6 +81,5 @@ namespace MinecaRTS
         {
             spriteBatch.Draw(_texture, destinationRect, CurrentFrame.rect, Color.White);
         }
-
     }
 }

@@ -16,6 +16,9 @@ namespace MinecaRTS
     {
         public static float NEIGHBOUR_RADIUS = 21;
 
+        private Dir _lastHeading;
+        private Dir _heading;
+
         /// <summary>
         /// Current velocity of the unit.
         /// </summary>
@@ -42,15 +45,28 @@ namespace MinecaRTS
             pathHandler = new PathHandler(this, data.world.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
-            animation = new Animation(Worker.walkSS.texture, Worker.walkFrames, true);
-        }
+            animation = new Animation(Worker.walkSS.texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], true);
+            _heading = Dir.S;
+            _lastHeading = Dir.S;
+        }              
 
         /// <summary>
         /// Called once per frame, handles all relevant updating methods including PathHandler.
         /// </summary>
         public override void Update()
         {
-            animation.Update();
+            _lastHeading = _heading;
+
+            if (Vel != Vector2.Zero)
+                _heading = Utils.VectorToDir(Vel);
+
+            if (_lastHeading != _heading)
+                animation.ChangeScript(Worker.animFrames[WorkerAnimation.Walk][_heading], true, false);
+
+            // Don't update animation if not moving
+            // TODO: Add checks - some animations (chopping) will still update if not moving
+            if (Vel != Vector2.Zero)
+                animation.Update();
 
             Vector2 vel = Vector2.Zero;
             vel += _steering.Calculate();
@@ -71,7 +87,6 @@ namespace MinecaRTS
         public override void Render(SpriteBatch spriteBatch)
         {
             animation.Render(spriteBatch, new Rectangle(Pos.ToPoint(), Scale.ToPoint()));
-            //spriteBatch.FillRectangle(RenderRect, Color.DarkBlue);
         }
 
         public override void HandleMessage(Message message)

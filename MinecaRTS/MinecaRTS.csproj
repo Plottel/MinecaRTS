@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
-    <Compile Include="AnimationCreator.cs" />
+    <Compile Include="GameResources.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Cell.cs" />

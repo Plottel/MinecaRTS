@@ -9,18 +9,24 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    public enum WorkerAnimation
+    {
+        Walk,
+        Chop
+    }
+
     public class Worker : Unit
     {
         public static SpriteSheet walkSS;
-        public static List<Frame> walkFrames;
-
+        public static Dictionary<WorkerAnimation, Dictionary<Dir, List<Frame>>> animFrames = new Dictionary<WorkerAnimation, Dictionary<Dir, List<Frame>>>();
 
         // TODO: This will eventually be an Interface rather than Building
         // to accommodate town centres and minecarts together.
-
         public Building resourceReturnBuilding;
         public Cell targetResourceCell;
         public ResourceType resrcLookingFor = ResourceType.None;
+
+        public WorkerAnimation currentAnim = WorkerAnimation.Walk;
 
         public ResourceType resrcHolding = ResourceType.None;
 

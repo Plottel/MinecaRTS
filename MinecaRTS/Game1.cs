@@ -69,7 +69,7 @@ namespace MinecaRTS
             Worker.walkSS.cellWidth = 26;
             Worker.walkSS.cellHeight = 35;
 
-            Worker.walkFrames = AnimationCreator.CreateWorkerWalk();
+            GameResources.CreateWorkerWalkAnimation();
         }
 
         protected override void UnloadContent()
