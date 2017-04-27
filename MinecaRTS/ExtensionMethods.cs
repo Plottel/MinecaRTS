@@ -18,6 +18,14 @@ namespace MinecaRTS
             return inflated;
         }
 
+        public static Rectangle GetInflated(this Rectangle rectangle, float horizontalAmount, float verticalAmount)
+        {
+            Rectangle inflated = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
+            inflated.Inflate(horizontalAmount, verticalAmount);
+
+            return inflated;
+        }
+
         public static int Col (this Point pt)
         {
             return pt.X;

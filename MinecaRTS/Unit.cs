@@ -45,7 +45,7 @@ namespace MinecaRTS
             pathHandler = new PathHandler(this, data.world.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
-            animation = new Animation(Worker.walkSS.texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], true);
+            animation = new Animation(Worker.walkSS.texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], Worker.animOffsets[WorkerAnimation.Walk], true);
             heading = Dir.S;
             lastHeading = Dir.S;
         }              
@@ -78,7 +78,7 @@ namespace MinecaRTS
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            animation.Render(spriteBatch, new Rectangle(Pos.ToPoint(), Scale.ToPoint()));
+            animation.Render(spriteBatch, new Rectangle(Camera.PtToScreen(Pos.ToPoint()), Scale.ToPoint()));
         }
 
         public override void HandleMessage(Message message)

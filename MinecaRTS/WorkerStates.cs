@@ -31,6 +31,7 @@ namespace MinecaRTS
 
         public override void Enter(Worker owner)
         {
+            owner.ChangeAnimation(WorkerAnimation.Walk);
             owner._steering.separationOn = false;
 
             // TODO: This check will be more robust to check if the resource has expired???
@@ -79,6 +80,8 @@ namespace MinecaRTS
 
         public override void Enter(Worker owner)
         {
+            owner.ChangeAnimation(WorkerAnimation.Walk);
+
             owner._steering.separationOn = false;
 
             // Get path to base.
@@ -136,6 +139,13 @@ namespace MinecaRTS
 
         public override void Enter(Worker owner)
         {
+            // If resource was depleted while moving towards it, find another one.
+            if (owner.TargetResource == null)
+            {
+                owner.FSM.ChangeState(MoveToResource.Instance);
+                return;
+            }
+
             // If arrived at a saturated resource, re-evaluate.
             if (owner.TargetResource.IsSaturated)
             {
@@ -143,6 +153,8 @@ namespace MinecaRTS
                 return;
             }
 
+
+            owner.ChangeAnimation(WorkerAnimation.Chop);
             owner.TargetResource.AddHarvester(owner);
             owner._steering.separationOn = false;
             owner.timeSpentHarvesting = 0;

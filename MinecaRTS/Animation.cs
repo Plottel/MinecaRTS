@@ -34,16 +34,18 @@ namespace MinecaRTS
 
     public class Animation
     {
-        private Texture2D _texture;
+        public Texture2D _texture;
         private List<Frame> _frames;
+        private Vector2 _offset;
         private uint _timeOnCurrentFrame;
         private bool _looped;
         private uint _currentFrameIndex;
 
-        public Animation(Texture2D texture, List<Frame> frames, bool looped)
+        public Animation(Texture2D texture, List<Frame> frames, Vector2 offset, bool looped)
         {
             _texture = texture;
             _frames = frames;
+            _offset = offset;
             _looped = looped;
             _timeOnCurrentFrame = 0;
             _currentFrameIndex = 0;
@@ -54,9 +56,10 @@ namespace MinecaRTS
             get { return _frames[(int)_currentFrameIndex]; }
         }
 
-        public void ChangeScript(List<Frame> newFrames, bool looped, bool resetIndex)
+        public void ChangeScript(List<Frame> newFrames, Vector2 offset, bool looped, bool resetIndex)
         {
             _frames = newFrames;
+            _offset = offset;
             _looped = looped;
 
             if (resetIndex)
@@ -79,7 +82,7 @@ namespace MinecaRTS
 
         public void Render(SpriteBatch spriteBatch, Rectangle destinationRect)
         {
-            spriteBatch.Draw(_texture, destinationRect, CurrentFrame.rect, Color.White);
+            spriteBatch.Draw(_texture, destinationRect.GetInflated(_offset.X / 2, _offset.Y / 2), CurrentFrame.rect, Color.White);
         }
     }
 }

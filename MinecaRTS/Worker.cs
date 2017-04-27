@@ -9,6 +9,8 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    using AnimationDictionary = Dictionary<WorkerAnimation, Dictionary<Dir, List<Frame>>>;
+
     public enum WorkerAnimation
     {
         Walk,
@@ -18,7 +20,10 @@ namespace MinecaRTS
     public class Worker : Unit
     {
         public static SpriteSheet walkSS;
-        public static Dictionary<WorkerAnimation, Dictionary<Dir, List<Frame>>> animFrames = new Dictionary<WorkerAnimation, Dictionary<Dir, List<Frame>>>();
+        public static SpriteSheet chopSS;
+
+        public static AnimationDictionary animFrames = new AnimationDictionary();
+        public static Dictionary<WorkerAnimation, Vector2> animOffsets = new Dictionary<WorkerAnimation, Vector2>();
 
         // TODO: This will eventually be an Interface rather than Building
         // to accommodate town centres and minecarts together.
@@ -60,14 +65,25 @@ namespace MinecaRTS
             base.Update();
 
             if (lastHeading != heading)
-                animation.ChangeScript(animFrames[currentAnim][heading], true, false);
+                animation.ChangeScript(animFrames[currentAnim][heading], animOffsets[currentAnim], true, false);
 
             // Don't update animation if not moving
             // TODO: Add checks - some animations (chopping) will still update if not moving
-            if (Vel != Vector2.Zero)
+            if (Vel != Vector2.Zero || currentAnim == WorkerAnimation.Chop)
                 animation.Update();
 
             _fsm.Execute();
+        }
+
+        public void ChangeAnimation(WorkerAnimation newAnim)
+        {
+            currentAnim = newAnim;
+            animation.ChangeScript(animFrames[currentAnim][heading], animOffsets[currentAnim], true, true);
+
+            if (newAnim == WorkerAnimation.Walk)
+                animation._texture = walkSS.texture;
+            else
+                animation._texture = chopSS.texture;
         }
 
         public override void HandleMessage(Message message)

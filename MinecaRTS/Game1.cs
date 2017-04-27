@@ -69,7 +69,14 @@ namespace MinecaRTS
             Worker.walkSS.cellWidth = 26;
             Worker.walkSS.cellHeight = 35;
 
+            Worker.chopSS.texture = Content.Load<Texture2D>("images/worker/worker_chop");
+            Worker.chopSS.cols = 5;
+            Worker.chopSS.rows = 8;
+            Worker.chopSS.cellWidth = 85;
+            Worker.chopSS.cellHeight = 74;
+
             GameResources.CreateWorkerWalkAnimation();
+            GameResources.CreateWorkerChopAnimation();
         }
 
         protected override void UnloadContent()

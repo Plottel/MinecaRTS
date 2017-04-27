@@ -48,6 +48,8 @@ namespace MinecaRTS
 
             force += UnpassableCellAvoidance();
 
+            //ZeroOverlapCells();
+
             return force;
         }
 
