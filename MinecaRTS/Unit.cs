@@ -16,8 +16,8 @@ namespace MinecaRTS
     {
         public static float NEIGHBOUR_RADIUS = 21;
 
-        private Dir _lastHeading;
-        private Dir _heading;
+        public Dir lastHeading;
+        public Dir heading;
 
         /// <summary>
         /// Current velocity of the unit.
@@ -46,8 +46,8 @@ namespace MinecaRTS
             _steering = new SteeringBehaviours(this, data);
             _data = data;
             animation = new Animation(Worker.walkSS.texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], true);
-            _heading = Dir.S;
-            _lastHeading = Dir.S;
+            heading = Dir.S;
+            lastHeading = Dir.S;
         }              
 
         /// <summary>
@@ -55,18 +55,10 @@ namespace MinecaRTS
         /// </summary>
         public override void Update()
         {
-            _lastHeading = _heading;
+            lastHeading = heading;
 
             if (Vel != Vector2.Zero)
-                _heading = Utils.VectorToDir(Vel);
-
-            if (_lastHeading != _heading)
-                animation.ChangeScript(Worker.animFrames[WorkerAnimation.Walk][_heading], true, false);
-
-            // Don't update animation if not moving
-            // TODO: Add checks - some animations (chopping) will still update if not moving
-            if (Vel != Vector2.Zero)
-                animation.Update();
+                heading = Utils.VectorToDir(Vel);           
 
             Vector2 vel = Vector2.Zero;
             vel += _steering.Calculate();

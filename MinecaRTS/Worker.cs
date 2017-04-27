@@ -58,6 +58,15 @@ namespace MinecaRTS
         public override void Update()
         {
             base.Update();
+
+            if (lastHeading != heading)
+                animation.ChangeScript(animFrames[currentAnim][heading], true, false);
+
+            // Don't update animation if not moving
+            // TODO: Add checks - some animations (chopping) will still update if not moving
+            if (Vel != Vector2.Zero)
+                animation.Update();
+
             _fsm.Execute();
         }
 
