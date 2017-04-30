@@ -63,20 +63,19 @@ namespace MinecaRTS
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Debug.debugFont = Content.Load<SpriteFont>("DebugFont");
 
-            Worker.walkSS.texture = Content.Load<Texture2D>("images/worker/worker_walk");
-            Worker.walkSS.cols = 7;
-            Worker.walkSS.rows = 8;
-            Worker.walkSS.cellWidth = 26;
-            Worker.walkSS.cellHeight = 35;
+            Building.townHallTexture = Content.Load<Texture2D>("images/buildings/town_hall");
 
-            Worker.chopSS.texture = Content.Load<Texture2D>("images/worker/worker_chop");
-            Worker.chopSS.cols = 5;
-            Worker.chopSS.rows = 8;
-            Worker.chopSS.cellWidth = 85;
-            Worker.chopSS.cellHeight = 74;
+            Worker.LoadSpriteSheet(this, "worker_walk", WorkerAnimation.Walk, 7, 8);
+            Worker.LoadSpriteSheet(this, "worker_chop", WorkerAnimation.Chop, 5, 8);
+            Worker.LoadSpriteSheet(this, "worker_logs", WorkerAnimation.Logs, 7, 8);
+            Worker.LoadSpriteSheet(this, "worker_mine", WorkerAnimation.Mine, 5, 8);
+            Worker.LoadSpriteSheet(this, "worker_bag", WorkerAnimation.Bag, 7, 8);
 
             GameResources.CreateWorkerWalkAnimation();
             GameResources.CreateWorkerChopAnimation();
+            GameResources.CreateWorkerLogsAnimation();
+            GameResources.CreateWorkerMineAnimation();
+            GameResources.CreateWorkerBagAnimation();
         }
 
         protected override void UnloadContent()

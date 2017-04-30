@@ -11,8 +11,12 @@ namespace MinecaRTS
 {
     public class Building : Entity
     {
+        public static Texture2D townHallTexture;
+
         public Building(Vector2 pos, Vector2 scale) : base(pos, scale)
-        {}
+        {
+
+        }
 
         public override void Update()
         {
@@ -21,7 +25,7 @@ namespace MinecaRTS
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.FillRectangle(RenderRect, new Color(153, 255, 153));
+            spriteBatch.Draw(townHallTexture, Camera.VecToScreen(Pos), Color.White);
         }
 
         public override void HandleMessage(Message message)

@@ -28,7 +28,7 @@ namespace MinecaRTS
             if (Input.KeyTyped(Keys.R))
                 world.Grid.AddRows(1);
 
-            if (Input.KeyTyped(Keys.U))
+            if (Input.KeyDown(Keys.U))
                 world.AddWorker(Camera.VecToWorld(Input.MousePos), new Vector2(26, 35));
 
             // Make the cell a tree (get wood)

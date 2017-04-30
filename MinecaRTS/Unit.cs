@@ -45,7 +45,7 @@ namespace MinecaRTS
             pathHandler = new PathHandler(this, data.world.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
-            animation = new Animation(Worker.walkSS.texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], Worker.animOffsets[WorkerAnimation.Walk], true);
+            animation = new Animation(Worker.spriteSheets[WorkerAnimation.Walk].texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], Worker.animOffsets[WorkerAnimation.Walk], true);
             heading = Dir.S;
             lastHeading = Dir.S;
         }              
@@ -68,12 +68,13 @@ namespace MinecaRTS
 
             Vel = vel;
 
-            //Vel = Vel.Truncate(3);
+            Vel = Vel.Truncate(3);
 
             Pos += Vel * 2;           
 
             // Zero overlap makes it super jittery.
             _steering.ZeroOverlapCells();
+            //_steering.ZeroOverlapUnits();
         }        
 
         public override void Render(SpriteBatch spriteBatch)

@@ -22,7 +22,7 @@ namespace MinecaRTS
 
         // Vectors for Obstacle Avoidance calculation - primarly debug.
         // TODO: Clean this up!!!!
-        public Vector2 from1, to1, from2, to2;
+        public Vector2 centreFeelerEnd, leftFeelerEnd, rightFeelerEnd;
         public Vector2 wallPushForce;
         public Vector2 closestUnpassableCellMid;
 
@@ -31,10 +31,9 @@ namespace MinecaRTS
             _owner = owner;
             _data = data;
             _neighbours = new List<Unit>();
-            from1 = Vector2.Zero;
-            from2 = Vector2.Zero;
-            to1 = Vector2.Zero;
-            to2 = Vector2.Zero;
+            centreFeelerEnd = Vector2.Zero;
+            leftFeelerEnd = Vector2.Zero;
+            rightFeelerEnd = Vector2.Zero;
         }
 
         public Vector2 Calculate()
@@ -46,9 +45,9 @@ namespace MinecaRTS
             if (separationOn)
                 force += Separation();
 
-            force += UnpassableCellAvoidance();
+            //force += UnpassableCellAvoidance();
 
-            //ZeroOverlapCells();
+            ZeroOverlapCells();
 
             return force;
         }
@@ -75,20 +74,31 @@ namespace MinecaRTS
             closestUnpassableCellMid = Vector2.Zero;
             var force = Vector2.Zero;
 
-            // Get the normalised perp to my heading
-            Vector2 normPerp = Vector2.Normalize(_owner.Vel.PerpendicularClockwise());
-            // Mid + (normPerp * scale)
-            from1 = _owner.Mid + (normPerp * (_owner.Scale / 2));
-            // Mid - (normPerp * scale)
-            from2 = _owner.Mid - (normPerp * (_owner.Scale / 2));
-            //      These are the two projection points
+            #region Vision Rect Old Code
+            //// Get the normalised perp to my heading
+            //Vector2 normPerp = Vector2.Normalize(_owner.Vel.PerpendicularClockwise());
+            //// Mid + (normPerp * scale)
+            //from1 = _owner.Mid + (normPerp * (_owner.Scale / 2));
+            //// Mid - (normPerp * scale)
+            //from2 = _owner.Mid - (normPerp * (_owner.Scale / 2));
+            ////      These are the two projection points
 
             // To1, 2 = Projection + (velocity * someLookAheadDistanceValue);
-            to1 = from1 + (_owner.Vel * LOOK_AHEAD_DISTANCE);
-            to2 = from2 + (_owner.Vel * LOOK_AHEAD_DISTANCE);
+            //to1 = from1 + (_owner.Vel * LOOK_AHEAD_DISTANCE);
+            //to2 = from2 + (_owner.Vel * LOOK_AHEAD_DISTANCE);
 
-            // Get cells in rect created from projected lines.
-            HashSet<Cell> cellsInVision = _data.world.Grid.CellsInRectFromLines(from1.ToPoint(), to1.ToPoint(), from2.ToPoint(), to2.ToPoint());
+            //// Get cells in rect created from projected lines.
+            //HashSet<Cell> cellsInVision = _data.world.Grid.CellsInRectFromLines(from1.ToPoint(), to1.ToPoint(), from2.ToPoint(), to2.ToPoint());
+            #endregion Vision Rect Old Code
+
+            // Generate feelers
+            centreFeelerEnd = _owner.Mid + (Vector2.Normalize(_owner.Vel) * LOOK_AHEAD_DISTANCE);
+            leftFeelerEnd = _owner.Mid + (Vector2.Normalize(_owner.Vel.Rotate(MathHelper.ToRadians(-45))) * LOOK_AHEAD_DISTANCE);
+            rightFeelerEnd = _owner.Mid + (Vector2.Normalize(_owner.Vel.Rotate(MathHelper.ToRadians(45))) * LOOK_AHEAD_DISTANCE);
+
+            HashSet<Cell> cellsInVision = _data.world.Grid.CellsOnLine(_owner.Mid, centreFeelerEnd);
+            cellsInVision.UnionWith(_data.world.Grid.CellsOnLine(_owner.Mid, leftFeelerEnd));
+            cellsInVision.UnionWith(_data.world.Grid.CellsOnLine(_owner.Mid, rightFeelerEnd));
 
             // Find closest unpassable cell
             // TODO: Use distSq - faster.
@@ -116,27 +126,30 @@ namespace MinecaRTS
                 // Debug cell mid
                 closestUnpassableCellMid = closestUnpassableCell.Mid;
 
-                // Calculate ticks to collide on each axis, whichever axis is less
-                // is the axis we collide on.
-                Vector2 toWall = closestUnpassableCell.Mid - _owner.Mid;
 
-                float ticksOnX = Math.Abs(toWall.X / _owner.Vel.X);
-                float ticksOnY = Math.Abs(toWall.Y / _owner.Vel.Y);
+                #region OldSideCalculationCode
+                //// Calculate ticks to collide on each axis, whichever axis is less
+                //// is the axis we collide on.
+                //Vector2 toWall = closestUnpassableCell.Mid - _owner.Mid;
 
-                if (ticksOnX < ticksOnY) // Collide on X axis -> Vertical wall.
-                {
-                    if (_owner.Mid.X < closestUnpassableCell.Mid.X) // Approaching from left, push left.
-                        force = new Vector2(-1, 0);
-                    else //Approaching from right, push right.
-                        force = new Vector2(1, 0);
-                }
-                else // Collide on Y axis -> Horizontal wall.
-                {
-                    if (_owner.Mid.Y < closestUnpassableCell.Mid.Y) // Approaching from top, push up.
-                        force = new Vector2(0, -1);
-                    else // Approaching from below, push down.
-                        force = new Vector2(0, 1);
-                }
+                //float ticksOnX = Math.Abs(toWall.X / _owner.Vel.X);
+                //float ticksOnY = Math.Abs(toWall.Y / _owner.Vel.Y);
+
+                //if (ticksOnX < ticksOnY) // Collide on X axis -> Vertical wall.
+                //{
+                //    if (_owner.Mid.X < closestUnpassableCell.Mid.X) // Approaching from left, push left.
+                //        force = new Vector2(-1, 0);
+                //    else //Approaching from right, push right.
+                //        force = new Vector2(1, 0);
+                //}
+                //else // Collide on Y axis -> Horizontal wall.
+                //{
+                //    if (_owner.Mid.Y < closestUnpassableCell.Mid.Y) // Approaching from top, push up.
+                //        force = new Vector2(0, -1);
+                //    else // Approaching from below, push down.
+                //        force = new Vector2(0, 1);
+                //}
+                #endregion OldSideCalculationCode
             }
 
             // If really close to a wall, apply a stronger force.
@@ -158,7 +171,7 @@ namespace MinecaRTS
                     float distanceApart = toOwner.Length();
                     float amountOfOverlap = (_owner.Scale.Length() / 2) + (Cell.CELL_SIZE / 2) - distanceApart;
 
-                    _owner.Pos += (toOwner / distanceApart) * amountOfOverlap;
+                    _owner.Pos += (toOwner / distanceApart) * (amountOfOverlap * 1.5f);
                 }
             }
         }

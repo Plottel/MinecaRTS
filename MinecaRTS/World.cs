@@ -128,6 +128,9 @@ namespace MinecaRTS
 
         public Resource GetResourceFromCell(Cell cell)
         {
+            if (cell == null)
+                return null;
+
             if (Resources.ContainsKey(cell))
                 return Resources[cell];
             else
@@ -144,6 +147,7 @@ namespace MinecaRTS
                 Cell resourceCell = Grid.CellAt(resource.Mid);
 
                 Resources.Remove(resourceCell);
+                resourceCell.Passable = true;
 
                 foreach (Worker w in resource.Harvesters)
                     w.FSM.ChangeState(MoveToResource.Instance);
@@ -161,14 +165,14 @@ namespace MinecaRTS
                     u.pathHandler.RenderPath(spriteBatch);
             }
 
-            if (Debug.OptionActive(DebugOption.ShowUnitVisionRect))
+            if (Debug.OptionActive(DebugOption.ShowUnitFeelers))
             {
                 foreach (Unit u in Units)
                 {
                     SteeringBehaviours s = u._steering;
-
-                    spriteBatch.DrawLine(Camera.VecToScreen(s.from1), Camera.VecToScreen(s.to1), Color.GreenYellow, 1);
-                    spriteBatch.DrawLine(Camera.VecToScreen(s.from2), Camera.VecToScreen(s.to2), Color.GreenYellow, 1);
+                    spriteBatch.DrawLine(u.RenderMid, Camera.VecToScreen(s.centreFeelerEnd), Color.GreenYellow, 1);
+                    spriteBatch.DrawLine(u.RenderMid, Camera.VecToScreen(s.leftFeelerEnd), Color.GreenYellow, 1);
+                    spriteBatch.DrawLine(u.RenderMid, Camera.VecToScreen(s.rightFeelerEnd), Color.GreenYellow, 1);
                 }
             }
 

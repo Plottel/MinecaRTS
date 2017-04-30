@@ -29,3 +29,5 @@ C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\w
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_mine.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_walk.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\obj\x86\Debug\MinecaRTS.csprojResolveAssemblyReference.cache
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_bag.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\town_hall.xnb

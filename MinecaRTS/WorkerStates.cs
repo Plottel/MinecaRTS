@@ -80,7 +80,10 @@ namespace MinecaRTS
 
         public override void Enter(Worker owner)
         {
-            owner.ChangeAnimation(WorkerAnimation.Walk);
+            if (owner.resrcHolding == ResourceType.Wood)
+                owner.ChangeAnimation(WorkerAnimation.Logs);
+            else if (owner.resrcHolding == ResourceType.Stone)
+                owner.ChangeAnimation(WorkerAnimation.Bag);
 
             owner._steering.separationOn = false;
 
@@ -153,8 +156,11 @@ namespace MinecaRTS
                 return;
             }
 
+            if (owner.resrcLookingFor == ResourceType.Wood)
+                owner.ChangeAnimation(WorkerAnimation.Chop);
+            else if (owner.resrcLookingFor == ResourceType.Stone)
+                owner.ChangeAnimation(WorkerAnimation.Mine);
 
-            owner.ChangeAnimation(WorkerAnimation.Chop);
             owner.TargetResource.AddHarvester(owner);
             owner._steering.separationOn = false;
             owner.timeSpentHarvesting = 0;

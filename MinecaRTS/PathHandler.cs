@@ -189,7 +189,7 @@ namespace MinecaRTS
                     return false;
 
                 // Valid if resource is the correct type and not saturated.
-                return resource.Type == ResourceType.Wood && !resource.IsSaturated;
+                return resource.Type == ResourceType.Stone && !resource.IsSaturated;
             }
 
             bool TerminationConditionWood(Cell current)

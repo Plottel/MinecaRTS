@@ -15,7 +15,7 @@ namespace MinecaRTS
         ShowGrid = 1,
         CalcPath = 2,
         CalcPathSmoothing = 3,
-        ShowUnitVisionRect = 4,
+        ShowUnitFeelers = 4,
         ShowWallPushForce = 5,
         ShowStates = 6 
     }
@@ -34,7 +34,7 @@ namespace MinecaRTS
             _settings.Add(DebugOption.ShowGrid, false);
             _settings.Add(DebugOption.CalcPath, false);
             _settings.Add(DebugOption.CalcPathSmoothing, false);
-            _settings.Add(DebugOption.ShowUnitVisionRect, false);
+            _settings.Add(DebugOption.ShowUnitFeelers, false);
             _settings.Add(DebugOption.ShowWallPushForce, false);
             _settings.Add(DebugOption.ShowStates, false);
         }
@@ -54,7 +54,7 @@ namespace MinecaRTS
                 _settings[DebugOption.CalcPath] = !_settings[DebugOption.CalcPath];
 
             if (Input.KeyTyped(Keys.D5))
-                _settings[DebugOption.ShowUnitVisionRect] = !_settings[DebugOption.ShowUnitVisionRect];
+                _settings[DebugOption.ShowUnitFeelers] = !_settings[DebugOption.ShowUnitFeelers];
 
             if (Input.KeyTyped(Keys.D6))
                 _settings[DebugOption.ShowWallPushForce] = !_settings[DebugOption.ShowWallPushForce];
@@ -74,7 +74,7 @@ namespace MinecaRTS
             spriteBatch.DrawString(debugFont, "Show Grid (2) : " + _settings[DebugOption.ShowGrid], new Vector2(5, 20), debugColor);
             spriteBatch.DrawString(debugFont, "Calc Path Smoothing (3) : " + _settings[DebugOption.CalcPathSmoothing], new Vector2(5, 35), debugColor);
             spriteBatch.DrawString(debugFont, "Calc Path (4) : " + _settings[DebugOption.CalcPath], new Vector2(5, 50), debugColor);
-            spriteBatch.DrawString(debugFont, "Show Unit Vision Rectangle (5) : " + _settings[DebugOption.ShowUnitVisionRect], new Vector2(5, 65), debugColor);
+            spriteBatch.DrawString(debugFont, "Show Unit Feelers (5) : " + _settings[DebugOption.ShowUnitFeelers], new Vector2(5, 65), debugColor);
             spriteBatch.DrawString(debugFont, "Show Wall Push Force (6) : " + _settings[DebugOption.ShowWallPushForce], new Vector2(5, 80), debugColor);
             spriteBatch.DrawString(debugFont, "Show States (7) : " + _settings[DebugOption.ShowStates], new Vector2(5, 95), debugColor);
         }

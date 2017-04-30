@@ -14,14 +14,15 @@ namespace MinecaRTS
     public enum WorkerAnimation
     {
         Walk,
-        Chop
+        Chop,
+        Logs,
+        Mine,
+        Bag
     }
 
     public class Worker : Unit
     {
-        public static SpriteSheet walkSS;
-        public static SpriteSheet chopSS;
-
+        public static Dictionary<WorkerAnimation, SpriteSheet> spriteSheets = new Dictionary<WorkerAnimation, SpriteSheet>();
         public static AnimationDictionary animFrames = new AnimationDictionary();
         public static Dictionary<WorkerAnimation, Vector2> animOffsets = new Dictionary<WorkerAnimation, Vector2>();
 
@@ -69,7 +70,7 @@ namespace MinecaRTS
 
             // Don't update animation if not moving
             // TODO: Add checks - some animations (chopping) will still update if not moving
-            if (Vel != Vector2.Zero || currentAnim == WorkerAnimation.Chop)
+            if (Vel != Vector2.Zero || currentAnim == WorkerAnimation.Chop || currentAnim == WorkerAnimation.Mine)
                 animation.Update();
 
             _fsm.Execute();
@@ -80,10 +81,7 @@ namespace MinecaRTS
             currentAnim = newAnim;
             animation.ChangeScript(animFrames[currentAnim][heading], animOffsets[currentAnim], true, true);
 
-            if (newAnim == WorkerAnimation.Walk)
-                animation._texture = walkSS.texture;
-            else
-                animation._texture = chopSS.texture;
+            animation._texture = spriteSheets[newAnim].texture;
         }
 
         public override void HandleMessage(Message message)
@@ -105,6 +103,18 @@ namespace MinecaRTS
 
             if (FSM.CurrentState != null)
                 spriteBatch.DrawString(Debug.debugFont, FSM.CurrentState.GetType().Name, RenderMid - Scale / 2, Color.Black);
+        }
+
+        public static void LoadSpriteSheet(Game1 game, string name, WorkerAnimation anim, int cols, int rows)
+        {
+            SpriteSheet toAdd;
+            toAdd.texture = game.Content.Load<Texture2D>("images/worker/" + name);
+            toAdd.cols = cols;
+            toAdd.rows = rows;
+            toAdd.cellWidth = toAdd.texture.Width / cols;
+            toAdd.cellHeight = toAdd.texture.Height / rows;
+
+            spriteSheets.Add(anim, toAdd);
         }
     }
 }
