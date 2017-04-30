@@ -32,6 +32,7 @@ namespace MinecaRTS
         public void HandleInput()
         {
             Debug.HookText("Placing Building: " + _placingBuilding);
+            Debug.HookText("Is a Building Selected? " + (_data.selectedProductionBuilding != null).ToString());
 
             // Move camera with arrow keys.
             if (Input.KeyDown(Keys.Left))
@@ -47,6 +48,7 @@ namespace MinecaRTS
             {
                 if (_boxing)
                 {
+                    _data.SelectFirstProductionBuildingInRect(Camera.RectToWorld(_box));
                     _data.SelectUnitsInRect(Camera.RectToWorld(_box));
                     _boxing = false;
                     _box = Rectangle.Empty;
@@ -93,14 +95,17 @@ namespace MinecaRTS
             if (Input.KeyTyped(Keys.B))
             {
                 _placingBuilding = true;
-                _buildingToPlace = new Building(new Vector2(0, 0), new Vector2(127, 127));
+                _buildingToPlace = new ProductionBuilding(new Vector2(0, 0), new Vector2(127, 127), new List<Type> { typeof(Worker) }, _data);
             }
 
             if (Input.KeyTyped(Keys.W))
                 _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Wood);
 
             if (Input.KeyTyped(Keys.S))
-                _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);                
+                _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);
+
+            if (Input.KeyTyped(Keys.Q))
+                _data.ProduceFromSelectedProductionBuildingAtIndex(0);
         }
 
         public void Render(SpriteBatch spriteBatch)

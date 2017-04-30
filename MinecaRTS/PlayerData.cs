@@ -16,6 +16,8 @@ namespace MinecaRTS
         // This represents the facade. All queries are done through this and the real world figures it out.
         public World world;
 
+        public ProductionBuilding selectedProductionBuilding;
+
         private uint _wood = 0;
         private uint _stone = 0;
 
@@ -123,6 +125,26 @@ namespace MinecaRTS
             }
 
             return false;
+        }
+
+        public void SelectFirstProductionBuildingInRect(Rectangle rect)
+        {
+            foreach (Building b in world.Buildings)
+            {
+                if (b.GetType() == typeof(ProductionBuilding))
+                {
+                    selectedProductionBuilding = b as ProductionBuilding;
+                    return;
+                }
+            }
+        }
+
+        public void ProduceFromSelectedProductionBuildingAtIndex(int index)
+        {
+            if (selectedProductionBuilding != null)
+            {
+                selectedProductionBuilding.StartProducingTypeAtIndex(index);
+            }
         }
 
         public Building GetClosestResourceReturnBuilding(Unit u)

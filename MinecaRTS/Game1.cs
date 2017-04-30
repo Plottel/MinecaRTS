@@ -29,6 +29,8 @@ namespace MinecaRTS
             new HarvestResource();
             new ReturnResource();
 
+            ProductionBuilding.productionTimes.Add(typeof(Worker), 120);
+
 
             world = new World();
             graphics = new GraphicsDeviceManager(this);

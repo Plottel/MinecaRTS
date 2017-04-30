@@ -19,6 +19,7 @@ namespace MinecaRTS
         public readonly List<Unit> Units;
         public readonly List<Building> Buildings;
         public List<Unit> SelectedUnits;
+
         public readonly Dictionary<Cell, Resource> Resources;
 
 
@@ -51,6 +52,9 @@ namespace MinecaRTS
         {
             foreach (Unit u in Units)
                 u.Update();
+
+            foreach (Building b in Buildings)
+                b.Update();
         }
 
         public void Render(SpriteBatch spriteBatch)
@@ -78,9 +82,9 @@ namespace MinecaRTS
             Units.Add(new Unit(_playerOneData, pos, scale));
         }
 
-        public void AddWorker(Vector2 pos, Vector2 scale)
+        public void AddWorker(Vector2 pos)
         {
-            Units.Add(new Worker(_playerOneData, pos, scale));
+            Units.Add(new Worker(_playerOneData, pos, new Vector2(26, 35)));
         }
 
         public void AddBuilding(Building building)
