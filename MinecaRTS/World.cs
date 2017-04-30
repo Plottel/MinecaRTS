@@ -45,22 +45,6 @@ namespace MinecaRTS
         public void HandleInput()
         {
             _playerOne.HandleInput();
-
-            if (Input.KeyTyped(Keys.W))
-            {
-                foreach (Unit u in Units)
-                {
-                    u.pathHandler.GetPathToClosestUnsaturatedResource(ResourceType.Wood);
-                }
-            }
-
-            if (Input.KeyTyped(Keys.S))
-            {
-                foreach (Unit u in Units)
-                {
-                    u.pathHandler.GetPathToClosestUnsaturatedResource(ResourceType.Stone);
-                }
-            }
         }
 
         public void Update()

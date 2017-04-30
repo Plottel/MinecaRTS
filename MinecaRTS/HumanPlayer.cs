@@ -97,12 +97,10 @@ namespace MinecaRTS
             }
 
             if (Input.KeyTyped(Keys.W))
-                _data.OrderWorkersToGatherClosestResource(ResourceType.Wood);
+                _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Wood);
 
             if (Input.KeyTyped(Keys.S))
-                _data.OrderWorkersToGatherClosestResource(ResourceType.Stone);
-
-                
+                _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);                
         }
 
         public void Render(SpriteBatch spriteBatch)

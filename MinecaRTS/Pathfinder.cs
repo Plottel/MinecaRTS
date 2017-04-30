@@ -72,8 +72,10 @@ namespace MinecaRTS
             Setup(grid, source);
             Target = null;
 
+            bool searchComplete = false;
+
             // Until we are considering a node with the desired resource that is not overcrowded.
-            while (!terminationCondition(Current))
+            while (!searchComplete)
             {
                 #region /--- RESOURCE PATH CALC DEBUG ---\
                 if (Debug.OptionActive(DebugOption.CalcPath))
@@ -137,11 +139,20 @@ namespace MinecaRTS
                         cell.Parent = Current;
                         cell.Score = cell.Parent.Score + 1; // 1 minimum cost.
                         Open.Add(cell);
+
+                        // Check if new node meets termination condition.
+                        if (terminationCondition(cell))
+                        {
+                            Current = cell;
+                            searchComplete = true;
+                            break;
+                        }
                     }
                 }
 
-                // Neighbours have been added, evaluate best node.
-                GetNextCurrentCell();
+                // Get cell with lowest F score ready to add neighbours.
+                if (!searchComplete)
+                    GetNextCurrentCell();
             }
 
             // Target has been found. Retrace our steps to find path.

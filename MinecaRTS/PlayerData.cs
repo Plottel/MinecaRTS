@@ -66,14 +66,14 @@ namespace MinecaRTS
             }
         }
 
-        public void OrderWorkersToGatherClosestResource(ResourceType desiredResource)
+        public void OrderSelectedWorkersToGatherClosestResource(ResourceType desiredResource)
         {
-            foreach (Worker w in world.Units)
+            foreach (Worker w in world.SelectedUnits)
             {
                 w.resrcLookingFor = desiredResource;
                 w.resourceReturnBuilding = null;
                 w.targetResourceCell = null;
-                w.FSM.ChangeState(MoveToResource.Instance);
+                w.FSM.ChangeState(MoveToResource.Instance);         
             }
         }
 

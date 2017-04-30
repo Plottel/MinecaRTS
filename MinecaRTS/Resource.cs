@@ -12,7 +12,7 @@ namespace MinecaRTS
     // TODO: Probably (almost certainly) doesn't need to inherit from Entity
     public class Resource : Entity
     {
-        public const int HARVEST_DURATION = 60;
+        public const int HARVEST_DURATION = 180;
         public const int MAX_HARVESTERS = 3;
         public const int HARVEST_AMOUNT = 5;
         public const int MAX_VALUE = 100;

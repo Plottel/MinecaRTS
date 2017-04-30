@@ -163,16 +163,32 @@ namespace MinecaRTS
 
         public void ZeroOverlapCells()
         {
+            Cell closestCell = null;
+            float closestDistance = float.MaxValue;
+
+            // Find closest unpassable cell
             foreach (Cell cell in _data.world.Grid.CellsInRect(_owner.CollisionRect))
             {
                 if (!cell.Passable)
                 {
-                    Vector2 toOwner = _owner.Mid - cell.Mid;
-                    float distanceApart = toOwner.Length();
-                    float amountOfOverlap = (_owner.Scale.Length() / 2) + (Cell.CELL_SIZE / 2) - distanceApart;
+                    float distance = Vector2.Distance(cell.Mid, _owner.Mid);
 
-                    _owner.Pos += (toOwner / distanceApart) * (amountOfOverlap * 1.5f);
-                }
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestCell = cell;
+                    }
+                }                              
+            }
+
+            // Reposition Entity so it's no longer touching
+            if (closestCell != null)
+            {
+                Vector2 toOwner = _owner.Mid - closestCell.Mid;
+                float distanceApart = toOwner.Length();
+                float amountOfOverlap = (_owner.Scale.Length() / 2) + (Cell.CELL_SIZE / 2) - distanceApart;
+
+                _owner.Pos += (toOwner / distanceApart) * (amountOfOverlap * 1.5f);
             }
         }
 
