@@ -28,8 +28,9 @@ namespace MinecaRTS
 
         // TODO: This will eventually be an Interface rather than Building
         // to accommodate town centres and minecarts together.
-        public Building resourceReturnBuilding;
+        public ICanAcceptResources returningResourcesTo;
         public Cell targetResourceCell;
+        public Building constructing;
         public ResourceType resrcLookingFor = ResourceType.None;
 
         public WorkerAnimation currentAnim = WorkerAnimation.Walk;
@@ -50,14 +51,18 @@ namespace MinecaRTS
             get { return _data.world.GetResourceFromCell(targetResourceCell); }
         }
 
-        public Worker(PlayerData data, Vector2 pos, Vector2 scale) : base(data, pos, scale)
+        public Worker(PlayerData data, Team team, Vector2 pos, Vector2 scale) : base(data, team, pos, scale)
         {
             _fsm = new StateMachine<Worker>(this);
         }
 
         public void DepositResources()
         {
-            _data.GiveResources(Resource.HARVEST_AMOUNT, resrcHolding);
+            if (resrcHolding == ResourceType.Wood)
+                returningResourcesTo.AcceptResources(Resource.HARVEST_AMOUNT, 0);
+            else if (resrcHolding == ResourceType.Stone)
+                returningResourcesTo.AcceptResources(0, Resource.HARVEST_AMOUNT);
+
             resrcHolding = ResourceType.None;            
         }
 
@@ -74,6 +79,22 @@ namespace MinecaRTS
                 animation.Update();
 
             _fsm.Execute();
+        }
+
+        public override void MoveTowards(Vector2 pos)
+        {
+            Building buildingAtPos = _data.BuildingAtPos(pos);
+
+            if (buildingAtPos != null)
+                GoConstructBuilding(buildingAtPos);
+            else
+                base.MoveTowards(pos);
+        }
+
+        public void GoConstructBuilding(Building building)
+        {
+            constructing = building;
+            FSM.ChangeState(MoveToConstructBuilding.Instance);
         }
 
         public void ChangeAnimation(WorkerAnimation newAnim)
@@ -105,7 +126,7 @@ namespace MinecaRTS
                 spriteBatch.DrawString(Debug.debugFont, FSM.CurrentState.GetType().Name, RenderMid - Scale / 2, Color.Black);
         }
 
-        public static void LoadSpriteSheet(Game1 game, string name, WorkerAnimation anim, int cols, int rows)
+        public static void LoadSpriteSheet(MinecaRTS game, string name, WorkerAnimation anim, int cols, int rows)
         {
             SpriteSheet toAdd;
             toAdd.texture = game.Content.Load<Texture2D>("images/worker/" + name);

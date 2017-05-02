@@ -6,21 +6,25 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
-    public class Game1 : Game
+    public class MinecaRTS : Game
     {
         /// <summary>
         /// Singleton instance for global debug purposes.
         /// Sometimes for debug it's just easier to have everything wherever we need it.
         /// </summary>
-        public static Game1 Instance;
+        public static MinecaRTS Instance;
+
+        public static SpriteFont smallFont;
+        public static SpriteFont largeFont;
 
         public static int num = 5;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public World world;
         bool editMode;
+        bool debugMode;
 
-        public Game1()
+        public MinecaRTS()
         {
             Instance = this;            
 
@@ -28,9 +32,16 @@ namespace MinecaRTS
             new MoveToResource();
             new HarvestResource();
             new ReturnResource();
+            new MoveToConstructBuilding();
+            new ConstructBuilding();
 
             ProductionBuilding.productionTimes.Add(typeof(Worker), 120);
 
+            // Setup Entity costs
+            // WOOD, STONE, SUPPLY
+            World.entityCosts.Add(typeof(Worker), new Cost(50, 0, 1));
+            World.entityCosts.Add(typeof(House), new Cost(100, 0, 0));
+            World.entityCosts.Add(typeof(TownHall), new Cost(0, 0, 0));
 
             world = new World();
             graphics = new GraphicsDeviceManager(this);
@@ -46,6 +57,7 @@ namespace MinecaRTS
             Debug.Init();
 
             editMode = false;
+            debugMode = false;
             world.Grid.ShowGrid = false;
 
 
@@ -64,8 +76,11 @@ namespace MinecaRTS
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Debug.debugFont = Content.Load<SpriteFont>("DebugFont");
+            smallFont = Content.Load<SpriteFont>("SmallFont");
+            largeFont = Content.Load<SpriteFont>("largeFont");
 
             Building.townHallTexture = Content.Load<Texture2D>("images/buildings/town_hall");
+            Building.houseTexture = Content.Load<Texture2D>("images/buildings/house");
 
             Worker.LoadSpriteSheet(this, "worker_walk", WorkerAnimation.Walk, 7, 8);
             Worker.LoadSpriteSheet(this, "worker_chop", WorkerAnimation.Chop, 5, 8);
@@ -92,8 +107,11 @@ namespace MinecaRTS
 
             Input.UpdateStates();
 
-            Debug.ClearHookedText();
-            Debug.HandleInput();
+            if (debugMode)
+            {
+                Debug.ClearHookedText();
+                Debug.HandleInput();
+            }           
 
             if (editMode)
                 WorldEditor.HandleInput(world);
@@ -106,6 +124,8 @@ namespace MinecaRTS
                 world.Grid.ShowGrid = !world.Grid.ShowGrid; 
             }
 
+            if (Input.KeyTyped(Keys.OemTilde))
+                debugMode = !debugMode;
             
             world.Update();
 
@@ -122,12 +142,16 @@ namespace MinecaRTS
             GraphicsDevice.Clear(Color.Gray);
 
             spriteBatch.Begin();
-
+            
             world.Render(spriteBatch);
-            world.RenderDebug(spriteBatch);
 
-            Debug.RenderDebugOptionStates(spriteBatch);
-            Debug.RenderHookedText(spriteBatch);
+            if (debugMode)
+            {
+                world.RenderDebug(spriteBatch);
+
+                Debug.RenderDebugOptionStates(spriteBatch);
+                Debug.RenderHookedText(spriteBatch);
+            }
 
             spriteBatch.End();
 

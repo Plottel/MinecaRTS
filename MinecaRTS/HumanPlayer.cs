@@ -31,9 +31,6 @@ namespace MinecaRTS
 
         public void HandleInput()
         {
-            Debug.HookText("Placing Building: " + _placingBuilding);
-            Debug.HookText("Is a Building Selected? " + (_data.selectedProductionBuilding != null).ToString());
-
             // Move camera with arrow keys.
             if (Input.KeyDown(Keys.Left))
                 Camera.MoveBy(-5, 0);
@@ -48,16 +45,11 @@ namespace MinecaRTS
             {
                 if (_boxing)
                 {
-                    _data.SelectFirstProductionBuildingInRect(Camera.RectToWorld(_box));
+                    _data.SelectFirstBuildingInRect(Camera.RectToWorld(_box));
                     _data.SelectUnitsInRect(Camera.RectToWorld(_box));
                     _boxing = false;
                     _box = Rectangle.Empty;
                 }
-            }
-
-            if (Input.RightMouseClicked())
-            {
-                _placingBuilding = false;
             }
 
             // TODO: This event will get messy with priorities. (Boxing, placing building, issuing attack etc. etc.)
@@ -68,8 +60,12 @@ namespace MinecaRTS
                 if (_placingBuilding)
                 {
                     // Don't take away building blueprint unless a valid selection was made.
-                    if (_data.PlaceBuilding(_buildingToPlace))
+                    if (_data.BuyBuilding(_buildingToPlace))
+                    {
+                        _data.OrderSelectedWorkerToConstructBuilding(_buildingToPlace);
                         _placingBuilding = false;
+                        _buildingToPlace.isActive = false;
+                    }                        
                 }
                 else // Handle unit selection
                 {
@@ -95,7 +91,30 @@ namespace MinecaRTS
             if (Input.KeyTyped(Keys.B))
             {
                 _placingBuilding = true;
-                _buildingToPlace = new ProductionBuilding(new Vector2(0, 0), new Vector2(127, 127), new List<Type> { typeof(Worker) }, _data);
+                _buildingToPlace = BuildingFactory.CreateTownHall(_data, Vector2.Zero);
+                _buildingToPlace.isActive = true;
+            }
+
+            if (_placingBuilding)
+            {
+                if (Input.KeyTyped(Keys.H))
+                {
+                    _buildingToPlace = BuildingFactory.CreateHouse(_data, Vector2.Zero);
+                    _buildingToPlace.isActive = true;
+                }                    
+
+                if (Input.KeyTyped(Keys.P))
+                {
+                    _buildingToPlace = BuildingFactory.CreateTownHall(_data, Vector2.Zero);
+                    _buildingToPlace.isActive = true;
+                }                    
+            }
+
+            // C for cancel - stop placing building mode
+            if (Input.KeyTyped(Keys.C))
+            {
+                _placingBuilding = false;
+                _buildingToPlace = null;
             }
 
             if (Input.KeyTyped(Keys.W))
@@ -104,8 +123,11 @@ namespace MinecaRTS
             if (Input.KeyTyped(Keys.S))
                 _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);
 
+            if (Input.KeyTyped(Keys.H))
+                _data.OrderSelectedUnitsToStop();
+
             if (Input.KeyTyped(Keys.Q))
-                _data.ProduceFromSelectedProductionBuildingAtIndex(0);
+                _data.HandleSelectedBuildingInputAtIndex(0);
         }
 
         public void Render(SpriteBatch spriteBatch)
@@ -123,7 +145,15 @@ namespace MinecaRTS
                 {
                     if (!c.Passable)
                         spriteBatch.FillRectangle(c.RenderRect, new Color(Color.Red, 100));
+                    else
+                        spriteBatch.FillRectangle(c.RenderRect, new Color(Color.Green, 100));
+
                 }
+
+                // Render building selection information
+                Vector2 buildingPos = Camera.VecToScreen(_buildingToPlace.Pos);
+                spriteBatch.DrawString(MinecaRTS.smallFont, "(H) House", buildingPos, Color.White);
+                spriteBatch.DrawString(MinecaRTS.smallFont, "(P) Production", new Vector2(buildingPos.X, buildingPos.Y + 10), Color.White);
             }
         }
     }

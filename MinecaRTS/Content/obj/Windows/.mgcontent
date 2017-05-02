@@ -11,5 +11,8 @@
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/worker/worker_walk.png</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/worker/worker_bag.png</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/town_hall.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/SmallFont.spritefont</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/largeFont.spritefont</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/house.png</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -42,6 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="BuildingFactory.cs" />
+    <Compile Include="Cost.cs" />
     <Compile Include="GameResources.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Camera.cs" />
@@ -51,7 +53,10 @@
     <Compile Include="Entity.cs" />
     <Compile Include="EntityRegistry.cs" />
     <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="House.cs" />
+    <Compile Include="IBoostsSupply.cs" />
+    <Compile Include="ICanAcceptResources.cs" />
+    <Compile Include="MinecaRTS.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="HumanPlayer.cs" />
     <Compile Include="Input.cs" />
@@ -68,6 +73,8 @@
     <Compile Include="State.cs" />
     <Compile Include="StateMachine.cs" />
     <Compile Include="SteeringBehaviours.cs" />
+    <Compile Include="Team.cs" />
+    <Compile Include="TownHall.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Worker.cs" />

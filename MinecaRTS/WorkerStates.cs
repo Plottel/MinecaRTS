@@ -87,30 +87,32 @@ namespace MinecaRTS
 
             owner._steering.separationOn = false;
 
-            // Get path to base.
-            if (owner.resourceReturnBuilding != null)
-                owner.pathHandler.GetPathToBuilding(owner.resourceReturnBuilding);
+            // Get path to base
+            //TODO: Need to fetch path to location if returning to a minecart
+            if (owner.returningResourcesTo != null)
+                owner.pathHandler.GetPathToBuilding(owner.returningResourcesTo as Building);
             else
             {
                 Building closestBuilding = owner._data.GetClosestResourceReturnBuilding(owner);
                 owner.pathHandler.GetPathToBuilding(closestBuilding);
-                owner.resourceReturnBuilding = closestBuilding;
+                owner.returningResourcesTo = closestBuilding as ICanAcceptResources;
             }
         }
 
         public override void Exit(Worker owner)
         {
             owner._steering.separationOn = true;
+            owner.ChangeAnimation(WorkerAnimation.Walk);
         }
 
         public override void Execute(Worker owner)
         {
-            if (owner.CollisionRect.GetInflated(5, 5).Intersects(owner.resourceReturnBuilding.CollisionRect))
+            if (owner.CollisionRect.GetInflated(5, 5).Intersects(owner.returningResourcesTo.CollisionRect))
             {
                 owner.DepositResources();
                 owner.FSM.ChangeState(MoveToResource.Instance);
             }
-                
+
         }
 
         public override void HandleMessage(Worker owner, Message message)
@@ -170,6 +172,7 @@ namespace MinecaRTS
 
         public override void Exit(Worker owner)
         {
+            owner.ChangeAnimation(WorkerAnimation.Walk);
             owner._steering.separationOn = true;
             owner.timeSpentHarvesting = 0;
 
@@ -183,7 +186,96 @@ namespace MinecaRTS
             {
                 owner._data.world.HarvestResource(owner, owner.TargetResource);
                 owner.FSM.ChangeState(ReturnResource.Instance);
-            }                
+            }
+        }
+
+        public override void HandleMessage(Worker owner, Message message)
+        {
+        }
+    }
+
+    // -----------------------------------------------------------
+    //
+    //   Move To Construct Building Worker State
+    //
+    // -----------------------------------------------------------
+    class MoveToConstructBuilding : State<Worker>
+    {
+        private static MoveToConstructBuilding _instance;
+
+        public static MoveToConstructBuilding Instance
+        {
+            get { return _instance; }
+        }
+
+        public MoveToConstructBuilding()
+        {
+            if (_instance == null)
+                _instance = this;
+            else
+                throw new InvalidOperationException("Cannot have more than one instance of Worker Harvest Resource State");
+        }
+
+        public override void Enter(Worker owner)
+        {
+            owner.pathHandler.GetPathToBuilding(owner.constructing);
+        }
+
+        public override void Exit(Worker owner)
+        {
+        }
+
+        public override void Execute(Worker owner)
+        {
+            if (owner.CollisionRect.GetInflated(10, 10).Intersects(owner.constructing.CollisionRect))
+                owner.FSM.ChangeState(ConstructBuilding.Instance);
+        }
+
+        public override void HandleMessage(Worker owner, Message message)
+        {
+        }
+    }
+
+    // -----------------------------------------------------------
+    //
+    //   Construct Building Worker State
+    //
+    // -----------------------------------------------------------
+    class ConstructBuilding : State<Worker>
+    {
+        private static ConstructBuilding _instance;
+
+        public static ConstructBuilding Instance
+        {
+            get { return _instance; }
+        }
+
+        public ConstructBuilding()
+        {
+            if (_instance == null)
+                _instance = this;
+            else
+                throw new InvalidOperationException("Cannot have more than one instance of Worker Harvest Resource State");
+        }
+
+        public override void Enter(Worker owner)
+        {
+            owner.ChangeAnimation(WorkerAnimation.Chop);
+            owner.FollowPath = false;
+        }
+
+        public override void Exit(Worker owner)
+        {
+            owner.ChangeAnimation(WorkerAnimation.Walk);
+            owner.constructing = null;
+        }
+
+        public override void Execute(Worker owner)
+        {
+            owner.constructing.Construct();
+
+            if (owner.constructing.isActive)
+              owner.ExitState();
         }
 
         public override void HandleMessage(Worker owner, Message message)

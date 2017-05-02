@@ -19,6 +19,13 @@ namespace MinecaRTS
         public Dir lastHeading;
         public Dir heading;
 
+        private Team _team;
+
+        public Team Team
+        {
+            get { return _team; }
+        }
+
         /// <summary>
         /// Current velocity of the unit.
         /// </summary>
@@ -39,12 +46,13 @@ namespace MinecaRTS
         /// </summary>
         public bool FollowPath { get; set; }
 
-        public Unit(PlayerData data, Vector2 pos, Vector2 scale) : base(pos, scale)
+        public Unit(PlayerData data, Team team, Vector2 pos, Vector2 scale) : base(pos, scale)
         {
             Vel = new Vector2();
             pathHandler = new PathHandler(this, data.world.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
+            _team = team;
             animation = new Animation(Worker.spriteSheets[WorkerAnimation.Walk].texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], Worker.animOffsets[WorkerAnimation.Walk], true);
             heading = Dir.S;
             lastHeading = Dir.S;
@@ -75,7 +83,23 @@ namespace MinecaRTS
             // Zero overlap makes it super jittery.
             _steering.ZeroOverlapCells();
             //_steering.ZeroOverlapUnits();
-        }        
+        }
+
+        public virtual void Stop()
+        {
+            FollowPath = false;
+        }
+        
+        public virtual void MoveTowards(Vector2 pos)
+        {
+            Cell cellAtPos = _data.world.Grid.CellAt(pos);
+
+            if (cellAtPos.Passable)
+            {
+                pathHandler.GetPathTo(pos);
+                ExitState(); // Change to "Neutral state"
+            }            
+        }
 
         public override void Render(SpriteBatch spriteBatch)
         {

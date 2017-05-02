@@ -15,6 +15,8 @@ namespace MinecaRTS
         public static int WIDTH;
         public static int HEIGHT;
 
+        public static Dictionary<Type, Cost> entityCosts = new Dictionary<Type, Cost>();
+
         public readonly Grid Grid;
         public readonly List<Unit> Units;
         public readonly List<Building> Buildings;
@@ -39,13 +41,19 @@ namespace MinecaRTS
             Resources = new Dictionary<Cell, Resource>();
 
             SelectedUnits = new List<Unit>();
-            _playerOneData = new PlayerData(this);
+            _playerOneData = new PlayerData(this, Team.One);
             _playerOne = new HumanPlayer(_playerOneData);
         }
 
         public void HandleInput()
         {
             _playerOne.HandleInput();
+
+            if (Input.KeyDown(Keys.F))
+            {
+                foreach (Building b in Buildings)
+                    b.Construct();
+            }
         }
 
         public void Update()
@@ -68,23 +76,21 @@ namespace MinecaRTS
             foreach (Unit u in Units)
                 u.Render(spriteBatch);
 
-            foreach (Unit u in SelectedUnits)
-                spriteBatch.DrawRectangle(u.RenderRect.GetInflated(3, 3), Color.SpringGreen);
-
             foreach (Resource r in Resources.Values)
                 r.Render(spriteBatch);
 
+            _playerOneData.Render(spriteBatch);
             _playerOne.Render(spriteBatch);
         }
 
-        public void AddUnit(Vector2 pos, Vector2 scale)
+        public void AddUnit(Vector2 pos, Vector2 scale, Team team)
         {
-            Units.Add(new Unit(_playerOneData, pos, scale));
+            Units.Add(new Unit(_playerOneData, team, pos, scale));
         }
 
-        public void AddWorker(Vector2 pos)
+        public void AddWorker(Vector2 pos, Team team)
         {
-            Units.Add(new Worker(_playerOneData, pos, new Vector2(26, 35)));
+            Units.Add(new Worker(_playerOneData, team, pos, new Vector2(26, 35)));
         }
 
         public void AddBuilding(Building building)

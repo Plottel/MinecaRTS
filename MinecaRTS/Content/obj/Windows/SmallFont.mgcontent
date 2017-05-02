@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/DebugFont.spritefont</SourceFile>
-  <SourceTime>2017-05-01T14:14:56.7090941+10:00</SourceTime>
-  <DestFile>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/bin/Windows/DebugFont.xnb</DestFile>
-  <DestTime>2017-05-01T14:17:03.7261734+10:00</DestTime>
+  <SourceFile>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/SmallFont.spritefont</SourceFile>
+  <SourceTime>2017-05-01T14:16:47.0203862+10:00</SourceTime>
+  <DestFile>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/bin/Windows/SmallFont.xnb</DestFile>
+  <DestTime>2017-05-01T14:17:03.8233422+10:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-02T02:05:36+11:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

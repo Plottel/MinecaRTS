@@ -81,50 +81,50 @@ namespace MinecaRTS
                 if (Debug.OptionActive(DebugOption.CalcPath))
                 {
                     Input.UpdateStates();
-                    Game1.Instance.GraphicsDevice.Clear(Color.Gray);
+                    MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
                     Debug.HandleInput();
 
-                    Game1.Instance.spriteBatch.Begin();
+                    MinecaRTS.Instance.spriteBatch.Begin();
 
-                    Grid.Render(Game1.Instance.spriteBatch);
+                    Grid.Render(MinecaRTS.Instance.spriteBatch);
 
                     // Render closed list pale blue.
                     foreach (Cell cell in Closed)
-                        Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
+                        MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
 
                     // Render open list cream.
                     foreach (Cell cell in Open)
-                        Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
+                        MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
 
                     // Render source red
-                    Game1.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
 
                     // Render current purple
-                    Game1.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
 
                     // Render path to current pink
                     Cell c = Current;
                     while (c.Parent != null)
                     {
-                        Game1.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
+                        MinecaRTS.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
                         c = c.Parent;
                     }
 
                     // Render cell scores in black text.
                     foreach (Cell openCell in Open)
                     {
-                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.RenderMid, Color.Black);
+                        MinecaRTS.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.RenderMid, Color.Black);
                     }
 
                     // Render each resource
-                    foreach (Resource r in Game1.Instance.world.Resources.Values)
-                        r.Render(Game1.Instance.spriteBatch);
+                    foreach (Resource r in MinecaRTS.Instance.world.Resources.Values)
+                        r.Render(MinecaRTS.Instance.spriteBatch);
 
-                    Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
+                    Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
 
-                    Game1.Instance.spriteBatch.End();
+                    MinecaRTS.Instance.spriteBatch.End();
 
-                    Game1.Instance.GraphicsDevice.Present();
+                    MinecaRTS.Instance.GraphicsDevice.Present();
 
                     System.Threading.Thread.Sleep(50);
                 }                
@@ -188,49 +188,49 @@ namespace MinecaRTS
                 if (Debug.OptionActive(DebugOption.CalcPath))
                 {
                     Input.UpdateStates();
-                    Game1.Instance.GraphicsDevice.Clear(Color.Gray);
+                    MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
                     Debug.HandleInput();
 
-                    Game1.Instance.spriteBatch.Begin();
+                    MinecaRTS.Instance.spriteBatch.Begin();
 
-                    Grid.Render(Game1.Instance.spriteBatch);
+                    Grid.Render(MinecaRTS.Instance.spriteBatch);
 
                     // Render closed list pale blue.
                     foreach (Cell cell in Closed)
-                        Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
+                        MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
 
                     // Render open list cream.
                     foreach (Cell cell in Open)
-                        Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
+                        MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
 
                     // Render target green
-                    Game1.Instance.spriteBatch.FillRectangle(Target.RenderRect, Color.LawnGreen);
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(Target.RenderRect, Color.LawnGreen);
 
                     // Render source red
-                    Game1.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
 
                     // Render current purple
-                    Game1.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
 
                     // Render path to current pink
                     Cell c = Current;
                     while (c.Parent != null)
                     {
-                        Game1.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
+                        MinecaRTS.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
                         c = c.Parent;
                     }
 
                     // Render cell scores in black text.
                     foreach (Cell openCell in Open)
                     {
-                        Game1.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.RenderMid, Color.Black);
+                        MinecaRTS.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(openCell.Score).ToString(), openCell.RenderMid, Color.Black);
                     }
 
-                    Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
+                    Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
 
-                    Game1.Instance.spriteBatch.End();
+                    MinecaRTS.Instance.spriteBatch.End();
 
-                    Game1.Instance.GraphicsDevice.Present();
+                    MinecaRTS.Instance.GraphicsDevice.Present();
 
                     System.Threading.Thread.Sleep(50);
                 }                
@@ -353,34 +353,34 @@ namespace MinecaRTS
             if (Debug.OptionActive(DebugOption.CalcPathSmoothing))
             {
                 // Finish rendering so we can start fresh render for debug
-                Game1.Instance.spriteBatch.End();
+                MinecaRTS.Instance.spriteBatch.End();
                 // TODO: Debug Handle Input in here not registering.
                 Input.UpdateStates();
                 Debug.HandleInput();
 
-                Game1.Instance.GraphicsDevice.Clear(Color.Gray);
+                MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
 
-                Game1.Instance.spriteBatch.Begin();
+                MinecaRTS.Instance.spriteBatch.Begin();
 
-                Grid.Render(Game1.Instance.spriteBatch);
+                Grid.Render(MinecaRTS.Instance.spriteBatch);
 
                 // Fill Cells the check rect is touching.
                 foreach (Cell cell in cellsInRect)
-                    Game1.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.DarkCyan);
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.DarkCyan);
 
                 // Draw two cells being considered for smoothing.
-                Game1.Instance.spriteBatch.FillRectangle(from.RenderRect, Color.Green);
-                Game1.Instance.spriteBatch.FillRectangle(to.RenderRect, Color.Yellow);
+                MinecaRTS.Instance.spriteBatch.FillRectangle(from.RenderRect, Color.Green);
+                MinecaRTS.Instance.spriteBatch.FillRectangle(to.RenderRect, Color.Yellow);
 
                 // Draw line between considered cells.
-                Game1.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from1.ToVector2()), Camera.VecToScreen(to1.ToVector2()), Color.Green, 2);
-                Game1.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from2.ToVector2()), Camera.VecToScreen(to2.ToVector2()), Color.Green, 2);
+                MinecaRTS.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from1.ToVector2()), Camera.VecToScreen(to1.ToVector2()), Color.Green, 2);
+                MinecaRTS.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from2.ToVector2()), Camera.VecToScreen(to2.ToVector2()), Color.Green, 2);
 
-                Debug.RenderDebugOptionStates(Game1.Instance.spriteBatch);
+                Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
 
-                Game1.Instance.spriteBatch.End();
+                MinecaRTS.Instance.spriteBatch.End();
 
-                Game1.Instance.GraphicsDevice.Present();
+                MinecaRTS.Instance.GraphicsDevice.Present();
 
                 System.Threading.Thread.Sleep(50);
             }                
