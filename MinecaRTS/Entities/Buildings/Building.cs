@@ -11,8 +11,8 @@ namespace MinecaRTS
 {
     public class Building : Entity
     {
-        public static Texture2D townHallTexture;
-        public static Texture2D houseTexture;
+        public Texture2D activeTexture;
+        public Texture2D constructionTexture;
 
         private int _health = 0;
         private int _maxHealth = 0;
@@ -25,11 +25,13 @@ namespace MinecaRTS
             get { return _team; }
         }
 
-        public Building(Vector2 pos, Vector2 scale, Team team, int maxHealth) : base(pos, scale)
+        public Building(Vector2 pos, Vector2 scale, Team team, int maxHealth, Texture2D actText, Texture2D constText) : base(pos, scale)
         {
             _team = team;
             isActive = false;
             _maxHealth = maxHealth;
+            activeTexture = actText;
+            constructionTexture = constText;            
         }
 
         public void Construct()
@@ -51,12 +53,17 @@ namespace MinecaRTS
 
         public override void Render(SpriteBatch spriteBatch)
         {
+            if (isActive)
+                spriteBatch.Draw(activeTexture, RenderRect, Color.White);
+            else
+            {
+                spriteBatch.Draw(constructionTexture, RenderRect, Color.White);
+                RenderConstructionBar(spriteBatch);
+            }                
         }
 
-        public void RenderInactive(SpriteBatch spriteBatch)
+        public void RenderConstructionBar(SpriteBatch spriteBatch)
         {
-            spriteBatch.FillRectangle(RenderRect, Color.BlanchedAlmond);
-
             float rectWidth = Scale.X * ((float)_health / (float)_maxHealth);
             Rectangle rect = new Rectangle(RenderRect.X, RenderRect.Y - 10, (int)rectWidth, 8);
 

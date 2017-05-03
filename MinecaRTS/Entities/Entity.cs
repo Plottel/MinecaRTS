@@ -14,7 +14,7 @@ namespace MinecaRTS
     /// which is auto assigned on object creation.
     /// Entity provides abstract methods for update, render, message handling and locating itself.
     /// </summary>
-    public abstract class Entity
+    public abstract class Entity : IRenderable
     {
         /// <summary>
         /// The shared unique id counter. Given and incremented on entity object creation.
@@ -56,6 +56,11 @@ namespace MinecaRTS
         ~Entity()
         {
             EntityRegistry.RemoveEntity(this);
+        }
+
+        public Vector2 RenderPos
+        {
+            get { return Camera.VecToScreen(Pos); }
         }
 
         /// <summary>

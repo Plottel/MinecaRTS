@@ -17,8 +17,21 @@ namespace MinecaRTS
         public const int HARVEST_AMOUNT = 5;
         public const int MAX_VALUE = 100;
 
+        public static Texture2D WOOD_TEXTURE;
+        public static Texture2D WOOD_DEPLETED_TEXTURE;
+        public static Texture2D STONE_TEXTURE;
+        public static Texture2D STONE_DEPLETED_TEXTURE;
+
+        private Texture2D texture;
+        private Texture2D depletedTexture;
+
+        /// <summary>
+        /// How much bigger the texture is than 32 x 32.
+        /// Depleted textures will fit within the cell, others may not.
+        /// </summary>
+        private Vector2 renderOffset;
+
         public ResourceType Type;
-        private Color _color;
         private int _value = MAX_VALUE;
         private HashSet<Worker> _harvesters = new HashSet<Worker>();
 
@@ -27,9 +40,17 @@ namespace MinecaRTS
             Type = t;
 
             if (Type == ResourceType.Wood)
-                _color = new Color(102, 51, 0);
+            {
+                texture = WOOD_TEXTURE;
+                depletedTexture = WOOD_DEPLETED_TEXTURE;
+                renderOffset = new Vector2(0, 20);
+            }
             else if (Type == ResourceType.Stone)
-                _color = new Color(64, 64, 64);
+            {
+                renderOffset = new Vector2(0, 20);
+                texture = WOOD_TEXTURE;
+                depletedTexture = WOOD_DEPLETED_TEXTURE;
+            }
         }
 
         public HashSet<Worker> Harvesters
@@ -74,18 +95,13 @@ namespace MinecaRTS
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            if (_value == 100)
-                spriteBatch.FillRectangle(RenderRect.GetInflated(-4, -4), _color);
-            else if (_value > 80)
-                spriteBatch.FillRectangle(RenderRect.GetInflated(-6, -6), _color);
-            else if (_value > 60)
-                spriteBatch.FillRectangle(RenderRect.GetInflated(-8, -8), _color);
-            else if (_value > 40)
-                spriteBatch.FillRectangle(RenderRect.GetInflated(-10, -10), _color);
-            else if (_value > 20)
-                spriteBatch.FillRectangle(RenderRect.GetInflated(-12, -12), _color);
+            if (_value >= (MAX_VALUE / 2))
+                spriteBatch.Draw(texture, RenderPos - renderOffset, Color.White);
             else
-                spriteBatch.FillRectangle(RenderRect.GetInflated(-13, -13), _color);
+                spriteBatch.Draw(depletedTexture, RenderRect, Color.White);
+
+            if (Type == ResourceType.Stone)
+                spriteBatch.DrawString(MinecaRTS.smallFont, "LOLSTONE", RenderPos, Color.White);
         }
 
         public override void HandleMessage(Message message)

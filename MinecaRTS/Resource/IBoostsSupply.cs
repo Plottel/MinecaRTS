@@ -8,7 +8,7 @@ namespace MinecaRTS
 {
     interface IBoostsSupply
     {
-        uint BoostAmount
+        uint SupplyBoostAmount
         {
             get;
         }

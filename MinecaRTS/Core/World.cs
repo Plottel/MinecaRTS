@@ -17,13 +17,14 @@ namespace MinecaRTS
 
         public static Dictionary<Type, Cost> entityCosts = new Dictionary<Type, Cost>();
 
+        private List<IRenderable> _renderables = new List<IRenderable>();
+
         public readonly Grid Grid;
         public readonly List<Unit> Units;
         public readonly List<Building> Buildings;
         public List<Unit> SelectedUnits;
 
         public readonly Dictionary<Cell, Resource> Resources;
-
 
         public HumanPlayer _playerOne;
         public PlayerData _playerOneData;
@@ -70,27 +71,23 @@ namespace MinecaRTS
             // TODO: Only render what's on the screen.
             Grid.Render(spriteBatch);
 
-            foreach (Building b in Buildings)
-                b.Render(spriteBatch);
+            // Filter by Y to create Z-index
+            _renderables = _renderables.OrderBy(renderable => renderable.RenderRect.Y).ToList();
 
-            foreach (Unit u in Units)
-                u.Render(spriteBatch);
-
-            foreach (Resource r in Resources.Values)
+            // Render
+            foreach (IRenderable r in _renderables)
                 r.Render(spriteBatch);
 
             _playerOneData.Render(spriteBatch);
             _playerOne.Render(spriteBatch);
         }
 
-        public void AddUnit(Vector2 pos, Vector2 scale, Team team)
-        {
-            Units.Add(new Unit(_playerOneData, team, pos, scale));
-        }
-
         public void AddWorker(Vector2 pos, Team team)
         {
-            Units.Add(new Worker(_playerOneData, team, pos, new Vector2(26, 35)));
+            var w = new Worker(_playerOneData, team, pos, new Vector2(26, 35));
+
+            Units.Add(w);
+            _renderables.Add(w);
         }
 
         public void AddBuilding(Building building)
@@ -99,20 +96,29 @@ namespace MinecaRTS
                 cell.Passable = false;
 
             Buildings.Add(building);
+            _renderables.Add(building);
         }
 
         public void AddResourceToCell(Resource resource, Cell cell)
         {
-            // If cell already has a resource, overwrite to new resource
-            if (Resources.ContainsKey(cell))
-                Resources[cell] = resource;
-            else
-                Resources.Add(cell, resource);
+            if (cell.Passable)
+            {
+                cell.Passable = false;
+                cell.Color = Color.Gray;
+                // If cell already has a resource, overwrite to new resource
+                if (Resources.ContainsKey(cell))
+                    Resources[cell] = resource;
+                else
+                    Resources.Add(cell, resource);
+
+                _renderables.Add(resource);
+            }            
         }
 
         public void RemoveResourceFromCell(Cell cell)
         {
-            Resources.Remove(cell);
+            _renderables.Remove(Resources[cell]);
+            Resources.Remove(cell);            
         }
 
         public bool CellHasResource(Cell cell)
@@ -140,7 +146,7 @@ namespace MinecaRTS
             {
                 Cell resourceCell = Grid.CellAt(resource.Mid);
 
-                Resources.Remove(resourceCell);
+                RemoveResourceFromCell(resourceCell);
                 resourceCell.Passable = true;
 
                 foreach (Worker w in resource.Harvesters)

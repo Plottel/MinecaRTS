@@ -14,5 +14,9 @@
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/SmallFont.spritefont</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/largeFont.spritefont</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/house.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/house_construction.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/town_hall_construction.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/resources/tree.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/resources/tree_stump.png</File>
   </SourceFiles>
 </SourceFileCollection>

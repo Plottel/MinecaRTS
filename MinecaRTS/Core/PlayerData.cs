@@ -56,7 +56,7 @@ namespace MinecaRTS
 
                         if (supplyBooster != null)
                         {
-                            result += supplyBooster.BoostAmount;
+                            result += supplyBooster.SupplyBoostAmount;
                         }
                     }                    
                 }
@@ -270,7 +270,7 @@ namespace MinecaRTS
 
             foreach (Building b in world.Buildings)
             {
-                if (b as ICanAcceptResources != null)
+                if (b.isActive && b as ICanAcceptResources != null)
                 {
                     float distance = Vector2.Distance(u.Mid, b.Mid);
 

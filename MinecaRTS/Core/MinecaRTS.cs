@@ -79,8 +79,14 @@ namespace MinecaRTS
             smallFont = Content.Load<SpriteFont>("SmallFont");
             largeFont = Content.Load<SpriteFont>("largeFont");
 
-            Building.townHallTexture = Content.Load<Texture2D>("images/buildings/town_hall");
-            Building.houseTexture = Content.Load<Texture2D>("images/buildings/house");
+            TownHall.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/town_hall");
+            TownHall.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/town_hall_construction");
+
+            House.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/house");
+            House.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/house_construction");
+
+            Resource.WOOD_TEXTURE = Content.Load<Texture2D>("images/resources/tree");
+            Resource.WOOD_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/tree_stump");
 
             Worker.LoadSpriteSheet(this, "worker_walk", WorkerAnimation.Walk, 7, 8);
             Worker.LoadSpriteSheet(this, "worker_chop", WorkerAnimation.Chop, 5, 8);

@@ -34,3 +34,7 @@ C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\obj\x86\Debug\MinecaRTS.csprojResolveA
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\SmallFont.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\largeFont.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\house.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\house_construction.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\town_hall_construction.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\resources\tree.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\resources\tree_stump.xnb

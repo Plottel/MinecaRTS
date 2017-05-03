@@ -138,7 +138,7 @@ namespace MinecaRTS
             if (_placingBuilding)
             {
                 // Treat mouse pos as building center, poffset by building scale                   
-                _buildingToPlace.Pos = _data.world.Grid.CellAt(Camera.VecToWorld(Input.MousePos - _buildingToPlace.Scale / 2)).Pos;
+                _buildingToPlace.Pos = _data.world.Grid.CellAt(Camera.VecToWorld(Input.MousePos)).Pos;
                 _buildingToPlace.Render(spriteBatch);
 
                 foreach (Cell c in _data.world.Grid.CellsInRect(_buildingToPlace.CollisionRect))
@@ -151,7 +151,7 @@ namespace MinecaRTS
                 }
 
                 // Render building selection information
-                Vector2 buildingPos = Camera.VecToScreen(_buildingToPlace.Pos);
+                Vector2 buildingPos = _buildingToPlace.RenderPos;
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(H) House", buildingPos, Color.White);
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(P) Production", new Vector2(buildingPos.X, buildingPos.Y + 10), Color.White);
             }

@@ -32,7 +32,7 @@ namespace MinecaRTS
             }
         }
 
-        public ProductionBuilding(Vector2 pos, Vector2 scale, List<Type> productionTypes, PlayerData data) : base(pos, scale, data.Team, MAX_HEALTH)
+        public ProductionBuilding(Vector2 pos, Vector2 scale, List<Type> productionTypes, PlayerData data, Texture2D activeTexture, Texture2D constructionTexture) : base(pos, scale, data.Team, MAX_HEALTH, activeTexture, constructionTexture)
         {
             _productionTypes = productionTypes;
             _isProducing = false;
@@ -90,30 +90,21 @@ namespace MinecaRTS
         {
             base.Render(spriteBatch);
 
-            if (!isActive)
+            // Render production progress bar
+            if (_isProducing)
             {
-                RenderInactive(spriteBatch);
+                float rectWidth = Scale.X * ((float)_timeSpentProducing / (float)productionTimes[BeingProduced]);
+                Rectangle rect = new Rectangle(RenderRect.X, RenderRect.Y - 10, (int)rectWidth, 8);
+
+                spriteBatch.FillRectangle(rect, Color.MediumTurquoise);
             }
-            else
+
+            // Render list of items in queue
+            for (int i = 0; i < _productionQueue.Count; i++)
             {
-                spriteBatch.Draw(townHallTexture, Camera.VecToScreen(Pos), Color.White);
-
-                // Render production progress bar
-                if (_isProducing)
-                {
-                    float rectWidth = Scale.X * ((float)_timeSpentProducing / (float)productionTimes[BeingProduced]);
-                    Rectangle rect = new Rectangle(RenderRect.X, RenderRect.Y - 10, (int)rectWidth, 8);
-
-                    spriteBatch.FillRectangle(rect, Color.MediumTurquoise);
-                }
-
-                // Render list of items in queue
-                for (int i = 0; i < _productionQueue.Count; i++)
-                {
-                    Vector2 pos = new Vector2(Pos.X, Pos.Y + (i * 10));
-                    spriteBatch.DrawString(MinecaRTS.smallFont, _productionQueue[i].Name, Camera.VecToScreen(pos), Color.White);
-                }
-            }           
+                Vector2 pos = new Vector2(Pos.X, Pos.Y + (i * 10));
+                spriteBatch.DrawString(MinecaRTS.smallFont, _productionQueue[i].Name, Camera.VecToScreen(pos), Color.White);
+            }        
         }
     }
 }
