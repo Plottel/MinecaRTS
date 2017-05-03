@@ -41,6 +41,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\Buildings\DepositBox.cs" />
+    <Compile Include="Messaging\IHandleMessages.cs" />
+    <Compile Include="Entities\Units\Minecart.cs" />
     <Compile Include="Render\Animation.cs" />
     <Compile Include="Entities\Buildings\BuildingFactory.cs" />
     <Compile Include="Resource\Cost.cs" />
@@ -49,10 +52,11 @@
     <Compile Include="Render\Camera.cs" />
     <Compile Include="Core\Cell.cs" />
     <Compile Include="EditAndDebug\Debug.cs" />
+    <Compile Include="Entities\Buildings\Track.cs" />
     <Compile Include="Utils\Dir.cs" />
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Messaging\EntityRegistry.cs" />
-    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Messaging\MsgHandlerRegistry.cs" />
+    <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Entities\Buildings\House.cs" />
     <Compile Include="Resource\IBoostsSupply.cs" />
     <Compile Include="Resource\ICanAcceptResources.cs" />
@@ -84,6 +88,7 @@
     <Compile Include="EditAndDebug\WorldEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="MonoGame.Extended, Version=0.6.377.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MonoGame.Extended.0.6.377\lib\MonoGame.Extended.dll</HintPath>
     </Reference>

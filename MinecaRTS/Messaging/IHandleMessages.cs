@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace MinecaRTS
 {
-    public interface IRenderable
-    { 
-        Rectangle RenderRect
+    public interface IHandleMessages
+    {
+        ulong ID
         {
             get;
         }
 
-        void Render(SpriteBatch spriteBatch);
+        void HandleMessage(Message message);
     }
 }

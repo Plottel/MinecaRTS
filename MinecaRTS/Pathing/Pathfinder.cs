@@ -86,7 +86,7 @@ namespace MinecaRTS
 
                     MinecaRTS.Instance.spriteBatch.Begin();
 
-                    Grid.Render(MinecaRTS.Instance.spriteBatch);
+                    MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
 
                     // Render closed list pale blue.
                     foreach (Cell cell in Closed)
@@ -170,7 +170,8 @@ namespace MinecaRTS
                                               Cell target, 
                                               Unit unit, 
                                               Func<Cell, bool> considerationCondition, 
-                                              Func<Cell, Cell, bool> terminationCondition, 
+                                              Func<Cell, Cell, bool> terminationCondition,
+                                              Func<Cell, Cell, float> getScore,
                                               bool smoothed = false)
         {
             // Don't fetch a path to the same cell.
@@ -193,7 +194,7 @@ namespace MinecaRTS
 
                     MinecaRTS.Instance.spriteBatch.Begin();
 
-                    Grid.Render(MinecaRTS.Instance.spriteBatch);
+                    MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
 
                     // Render closed list pale blue.
                     foreach (Cell cell in Closed)
@@ -243,7 +244,7 @@ namespace MinecaRTS
                     if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
                     {
                         cell.Parent = Current;
-                        cell.Score = Vector2.Distance(cell.Mid, Target.Mid);
+                        cell.Score = getScore(cell, Target);
                         Open.Add(cell);
                     }                    
                 }
@@ -362,7 +363,7 @@ namespace MinecaRTS
 
                 MinecaRTS.Instance.spriteBatch.Begin();
 
-                Grid.Render(MinecaRTS.Instance.spriteBatch);
+                MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
 
                 // Fill Cells the check rect is touching.
                 foreach (Cell cell in cellsInRect)

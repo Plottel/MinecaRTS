@@ -10,7 +10,7 @@ using MonoGame.Extended;
 namespace MinecaRTS
 {
     // TODO: Add overloads for X/Y rather than just Point / Vector.
-    // creating a bunch of unnecessary objects.
+    // creating a bunch of unnecessary Vector / Point objects.
     public class Grid
     {
         /// <summary>

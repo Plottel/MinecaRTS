@@ -11,13 +11,25 @@ namespace MinecaRTS
 {
     public class Building : Entity
     {
-        public Texture2D activeTexture;
-        public Texture2D constructionTexture;
+        private Texture2D _activeTexture;
+        private Texture2D _constructionTexture;
+
+        // For HumanPlayer to render the ActiveTexture when selecting which building to create
+        public Texture2D ActiveTexture
+        {
+            get { return _activeTexture; }
+        }
 
         private int _health = 0;
         private int _maxHealth = 0;
 
-        public bool isActive;
+        private bool _isActive;
+
+        public bool IsActive
+        {
+            get { return _isActive; }
+        }
+
         private Team _team;
 
         public Team Team
@@ -28,19 +40,19 @@ namespace MinecaRTS
         public Building(Vector2 pos, Vector2 scale, Team team, int maxHealth, Texture2D actText, Texture2D constText) : base(pos, scale)
         {
             _team = team;
-            isActive = false;
+            _isActive = false;
             _maxHealth = maxHealth;
-            activeTexture = actText;
-            constructionTexture = constText;            
+            _activeTexture = actText;
+            _constructionTexture = constText;            
         }
 
         public void Construct()
         {
-            if (!isActive)
+            if (!IsActive)
             {
                 if (++_health >= _maxHealth)
                 {
-                    isActive = true;
+                    _isActive = true;
                     _health = _maxHealth;
                 }
             }
@@ -53,16 +65,16 @@ namespace MinecaRTS
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            if (isActive)
-                spriteBatch.Draw(activeTexture, RenderRect, Color.White);
+            if (IsActive)
+                spriteBatch.Draw(_activeTexture, RenderRect, Color.White);
             else
             {
-                spriteBatch.Draw(constructionTexture, RenderRect, Color.White);
+                spriteBatch.Draw(_constructionTexture, RenderRect, Color.White);
                 RenderConstructionBar(spriteBatch);
             }                
         }
 
-        public void RenderConstructionBar(SpriteBatch spriteBatch)
+        private void RenderConstructionBar(SpriteBatch spriteBatch)
         {
             float rectWidth = Scale.X * ((float)_health / (float)_maxHealth);
             Rectangle rect = new Rectangle(RenderRect.X, RenderRect.Y - 10, (int)rectWidth, 8);

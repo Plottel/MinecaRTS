@@ -72,6 +72,9 @@ namespace MinecaRTS
         {
             harvester.resrcHolding = Type;
             _value -= HARVEST_AMOUNT;
+
+            if (IsDepleted)
+                MsgBoard.AddMessage(this, World.MSG_ID, MessageType.ResourceDepleted);
         }
 
         public void RemoveHarvester(Worker harvester)

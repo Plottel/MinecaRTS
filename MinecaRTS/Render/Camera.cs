@@ -13,6 +13,18 @@ namespace MinecaRTS
         public static int WIDTH;
         public static int HEIGHT;
 
+        public const int MINIMAP_SIZE = 300;
+
+        public static int MINIMAP_X
+        {
+            get { return WIDTH - MINIMAP_SIZE - 100; }
+        }
+
+        public static int MINIMAP_Y
+        {
+            get { return HEIGHT - MINIMAP_SIZE - 100; }
+        }
+
         public static int X
         {
             get { return Math.Max(Pos.X, 0); }
@@ -22,8 +34,8 @@ namespace MinecaRTS
             {
                 if (value < 0)
                     Pos.X = 0;
-                else if (value > World.WIDTH - WIDTH)
-                    Pos.X = World.WIDTH - WIDTH;
+                else if (value > World.Width - WIDTH)
+                    Pos.X = World.Width - WIDTH;
                 else
                     Pos.X = value;
             }
@@ -36,11 +48,16 @@ namespace MinecaRTS
             {
                 if (value < 0)
                     Pos.Y = 0;
-                else if (value > World.HEIGHT - HEIGHT)
-                    Pos.Y = World.HEIGHT - HEIGHT;
+                else if (value > World.Height - HEIGHT)
+                    Pos.Y = World.Height - HEIGHT;
                 else
                     Pos.Y = value;
             }
+        }
+
+        public static Rectangle Rect
+        {
+            get { return new Rectangle(X, Y, WIDTH, HEIGHT); }
         }
 
         public static void MoveBy(int x, int y)
@@ -117,7 +134,18 @@ namespace MinecaRTS
             return new Rectangle(rect.X - X, rect.Y - Y, rect.Width, rect.Height);
         }
 
+        public static Rectangle WorldRectToMinimapRect(Rectangle rect)
+        {
+            float xRatio = 1 + (World.Width / MINIMAP_SIZE);
+            float yRatio = 1 + (World.Height / MINIMAP_SIZE);
+
+            return new Rectangle(MINIMAP_X + (int)Math.Floor(rect.X / xRatio),
+                    MINIMAP_Y + (int)Math.Floor(rect.Y / yRatio),
+                    (int)Math.Ceiling(rect.Width / xRatio),
+                    (int)Math.Ceiling(rect.Height / yRatio));
+        }
+    }
+
         // TODO: Implement LookAt() - centers camera on location.
         // TODO: Implement bool PosOnScreen()
-    }
 }

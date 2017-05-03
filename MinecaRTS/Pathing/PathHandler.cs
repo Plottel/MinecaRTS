@@ -112,28 +112,36 @@ namespace MinecaRTS
         /// <param name="building"></param>
         public void GetPathToBuilding(Building building)
         {
+            bool changeCells = !(building is Track);
+
             // TODO: Possible optimisation by making target a Cell on the edge of building from which unit will approach.
             // Prevents a possibly long List.Contains() for every node.
 
             var sourceCell = _grid.CellAt(_owner.Mid);
             var targetCell = _grid.CellAt(building.Mid);
-
-            // Temporarily make Building cells passable.
             var cellsBuildingIsTouching = _grid.CellsInRect(building.CollisionRect);
 
-            foreach (Cell c in cellsBuildingIsTouching)
-                c.Passable = true;
+            // Temporarily make Building cells passable.
+            if (changeCells)
+            {
+                foreach (Cell c in cellsBuildingIsTouching)
+                    c.Passable = true;
+            }
+            
 
             // Get the path
-            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, ConsiderationCondition, TerminationCondition, true);
+            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, ConsiderationCondition, TerminationCondition, GreedyScoreMethod, true);
             _pathIndex = 0;
 
             if (_path.Count > 0)
                 _owner.FollowPath = true;
 
             // Revert Building cells to !Passable
-            foreach (Cell c in cellsBuildingIsTouching)
-                c.Passable = false;
+            if (changeCells)
+            {
+                foreach (Cell c in cellsBuildingIsTouching)
+                    c.Passable = false;
+            }            
 
             // Consideration condition for getting a path to a building.
             bool ConsiderationCondition(Cell cell)
@@ -169,7 +177,7 @@ namespace MinecaRTS
                 if (cell.Passable)
                     return true;
 
-                Resource resource = _owner._data.world.GetResourceFromCell(cell);
+                Resource resource = _owner.Data.GetResourceFromCell(cell);
 
                 if (resource == null)
                     return false;
@@ -183,7 +191,7 @@ namespace MinecaRTS
                 if (cell.Passable)
                     return true;
 
-                Resource resource = _owner._data.world.GetResourceFromCell(cell);
+                Resource resource = _owner.Data.GetResourceFromCell(cell);
 
                 if (resource == null)
                     return false;
@@ -194,7 +202,7 @@ namespace MinecaRTS
 
             bool TerminationConditionWood(Cell current)
             {
-                Resource resource = _owner._data.world.GetResourceFromCell(current);
+                Resource resource = _owner.Data.GetResourceFromCell(current);
 
                 if (resource == null)
                     return false;
@@ -206,7 +214,7 @@ namespace MinecaRTS
 
             bool TerminationConditionStone(Cell current)
             {
-                Resource resource = _owner._data.world.GetResourceFromCell(current);
+                Resource resource = _owner.Data.GetResourceFromCell(current);
 
                 if (resource == null)
                     return false;
@@ -227,22 +235,51 @@ namespace MinecaRTS
             var sourceCell = _grid.CellAt(_owner.Mid);
             var targetCell = _grid.CellAt(targetPos);
 
-            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, ConsiderationCondition, TerminationCondition, true);
+            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+            _pathIndex = 0;
+
+            if (_path.Count > 0)
+                _owner.FollowPath = true;           
+        }
+
+        // Consideration condition for a standard path.
+        bool GreedyConsiderationCondition(Cell cell)
+        {
+            return cell.Passable;
+        }
+
+        // Termination condition for a standard path.
+        bool GreedyTerminationCondition(Cell current, Cell target)
+        {
+            return current == target;
+        }
+
+        float GreedyScoreMethod(Cell cell, Cell Target)
+        {
+            return Vector2.Distance(cell.Mid, Target.Mid);
+        }
+
+        public void GetPathToPosFollowingTracks(Vector2 targetPos)
+        {
+            var sourceCell = _grid.CellAt(_owner.Mid);
+            var targetCell = _grid.CellAt(targetPos);
+
+            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false);
             _pathIndex = 0;
 
             if (_path.Count > 0)
                 _owner.FollowPath = true;
 
-            // Consideration condition for a standard path.
-            bool ConsiderationCondition(Cell cell)
+            float TrackScoreMethod(Cell cell, Cell Target)
             {
-                return cell.Passable;
-            }
+                float score = GreedyScoreMethod(cell, Target);
 
-            // Termination condition for a standard path.
-            bool TerminationCondition(Cell current, Cell target)
-            {
-                return current == target;
+                Track t = _owner.Data.GetTrackFromCell(cell);
+
+                if (t == null || !t.IsActive)
+                    score *= 5;
+
+                return score;
             }
         }
 

@@ -10,10 +10,23 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
-    public class World
+    public class World : IHandleMessages
     {
-        public static int WIDTH;
-        public static int HEIGHT;
+        /// <summary>
+        /// World will always be created first and we may want to send messages to the world from anywhere.
+        /// Therefore its ID is globally accessible.
+        /// </summary>
+        public const int MSG_ID = 0;
+
+        private ulong _id;
+
+        public ulong ID
+        {
+            get { return _id; }
+        }
+
+        public static int Width;
+        public static int Height;
 
         public static Dictionary<Type, Cost> entityCosts = new Dictionary<Type, Cost>();
 
@@ -25,25 +38,44 @@ namespace MinecaRTS
         public List<Unit> SelectedUnits;
 
         public readonly Dictionary<Cell, Resource> Resources;
+        public readonly Dictionary<Cell, Track> Tracks;
 
-        public HumanPlayer _playerOne;
-        public PlayerData _playerOneData;
+        private HumanPlayer _playerOne;
+        private PlayerData _playerOneData;
 
         public World()
         {
+            _id = MsgHandlerRegistry.NextID;
+            MsgHandlerRegistry.Register(this);
+
             Grid = new Grid(new Vector2(0, 0), 100, 100);
             Grid.MakeBorder();
 
-            WIDTH = Grid.Width;
-            HEIGHT = Grid.Height;
+            Width = Grid.Width;
+            Height = Grid.Height;
 
             Units = new List<Unit>();
             Buildings = new List<Building>();
             Resources = new Dictionary<Cell, Resource>();
+            Tracks = new Dictionary<Cell, Track>();
 
             SelectedUnits = new List<Unit>();
             _playerOneData = new PlayerData(this, Team.One);
             _playerOne = new HumanPlayer(_playerOneData);
+        }
+
+        public void HandleMessage(Message message)
+        {
+            switch (message.type)
+            {
+                case MessageType.ResourceDepleted:
+                        Resource resource = message.sender as Resource;
+                        RemoveResourceFromCell(Grid.CellAt(resource.Mid));
+                        break;
+
+                default:
+                    break;
+            }
         }
 
         public void HandleInput()
@@ -71,6 +103,9 @@ namespace MinecaRTS
             // TODO: Only render what's on the screen.
             Grid.Render(spriteBatch);
 
+            foreach (Track t in Tracks.Values)
+                t.Render(spriteBatch);
+
             // Filter by Y to create Z-index
             _renderables = _renderables.OrderBy(renderable => renderable.RenderRect.Y).ToList();
 
@@ -79,24 +114,41 @@ namespace MinecaRTS
                 r.Render(spriteBatch);
 
             _playerOneData.Render(spriteBatch);
+            _playerOneData.RenderMinimap(spriteBatch);
             _playerOne.Render(spriteBatch);
         }
 
-        public void AddWorker(Vector2 pos, Team team)
+        public void AddUnit(Type unitType, Vector2 pos, Team team)
         {
-            var w = new Worker(_playerOneData, team, pos, new Vector2(26, 35));
+            Unit u = null;
 
-            Units.Add(w);
-            _renderables.Add(w);
+            if (unitType == typeof(Worker))
+                u = new Worker(_playerOneData, team, pos, new Vector2(26, 35));
+            else if (unitType == typeof(Minecart))
+                u = new Minecart(_playerOneData, team, pos, new Vector2(40, 40));
+
+             Units.Add(u);
+            _renderables.Add(u);
+
         }
 
         public void AddBuilding(Building building)
         {
-            foreach (Cell cell in Grid.CellsInRect(building.CollisionRect))
-                cell.Passable = false;
-
             Buildings.Add(building);
-            _renderables.Add(building);
+
+            Track t = building as Track;
+
+            // Minecarts don't get added to the Renderable list since they're always on the bottom layer
+            // and dont need to be filtered with Z-Index.
+            if (t != null)
+                Tracks.Add(Grid.CellAt(building.Mid), t);
+            else
+            {
+                _renderables.Add(building);
+
+                foreach (Cell cell in Grid.CellsInRect(building.CollisionRect))
+                    cell.Passable = false;
+            }                
         }
 
         public void AddResourceToCell(Resource resource, Cell cell)
@@ -106,7 +158,7 @@ namespace MinecaRTS
                 cell.Passable = false;
                 cell.Color = Color.Gray;
                 // If cell already has a resource, overwrite to new resource
-                if (Resources.ContainsKey(cell))
+                if (CellHasResource(cell))
                     Resources[cell] = resource;
                 else
                     Resources.Add(cell, resource);
@@ -117,13 +169,28 @@ namespace MinecaRTS
 
         public void RemoveResourceFromCell(Cell cell)
         {
-            _renderables.Remove(Resources[cell]);
-            Resources.Remove(cell);            
+            if (CellHasResource(cell))
+            {
+                Resource resource = Resources[cell];
+
+                _renderables.Remove(Resources[cell]);
+                Resources.Remove(cell);
+
+                cell.Passable = true;
+
+                foreach (Worker w in resource.Harvesters)
+                    w.FSM.ChangeState(MoveToResource.Instance);
+            }            
         }
 
         public bool CellHasResource(Cell cell)
         {
             return Resources.ContainsKey(cell);
+        }
+
+        public bool CellHasTrack(Cell cell)
+        {
+            return Tracks.ContainsKey(cell);
         }
 
         public Resource GetResourceFromCell(Cell cell)
@@ -137,27 +204,21 @@ namespace MinecaRTS
                 return null;
         }
 
-        public void HarvestResource(Worker harvester, Resource resource)
+        public Track GetTrackFromCell(Cell cell)
         {
-            resource.GiveResources(harvester);
+            if (cell == null)
+                return null;
 
-            // If resource needs to be removed, tell all relevant Workers to find a new target resource.
-            if (resource.IsDepleted)
-            {
-                Cell resourceCell = Grid.CellAt(resource.Mid);
-
-                RemoveResourceFromCell(resourceCell);
-                resourceCell.Passable = true;
-
-                foreach (Worker w in resource.Harvesters)
-                    w.FSM.ChangeState(MoveToResource.Instance);
-            }                
+            if (Tracks.ContainsKey(cell))
+                return Tracks[cell];
+            else
+                return null;
         }
 
         public void RenderDebug(SpriteBatch spriteBatch)
         {
             // TODO: A lot of this can be put inside Unit Classes which would remove
-            // a bunch of the "fuck it everything's public".
+            // a bunch of the "lol everything's public".
 
             if (Debug.OptionActive(DebugOption.ShowPaths))
             {
@@ -169,7 +230,7 @@ namespace MinecaRTS
             {
                 foreach (Unit u in Units)
                 {
-                    SteeringBehaviours s = u._steering;
+                    SteeringBehaviours s = u.Steering;
                     spriteBatch.DrawLine(u.RenderMid, Camera.VecToScreen(s.centreFeelerEnd), Color.GreenYellow, 1);
                     spriteBatch.DrawLine(u.RenderMid, Camera.VecToScreen(s.leftFeelerEnd), Color.GreenYellow, 1);
                     spriteBatch.DrawLine(u.RenderMid, Camera.VecToScreen(s.rightFeelerEnd), Color.GreenYellow, 1);
@@ -180,11 +241,11 @@ namespace MinecaRTS
             {
                 foreach (Unit u in Units)
                 {
-                    if (u._steering.closestUnpassableCellMid != Vector2.Zero)
+                    if (u.Steering.closestUnpassableCellMid != Vector2.Zero)
                     {
-                        Vector2 wallPushForce = u._steering.wallPushForce;
-                        spriteBatch.DrawLine(Camera.VecToScreen(u._steering.closestUnpassableCellMid), 
-                                                Camera.VecToScreen(u._steering.closestUnpassableCellMid + (wallPushForce * 100)), 
+                        Vector2 wallPushForce = u.Steering.wallPushForce;
+                        spriteBatch.DrawLine(Camera.VecToScreen(u.Steering.closestUnpassableCellMid), 
+                                                Camera.VecToScreen(u.Steering.closestUnpassableCellMid + (wallPushForce * 100)), 
                                                 Color.Red, 
                                                 3);
                     }                    

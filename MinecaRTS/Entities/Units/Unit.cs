@@ -16,10 +16,12 @@ namespace MinecaRTS
     {
         public static float NEIGHBOUR_RADIUS = 21;
 
-        public Dir lastHeading;
-        public Dir heading;
+        protected Dir lastHeading;
+        protected Dir heading;
 
         private Team _team;
+
+        public float Speed { get; set; }
 
         public Team Team
         {
@@ -36,8 +38,19 @@ namespace MinecaRTS
         /// </summary>
         public PathHandler pathHandler;
 
-        public PlayerData _data;
-        public SteeringBehaviours _steering;
+        private PlayerData _data;
+
+        public PlayerData Data
+        {
+            get { return _data; }
+        }
+
+        private SteeringBehaviours _steering;
+
+        public SteeringBehaviours Steering
+        {
+            get { return _steering; }
+        }
 
         public Animation animation;
 
@@ -49,7 +62,7 @@ namespace MinecaRTS
         public Unit(PlayerData data, Team team, Vector2 pos, Vector2 scale) : base(pos, scale)
         {
             Vel = new Vector2();
-            pathHandler = new PathHandler(this, data.world.Grid);
+            pathHandler = new PathHandler(this, data.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
             _team = team;
@@ -69,30 +82,31 @@ namespace MinecaRTS
                 heading = Utils.VectorToDir(Vel);           
 
             Vector2 vel = Vector2.Zero;
-            vel += _steering.Calculate();
+            vel += Steering.Calculate();
 
             if (FollowPath && pathHandler.HasPath)
                 vel += pathHandler.Update();
 
             Vel = vel;
 
-            Vel = Vel.Truncate(3);
+            //Vel = Vel.Truncate(3);
 
-            Pos += Vel * 2;           
+            Pos += Vel * Speed;           
 
             // Zero overlap makes it super jittery.
-            _steering.ZeroOverlapCells();
+            Steering.ZeroOverlapCells();
             //_steering.ZeroOverlapUnits();
         }
 
         public virtual void Stop()
         {
             FollowPath = false;
+            Vel = Vector2.Zero;
         }
         
         public virtual void MoveTowards(Vector2 pos)
         {
-            Cell cellAtPos = _data.world.Grid.CellAt(pos);
+            Cell cellAtPos = Data.Grid.CellAt(pos);
 
             if (cellAtPos.Passable)
             {

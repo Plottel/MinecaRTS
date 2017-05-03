@@ -96,9 +96,9 @@ namespace MinecaRTS
             leftFeelerEnd = _owner.Mid + (Vector2.Normalize(_owner.Vel.Rotate(MathHelper.ToRadians(-45))) * LOOK_AHEAD_DISTANCE);
             rightFeelerEnd = _owner.Mid + (Vector2.Normalize(_owner.Vel.Rotate(MathHelper.ToRadians(45))) * LOOK_AHEAD_DISTANCE);
 
-            HashSet<Cell> cellsInVision = _data.world.Grid.CellsOnLine(_owner.Mid, centreFeelerEnd);
-            cellsInVision.UnionWith(_data.world.Grid.CellsOnLine(_owner.Mid, leftFeelerEnd));
-            cellsInVision.UnionWith(_data.world.Grid.CellsOnLine(_owner.Mid, rightFeelerEnd));
+            HashSet<Cell> cellsInVision = _data.Grid.CellsOnLine(_owner.Mid, centreFeelerEnd);
+            cellsInVision.UnionWith(_data.Grid.CellsOnLine(_owner.Mid, leftFeelerEnd));
+            cellsInVision.UnionWith(_data.Grid.CellsOnLine(_owner.Mid, rightFeelerEnd));
 
             // Find closest unpassable cell
             // TODO: Use distSq - faster.
@@ -167,7 +167,7 @@ namespace MinecaRTS
             float closestDistance = float.MaxValue;
 
             // Find closest unpassable cell
-            foreach (Cell cell in _data.world.Grid.CellsInRect(_owner.CollisionRect))
+            foreach (Cell cell in _data.Grid.CellsInRect(_owner.CollisionRect))
             {
                 if (!cell.Passable)
                 {

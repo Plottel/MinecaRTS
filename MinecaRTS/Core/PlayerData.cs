@@ -15,8 +15,9 @@ namespace MinecaRTS
     /// </summary>
     public class PlayerData
     {
-        // This represents the facade. All queries are done through this and the real world figures it out.
-        public World world;
+        // Bots can't access the world directly. PlayerData defines various wrapper methods for a limited interface with the world.
+        // Therefore bots can use SOME methods of world, but only those which PlayerData defines a wrapper for.
+        private World _world;      
 
         public Building selectedBuilding;
 
@@ -48,9 +49,9 @@ namespace MinecaRTS
             {
                 uint result = 10;
 
-                foreach (Building b in world.Buildings)
+                foreach (Building b in _world.Buildings)
                 {
-                    if (b.isActive)
+                    if (b.IsActive)
                     {
                         IBoostsSupply supplyBooster = b as IBoostsSupply;
 
@@ -75,11 +76,11 @@ namespace MinecaRTS
         {
             get
             {
-                foreach (Unit u in world.SelectedUnits)
+                foreach (Unit u in _world.SelectedUnits)
                 {
                     Worker w = u as Worker;
 
-                    if (w != null)
+                    if (w != null && w.FSM.CurrentState != MoveToConstructBuilding.Instance && w.FSM.CurrentState != ConstructBuilding.Instance)
                         return w;
                 }
 
@@ -89,9 +90,37 @@ namespace MinecaRTS
 
         public PlayerData(World w, Team team)
         {
-            world = w;
+            _world = w;
             _team = team;
         }
+
+        #region World Wrapper Methods
+        public Grid Grid
+        {
+            get { return _world.Grid; }
+        }
+
+        public Resource GetResourceFromCell(Cell cell)
+        {
+            return _world.GetResourceFromCell(cell);
+        }
+
+        public Track GetTrackFromCell(Cell cell)
+        {
+            return _world.GetTrackFromCell(cell);
+        }
+
+        public bool CellHasTrack(Cell cell)
+        {
+            return _world.CellHasTrack(cell);
+        }
+
+        public void AddUnit(Type unitType, Vector2 pos, Team team)
+        {
+            _world.AddUnit(unitType, pos, Team);
+        }
+
+        #endregion World Wrapper Methods
 
         public void GiveResources(uint amount, ResourceType type)
         {
@@ -107,24 +136,24 @@ namespace MinecaRTS
         {
             // TODO: Figure out how to do this with LINQ.
 
-            world.SelectedUnits = new List<Unit>();
+            _world.SelectedUnits = new List<Unit>();
 
-            foreach (Unit u in world.Units)
+            foreach (Unit u in _world.Units)
             {
                 if (selectAt.Intersects(u.CollisionRect))
-                    world.SelectedUnits.Add(u);
+                    _world.SelectedUnits.Add(u);
             }
         }
 
         public void MoveSelectedUnitsTo(Vector2 pos)
         {
-            foreach (Unit u in world.SelectedUnits)
+            foreach (Unit u in _world.SelectedUnits)
                 u.MoveTowards(pos);          
         }
 
         public void OrderSelectedWorkersToGatherClosestResource(ResourceType desiredResource)
         {
-            foreach (Worker w in world.SelectedUnits)
+            foreach (Worker w in _world.SelectedUnits)
             {
                 w.resrcLookingFor = desiredResource;
                 w.returningResourcesTo = null;
@@ -143,7 +172,7 @@ namespace MinecaRTS
 
         public void OrderSelectedUnitsToStop()
         {
-            foreach (Unit u in world.SelectedUnits)
+            foreach (Unit u in _world.SelectedUnits)
                 u.Stop();
         }
 
@@ -151,7 +180,7 @@ namespace MinecaRTS
         {
             var result = new List<Unit>();
 
-            foreach (Unit u in world.Units)
+            foreach (Unit u in _world.Units)
             {
                 if (unit.CollisionRect.Intersects(u.CollisionRect))
                     result.Add(u);
@@ -169,7 +198,7 @@ namespace MinecaRTS
 
             float taggableDistance = (float)Math.Pow(radius + unit.Scale.X / 2, 2);
 
-            foreach (Unit u in world.Units)
+            foreach (Unit u in _world.Units)
             {
                 if (Vector2.DistanceSquared(unit.Mid, u.Mid) < taggableDistance)
                     result.Add(u);
@@ -183,7 +212,7 @@ namespace MinecaRTS
 
         public Building BuildingAtPos(Vector2 pos)
         {
-            foreach (Building b in world.Buildings)
+            foreach (Building b in _world.Buildings)
             {
                 if (b.CollisionRect.Contains(pos))
                     return b;
@@ -196,7 +225,7 @@ namespace MinecaRTS
         {
             selectedBuilding = null;
 
-            foreach (Building b in world.Buildings)
+            foreach (Building b in _world.Buildings)
             {
                 if (rect.Intersects(b.CollisionRect))
                 {
@@ -208,8 +237,15 @@ namespace MinecaRTS
 
         public bool BuyBuilding(Building building)
         {
-            if (world.Grid.RectIsClear(building.CollisionRect))
+            // Can only buy building if area is clear and there are no minecart tracks around
+            foreach (Cell c in _world.Grid.CellsInRect(building.CollisionRect))
             {
+                if (_world.CellHasTrack(c))
+                    return false;
+            }
+
+            if (_world.Grid.RectIsClear(building.CollisionRect))
+            {                
                 Type buildingType = building.GetType();
 
                 if (CanAffordEntityType(buildingType))
@@ -218,7 +254,7 @@ namespace MinecaRTS
 
                     SpendResources(cost.woodCost, cost.stoneCost);
 
-                    world.AddBuilding(building);
+                    _world.AddBuilding(building);
                     return true;
                 }              
             }
@@ -226,7 +262,7 @@ namespace MinecaRTS
             return false;
         }
 
-        public void BuyUnit(Type unitType)
+        public void SpendResourcesForUnitType(Type unitType)
         {
             if (CanAffordEntityType(unitType))
             {
@@ -268,9 +304,9 @@ namespace MinecaRTS
             float closestDistance = float.MaxValue;
             Building closestBuilding = null;
 
-            foreach (Building b in world.Buildings)
+            foreach (Building b in _world.Buildings)
             {
-                if (b.isActive && b as ICanAcceptResources != null)
+                if (b.IsActive && b as ICanAcceptResources != null)
                 {
                     float distance = Vector2.Distance(u.Mid, b.Mid);
 
@@ -287,7 +323,7 @@ namespace MinecaRTS
 
         public void Render(SpriteBatch spriteBatch)
         {
-            foreach (Unit u in world.SelectedUnits)
+            foreach (Unit u in _world.SelectedUnits)
                 spriteBatch.DrawRectangle(u.RenderRect.GetInflated(3, 3), Color.SpringGreen);
 
             if (selectedBuilding != null)
@@ -296,6 +332,32 @@ namespace MinecaRTS
             spriteBatch.DrawString(MinecaRTS.largeFont, "WOOD: " + Wood.ToString(), new Vector2(500, 10), Color.White);
             spriteBatch.DrawString(MinecaRTS.largeFont, "STONE: " + Stone.ToString(), new Vector2(700, 10), Color.White);
             spriteBatch.DrawString(MinecaRTS.largeFont, "SUPPLY: " + _currentSupply.ToString() + "/" + MaxSupply.ToString(), new Vector2(900, 10), Color.White);
+        }
+
+        public void RenderMinimap(SpriteBatch spriteBatch)
+        {
+            float xRatio = 1 + (World.Width / Camera.MINIMAP_SIZE);
+            float yRatio = 1 + (World.Height / Camera.MINIMAP_SIZE);
+
+            spriteBatch.FillRectangle(new Rectangle(Camera.MINIMAP_X, Camera.MINIMAP_Y, Camera.MINIMAP_SIZE, Camera.MINIMAP_SIZE), Color.DarkSlateGray);
+
+            foreach (Building b in _world.Buildings)
+                spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(b.CollisionRect), Color.SpringGreen);
+
+            foreach (Unit u in _world.Units)
+                spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(u.CollisionRect), Color.LawnGreen);
+
+            foreach (Resource r in _world.Resources.Values)
+            {
+                if (r.Type == ResourceType.Wood)
+                    spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.Chocolate);
+                else if (r.Type == ResourceType.Stone)
+                    spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.DimGray);
+            }
+
+            // Draw box representing current view
+            spriteBatch.DrawRectangle(Camera.WorldRectToMinimapRect(Camera.Rect), Color.White);
+
         }
     }
 }

@@ -12,7 +12,6 @@ namespace MinecaRTS
     // Contains a bunch of predefined factory methods.
     public static class GameResources
     {
-
         private static Dictionary<Dir, List<Frame>> CreateFramesForEachDir(int cols, int cellWidth, int cellHeight, uint frameDuration)
         {
             var result = new Dictionary<Dir, List<Frame>>();

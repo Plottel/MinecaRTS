@@ -19,8 +19,8 @@ namespace MinecaRTS
 
         public void AcceptResources(uint woodAmount, uint stoneAmount)
         {
-            _data.GiveResources(woodAmount, ResourceType.Wood);
-            _data.GiveResources(stoneAmount, ResourceType.Stone);
+            Data.GiveResources(woodAmount, ResourceType.Wood);
+            Data.GiveResources(stoneAmount, ResourceType.Stone);
         }
     }
 }

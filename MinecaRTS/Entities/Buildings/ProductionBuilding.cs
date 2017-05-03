@@ -15,11 +15,17 @@ namespace MinecaRTS
         public const int MAX_QUEUE_LENGTH = 5;
         public static Dictionary<Type, uint> productionTimes = new Dictionary<Type, uint>();
 
-        List<Type> _productionTypes;
+        private List<Type> _productionTypes;
         private bool _isProducing;
         private List<Type> _productionQueue;
         private uint _timeSpentProducing;
-        protected PlayerData _data;      
+
+        private PlayerData _data;
+        
+        protected PlayerData Data
+        {
+            get { return _data; }
+        }
 
         private Type BeingProduced
         {
@@ -43,7 +49,7 @@ namespace MinecaRTS
 
         public override void HandleInput(int index)
         {
-            if (isActive)
+            if (IsActive)
             {
                 // Only build if there's room in the queue
                 if (_productionQueue.Count < MAX_QUEUE_LENGTH)
@@ -51,7 +57,7 @@ namespace MinecaRTS
                     // Only build if passed a valid index and player can afford unit
                     if (index < _productionTypes.Count && _data.CanAffordEntityType(_productionTypes[index]))
                     {
-                        _data.BuyUnit(_productionTypes[index]);
+                        _data.SpendResourcesForUnitType(_productionTypes[index]);
                         _isProducing = true;
                         _productionQueue.Add(_productionTypes[index]);
                     }
@@ -61,7 +67,7 @@ namespace MinecaRTS
 
         public override void Update()
         {
-            if (isActive)
+            if (IsActive)
             {
                 base.Update();
 
@@ -71,12 +77,9 @@ namespace MinecaRTS
                     {
                         _timeSpentProducing = 0;
 
-                        // TODO: Could use reflection here but perhaps slower - and run into issues with constructors with parameters.
-                        if (BeingProduced == typeof(Worker))
-                        {
-                            _data.world.AddWorker(new Vector2(Mid.X, CollisionRect.Bottom), _data.Team);
-                            _productionQueue.RemoveAt(0);
-                        }
+                        // TODO: This really should be some sort of message
+                        _data.AddUnit(BeingProduced, new Vector2(Mid.X, CollisionRect.Bottom), _data.Team);
+                        _productionQueue.RemoveAt(0);
 
                         if (_productionQueue.Count == 0)
                             _isProducing = false;

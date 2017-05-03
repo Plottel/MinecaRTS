@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MinecaRTS
 {
-    public class StateMachine<T>
+    public class StateMachine<T> 
     {
         private T _owner;
         private State<T> _currentState;
@@ -45,8 +45,6 @@ namespace MinecaRTS
         {
             if (_currentState != null)
                 _currentState.HandleMessage(_owner, message);
-            else
-                throw new Exception("Message Type: " + message.msg.ToString() + " could not be handled.");
         }
     }
 }

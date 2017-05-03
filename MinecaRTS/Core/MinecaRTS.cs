@@ -17,7 +17,6 @@ namespace MinecaRTS
         public static SpriteFont smallFont;
         public static SpriteFont largeFont;
 
-        public static int num = 5;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public World world;
@@ -36,14 +35,19 @@ namespace MinecaRTS
             new ConstructBuilding();
 
             ProductionBuilding.productionTimes.Add(typeof(Worker), 120);
+            ProductionBuilding.productionTimes.Add(typeof(Minecart), 120);
 
             // Setup Entity costs
             // WOOD, STONE, SUPPLY
             World.entityCosts.Add(typeof(Worker), new Cost(50, 0, 1));
             World.entityCosts.Add(typeof(House), new Cost(100, 0, 0));
             World.entityCosts.Add(typeof(TownHall), new Cost(0, 0, 0));
+            World.entityCosts.Add(typeof(Track), new Cost(0, 0, 0));
+            World.entityCosts.Add(typeof(Minecart), new Cost(0, 0, 0));
 
+            // MUST BE CREATED FIRST TO HAVE ID OF 0.
             world = new World();
+
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1366;
             graphics.PreferredBackBufferHeight = 768;
@@ -84,6 +88,9 @@ namespace MinecaRTS
 
             House.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/house");
             House.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/house_construction");
+
+            Track.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
+            Track.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
 
             Resource.WOOD_TEXTURE = Content.Load<Texture2D>("images/resources/tree");
             Resource.WOOD_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/tree_stump");

@@ -26,11 +26,10 @@ namespace MinecaRTS
         public static AnimationDictionary animFrames = new AnimationDictionary();
         public static Dictionary<WorkerAnimation, Vector2> animOffsets = new Dictionary<WorkerAnimation, Vector2>();
 
-        // TODO: This will eventually be an Interface rather than Building
-        // to accommodate town centres and minecarts together.
         public ICanAcceptResources returningResourcesTo;
         public Cell targetResourceCell;
         public Building constructing;
+
         public ResourceType resrcLookingFor = ResourceType.None;
 
         public WorkerAnimation currentAnim = WorkerAnimation.Walk;
@@ -48,12 +47,13 @@ namespace MinecaRTS
 
         public Resource TargetResource
         {
-            get { return _data.world.GetResourceFromCell(targetResourceCell); }
+            get { return Data.GetResourceFromCell(targetResourceCell); }
         }
 
         public Worker(PlayerData data, Team team, Vector2 pos, Vector2 scale) : base(data, team, pos, scale)
         {
             _fsm = new StateMachine<Worker>(this);
+            Speed = 2;
         }
 
         public void DepositResources()
@@ -83,7 +83,7 @@ namespace MinecaRTS
 
         public override void MoveTowards(Vector2 pos)
         {
-            Building buildingAtPos = _data.BuildingAtPos(pos);
+            Building buildingAtPos = Data.BuildingAtPos(pos);
 
             if (buildingAtPos != null)
                 GoConstructBuilding(buildingAtPos);
@@ -102,7 +102,7 @@ namespace MinecaRTS
             currentAnim = newAnim;
             animation.ChangeScript(animFrames[currentAnim][heading], animOffsets[currentAnim], true, true);
 
-            animation._texture = spriteSheets[newAnim].texture;
+            animation.texture = spriteSheets[newAnim].texture;
         }
 
         public override void HandleMessage(Message message)

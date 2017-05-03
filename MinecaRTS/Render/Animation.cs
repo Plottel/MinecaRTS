@@ -34,7 +34,7 @@ namespace MinecaRTS
 
     public class Animation
     {
-        public Texture2D _texture;
+        public Texture2D texture;
         private List<Frame> _frames;
         private Vector2 _offset;
         private uint _timeOnCurrentFrame;
@@ -43,7 +43,7 @@ namespace MinecaRTS
 
         public Animation(Texture2D texture, List<Frame> frames, Vector2 offset, bool looped)
         {
-            _texture = texture;
+            this.texture = texture;
             _frames = frames;
             _offset = offset;
             _looped = looped;
@@ -82,7 +82,7 @@ namespace MinecaRTS
 
         public void Render(SpriteBatch spriteBatch, Rectangle destinationRect)
         {
-            spriteBatch.Draw(_texture, destinationRect.GetInflated(_offset.X / 2, _offset.Y / 2), CurrentFrame.rect, Color.White);
+            spriteBatch.Draw(texture, destinationRect.GetInflated(_offset.X / 2, _offset.Y / 2), CurrentFrame.rect, Color.White);
         }
     }
 }

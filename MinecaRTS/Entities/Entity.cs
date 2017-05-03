@@ -14,13 +14,8 @@ namespace MinecaRTS
     /// which is auto assigned on object creation.
     /// Entity provides abstract methods for update, render, message handling and locating itself.
     /// </summary>
-    public abstract class Entity : IRenderable
+    public abstract class Entity : IRenderable, IHandleMessages
     {
-        /// <summary>
-        /// The shared unique id counter. Given and incremented on entity object creation.
-        /// </summary>
-        private static ulong _nextUniqueID;
-
         /// <summary>
         /// The entity's unique id.
         /// </summary>
@@ -46,8 +41,8 @@ namespace MinecaRTS
 
         protected Entity(Vector2 pos, Vector2 scale)
         {
-            _id = _nextUniqueID++;
-            EntityRegistry.RegisterEntity(this);
+            _id = MsgHandlerRegistry.NextID;
+            MsgHandlerRegistry.Register(this);
 
             Pos = pos;
             Scale = scale;
@@ -55,7 +50,7 @@ namespace MinecaRTS
 
         ~Entity()
         {
-            EntityRegistry.RemoveEntity(this);
+            MsgHandlerRegistry.RemoveEntity(this);
         }
 
         public Vector2 RenderPos

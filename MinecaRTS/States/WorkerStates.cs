@@ -32,7 +32,7 @@ namespace MinecaRTS
         public override void Enter(Worker owner)
         {
             owner.ChangeAnimation(WorkerAnimation.Walk);
-            owner._steering.separationOn = false;
+            owner.Steering.separationOn = false;
 
             // TODO: This check will be more robust to check if the resource has expired???
             // should just Greedy if already has target resource.
@@ -42,7 +42,7 @@ namespace MinecaRTS
 
         public override void Exit(Worker owner)
         {
-            owner._steering.separationOn = true;
+            owner.Steering.separationOn = true;
         }
 
         public override void Execute(Worker owner)
@@ -85,7 +85,7 @@ namespace MinecaRTS
             else if (owner.resrcHolding == ResourceType.Stone)
                 owner.ChangeAnimation(WorkerAnimation.Bag);
 
-            owner._steering.separationOn = false;
+            owner.Steering.separationOn = false;
 
             // Get path to base
             //TODO: Need to fetch path to location if returning to a minecart
@@ -93,7 +93,7 @@ namespace MinecaRTS
                 owner.pathHandler.GetPathToBuilding(owner.returningResourcesTo as Building);
             else
             {
-                Building closestBuilding = owner._data.GetClosestResourceReturnBuilding(owner);
+                Building closestBuilding = owner.Data.GetClosestResourceReturnBuilding(owner);
                 owner.pathHandler.GetPathToBuilding(closestBuilding);
                 owner.returningResourcesTo = closestBuilding as ICanAcceptResources;
             }
@@ -101,7 +101,7 @@ namespace MinecaRTS
 
         public override void Exit(Worker owner)
         {
-            owner._steering.separationOn = true;
+            owner.Steering.separationOn = true;
             owner.ChangeAnimation(WorkerAnimation.Walk);
         }
 
@@ -164,7 +164,7 @@ namespace MinecaRTS
                 owner.ChangeAnimation(WorkerAnimation.Mine);
 
             owner.TargetResource.AddHarvester(owner);
-            owner._steering.separationOn = false;
+            owner.Steering.separationOn = false;
             owner.timeSpentHarvesting = 0;
             owner.FollowPath = false;
             owner.Vel = Vector2.Zero;
@@ -173,7 +173,7 @@ namespace MinecaRTS
         public override void Exit(Worker owner)
         {
             owner.ChangeAnimation(WorkerAnimation.Walk);
-            owner._steering.separationOn = true;
+            owner.Steering.separationOn = true;
             owner.timeSpentHarvesting = 0;
 
             if (owner.TargetResource != null)
@@ -184,7 +184,7 @@ namespace MinecaRTS
         {
             if (++owner.timeSpentHarvesting >= Resource.HARVEST_DURATION)
             {
-                owner._data.world.HarvestResource(owner, owner.TargetResource);
+                owner.TargetResource.GiveResources(owner);
                 owner.FSM.ChangeState(ReturnResource.Instance);
             }
         }
@@ -274,7 +274,7 @@ namespace MinecaRTS
         {
             owner.constructing.Construct();
 
-            if (owner.constructing.isActive)
+            if (owner.constructing.IsActive)
               owner.ExitState();
         }
 

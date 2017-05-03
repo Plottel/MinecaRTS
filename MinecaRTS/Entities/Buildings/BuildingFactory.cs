@@ -13,13 +13,18 @@ namespace MinecaRTS
         {
             return new TownHall(pos, 
                 new Vector2(127, 127), 
-                new List<Type> { typeof(Worker) }, 
+                new List<Type> { typeof(Worker), typeof(Minecart)}, 
                 data);
         }
 
         public static House CreateHouse(PlayerData data, Vector2 pos)
         {
             return new House(pos, data.Team);
+        }
+
+        public static Track CreateTrack(PlayerData data, Vector2 pos)
+        {
+            return new Track(pos, data.Team);
         }
     }
 }

@@ -8,17 +8,19 @@ namespace MinecaRTS
 {
     public struct Message
     {
-        public Entity sender;
-        public Entity receiver;
-        public MessageType msg;
+        public IHandleMessages sender;
+        public IHandleMessages receiver;
+        public MessageType type;
         public uint delay;
+        public dynamic extraInfo;
 
-        public Message(Entity s, Entity r, MessageType msgType, uint d = 0)
+        public Message(IHandleMessages s, IHandleMessages r, MessageType msgType, dynamic info, uint d = 0)
         {
             sender = s;
             receiver = r;
-            msg = msgType;
+            type = msgType;
             delay = d;
+            extraInfo = info;
         }
     }
 
@@ -26,15 +28,15 @@ namespace MinecaRTS
     {
         private static HashSet<Message> messages = new HashSet<Message>();
 
-        private static void SendMessage(Entity receiver, Message message)
+        private static void SendMessage(IHandleMessages receiver, Message message)
         {
             receiver.HandleMessage(message);
         }
 
-        public static void AddMessage(Entity sender, ulong receiverID, MessageType msg, uint delay = 0)
+        public static void AddMessage(IHandleMessages sender, ulong receiverID, MessageType msg, dynamic info = null, uint delay = 0)
         {
-            Entity receiver = EntityRegistry.GetEntityFromID(receiverID);
-            Message message = new Message(sender, receiver, msg, delay);
+            IHandleMessages receiver = MsgHandlerRegistry.GetMsgHandlerFromID(receiverID);
+            Message message = new Message(sender, receiver, msg, info, delay);
 
             if (delay <= 0)
                 SendMessage(receiver, message);
