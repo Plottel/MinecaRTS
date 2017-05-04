@@ -44,6 +44,7 @@ namespace MinecaRTS
             World.entityCosts.Add(typeof(TownHall), new Cost(0, 0, 0));
             World.entityCosts.Add(typeof(Track), new Cost(0, 0, 0));
             World.entityCosts.Add(typeof(Minecart), new Cost(0, 0, 0));
+            World.entityCosts.Add(typeof(DepositBox), new Cost(0, 0, 0));
 
             // MUST BE CREATED FIRST TO HAVE ID OF 0.
             world = new World();
@@ -91,6 +92,9 @@ namespace MinecaRTS
 
             Track.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
             Track.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
+
+            DepositBox.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box");
+            DepositBox.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box");
 
             Resource.WOOD_TEXTURE = Content.Load<Texture2D>("images/resources/tree");
             Resource.WOOD_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/tree_stump");

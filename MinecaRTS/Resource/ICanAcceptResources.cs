@@ -15,6 +15,5 @@ namespace MinecaRTS
         }
 
         void AcceptResources(uint woodAmount, uint stoneAmount);
-
     }
 }

@@ -89,7 +89,7 @@ namespace MinecaRTS
 
             Vel = vel;
 
-            //Vel = Vel.Truncate(3);
+            //Vel = Vel.Truncate(0.5f);
 
             Pos += Vel * Speed;           
 

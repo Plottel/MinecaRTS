@@ -120,6 +120,9 @@ namespace MinecaRTS
 
                 if (Input.KeyTyped(Keys.T))
                     _buildingToPlace = BuildingFactory.CreateTrack(_data, Vector2.Zero);
+
+                if (Input.KeyTyped(Keys.D))
+                    _buildingToPlace = BuildingFactory.CreateDepositBox(_data, Vector2.Zero);
             }
 
             // C for cancel - stop placing building mode
@@ -143,6 +146,7 @@ namespace MinecaRTS
 
             if (Input.KeyTyped(Keys.W))
                 _data.HandleSelectedBuildingInputAtIndex(1);
+
         }
 
         public void Render(SpriteBatch spriteBatch)
@@ -170,6 +174,7 @@ namespace MinecaRTS
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(H) House", buildingPos, Color.White);
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(P) Production", new Vector2(buildingPos.X, buildingPos.Y + 10), Color.White);
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(T) Track", new Vector2(buildingPos.X, buildingPos.Y + 20), Color.White);
+                spriteBatch.DrawString(MinecaRTS.smallFont, "(D) Deposit Box", new Vector2(buildingPos.X, buildingPos.Y + 30), Color.White);
             }
         }
     }

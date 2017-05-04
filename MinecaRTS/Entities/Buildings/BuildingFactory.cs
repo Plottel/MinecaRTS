@@ -26,5 +26,10 @@ namespace MinecaRTS
         {
             return new Track(pos, data.Team);
         }
+
+        public static DepositBox CreateDepositBox(PlayerData data, Vector2 pos)
+        {
+            return new DepositBox(pos, data.Team);
+        }
     }
 }
