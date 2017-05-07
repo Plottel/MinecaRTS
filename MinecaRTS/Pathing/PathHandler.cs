@@ -126,11 +126,10 @@ namespace MinecaRTS
             {
                 foreach (Cell c in cellsBuildingIsTouching)
                     c.Passable = true;
-            }
-            
+            }            
 
             // Get the path
-            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, ConsiderationCondition, TerminationCondition, GreedyScoreMethod, true);
+            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
             _pathIndex = 0;
 
             if (_path.Count > 0)
@@ -141,19 +140,72 @@ namespace MinecaRTS
             {
                 foreach (Cell c in cellsBuildingIsTouching)
                     c.Passable = false;
-            }            
-
-            // Consideration condition for getting a path to a building.
-            bool ConsiderationCondition(Cell cell)
-            {
-                return cell.Passable;
             }
+        }
 
-            // Termination condition for getting a path to a building
-            bool TerminationCondition(Cell current, Cell target)
+        /// <summary>
+        /// Used by minecarts to check if there's a track near them. This path is then concatenated with the path to the destination.
+        /// </summary>
+        /// <returns></returns>
+        private List<Cell> GetPathToNearbyTrack()
+        {
+            var sourceCell = _grid.CellAt(_owner.Mid);
+
+            return Pathfinder.SearchDijkstra(_grid, sourceCell, _owner, GreedyConsiderationCondition, TerminationConditionFindTrack, smoothed:true, depthLimit:100);
+        }
+
+        public void GetPathToBuildingFollowingTracks(Building building)
+        {
+            Cell sourceCell;
+            Cell targetCell = _grid.CellAt(building.Mid);
+
+            _path = GetPathToNearbyTrack();
+
+            if (_path.Count > 0)
+                sourceCell = _path.Last();
+            else
+                sourceCell = _grid.CellAt(_owner.Mid);
+
+            bool changeCells = !(building is Track);
+            var cellsBuildingIsTouching = _grid.CellsInRect(building.CollisionRect);
+
+            // Temporarily make Building cells passable.
+            if (changeCells)
             {
-                return current == target;
+                foreach (Cell c in cellsBuildingIsTouching)
+                    c.Passable = true;
             }
+            
+
+            // Get the path
+            _path.AddRange(Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
+            _pathIndex = 0;
+
+            if (_path.Count > 0)
+                _owner.FollowPath = true;
+
+            // Revert Building cells to !Passable
+            if (changeCells)
+            {
+                foreach (Cell c in cellsBuildingIsTouching)
+                    c.Passable = false;
+            }
+        }
+
+        public void GetPathToResource(Resource resource)
+        {
+            var sourceCell = _grid.CellAt(_owner.Mid);
+            var targetCell = _grid.CellAt(resource.Mid);
+
+            targetCell.Passable = true;
+
+            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+            _pathIndex = 0;
+
+            if (_path.Count > 0)
+                _owner.FollowPath = true;
+
+            targetCell.Passable = false;
         }
 
         public void GetPathToClosestUnsaturatedResource(ResourceType resourceType)
@@ -170,59 +222,7 @@ namespace MinecaRTS
             _pathIndex = 0;
 
             if (_path.Count > 0)
-                _owner.FollowPath = true;
-
-            bool ConsiderationConditionWood(Cell cell)
-            {
-                if (cell.Passable)
-                    return true;
-
-                Resource resource = _owner.Data.GetResourceFromCell(cell);
-
-                if (resource == null)
-                    return false;
-
-                // Valid if resource is the correct type and not saturated.
-                return resource.Type == ResourceType.Wood && !resource.IsSaturated;
-            }
-
-            bool ConsiderationConditionStone(Cell cell)
-            {
-                if (cell.Passable)
-                    return true;
-
-                Resource resource = _owner.Data.GetResourceFromCell(cell);
-
-                if (resource == null)
-                    return false;
-
-                // Valid if resource is the correct type and not saturated.
-                return resource.Type == ResourceType.Stone && !resource.IsSaturated;
-            }
-
-            bool TerminationConditionWood(Cell current)
-            {
-                Resource resource = _owner.Data.GetResourceFromCell(current);
-
-                if (resource == null)
-                    return false;
-                else if (resource.Type != ResourceType.Wood)
-                    return false;
-
-                return !resource.IsSaturated;
-            }
-
-            bool TerminationConditionStone(Cell current)
-            {
-                Resource resource = _owner.Data.GetResourceFromCell(current);
-
-                if (resource == null)
-                    return false;
-                else if (resource.Type != ResourceType.Stone)
-                    return false;
-
-                return !resource.IsSaturated;
-            }
+                _owner.FollowPath = true;            
         }
 
         /// <summary>
@@ -240,47 +240,25 @@ namespace MinecaRTS
 
             if (_path.Count > 0)
                 _owner.FollowPath = true;           
-        }
-
-        // Consideration condition for a standard path.
-        bool GreedyConsiderationCondition(Cell cell)
-        {
-            return cell.Passable;
-        }
-
-        // Termination condition for a standard path.
-        bool GreedyTerminationCondition(Cell current, Cell target)
-        {
-            return current == target;
-        }
-
-        float GreedyScoreMethod(Cell cell, Cell Target)
-        {
-            return Vector2.Distance(cell.Mid, Target.Mid);
-        }
+        }        
 
         public void GetPathToPosFollowingTracks(Vector2 targetPos)
         {
-            var sourceCell = _grid.CellAt(_owner.Mid);
-            var targetCell = _grid.CellAt(targetPos);
+            Cell sourceCell;
+            Cell targetCell = _grid.CellAt(targetPos);
 
-            _path = Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false);
+            _path = GetPathToNearbyTrack();
+
+            if (_path.Count > 0)
+                sourceCell = _path.Last();
+            else
+                sourceCell = _grid.CellAt(_owner.Mid);
+
+            _path.AddRange(Pathfinder.SearchGreedy(_grid, sourceCell, targetCell, _owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
             _pathIndex = 0;
 
             if (_path.Count > 0)
-                _owner.FollowPath = true;
-
-            float TrackScoreMethod(Cell cell, Cell Target)
-            {
-                float score = GreedyScoreMethod(cell, Target);
-
-                Track t = _owner.Data.GetTrackFromCell(cell);
-
-                if (t == null || !t.IsActive)
-                    score *= 5;
-
-                return score;
-            }
+                _owner.FollowPath = true;            
         }
 
         public void RenderPath(SpriteBatch spriteBatch)
@@ -299,5 +277,93 @@ namespace MinecaRTS
                 spriteBatch.DrawPoint(_path[_path.Count - 1].RenderMid, Color.Blue, 10);
             }
         }
+
+        #region Search Conditions
+        float TrackScoreMethod(Cell cell, Cell Target)
+        {
+            float score = GreedyScoreMethod(cell, Target);
+
+            Track t = _owner.Data.GetTrackFromCell(cell);
+
+            if (t == null || !t.IsActive)
+                score *= 5;
+
+            return score;
+        }
+
+        bool ConsiderationConditionWood(Cell cell)
+        {
+            if (cell.Passable)
+                return true;
+
+            Resource resource = _owner.Data.GetResourceFromCell(cell);
+
+            if (resource == null)
+                return false;
+
+            // Valid if resource is the correct type and not saturated.
+            return resource.Type == ResourceType.Wood && !resource.IsSaturated;
+        }
+
+        bool ConsiderationConditionStone(Cell cell)
+        {
+            if (cell.Passable)
+                return true;
+
+            Resource resource = _owner.Data.GetResourceFromCell(cell);
+
+            if (resource == null)
+                return false;
+
+            // Valid if resource is the correct type and not saturated.
+            return resource.Type == ResourceType.Stone && !resource.IsSaturated;
+        }
+
+        bool TerminationConditionWood(Cell current)
+        {
+            Resource resource = _owner.Data.GetResourceFromCell(current);
+
+            if (resource == null)
+                return false;
+            else if (resource.Type != ResourceType.Wood)
+                return false;
+
+            return !resource.IsSaturated;
+        }
+
+        bool TerminationConditionStone(Cell current)
+        {
+            Resource resource = _owner.Data.GetResourceFromCell(current);
+
+            if (resource == null)
+                return false;
+            else if (resource.Type != ResourceType.Stone)
+                return false;
+
+            return !resource.IsSaturated;
+        }
+
+        bool TerminationConditionFindTrack(Cell current)
+        {
+            return _owner.Data.CellHasTrack(current);
+        }
+
+        // Consideration condition for a standard path.
+        bool GreedyConsiderationCondition(Cell cell)
+        {
+            return cell.Passable;
+        }
+
+        // Termination condition for a standard path.
+        bool GreedyTerminationCondition(Cell current, Cell target)
+        {
+            return current == target;
+        }
+
+        float GreedyScoreMethod(Cell cell, Cell Target)
+        {
+            return Vector2.Distance(cell.Mid, Target.Mid);
+        }
+        #endregion Search Conditions
     }
 }

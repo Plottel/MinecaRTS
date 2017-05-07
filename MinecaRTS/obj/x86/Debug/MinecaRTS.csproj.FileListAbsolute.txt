@@ -39,4 +39,6 @@ C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\b
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\resources\tree.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\resources\tree_stump.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\track.xnb
-C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\deposit_box.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\minecart\minecart_empty.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\minecart\minecart_half_wood.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\deposit_box_empty.xnb

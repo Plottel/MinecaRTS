@@ -41,9 +41,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button.cs" />
     <Compile Include="Entities\Buildings\DepositBox.cs" />
     <Compile Include="Messaging\IHandleMessages.cs" />
     <Compile Include="Entities\Units\Minecart.cs" />
+    <Compile Include="Panel.cs" />
+    <Compile Include="SearchConditions.cs" />
+    <Compile Include="States\MinecartStates.cs" />
     <Compile Include="Render\Animation.cs" />
     <Compile Include="Entities\Buildings\BuildingFactory.cs" />
     <Compile Include="Resource\Cost.cs" />

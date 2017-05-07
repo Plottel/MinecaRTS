@@ -19,6 +19,8 @@
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/resources/tree.png</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/resources/tree_stump.png</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/track.png</File>
-    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/deposit_box.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/minecart/minecart_empty.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/minecart/minecart_half_wood.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/deposit_box_empty.png</File>
   </SourceFiles>
 </SourceFileCollection>

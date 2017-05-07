@@ -36,7 +36,11 @@ namespace MinecaRTS
 
             // TODO: This check will be more robust to check if the resource has expired???
             // should just Greedy if already has target resource.
-            owner.pathHandler.GetPathToClosestUnsaturatedResource(owner.resrcLookingFor);
+            if (owner.TargetResource == null)
+                owner.pathHandler.GetPathToClosestUnsaturatedResource(owner.resrcLookingFor);
+            else
+                owner.pathHandler.GetPathToResource(owner.TargetResource);
+
             owner.targetResourceCell = owner.pathHandler._path.Last();
         }
 
@@ -93,7 +97,7 @@ namespace MinecaRTS
                 owner.pathHandler.GetPathToBuilding(owner.returningResourcesTo as Building);
             else
             {
-                Building closestBuilding = owner.Data.GetClosestResourceReturnBuilding(owner);
+                Building closestBuilding = owner.Data.GetClosestResourceReturnPoint(owner);
                 owner.pathHandler.GetPathToBuilding(closestBuilding);
                 owner.returningResourcesTo = closestBuilding as ICanAcceptResources;
             }

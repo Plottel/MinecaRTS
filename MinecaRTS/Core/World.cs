@@ -114,11 +114,11 @@ namespace MinecaRTS
                 r.Render(spriteBatch);
 
             _playerOneData.Render(spriteBatch);
-            _playerOneData.RenderMinimap(spriteBatch);
+            _playerOneData.RenderUI(spriteBatch);
             _playerOne.Render(spriteBatch);
         }
 
-        public void AddUnit(Type unitType, Vector2 pos, Team team)
+        public void AddUnit(Type unitType, Vector2 pos, Team team, Vector2 rallyPoint)
         {
             Unit u = null;
 
@@ -126,6 +126,8 @@ namespace MinecaRTS
                 u = new Worker(_playerOneData, team, pos, new Vector2(26, 35));
             else if (unitType == typeof(Minecart))
                 u = new Minecart(_playerOneData, team, pos, new Vector2(40, 40));
+
+            u.MoveTowards(rallyPoint);
 
              Units.Add(u);
             _renderables.Add(u);

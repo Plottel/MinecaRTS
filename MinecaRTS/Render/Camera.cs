@@ -13,16 +13,16 @@ namespace MinecaRTS
         public static int WIDTH;
         public static int HEIGHT;
 
-        public const int MINIMAP_SIZE = 300;
+        public const int MINIMAP_SIZE = 250;
 
         public static int MINIMAP_X
         {
-            get { return WIDTH - MINIMAP_SIZE - 100; }
+            get { return 0; }
         }
 
         public static int MINIMAP_Y
         {
-            get { return HEIGHT - MINIMAP_SIZE - 100; }
+            get { return HEIGHT - MINIMAP_SIZE; }
         }
 
         public static int X
@@ -58,6 +58,11 @@ namespace MinecaRTS
         public static Rectangle Rect
         {
             get { return new Rectangle(X, Y, WIDTH, HEIGHT); }
+        }
+
+        public static Rectangle MinimapRect
+        {
+            get { return new Rectangle(MINIMAP_X, MINIMAP_Y, MINIMAP_SIZE, MINIMAP_SIZE); } 
         }
 
         public static void MoveBy(int x, int y)

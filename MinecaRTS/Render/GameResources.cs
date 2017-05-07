@@ -46,6 +46,17 @@ namespace MinecaRTS
             return result;
         }
 
+        public static void CreateMinecartEmptyAnimation()
+        {
+            uint frameDuration = uint.MaxValue;
+
+            SpriteSheet emptySS = Minecart.emptySS;
+
+            // All directions are complete, add to master animation list.
+            Minecart.emptyAnimFrames = CreateFramesForEachDir(emptySS.cols, emptySS.cellWidth, emptySS.cellHeight, frameDuration);           
+           
+        }
+
         public static void CreateWorkerWalkAnimation()
         {
             Worker.animOffsets.Add(WorkerAnimation.Walk, new Vector2(0, 0));
@@ -143,6 +154,18 @@ namespace MinecaRTS
 
             // All directions are comlpete, add to master animation list
             Worker.animFrames.Add(WorkerAnimation.Bag, animations);
+        }
+
+        public static SpriteSheet LoadSpriteSheet(MinecaRTS game, string filename, int cols, int rows)
+        {
+            SpriteSheet toAdd;
+            toAdd.texture = game.Content.Load<Texture2D>(filename);
+            toAdd.cols = cols;
+            toAdd.rows = rows;
+            toAdd.cellWidth = toAdd.texture.Width / cols;
+            toAdd.cellHeight = toAdd.texture.Height / rows;
+
+            return toAdd;
         }
     }
 }

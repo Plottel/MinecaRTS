@@ -26,6 +26,11 @@ namespace MinecaRTS
             return inflated;
         }
 
+        public static Vector2 TopLeft(this Rectangle rectangle)
+        {
+            return new Vector2(rectangle.Left, rectangle.Top);
+        }
+
         public static int Col (this Point pt)
         {
             return pt.X;

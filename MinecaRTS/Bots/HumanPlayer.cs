@@ -15,6 +15,7 @@ namespace MinecaRTS
         private PlayerData _data;
 
         private bool _isBoxing = false;
+        private bool _isSettingRallyPoint = false;
         private Point _boxStart = Point.Zero;
         private Rectangle _box = Rectangle.Empty;
 
@@ -53,21 +54,80 @@ namespace MinecaRTS
             
             if (Input.LeftMouseClicked())
             {
-                if (_isBoxing)
+                Button clickedOn = _data.ButtonAtPos(Input.MousePos);
+
+                if (clickedOn != null)
+                {
+                    switch (clickedOn.Name)
+                    {
+                        case "Town Hall":
+                            _isPlacingBuilding = true;
+                            _buildingToPlace = BuildingFactory.CreateTownHall(_data, Vector2.Zero);
+                            break;
+
+                        case "House":
+                            _isPlacingBuilding = true;
+                            _buildingToPlace = BuildingFactory.CreateHouse(_data, Vector2.Zero);
+                            break;
+
+                        case "Deposit Box":
+                            _isPlacingBuilding = true;
+                            _buildingToPlace = BuildingFactory.CreateDepositBox(_data, Vector2.Zero);
+                            break;
+
+                        case "Track":
+                            _isPlacingBuilding = true;
+                            _buildingToPlace = BuildingFactory.CreateTrack(_data, Vector2.Zero);
+                            break;
+
+                        case "Stop":
+                            _data.OrderSelectedUnitsToStop();
+                            break;
+
+                        case "Gather Wood":
+                            _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Wood);
+                            break;
+
+                        case "Gather Stone":
+                            _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);
+                            break;
+
+                        case "Build 0":
+                            _data.QueueUpProductionOnSelectedBuildingAtIndex(0);
+                            break;
+
+                        case "Build 1":
+                            _data.QueueUpProductionOnSelectedBuildingAtIndex(1);
+                            break;
+
+                        case "Rally Point":
+                            _isSettingRallyPoint = true;
+                            break;
+                    }
+                }                
+
+                if (_isBoxing && !_data.ClickedOnUI())
                 {
                     _data.SelectFirstBuildingInRect(Camera.RectToWorld(_box));
-                    _data.SelectUnitsInRect(Camera.RectToWorld(_box));
-                    _isBoxing = false;
-                    _box = Rectangle.Empty;
+                    _data.SelectUnitsInRect(Camera.RectToWorld(_box));                    
                 }
+
+                _isBoxing = false;
+                _box = Rectangle.Empty;
             }
 
             // TODO: This event will get messy with priorities. (Boxing, placing building, issuing attack etc. etc.)
             // most likely need a State Machine here.
             if (Input.LeftMouseDown())
             {
+                if (_isSettingRallyPoint && !_data.ClickedOnUI())
+                {
+                    _data.SetSelectedBuildingRallyPointTo(Camera.VecToWorld(Input.MousePos));
+                    _isSettingRallyPoint = false;
+                }
+
                 // Handle building placement
-                if (_isPlacingBuilding)
+                if (_isPlacingBuilding && !_data.ClickedOnUI())
                 {
                     // Don't take away building blueprint unless a valid selection was made.
                     if (_data.BuyBuilding(_buildingToPlace))
@@ -110,6 +170,12 @@ namespace MinecaRTS
                 _buildingToPlace = BuildingFactory.CreateTownHall(_data, Vector2.Zero);
             }
 
+            if (Input.KeyTyped(Keys.R))
+            {
+                if (_data.selectedBuilding as ProductionBuilding != null)
+                    _isSettingRallyPoint = true;
+            }
+
             if (_isPlacingBuilding)
             {
                 if (Input.KeyTyped(Keys.H))
@@ -142,10 +208,10 @@ namespace MinecaRTS
                 _data.OrderSelectedUnitsToStop();
 
             if (Input.KeyTyped(Keys.Q))
-                _data.HandleSelectedBuildingInputAtIndex(0);
+                _data.QueueUpProductionOnSelectedBuildingAtIndex(0);
 
             if (Input.KeyTyped(Keys.W))
-                _data.HandleSelectedBuildingInputAtIndex(1);
+                _data.QueueUpProductionOnSelectedBuildingAtIndex(1);
 
         }
 

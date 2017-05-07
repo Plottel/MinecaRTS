@@ -82,7 +82,7 @@ namespace MinecaRTS
             spriteBatch.FillRectangle(rect, Color.MediumTurquoise);
         }
 
-        public virtual void HandleInput(int index)
+        public virtual void QueueUpProductionAtIndex(int index)
         { }
 
         public override void HandleMessage(Message message)

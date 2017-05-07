@@ -20,6 +20,13 @@ namespace MinecaRTS
         private List<Type> _productionQueue;
         private uint _timeSpentProducing;
 
+        public List<Type> ProductionTypes
+        {
+            get { return _productionTypes; }
+        }
+
+        public Vector2 rallyPoint;
+
         private PlayerData _data;
         
         protected PlayerData Data
@@ -45,9 +52,15 @@ namespace MinecaRTS
             _productionQueue = new List<Type>();
             _timeSpentProducing = 0;
             _data = data;
+            rallyPoint = new Vector2(pos.X + (scale.X / 2), pos.Y + scale.Y);
         }
 
-        public override void HandleInput(int index)
+        public void ResetRallyPoint()
+        {
+            rallyPoint = new Vector2(Mid.X, CollisionRect.Bottom);
+        }
+
+        public override void QueueUpProductionAtIndex(int index)
         {
             if (IsActive)
             {
@@ -78,7 +91,7 @@ namespace MinecaRTS
                         _timeSpentProducing = 0;
 
                         // TODO: This really should be some sort of message
-                        _data.AddUnit(BeingProduced, new Vector2(Mid.X, CollisionRect.Bottom), _data.Team);
+                        _data.AddUnit(BeingProduced, new Vector2(Mid.X, CollisionRect.Bottom), _data.Team, rallyPoint);
                         _productionQueue.RemoveAt(0);
 
                         if (_productionQueue.Count == 0)

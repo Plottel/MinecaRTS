@@ -27,12 +27,16 @@ namespace MinecaRTS
         {
             Instance = this;            
 
-            // Setup all the state singletons.
+            // Setup all the Worker state singletons.
             new MoveToResource();
             new HarvestResource();
             new ReturnResource();
             new MoveToConstructBuilding();
             new ConstructBuilding();
+
+            // Setup all the Minecart state singletons.
+            new MoveToDepositBox();
+            new ReturnToTownHall();
 
             ProductionBuilding.productionTimes.Add(typeof(Worker), 120);
             ProductionBuilding.productionTimes.Add(typeof(Minecart), 120);
@@ -46,6 +50,9 @@ namespace MinecaRTS
             World.entityCosts.Add(typeof(Minecart), new Cost(0, 0, 0));
             World.entityCosts.Add(typeof(DepositBox), new Cost(0, 0, 0));
 
+            Camera.WIDTH = 1366;
+            Camera.HEIGHT = 768;
+
             // MUST BE CREATED FIRST TO HAVE ID OF 0.
             world = new World();
 
@@ -53,8 +60,7 @@ namespace MinecaRTS
             graphics.PreferredBackBufferWidth = 1366;
             graphics.PreferredBackBufferHeight = 768;
 
-            Camera.WIDTH = 1366;
-            Camera.HEIGHT = 768;
+            
 
             Input.SetMaxMouseX(graphics.PreferredBackBufferWidth);
             Input.SetMaxMouseY(graphics.PreferredBackBufferHeight);
@@ -93,17 +99,22 @@ namespace MinecaRTS
             Track.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
             Track.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
 
-            DepositBox.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box");
-            DepositBox.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box");
+            DepositBox.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box_empty");
+            DepositBox.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box_empty");
 
             Resource.WOOD_TEXTURE = Content.Load<Texture2D>("images/resources/tree");
             Resource.WOOD_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/tree_stump");
 
-            Worker.LoadSpriteSheet(this, "worker_walk", WorkerAnimation.Walk, 7, 8);
-            Worker.LoadSpriteSheet(this, "worker_chop", WorkerAnimation.Chop, 5, 8);
-            Worker.LoadSpriteSheet(this, "worker_logs", WorkerAnimation.Logs, 7, 8);
-            Worker.LoadSpriteSheet(this, "worker_mine", WorkerAnimation.Mine, 5, 8);
-            Worker.LoadSpriteSheet(this, "worker_bag", WorkerAnimation.Bag, 7, 8);
+            Minecart.emptySS = GameResources.LoadSpriteSheet(this, "images/minecart/minecart_empty", 1, 8);
+
+            GameResources.CreateMinecartEmptyAnimation();
+
+
+            Worker.spriteSheets.Add(WorkerAnimation.Walk, GameResources.LoadSpriteSheet(this, "images/worker/worker_walk", 7, 8));
+            Worker.spriteSheets.Add(WorkerAnimation.Chop, GameResources.LoadSpriteSheet(this, "images/worker/worker_chop", 5, 8));
+            Worker.spriteSheets.Add(WorkerAnimation.Logs, GameResources.LoadSpriteSheet(this, "images/worker/worker_logs", 7, 8));
+            Worker.spriteSheets.Add(WorkerAnimation.Mine, GameResources.LoadSpriteSheet(this, "images/worker/worker_mine", 5, 8));
+            Worker.spriteSheets.Add(WorkerAnimation.Bag, GameResources.LoadSpriteSheet(this, "images/worker/worker_bag", 7, 8));
 
             GameResources.CreateWorkerWalkAnimation();
             GameResources.CreateWorkerChopAnimation();

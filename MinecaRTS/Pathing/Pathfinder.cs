@@ -66,17 +66,23 @@ namespace MinecaRTS
                                                 Unit unit, 
                                                 Func<Cell, bool> considerationCondition, 
                                                 Func<Cell, bool> terminationCondition, 
-                                                bool smoothed = false)
+                                                bool smoothed = false, 
+                                                uint depthLimit = uint.MaxValue)
         {
             // Initialize relevant search details and add first node to closed list.
             Setup(grid, source);
             Target = null;
 
+            uint searchDepth = 0;
             bool searchComplete = false;
 
             // Until we are considering a node with the desired resource that is not overcrowded.
             while (!searchComplete)
             {
+                // If we've reached maximum depth, end the search
+                if (++searchDepth > depthLimit)
+                    break;
+
                 #region /--- RESOURCE PATH CALC DEBUG ---\
                 if (Debug.OptionActive(DebugOption.CalcPath))
                 {
@@ -155,14 +161,22 @@ namespace MinecaRTS
                     GetNextCurrentCell();
             }
 
-            // Target has been found. Retrace our steps to find path.
-            var path = RetracePath();
+            if (searchComplete)
+            {
+                // Target has been found. Retrace our steps to find path.
+                var path = RetracePath();
 
-            // Don't smooth super short paths.
-            if (smoothed && path.Count > 2)
-                path = SmoothPath(unit, path);
+                // Don't smooth super short paths.
+                if (smoothed && path.Count > 2)
+                    path = SmoothPath(unit, path);
 
-            return path;
+                return path;
+            }
+            else
+            {
+                // We reached depth limit before target was found, return empty list;
+                return new List<Cell>();
+            }
         }           
 
         public static List<Cell> SearchGreedy(Grid grid, 

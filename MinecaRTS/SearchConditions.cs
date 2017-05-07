@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace MinecaRTS
 {
-    public enum MessageType
+    class Terminat
     {
-        ResourceDepleted = 1,
-        GiveMeResources = 2
     }
 }

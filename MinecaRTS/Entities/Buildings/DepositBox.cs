@@ -27,7 +27,7 @@ namespace MinecaRTS
             get { return _stone; }
         }
 
-        public DepositBox(Vector2 pos, Team team) : base(pos, new Vector2(31, 31), team, MAX_HEALTH, ACTIVE_TEXTURE, CONSTRUCTION_TEXTURE)
+        public DepositBox(Vector2 pos, Team team) : base(pos, new Vector2(63, 51), team, MAX_HEALTH, ACTIVE_TEXTURE, CONSTRUCTION_TEXTURE)
         {
         }
 
@@ -35,6 +35,20 @@ namespace MinecaRTS
         {
             _wood += woodAmount;
             _stone += stoneAmount;
+        }
+
+        public override void HandleMessage(Message message)
+        {
+            switch (message.type)
+            {
+                case MessageType.GiveMeResources:
+                    Minecart givingResourcesTo = message.sender as Minecart;
+                    givingResourcesTo.AcceptResources(_wood, _stone);
+                    _wood = 0;
+                    _stone = 0;
+                    break;
+                    
+            }
         }
     }
 }

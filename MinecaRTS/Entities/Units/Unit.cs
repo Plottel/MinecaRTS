@@ -65,8 +65,7 @@ namespace MinecaRTS
             pathHandler = new PathHandler(this, data.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
-            _team = team;
-            animation = new Animation(Worker.spriteSheets[WorkerAnimation.Walk].texture, Worker.animFrames[WorkerAnimation.Walk][Dir.S], Worker.animOffsets[WorkerAnimation.Walk], true);
+            _team = team;            
             heading = Dir.S;
             lastHeading = Dir.S;
         }              

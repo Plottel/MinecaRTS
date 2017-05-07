@@ -54,6 +54,7 @@ namespace MinecaRTS
         {
             _fsm = new StateMachine<Worker>(this);
             Speed = 2;
+            animation = new Animation(spriteSheets[WorkerAnimation.Walk].texture, animFrames[WorkerAnimation.Walk][Dir.S], animOffsets[WorkerAnimation.Walk], true);
         }
 
         public void DepositResources()
@@ -87,8 +88,24 @@ namespace MinecaRTS
 
             if (buildingAtPos != null)
                 GoConstructBuilding(buildingAtPos);
-            else
-                base.MoveTowards(pos);
+            else             
+            {
+                Cell cell = Data.Grid.CellAt(pos);
+                Resource resource = Data.GetResourceFromCell(cell);
+                
+                if (resource != null)
+                {
+                    targetResourceCell = cell;
+                    resrcLookingFor = resource.Type;
+
+                    FSM.ChangeState(MoveToResource.Instance);
+                }
+                else
+                {
+                    base.MoveTowards(pos);
+                }                    
+            }
+                
         }
 
         public void GoConstructBuilding(Building building)
@@ -119,23 +136,8 @@ namespace MinecaRTS
         {
             base.RenderDebug(spriteBatch);
 
-            if (targetResourceCell != null)
-                spriteBatch.FillRectangle(targetResourceCell.RenderRect, Color.GreenYellow);
-
             if (FSM.CurrentState != null)
                 spriteBatch.DrawString(Debug.debugFont, FSM.CurrentState.GetType().Name, RenderMid - Scale / 2, Color.Black);
-        }
-
-        public static void LoadSpriteSheet(MinecaRTS game, string name, WorkerAnimation anim, int cols, int rows)
-        {
-            SpriteSheet toAdd;
-            toAdd.texture = game.Content.Load<Texture2D>("images/worker/" + name);
-            toAdd.cols = cols;
-            toAdd.rows = rows;
-            toAdd.cellWidth = toAdd.texture.Width / cols;
-            toAdd.cellHeight = toAdd.texture.Height / rows;
-
-            spriteSheets.Add(anim, toAdd);
-        }
+        }       
     }
 }

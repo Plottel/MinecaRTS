@@ -29,10 +29,10 @@ namespace MinecaRTS
                 world.Grid.AddRows(1);
 
             if (Input.KeyDown(Keys.U))
-                world.AddUnit(typeof(Worker), Camera.VecToWorld(Input.MousePos), Team.One);
+                world.AddUnit(typeof(Worker), Camera.VecToWorld(Input.MousePos), Team.One, Camera.VecToWorld(Input.MousePos));
 
             if (Input.KeyTyped(Keys.M))
-                world.AddUnit(typeof(Minecart), Camera.VecToWorld(Input.MousePos), Team.One);
+                world.AddUnit(typeof(Minecart), Camera.VecToWorld(Input.MousePos), Team.One, Camera.VecToWorld(Input.MousePos));
 
             // Make the cell a tree (get wood)
             if (Input.KeyDown(Keys.W))
