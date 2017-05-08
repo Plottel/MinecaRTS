@@ -213,8 +213,7 @@ namespace MinecaRTS
             {
                 //u.MoveTowards(new Vector2(pos.X + (rand.NextSingle(-1, 1) * groupRadius), pos.Y + (rand.NextSingle(-1, 1) * groupRadius)));
                 u.MoveTowards(pos);
-            }
-                          
+            }                          
         }
 
         public void OrderSelectedWorkersToGatherClosestResource(ResourceType desiredResource)

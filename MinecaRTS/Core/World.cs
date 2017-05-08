@@ -132,13 +132,41 @@ namespace MinecaRTS
                 b.Update();
         }
 
+        public bool TeamCanSeeCell(int c, int r, Team team)
+        {
+            for (int col = c - 1; col <= c + 1; col++)
+            {
+                for (int row = r - 1; row <= r + 1; row++)
+                {
+                    foreach (Unit u in GetUnitsInCollisionCellFromIndex(col, row))
+                    {
+                        if (u.Team == team)
+                            return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public void Render(SpriteBatch spriteBatch)
         {
-            Debug.HookText("Number of Units In Game: " + Units.Count.ToString());
             // TODO: Only render what's on the screen.
             Grid.Render(spriteBatch);
 
             CoarseGrid.Render(spriteBatch);
+
+            if (Debug.OptionActive(DebugOption.ShowFogOfWar))
+            {
+                for (int col = 0; col < CoarseGrid.Cols; col++)
+                {
+                    for (int row = 0; row < CoarseGrid.Rows; row++)
+                    {
+                        if (!TeamCanSeeCell(col, row, Team.One))
+                            spriteBatch.FillRectangle(CoarseGrid[col, row].RenderRect, Color.Black);
+                    }
+                }
+            }            
 
             foreach (Track t in Tracks.Values)
                 t.Render(spriteBatch);

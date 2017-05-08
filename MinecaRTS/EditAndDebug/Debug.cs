@@ -19,7 +19,8 @@ namespace MinecaRTS
         ShowWallPushForce = 6,
         ShowStates = 7,
         ShowCoarseGrid = 8,
-        Count = 9 // For easy iteration
+        ShowFogOfWar = 9,
+        Count = 10 // For easy iteration
     }
 
     public static class Debug
@@ -40,6 +41,7 @@ namespace MinecaRTS
             _settings.Add(DebugOption.ShowWallPushForce, false);
             _settings.Add(DebugOption.ShowStates, false);
             _settings.Add(DebugOption.ShowCoarseGrid, false);
+            _settings.Add(DebugOption.ShowFogOfWar, false);
         }
 
         public static void HandleInput()
@@ -67,6 +69,9 @@ namespace MinecaRTS
 
             if (Input.KeyTyped(Keys.D8))
                 _settings[DebugOption.ShowCoarseGrid] = !_settings[DebugOption.ShowCoarseGrid];
+
+            if (Input.KeyTyped(Keys.D9))
+                _settings[DebugOption.ShowFogOfWar] = !_settings[DebugOption.ShowFogOfWar];
         }
 
         public static bool OptionActive(DebugOption setting)
