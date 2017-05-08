@@ -11,10 +11,12 @@ namespace MinecaRTS
 {
     public class Cell
     {
-        /// <summary>
-        /// The width and height of all cells. All cells are square. 
-        /// </summary>
-        public const int CELL_SIZE = 32;
+        private int _size;
+
+        public int Size
+        {
+            get { return _size; }
+        }
 
         /// <summary>
         /// The position of the cell.
@@ -29,6 +31,9 @@ namespace MinecaRTS
         // TODO: This will need to be taken out of the data structure to allow facade to operate properly.
         // For path planning, each team will have a different view of what is passable.
         #region     /------ Pathfinding Details ------\
+        public List<Cell> Neighbours;
+
+
         /// <summary>
         /// Whether or not the cell can be walked on.
         /// </summary>
@@ -50,7 +55,7 @@ namespace MinecaRTS
         /// </summary>
         public Rectangle CollisionRect
         {
-            get { return new Rectangle((int)Pos.X, (int)Pos.Y, CELL_SIZE, CELL_SIZE); }
+            get { return new Rectangle((int)Pos.X, (int)Pos.Y, _size, _size); }
         }
 
         /// <summary>
@@ -58,7 +63,7 @@ namespace MinecaRTS
         /// </summary>
         public Vector2 Mid
         {
-            get {return new Vector2((int)Pos.X + CELL_SIZE / 2, (int)Pos.Y + CELL_SIZE / 2);}
+            get {return new Vector2((int)Pos.X + _size / 2, (int)Pos.Y + _size / 2);}
         }
 
         /// <summary>
@@ -66,7 +71,7 @@ namespace MinecaRTS
         /// </summary>
         public Rectangle RenderRect
         {
-            get { return new Rectangle((int)Camera.XToScreen(Pos.X), (int)Camera.YToScreen(Pos.Y), CELL_SIZE, CELL_SIZE); }
+            get { return new Rectangle((int)Camera.XToScreen(Pos.X), (int)Camera.YToScreen(Pos.Y), _size, _size); }
         }
         
         /// <summary>
@@ -82,10 +87,11 @@ namespace MinecaRTS
         /// </summary>
         /// <param name="x">The x position.</param>
         /// <param name="y">The y position.</param>
-        public Cell(Vector2 pos)
+        public Cell(Vector2 pos, int size)
         {
+            _size = size;
             Pos = pos;
-            Color = Color.Gray;
+            Color = Color.ForestGreen;
             Passable = true;
         }
 
@@ -95,7 +101,7 @@ namespace MinecaRTS
         /// <param name="spriteBatch">The SpriteBatch to render to.</param>
         public void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.FillRectangle(RenderRect, Color);
+            //spriteBatch.FillRectangle(RenderRect, Color);
         }
     }
 }

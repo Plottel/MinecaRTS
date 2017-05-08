@@ -27,7 +27,7 @@ namespace MinecaRTS
             get { return _stone; }
         }
 
-        public DepositBox(Vector2 pos, Team team) : base(pos, new Vector2(63, 51), team, MAX_HEALTH, ACTIVE_TEXTURE, CONSTRUCTION_TEXTURE)
+        public DepositBox(Vector2 pos, Team team) : base(pos, new Vector2(63, 63), team, MAX_HEALTH, ACTIVE_TEXTURE, CONSTRUCTION_TEXTURE)
         {
         }
 

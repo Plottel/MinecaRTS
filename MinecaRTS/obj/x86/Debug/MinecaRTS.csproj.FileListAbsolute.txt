@@ -42,3 +42,6 @@ C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\b
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\minecart\minecart_empty.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\minecart\minecart_half_wood.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\buildings\deposit_box_empty.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Priority Queue.dll
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Priority Queue.pdb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Priority Queue.xml

@@ -15,6 +15,8 @@ namespace MinecaRTS
 
         public static Dictionary<Dir, List<Frame>> emptyAnimFrames;
 
+        public const float BASE_SPEED = 0.8f;
+        public const float TRACK_SPEED = 7;
 
         public DepositBox TargetDepositBox;
         public TownHall TargetTownHall;
@@ -42,21 +44,23 @@ namespace MinecaRTS
         public Minecart(PlayerData data, Team team, Vector2 pos, Vector2 scale) : base(data, team, pos, scale)
         {
             _fsm = new StateMachine<Minecart>(this);
-            Speed = 2;
+            Speed = BASE_SPEED;
 
             animation = new Animation(emptySS.texture, emptyAnimFrames[Dir.S], Vector2.Zero, true);
+            pathHandler = new MinecartPathHandler(this, data.Grid);
         }
 
         public override void Update()
         {
+            Debug.HookText("Following path? " + FollowPath.ToString());
             if (Data.CellHasTrack(Data.Grid.CellAt(Mid)))
             {
-                Speed = 10;
+                Speed = TRACK_SPEED;
                 Steering.separationOn = false;
             }
             else
             {
-                Speed = 2;
+                Speed = BASE_SPEED;
                 Steering.separationOn = true;
             }
 
@@ -96,8 +100,8 @@ namespace MinecaRTS
 
                 if (cellAtPos.Passable)
                 {
-                    pathHandler.GetPathToPosFollowingTracks(pos);
                     ExitState();
+                    pathHandler.GetPathTo(pos);
                 }
             }
         }

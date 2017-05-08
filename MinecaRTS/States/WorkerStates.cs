@@ -37,11 +37,14 @@ namespace MinecaRTS
             // TODO: This check will be more robust to check if the resource has expired???
             // should just Greedy if already has target resource.
             if (owner.TargetResource == null)
-                owner.pathHandler.GetPathToClosestUnsaturatedResource(owner.resrcLookingFor);
+            {
+                WorkerPathHandler wPathHandler = owner.pathHandler as WorkerPathHandler;
+                wPathHandler.GetPathToClosestUnsaturatedResource(owner.resrcLookingFor);
+            }                
             else
-                owner.pathHandler.GetPathToResource(owner.TargetResource);
+                owner.pathHandler.GetPathTo(owner.TargetResource.Mid);
 
-            owner.targetResourceCell = owner.pathHandler._path.Last();
+            owner.targetResourceCell = owner.pathHandler.path.Last();
         }
 
         public override void Exit(Worker owner)
@@ -92,15 +95,9 @@ namespace MinecaRTS
             owner.Steering.separationOn = false;
 
             // Get path to base
-            //TODO: Need to fetch path to location if returning to a minecart
-            if (owner.returningResourcesTo != null)
-                owner.pathHandler.GetPathToBuilding(owner.returningResourcesTo as Building);
-            else
-            {
-                Building closestBuilding = owner.Data.GetClosestResourceReturnPoint(owner);
-                owner.pathHandler.GetPathToBuilding(closestBuilding);
-                owner.returningResourcesTo = closestBuilding as ICanAcceptResources;
-            }
+            Building closestBuilding = owner.Data.GetClosestResourceReturnPoint(owner);
+            owner.pathHandler.GetPathTo(closestBuilding.Mid);
+            owner.returningResourcesTo = closestBuilding as ICanAcceptResources;
         }
 
         public override void Exit(Worker owner)
@@ -158,6 +155,7 @@ namespace MinecaRTS
             // If arrived at a saturated resource, re-evaluate.
             if (owner.TargetResource.IsSaturated)
             {
+                owner.targetResourceCell = null;
                 owner.FSM.ChangeState(MoveToResource.Instance);
                 return;
             }
@@ -222,7 +220,7 @@ namespace MinecaRTS
 
         public override void Enter(Worker owner)
         {
-            owner.pathHandler.GetPathToBuilding(owner.constructing);
+            owner.pathHandler.GetPathTo(owner.constructing.Mid);
         }
 
         public override void Exit(Worker owner)

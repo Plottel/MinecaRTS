@@ -36,11 +36,11 @@ namespace MinecaRTS
 
             // Make the cell a tree (get wood)
             if (Input.KeyDown(Keys.W))
-                world.AddResourceToCell(new Resource(cell.Pos, new Vector2(Cell.CELL_SIZE, Cell.CELL_SIZE), ResourceType.Wood), cell);
+                world.AddResourceToCell(new Resource(cell.Pos, new Vector2(world.Grid.CellSize, world.Grid.CellSize), ResourceType.Wood), cell);
 
             // Make the cell stone
             if (Input.KeyDown(Keys.S))
-                world.AddResourceToCell(new Resource(cell.Pos, new Vector2(Cell.CELL_SIZE, Cell.CELL_SIZE), ResourceType.Stone), cell);
+                world.AddResourceToCell(new Resource(cell.Pos, new Vector2(world.Grid.CellSize, world.Grid.CellSize), ResourceType.Stone), cell);
 
             // Make the cell a wall.
             if (Input.LeftMouseDown())
@@ -54,7 +54,7 @@ namespace MinecaRTS
             {
                 cell.Passable = true;
                 world.RemoveResourceFromCell(cell);
-                cell.Color = Color.Gray;
+                cell.Color = Color.ForestGreen;
             }
         }
     }

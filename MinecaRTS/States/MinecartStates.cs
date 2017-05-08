@@ -26,7 +26,7 @@ namespace MinecaRTS
         public override void Enter(Minecart owner)
         {
             if (owner.TargetDepositBox != null)
-                owner.pathHandler.GetPathToBuildingFollowingTracks(owner.TargetDepositBox);
+                owner.pathHandler.GetPathTo(owner.TargetDepositBox.Mid);
             // TODO: else find path to closest deposit box
 
             //owner.ChangeAnimation(WorkerAnimation.Walk);
@@ -75,7 +75,7 @@ namespace MinecaRTS
         public override void Enter(Minecart owner)
         {
             owner.TargetTownHall = owner.Data.GetClosestActiveBuilding<TownHall>(owner);
-            owner.pathHandler.GetPathToBuildingFollowingTracks(owner.TargetTownHall);
+            owner.pathHandler.GetPathTo(owner.TargetTownHall.Mid);
 
             //owner.ChangeAnimation(WorkerAnimation.Walk);
         }

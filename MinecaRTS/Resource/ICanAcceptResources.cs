@@ -14,6 +14,11 @@ namespace MinecaRTS
             get;
         }
 
+        Vector2 Mid
+        {
+            get;
+        }
+
         void AcceptResources(uint woodAmount, uint stoneAmount);
     }
 }

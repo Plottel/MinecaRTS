@@ -65,7 +65,7 @@ namespace MinecaRTS
                     force += Vector2.Normalize(toNeighbour) / toNeighbour.Length();
             }
 
-            return force * 20;
+            return force * 15;
         }
 
         // TODO: Projection Rect extends beyond boundaries of game.. CRASH because null cell reference
@@ -186,7 +186,7 @@ namespace MinecaRTS
             {
                 Vector2 toOwner = _owner.Mid - closestCell.Mid;
                 float distanceApart = toOwner.Length();
-                float amountOfOverlap = (_owner.Scale.Length() / 2) + (Cell.CELL_SIZE / 2) - distanceApart;
+                float amountOfOverlap = (_owner.Scale.Length() / 2) + (_owner.Data.Grid.CellSize / 2) - distanceApart;
 
                 _owner.Pos += (toOwner / distanceApart) * (amountOfOverlap * 1.5f);
             }

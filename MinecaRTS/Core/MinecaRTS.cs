@@ -20,8 +20,8 @@ namespace MinecaRTS
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public World world;
-        bool editMode;
-        bool debugMode;
+        public bool editMode;
+        public bool debugMode;
 
         public MinecaRTS()
         {
@@ -167,7 +167,7 @@ namespace MinecaRTS
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Gray);
+            GraphicsDevice.Clear(Color.ForestGreen);
 
             spriteBatch.Begin();
             

@@ -41,11 +41,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Button.cs" />
+    <Compile Include="Render\Button.cs" />
     <Compile Include="Entities\Buildings\DepositBox.cs" />
     <Compile Include="Messaging\IHandleMessages.cs" />
     <Compile Include="Entities\Units\Minecart.cs" />
-    <Compile Include="Panel.cs" />
+    <Compile Include="Pathing\MinecartPathHandler.cs" />
+    <Compile Include="Render\Panel.cs" />
     <Compile Include="SearchConditions.cs" />
     <Compile Include="States\MinecartStates.cs" />
     <Compile Include="Render\Animation.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="States\WorkerStates.cs" />
     <Compile Include="Core\World.cs" />
     <Compile Include="EditAndDebug\WorldEditor.cs" />
+    <Compile Include="WorkerPathHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -101,6 +103,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Priority Queue, Version=4.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizedPriorityQueue.4.0.4\lib\net45\Priority Queue.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

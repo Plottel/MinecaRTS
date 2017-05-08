@@ -26,6 +26,8 @@ namespace MinecaRTS
         public static AnimationDictionary animFrames = new AnimationDictionary();
         public static Dictionary<WorkerAnimation, Vector2> animOffsets = new Dictionary<WorkerAnimation, Vector2>();
 
+        public const float BASE_SPEED = 2;
+
         public ICanAcceptResources returningResourcesTo;
         public Cell targetResourceCell;
         public Building constructing;
@@ -53,8 +55,9 @@ namespace MinecaRTS
         public Worker(PlayerData data, Team team, Vector2 pos, Vector2 scale) : base(data, team, pos, scale)
         {
             _fsm = new StateMachine<Worker>(this);
-            Speed = 2;
+            Speed = BASE_SPEED;
             animation = new Animation(spriteSheets[WorkerAnimation.Walk].texture, animFrames[WorkerAnimation.Walk][Dir.S], animOffsets[WorkerAnimation.Walk], true);
+            pathHandler = new WorkerPathHandler(this, data.Grid);
         }
 
         public void DepositResources()

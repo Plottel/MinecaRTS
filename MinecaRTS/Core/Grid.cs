@@ -13,6 +13,12 @@ namespace MinecaRTS
     // creating a bunch of unnecessary Vector / Point objects.
     public class Grid
     {
+        private int _cellSize;
+
+        public int CellSize
+        {
+            get { return _cellSize; }
+        }
         /// <summary>
         /// The cells in the grid.
         /// Outer list represents columns.
@@ -76,7 +82,7 @@ namespace MinecaRTS
         /// </summary>
         public int Width
         {
-            get { return Cols * Cell.CELL_SIZE - 1;}
+            get { return Cols * _cellSize - 1;}
         }
 
         /// <summary>
@@ -85,7 +91,7 @@ namespace MinecaRTS
         /// </summary>
         public int Height
         {
-            get { return Rows * Cell.CELL_SIZE - 1; }
+            get { return Rows * _cellSize - 1; }
         }
 
         /// <summary>
@@ -116,13 +122,35 @@ namespace MinecaRTS
         /// <param name="y"></param>
         /// <param name="cols"></param>
         /// <param name="rows"></param>
-        public Grid(Vector2 pos, int cols, int rows)
+        public Grid(Vector2 pos, int cols, int rows, int cellSize)
         {
             Pos = pos;
 
+            _cellSize = cellSize;
+
             AddColumns(cols);
             AddRows(rows);
-            ShowGrid = true;
+            ShowGrid = false;
+
+            SetupCellNeighbours();
+        }
+
+        private void SetupCellNeighbours()
+        {
+            for (int col = 0; col < Cols; col++)
+            {
+                for (int row = 0; row < Rows; row++)
+                {
+                    var neighbours = new List<Cell>();
+
+                    AddCell(this[col - 1, row], neighbours); // West
+                    AddCell(this[col, row + 1], neighbours); // South
+                    AddCell(this[col + 1, row], neighbours); // East
+                    AddCell(this[col, row - 1], neighbours); // North
+
+                    this[col, row].Neighbours = neighbours;
+                }
+            }
         }
 
         /// <summary>
@@ -140,8 +168,8 @@ namespace MinecaRTS
         /// <param name="pos">The position to check.</param>
         public Cell CellAt(Vector2 pos)
         {
-            int col = (int)Math.Floor((pos.X - Pos.X) / Cell.CELL_SIZE);
-            int row = (int)Math.Floor((pos.Y - Pos.Y) / Cell.CELL_SIZE);
+            int col = (int)Math.Floor((pos.X - Pos.X) / _cellSize);
+            int row = (int)Math.Floor((pos.Y - Pos.Y) / _cellSize);
 
             return this[col, row];
         }
@@ -161,8 +189,8 @@ namespace MinecaRTS
         /// <param name="pos">The position to check</param>
         public Point IndexAt(Vector2 pos)
         {
-            var col = (int)Math.Floor((pos.X - Pos.X) / Cell.CELL_SIZE);
-            var row = (int)Math.Floor((pos.Y - Pos.Y) / Cell.CELL_SIZE);
+            var col = (int)Math.Floor((pos.X - Pos.X) / _cellSize);
+            var row = (int)Math.Floor((pos.Y - Pos.Y) / _cellSize);
 
             return new Point(col, row);
         }
@@ -277,8 +305,9 @@ namespace MinecaRTS
                 for (int row = 0; row < Rows; row++)
                 {
                     // Add the new cell.
-                    newCol.Add(new Cell(new Vector2(Pos.X + Cols * Cell.CELL_SIZE,
-                                                    Pos.Y + row * Cell.CELL_SIZE)));
+                    newCol.Add(new Cell(new Vector2(Pos.X + Cols * _cellSize,
+                                                    Pos.Y + row * _cellSize), 
+                                                    _cellSize));
                 }
 
                 // Add the column to cells, increment number of columns in the grid.
@@ -301,8 +330,9 @@ namespace MinecaRTS
                 for (int col = 0; col < Cols; col++)
                 {
                     // Add the new cell to the column.
-                    _cells[col].Add(new Cell(new Vector2(Pos.X + col * Cell.CELL_SIZE, 
-                                                         Pos.Y + Rows * Cell.CELL_SIZE)));
+                    _cells[col].Add(new Cell(new Vector2(Pos.X + col * _cellSize, 
+                                                         Pos.Y + Rows * _cellSize), 
+                                                         _cellSize));
                 }
 
                 // Increment the number of rows in the grid.
@@ -342,7 +372,7 @@ namespace MinecaRTS
                     cell.Render(spriteBatch);
 
                     // TODO: Separate loop, should only need to check ShowGrid once.
-                    if (ShowGrid || Debug.OptionActive(DebugOption.ShowGrid))
+                    if (ShowGrid)
                         spriteBatch.DrawRectangle(cell.RenderRect, Color.Black, 1);
                 }
             }          

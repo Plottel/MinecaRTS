@@ -120,6 +120,39 @@ namespace MinecaRTS
             get { return _world.Grid; }
         }
 
+        public void RemoveUnitFromCollisionCells(Unit u)
+        {
+            Point cellIndex = _world.CoarseGrid.IndexAt(u.Mid);
+            _world.collisionCells[cellIndex.Col()][cellIndex.Row()].Remove(u);
+        }
+
+        public void AddUnitToCollisionCells(Unit u)
+        {
+            Point cellIndex = _world.CoarseGrid.IndexAt(u.Mid);
+            _world.collisionCells[cellIndex.Col()][cellIndex.Row()].Add(u);
+        }
+
+        public List<HashSet<Unit>> GetUnitsInCollisionCellsAroundUnit(Unit u)
+        {
+            var result = new List<HashSet<Unit>>();
+            Point cellIndex = _world.CoarseGrid.IndexAt(u.Mid);
+
+            for (int col = cellIndex.Col() - 1; col <= cellIndex.Col() + 1; col++)
+            {
+                for (int row = cellIndex.Row() - 1; row <= cellIndex.Row() + 1; row++)
+                {
+                    result.Add(_world.GetUnitsInCollisionCellFromIndex(col, row));
+                }
+            }
+
+            return result;
+        }
+
+        public HashSet<Unit> GetUnitsInSameCollisionCellsAsUnit(Unit u)
+        {
+            return _world.GetUnitsInCollisionCellFromIndex(_world.CoarseGrid.IndexAt(u.Mid));
+        }
+
         public Resource GetResourceFromCell(Cell cell)
         {
             return _world.GetResourceFromCell(cell);
@@ -172,13 +205,14 @@ namespace MinecaRTS
 
         public void MoveSelectedUnitsTo(Vector2 pos)
         {
-            float groupRadius = _world.SelectedUnits.Count;
+            //float groupRadius = _world.SelectedUnits.Count;
 
-            Random rand = new Random();
+            //Random rand = new Random();
 
             foreach (Unit u in _world.SelectedUnits)
             {
-                u.MoveTowards(new Vector2(pos.X + (rand.NextSingle(-1, 1) * groupRadius), pos.Y + (rand.NextSingle(-1, 1) * groupRadius)));
+                //u.MoveTowards(new Vector2(pos.X + (rand.NextSingle(-1, 1) * groupRadius), pos.Y + (rand.NextSingle(-1, 1) * groupRadius)));
+                u.MoveTowards(pos);
             }
                           
         }
@@ -218,7 +252,7 @@ namespace MinecaRTS
         {
             var result = new List<Unit>();
 
-            foreach (Unit u in _world.Units)
+            foreach (Unit u in GetUnitsInSameCollisionCellsAsUnit(unit))
             {
                 if (unit.CollisionRect.Intersects(u.CollisionRect))
                     result.Add(u);
@@ -236,11 +270,14 @@ namespace MinecaRTS
 
             float taggableDistance = (float)Math.Pow(radius + unit.Scale.X / 2, 2);
 
-            foreach (Unit u in _world.Units)
+            foreach (HashSet<Unit> units in GetUnitsInCollisionCellsAroundUnit(unit))
             {
-                if (Vector2.DistanceSquared(unit.Mid, u.Mid) < taggableDistance)
-                    result.Add(u);
-            }
+                foreach (Unit u in units)
+                {
+                    if (Vector2.DistanceSquared(unit.Mid, u.Mid) < taggableDistance)
+                        result.Add(u);
+                }
+            }            
 
             // Remove the unit being checked from list to prevent checks when this list is used.
             result.Remove(unit);
@@ -507,6 +544,34 @@ namespace MinecaRTS
 
             spriteBatch.DrawRectangle(Camera.MinimapRect, Color.White, 3);
 
+        }
+
+        public void TestPathfindingCalculationTime()
+        {
+            Unit u = new Unit(this, Team, new Vector2(50, 50), new Vector2(20, 20));
+
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
+            double total = 0;
+
+            for (int loop = 0; loop < 30; loop++)
+            {
+                sw.Start();
+
+                int numTests = 1000000;
+
+                for (int i = 0; i < numTests; i++)
+                    u.MoveTowards(Grid[Grid.Cols - 1, Grid.Rows - 1].Mid);
+                sw.Stop();
+
+                total += sw.Elapsed.TotalMilliseconds / numTests;
+
+                Console.WriteLine(sw.Elapsed.TotalMilliseconds / numTests);
+
+                sw.Reset();
+            }
+
+            Console.WriteLine("Global Average: " + total / 30);
         }
     }
 }

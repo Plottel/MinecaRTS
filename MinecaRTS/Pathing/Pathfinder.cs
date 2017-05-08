@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 
+
 namespace MinecaRTS
 {
     public static class Pathfinder
@@ -48,11 +49,11 @@ namespace MinecaRTS
             // TODO: Implement priority queue.
             Open.Sort((x, y) => x.Score.CompareTo(y.Score));
 
-            if (Open.Contains(Current))
-                Open.Remove(Current);
+            //if (Open.Contains(Current))
+                //Open.Remove(Current);
 
-            if (!Closed.Contains(Current))
-                Closed.Add(Current);
+           // if (!Closed.Contains(Current))
+                //Closed.Add(Current);
 
             // List is sorted therefore lowest score is first index.
             Current = Open[0];
@@ -138,7 +139,7 @@ namespace MinecaRTS
                 #endregion /--- RESOURCE PATH CALC DEBUG ---\
 
                 // Get adjacent nodes, calculate score and add to open list.
-                foreach (Cell cell in GetAdjacentCells(Current))
+                foreach (Cell cell in Current.Neighbours)
                 {
                     if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
                     {
@@ -158,7 +159,11 @@ namespace MinecaRTS
 
                 // Get cell with lowest F score ready to add neighbours.
                 if (!searchComplete)
+                {
+                    Open.Remove(Current);
+                    Closed.Add(Current);
                     GetNextCurrentCell();
+                }
             }
 
             if (searchComplete)
@@ -253,7 +258,8 @@ namespace MinecaRTS
                 #endregion /--- GREEDY PATH CALC DEBUG ---\
 
                 // Get adjacent nodes, calculate score and add to open list.
-                foreach (Cell cell in GetAdjacentCells(Current))
+                // foreach (Cell cell in GetAdjacentCells(Current))
+                foreach (Cell cell in Current.Neighbours)
                 {
                     if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
                     {
@@ -262,6 +268,12 @@ namespace MinecaRTS
                         Open.Add(cell);
                     }                    
                 }
+
+                Open.Remove(Current);
+                Closed.Add(Current);
+
+                if (Open.Count == 0)
+                    return new List<Cell>();
 
                 // Neighbours have been added, evaluate best node.
                 GetNextCurrentCell();
@@ -435,7 +447,8 @@ namespace MinecaRTS
             Open = new List<Cell>();
             Closed = new List<Cell>();
 
-            Closed.Add(Current);
+            Open.Add(Current);
+            //Closed.Add(Current);
             Current.Parent = null;
         }
     }

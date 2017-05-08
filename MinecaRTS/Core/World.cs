@@ -10,6 +10,8 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    using CollisionCellMap = List<List<HashSet<Unit>>>;
+
     public class World : IHandleMessages
     {
         /// <summary>
@@ -33,6 +35,7 @@ namespace MinecaRTS
         private List<IRenderable> _renderables = new List<IRenderable>();
 
         public readonly Grid Grid;
+        public readonly Grid CoarseGrid;
         public readonly List<Unit> Units;
         public readonly List<Building> Buildings;
         public List<Unit> SelectedUnits;
@@ -43,12 +46,43 @@ namespace MinecaRTS
         private HumanPlayer _playerOne;
         private PlayerData _playerOneData;
 
+        public readonly CollisionCellMap collisionCells;
+
+        public HashSet<Unit> GetUnitsInCollisionCellFromIndex(Point index)
+        {
+            if (index.Col() < 0 || index.Col() >= CoarseGrid.Cols || index.Row() < 0 || index.Row() >= CoarseGrid.Rows)
+                return new HashSet<Unit>(); // Return blank list if out of range.
+            else
+                return collisionCells[index.Col()][index.Row()];
+        }
+
+        public HashSet<Unit> GetUnitsInCollisionCellFromIndex(int col, int row)
+        {
+            if (col < 0 || col >= CoarseGrid.Cols || row < 0 || row >= CoarseGrid.Rows)
+                return new HashSet<Unit>(); // Return blank list if out of range.
+            else
+                return collisionCells[col][row];
+        }
+
         public World()
         {
             _id = MsgHandlerRegistry.NextID;
             MsgHandlerRegistry.Register(this);
 
-            Grid = new Grid(new Vector2(0, 0), 100, 100);
+            Grid = new Grid(new Vector2(0, 0), 100, 100, 32);
+            CoarseGrid = new Grid(new Vector2(0, 0), 20, 20, 160);
+
+            collisionCells = new CollisionCellMap();
+
+            for (int col = 0; col < 20; col++)
+            {
+                collisionCells.Add(new List<HashSet<Unit>>());
+                for (int row = 0; row < 20; row++)
+                {
+                    collisionCells[col].Add(new HashSet<Unit>());
+                }
+            }                
+
             Grid.MakeBorder();
 
             Width = Grid.Width;
@@ -100,8 +134,11 @@ namespace MinecaRTS
 
         public void Render(SpriteBatch spriteBatch)
         {
+            Debug.HookText("Number of Units In Game: " + Units.Count.ToString());
             // TODO: Only render what's on the screen.
             Grid.Render(spriteBatch);
+
+            CoarseGrid.Render(spriteBatch);
 
             foreach (Track t in Tracks.Values)
                 t.Render(spriteBatch);
@@ -131,7 +168,6 @@ namespace MinecaRTS
 
              Units.Add(u);
             _renderables.Add(u);
-
         }
 
         public void AddBuilding(Building building)
@@ -221,6 +257,8 @@ namespace MinecaRTS
         {
             // TODO: A lot of this can be put inside Unit Classes which would remove
             // a bunch of the "lol everything's public".
+            Grid.ShowGrid = Debug.OptionActive(DebugOption.ShowGrid) || MinecaRTS.Instance.editMode;
+            CoarseGrid.ShowGrid = Debug.OptionActive(DebugOption.ShowCoarseGrid);
 
             if (Debug.OptionActive(DebugOption.ShowPaths))
             {
@@ -259,6 +297,20 @@ namespace MinecaRTS
                 foreach (Unit u in Units)
                 {
                     u.RenderDebug(spriteBatch);
+                }
+            }
+
+            if (Debug.OptionActive(DebugOption.ShowCoarseGrid))
+            {
+                //List<List<HashSet<Unit>>> collisionCells;
+                for (int col = 0; col < collisionCells.Count; col++)
+                {
+                    for (int row = 0; row < collisionCells[col].Count; row++)
+                    {
+                        HashSet<Unit> units = collisionCells[col][row];
+
+                        spriteBatch.DrawString(MinecaRTS.largeFont, units.Count.ToString(), CoarseGrid[col, row].RenderMid, Color.White);
+                    }
                 }
             }
         }

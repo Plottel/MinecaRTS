@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using System.Diagnostics;
 
 namespace MinecaRTS
 {
@@ -62,7 +63,6 @@ namespace MinecaRTS
         public Unit(PlayerData data, Team team, Vector2 pos, Vector2 scale) : base(pos, scale)
         {
             Vel = new Vector2();
-            pathHandler = new PathHandler(this, data.Grid);
             _steering = new SteeringBehaviours(this, data);
             _data = data;
             _team = team;            
@@ -75,6 +75,9 @@ namespace MinecaRTS
         /// </summary>
         public override void Update()
         {
+            // Remove from old collision cell
+            Data.RemoveUnitFromCollisionCells(this);
+
             lastHeading = heading;
 
             if (Vel != Vector2.Zero)
@@ -88,19 +91,26 @@ namespace MinecaRTS
 
             Vel = vel;
 
-            //Vel = Vel.Truncate(0.5f);
+            if (Vel != Vector2.Zero)
+                Vel.Normalize();
 
-            Pos += Vel * Speed;           
+            Vel *= Speed;
 
-            // Zero overlap makes it super jittery.
+            Pos += Vel;           
+
+            // Zero overlap units makes it super jittery.
             Steering.ZeroOverlapCells();
             //_steering.ZeroOverlapUnits();
+
+            // Add to new collision cell
+            Data.AddUnitToCollisionCells(this);
         }
 
         public virtual void Stop()
         {
             FollowPath = false;
             Vel = Vector2.Zero;
+            ExitState();
         }
         
         public virtual void MoveTowards(Vector2 pos)
