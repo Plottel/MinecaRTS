@@ -195,6 +195,24 @@ namespace MinecaRTS
             return new Point(col, row);
         }
 
+        public List<Point> Get33GridIndexesAroundIndex(Point index)
+        {
+            var result = new List<Point>();
+
+            for (int col = index.Col() - 1; col <= index.Col() + 1; col++)
+            {
+                for (int row = index.Row() - 1; row <= index.Row() + 1; row++)
+                {
+                    if (col < 0 || col >= _cols || row < 0 || row >= _rows)
+                        continue;
+
+                    result.Add(new Point(col, row));
+                }
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Specifies if every cell the passed in rectangle touches is traversable.
         /// If the rect touches 1 or more unpassable cells, this returns false.

@@ -122,35 +122,27 @@ namespace MinecaRTS
 
         public void RemoveUnitFromCollisionCells(Unit u)
         {
-            Point cellIndex = _world.CoarseGrid.IndexAt(u.Mid);
-            _world.collisionCells[cellIndex.Col()][cellIndex.Row()].Remove(u);
+            _world.collisionCells.RemoveUnit(u);
         }
 
         public void AddUnitToCollisionCells(Unit u)
         {
-            Point cellIndex = _world.CoarseGrid.IndexAt(u.Mid);
-            _world.collisionCells[cellIndex.Col()][cellIndex.Row()].Add(u);
+            _world.collisionCells.AddUnit(u);
+        }
+
+        public void UpdateFogOfWarForUnit(Unit u)
+        {
+            _world.fogOfWar.UnitMoved(u);
         }
 
         public List<HashSet<Unit>> GetUnitsInCollisionCellsAroundUnit(Unit u)
         {
-            var result = new List<HashSet<Unit>>();
-            Point cellIndex = _world.CoarseGrid.IndexAt(u.Mid);
-
-            for (int col = cellIndex.Col() - 1; col <= cellIndex.Col() + 1; col++)
-            {
-                for (int row = cellIndex.Row() - 1; row <= cellIndex.Row() + 1; row++)
-                {
-                    result.Add(_world.GetUnitsInCollisionCellFromIndex(col, row));
-                }
-            }
-
-            return result;
+            return _world.collisionCells.GetUnitsInCellsAroundUnit(u);
         }
 
         public HashSet<Unit> GetUnitsInSameCollisionCellsAsUnit(Unit u)
         {
-            return _world.GetUnitsInCollisionCellFromIndex(_world.CoarseGrid.IndexAt(u.Mid));
+            return _world.collisionCells.GetUnitsInSameCellAsUnit(u);
         }
 
         public Resource GetResourceFromCell(Cell cell)
@@ -532,10 +524,14 @@ namespace MinecaRTS
 
             foreach (Resource r in _world.Resources.Values)
             {
-                if (r.Type == ResourceType.Wood)
-                    spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.Chocolate);
-                else if (r.Type == ResourceType.Stone)
-                    spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.DimGray);
+                Point cellIndex = _world.CoarseGrid.IndexAt(r.Mid);
+                if (!Debug.OptionActive(DebugOption.ShowFogOfWar) || _world.fogOfWar.TeamHasExploredCell(_team, cellIndex.Col(), cellIndex.Row()))
+                {
+                    if (r.Type == ResourceType.Wood)
+                        spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.Chocolate);
+                    else if (r.Type == ResourceType.Stone)
+                        spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.DimGray);
+                }                
             }
 
             // Draw box representing current view

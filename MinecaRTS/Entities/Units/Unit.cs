@@ -41,6 +41,8 @@ namespace MinecaRTS
 
         private PlayerData _data;
 
+        public Vector2 lastMid;
+
         public PlayerData Data
         {
             get { return _data; }
@@ -68,6 +70,7 @@ namespace MinecaRTS
             _team = team;            
             heading = Dir.S;
             lastHeading = Dir.S;
+            lastMid = pos;
         }              
 
         /// <summary>
@@ -75,6 +78,7 @@ namespace MinecaRTS
         /// </summary>
         public override void Update()
         {
+            lastMid = Mid;
             // Remove from old collision cell
             Data.RemoveUnitFromCollisionCells(this);
 
@@ -104,6 +108,9 @@ namespace MinecaRTS
 
             // Add to new collision cell
             Data.AddUnitToCollisionCells(this);
+
+            if (lastMid != Mid)
+                Data.UpdateFogOfWarForUnit(this);
         }
 
         public virtual void Stop()

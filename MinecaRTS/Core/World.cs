@@ -9,9 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 
 namespace MinecaRTS
-{
-    using CollisionCellMap = List<List<HashSet<Unit>>>;
-
+{ 
     public class World : IHandleMessages
     {
         /// <summary>
@@ -46,23 +44,9 @@ namespace MinecaRTS
         private HumanPlayer _playerOne;
         private PlayerData _playerOneData;
 
-        public readonly CollisionCellMap collisionCells;
+        public readonly CollisionCellData collisionCells;
+        public readonly FogOfWarData fogOfWar;
 
-        public HashSet<Unit> GetUnitsInCollisionCellFromIndex(Point index)
-        {
-            if (index.Col() < 0 || index.Col() >= CoarseGrid.Cols || index.Row() < 0 || index.Row() >= CoarseGrid.Rows)
-                return new HashSet<Unit>(); // Return blank list if out of range.
-            else
-                return collisionCells[index.Col()][index.Row()];
-        }
-
-        public HashSet<Unit> GetUnitsInCollisionCellFromIndex(int col, int row)
-        {
-            if (col < 0 || col >= CoarseGrid.Cols || row < 0 || row >= CoarseGrid.Rows)
-                return new HashSet<Unit>(); // Return blank list if out of range.
-            else
-                return collisionCells[col][row];
-        }
 
         public World()
         {
@@ -72,16 +56,8 @@ namespace MinecaRTS
             Grid = new Grid(new Vector2(0, 0), 100, 100, 32);
             CoarseGrid = new Grid(new Vector2(0, 0), 20, 20, 160);
 
-            collisionCells = new CollisionCellMap();
-
-            for (int col = 0; col < 20; col++)
-            {
-                collisionCells.Add(new List<HashSet<Unit>>());
-                for (int row = 0; row < 20; row++)
-                {
-                    collisionCells[col].Add(new HashSet<Unit>());
-                }
-            }                
+            collisionCells = new CollisionCellData(CoarseGrid);
+            fogOfWar = new FogOfWarData(CoarseGrid, collisionCells, this);
 
             Grid.MakeBorder();
 
@@ -138,12 +114,29 @@ namespace MinecaRTS
             {
                 for (int row = r - 1; row <= r + 1; row++)
                 {
-                    foreach (Unit u in GetUnitsInCollisionCellFromIndex(col, row))
+                    foreach (Unit u in collisionCells[col, row])
                     {
                         if (u.Team == team)
                             return true;
                     }
                 }
+            }
+
+            Cell topLeftCell = CoarseGrid[c - 1, r - 1];
+
+            Point topLeftPt;
+
+            if (topLeftCell != null)
+                topLeftPt = topLeftCell.Pos.ToPoint();
+            else
+                topLeftPt = new Point(0, 0);
+
+            Rectangle boundingRect = new Rectangle(topLeftPt, new Point(CoarseGrid.CellSize * 3, CoarseGrid.CellSize * 3));
+
+            foreach (Building b in Buildings)
+            {
+                if (b.CollisionRect.Intersects(boundingRect) && b.Team == team)
+                    return true;
             }
 
             return false;
@@ -154,19 +147,7 @@ namespace MinecaRTS
             // TODO: Only render what's on the screen.
             Grid.Render(spriteBatch);
 
-            CoarseGrid.Render(spriteBatch);
-
-            if (Debug.OptionActive(DebugOption.ShowFogOfWar))
-            {
-                for (int col = 0; col < CoarseGrid.Cols; col++)
-                {
-                    for (int row = 0; row < CoarseGrid.Rows; row++)
-                    {
-                        if (!TeamCanSeeCell(col, row, Team.One))
-                            spriteBatch.FillRectangle(CoarseGrid[col, row].RenderRect, Color.Black);
-                    }
-                }
-            }            
+            CoarseGrid.Render(spriteBatch);                        
 
             foreach (Track t in Tracks.Values)
                 t.Render(spriteBatch);
@@ -174,9 +155,47 @@ namespace MinecaRTS
             // Filter by Y to create Z-index
             _renderables = _renderables.OrderBy(renderable => renderable.RenderRect.Y).ToList();
 
-            // Render
-            foreach (IRenderable r in _renderables)
-                r.Render(spriteBatch);
+            if (Debug.OptionActive(DebugOption.ShowFogOfWar))
+            {
+                var neutralItemsToRenderRegardlessOfFog = new List<IRenderable>();
+
+                foreach (IRenderable r in _renderables)
+                {
+                    Point cellIndex = CoarseGrid.IndexAt(r.Mid);
+
+                    Resource resource = r as Resource;
+
+                    if (resource != null)
+                    {
+                        if (fogOfWar.TeamHasExploredCell(Team.One, cellIndex.Col(), cellIndex.Row()))
+                            neutralItemsToRenderRegardlessOfFog.Add(r);
+                    }
+                    else
+                    {
+                        if (fogOfWar.TeamCanSeeCell(Team.One, cellIndex.Col(), cellIndex.Row()))
+                            r.Render(spriteBatch);
+                    }                    
+                }
+
+                for (int col = 0; col < CoarseGrid.Cols; col++)
+                {
+                    for (int row = 0; row < CoarseGrid.Rows; row++)
+                    {
+                        if (!fogOfWar.TeamCanSeeCell(Team.One, col, row))
+                            spriteBatch.FillRectangle(CoarseGrid[col, row].RenderRect, Color.Black);
+                    }
+                }
+
+                // Render explored neutral items after fog
+                foreach (IRenderable r in neutralItemsToRenderRegardlessOfFog)
+                    r.Render(spriteBatch);
+            }
+            else
+            {
+                // Just render renderables regardless of vision.
+                foreach (IRenderable r in _renderables)
+                    r.Render(spriteBatch);
+            }
 
             _playerOneData.Render(spriteBatch);
             _playerOneData.RenderUI(spriteBatch);
@@ -192,6 +211,8 @@ namespace MinecaRTS
             else if (unitType == typeof(Minecart))
                 u = new Minecart(_playerOneData, team, pos, new Vector2(40, 40));
 
+            fogOfWar.UnitAdded(u);
+
             u.MoveTowards(rallyPoint);
 
              Units.Add(u);
@@ -201,6 +222,8 @@ namespace MinecaRTS
         public void AddBuilding(Building building)
         {
             Buildings.Add(building);
+
+            fogOfWar.BuildingAdded(building);
 
             Track t = building as Track;
 
@@ -331,11 +354,11 @@ namespace MinecaRTS
             if (Debug.OptionActive(DebugOption.ShowCoarseGrid))
             {
                 //List<List<HashSet<Unit>>> collisionCells;
-                for (int col = 0; col < collisionCells.Count; col++)
+                for (int col = 0; col < collisionCells.Grid.Cols; col++)
                 {
-                    for (int row = 0; row < collisionCells[col].Count; row++)
+                    for (int row = 0; row < collisionCells.Grid.Rows; row++)
                     {
-                        HashSet<Unit> units = collisionCells[col][row];
+                        HashSet<Unit> units = collisionCells[col, row];
 
                         spriteBatch.DrawString(MinecaRTS.largeFont, units.Count.ToString(), CoarseGrid[col, row].RenderMid, Color.White);
                     }

@@ -41,6 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Core\CollisionCellData.cs" />
+    <Compile Include="Core\FogOfWarData.cs" />
     <Compile Include="Render\Button.cs" />
     <Compile Include="Entities\Buildings\DepositBox.cs" />
     <Compile Include="Messaging\IHandleMessages.cs" />
@@ -91,7 +93,7 @@
     <Compile Include="States\WorkerStates.cs" />
     <Compile Include="Core\World.cs" />
     <Compile Include="EditAndDebug\WorldEditor.cs" />
-    <Compile Include="WorkerPathHandler.cs" />
+    <Compile Include="Pathing\WorkerPathHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

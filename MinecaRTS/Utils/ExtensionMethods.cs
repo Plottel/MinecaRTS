@@ -31,6 +31,11 @@ namespace MinecaRTS
             return new Vector2(rectangle.Left, rectangle.Top);
         }
 
+        public static Vector2 BottomRight(this Rectangle rectangle)
+        {
+            return new Vector2(rectangle.Right, rectangle.Bottom);
+        }
+
         public static int Col (this Point pt)
         {
             return pt.X;

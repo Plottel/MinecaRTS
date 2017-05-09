@@ -15,6 +15,11 @@ namespace MinecaRTS
             get;
         }
 
+        Vector2 Mid
+        {
+            get;
+        }
+
         void Render(SpriteBatch spriteBatch);
     }
 }
