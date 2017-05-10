@@ -88,6 +88,16 @@ namespace MinecaRTS
                     AddUnit(pb.BeingProduced, new Vector2(pb.Mid.X, pb.CollisionRect.Bottom), pb.Team, pb.rallyPoint);
                     break;
 
+                case MessageType.UnitMoved:
+                    Unit u = message.sender as Unit;
+
+                    if (u.lastMid != u.Mid)
+                    {
+                        collisionCells.UnitMoved(u);
+                        fogOfWar.UnitMoved(u);
+                    }
+                    break;
+
                 default:
                     break;
             }
@@ -217,6 +227,7 @@ namespace MinecaRTS
                 u = new Minecart(_playerOneData, team, pos, new Vector2(40, 40));
 
             fogOfWar.UnitAdded(u);
+            collisionCells.AddUnit(u);
 
             u.MoveTowards(rallyPoint);
 

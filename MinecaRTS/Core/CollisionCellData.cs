@@ -59,6 +59,12 @@ namespace MinecaRTS
             this[_grid.IndexAt(u.Mid)].Remove(u);
         }
 
+        public void UnitMoved(Unit u)
+        {
+            this[_grid.IndexAt(u.lastMid)].Remove(u);
+            this[_grid.IndexAt(u.Mid)].Add(u);
+        }
+
         public HashSet<Unit> GetUnitsInSameCellAsUnit(Unit u)
         {
             return this[_grid.IndexAt(u.Mid)];

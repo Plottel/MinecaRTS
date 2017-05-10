@@ -80,7 +80,7 @@ namespace MinecaRTS
         {
             lastMid = Mid;
             // Remove from old collision cell
-            Data.RemoveUnitFromCollisionCells(this);
+            //Data.RemoveUnitFromCollisionCells(this);
 
             lastHeading = heading;
 
@@ -107,10 +107,10 @@ namespace MinecaRTS
             //_steering.ZeroOverlapUnits();
 
             // Add to new collision cell
-            Data.AddUnitToCollisionCells(this);
+            //Data.AddUnitToCollisionCells(this);
 
             if (lastMid != Mid)
-                Data.UpdateFogOfWarForUnit(this);
+                MsgBoard.AddMessage(this, World.MSG_ID, MessageType.UnitMoved);
         }
 
         public virtual void Stop()

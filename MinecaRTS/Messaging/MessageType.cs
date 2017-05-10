@@ -10,6 +10,7 @@ namespace MinecaRTS
     {
         ResourceDepleted = 1,
         GiveMeResources = 2,
-        UnitSpawned = 3
+        UnitSpawned = 3,
+        UnitMoved = 4
     }
 }
