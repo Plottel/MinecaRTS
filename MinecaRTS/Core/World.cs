@@ -79,9 +79,14 @@ namespace MinecaRTS
             switch (message.type)
             {
                 case MessageType.ResourceDepleted:
-                        Resource resource = message.sender as Resource;
-                        RemoveResourceFromCell(Grid.CellAt(resource.Mid));
-                        break;
+                    Resource resource = message.sender as Resource;
+                    RemoveResourceFromCell(Grid.CellAt(resource.Mid));
+                    break;
+
+                case MessageType.UnitSpawned:
+                    ProductionBuilding pb = message.sender as ProductionBuilding;
+                    AddUnit(pb.BeingProduced, new Vector2(pb.Mid.X, pb.CollisionRect.Bottom), pb.Team, pb.rallyPoint);
+                    break;
 
                 default:
                     break;
@@ -167,12 +172,12 @@ namespace MinecaRTS
 
                     if (resource != null)
                     {
-                        if (fogOfWar.TeamHasExploredCell(Team.One, cellIndex.Col(), cellIndex.Row()))
+                        if (fogOfWar.TeamHasExploredCell(Team.One, cellIndex))
                             neutralItemsToRenderRegardlessOfFog.Add(r);
                     }
                     else
                     {
-                        if (fogOfWar.TeamCanSeeCell(Team.One, cellIndex.Col(), cellIndex.Row()))
+                        if (fogOfWar.TeamCanSeeCell(Team.One, cellIndex))
                             r.Render(spriteBatch);
                     }                    
                 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
@@ -17,7 +18,9 @@ namespace MinecaRTS
     {
         // Bots can't access the world directly. PlayerData defines various wrapper methods for a limited interface with the world.
         // Therefore bots can use SOME methods of world, but only those which PlayerData defines a wrapper for.
-        private World _world;      
+        private World _world;
+
+        private Type _buildingFactoryClass;
 
         public Building selectedBuilding;
 
@@ -96,6 +99,8 @@ namespace MinecaRTS
         {
             _world = w;
             _team = team;
+
+            _buildingFactoryClass = Type.GetType("MinecaRTS.BuildingFactory");
 
             _buildingSelectionPanel = new Panel("Construct Buildings", new Vector2(250, Camera.HEIGHT - 175), new Vector2(300, 175));
             _buildingSelectionPanel.AddButton(new Button("Town Hall", new Vector2(5, 35), new Vector2(70, 30), _buildingSelectionPanel));
@@ -299,13 +304,23 @@ namespace MinecaRTS
             }
         }
 
-        public bool BuyBuilding(Building building)
+        // Really wanted to use Generics here, but since the Type argument is a variable in HumanPlayer, it's illegal.
+        // Won't let us call a Generic method with a Type variable instead of a literal type name without a bunch 
+        // of extra mumbo jumbo MethodInfo.MakeGenericMethod() and such.
+        public bool BuyBuilding(Building building, Vector2 pos)
         {
+            //if (!T.IsSubclassOf(typeof(Building)))
+               //throw new InvalidOperationException(T.Name + " does not inherit from Building");
+
+
+            //MethodInfo createBuilding = Type.GetType("MinecaRTS.BuildingFactory").GetMethod("Create" + T.Name);
+
+            //Building b = (Building)createBuilding.Invoke(this, new object[] { this, pos});
+
             ProductionBuilding prodBuild = building as ProductionBuilding;
 
             if (prodBuild != null)
                 prodBuild.ResetRallyPoint();
-
 
             // Can only buy building if area is clear and there are no minecart tracks around
             foreach (Cell c in _world.Grid.CellsInRect(building.CollisionRect))
@@ -325,6 +340,10 @@ namespace MinecaRTS
                     SpendResources(cost.woodCost, cost.stoneCost);
 
                     _world.AddBuilding(building);
+
+                    // If you bought a building and you have a selected worker, it will go construct it.
+                    OrderSelectedWorkerToConstructBuilding(building);
+
                     return true;
                 }              
             }

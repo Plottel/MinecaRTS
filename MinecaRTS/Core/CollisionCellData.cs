@@ -24,6 +24,11 @@ namespace MinecaRTS
             }
         }
 
+        public HashSet<Unit> this[Point cellIndex]
+        {
+            get { return this[cellIndex.Col(), cellIndex.Row()]; }
+        }
+
         public CollisionCellData(Grid grid)
         {
             _grid = grid;
@@ -46,34 +51,25 @@ namespace MinecaRTS
 
         public void AddUnit(Unit u)
         {
-            Point cellIndex = _grid.IndexAt(u.Mid);
-            this[cellIndex.Col(), cellIndex.Row()].Add(u);
+            this[_grid.IndexAt(u.Mid)].Add(u);
         }
 
         public void RemoveUnit(Unit u)
         {
-            Point cellIndex = _grid.IndexAt(u.Mid);
-            this[cellIndex.Col(), cellIndex.Row()].Remove(u);
+            this[_grid.IndexAt(u.Mid)].Remove(u);
         }
 
         public HashSet<Unit> GetUnitsInSameCellAsUnit(Unit u)
         {
-            Point cellIndex = _grid.IndexAt(u.Mid);
-            return this[cellIndex.Col(), cellIndex.Row()];
+            return this[_grid.IndexAt(u.Mid)];
         }
 
         public List<HashSet<Unit>> GetUnitsInCellsAroundUnit(Unit u)
         {
             var result = new List<HashSet<Unit>>();
-            Point cellIndex = _grid.IndexAt(u.Mid);
 
-            for (int col = cellIndex.Col() - 1; col <= cellIndex.Col() + 1; col++)
-            {
-                for (int row = cellIndex.Row() - 1; row <= cellIndex.Row() + 1; row++)
-                {
-                    result.Add(this[col, row]);
-                }
-            }
+            foreach (Point cellIndex in _grid.Get33GridIndexesAroundPos(u.Mid))
+                result.Add(this[cellIndex]);
 
             return result;
         }

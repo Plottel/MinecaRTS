@@ -72,7 +72,23 @@ namespace MinecaRTS
             }
         }
 
-        private void SetExploredCellForTeam(Team team, int col, int row)
+        private void SetCellVisibilityForTeam(Team team, int col, int row, bool value)
+        {
+            if (col < 0 || col >= _grid.Cols || row < 0 || row >= _grid.Rows)
+                return;
+
+            if (team == Team.One)
+                _teamOneCurrentVision[col][row] = value;
+
+            _teamTwoCurrentVision[col][row] = value;
+        }
+
+        private void SetCellVisibilityForTeam(Team team, Point cellIndex, bool value)
+        {
+            SetCellVisibilityForTeam(team, cellIndex.Col(), cellIndex.Row(), value);
+        }
+
+        private void SetCellAsExploredForTeam(Team team, int col, int row)
         {
             if (col < 0 || col >= _grid.Cols || row < 0 || row >= _grid.Rows)
                 return;
@@ -83,9 +99,25 @@ namespace MinecaRTS
                 _teamTwoExploredVision[col][row] = true;
         }
 
+        private void SetCellAsExploredForTeam(Team team, Point cellIndex)
+        {
+            SetCellAsExploredForTeam(team, cellIndex.Col(), cellIndex.Row());
+        }
+
         public bool TeamCanSeeCell(Team team, int col, int row)
         {
-            return this[team, col, row];
+            if (col < 0 || col >= _grid.Cols || row < 0 || row >= _grid.Rows)
+                return false;
+
+            if (team == Team.One)
+                return _teamOneCurrentVision[col][row];
+
+            return _teamTwoCurrentVision[col][row];
+        }
+
+        public bool TeamCanSeeCell(Team team, Point cellIndex)
+        {
+            return TeamCanSeeCell(team, cellIndex.Col(), cellIndex.Row());
         }
 
         public bool TeamHasExploredCell(Team team, int col, int row)
@@ -99,6 +131,13 @@ namespace MinecaRTS
                 return _teamTwoExploredVision[col][row];
         }
 
+        public bool TeamHasExploredCell(Team team, Point cellIndex)
+        {
+            return TeamHasExploredCell(team, cellIndex.Col(), cellIndex.Row());
+        }
+
+        // Buildings will grant vision based on their size.
+        // Units grant vision in 3x3 grid around their center, regardless of size.
         public void BuildingAdded(Building b)
         {
             Point topLeft = _grid.IndexAt(b.Pos);
@@ -108,8 +147,8 @@ namespace MinecaRTS
             {
                 for (int row = topLeft.Row() - 1; row <= bottomRight.Row() + 1; row++)
                 {
-                    this[b.Team, col, row] = true;
-                    SetExploredCellForTeam(b.Team, col, row);
+                    SetCellVisibilityForTeam(b.Team, col, row, true);
+                    SetCellAsExploredForTeam(b.Team, col, row);
                 }
             }
         }
@@ -117,21 +156,21 @@ namespace MinecaRTS
         public void UnitMoved(Unit u)
         {
             // Identify which cells the unit WAS granting vision to.
-            var oldCellIndexes = _collisionCells.GetCellIndexesAroundPos(u.lastMid);
+            var oldCellIndexes = _grid.Get33GridIndexesAroundPos(u.lastMid);
             // Identify which cells the unit IS NOW granting vision to.
-            var newCellIndexes = _collisionCells.GetCellIndexesAroundPos(u.Mid);
+            var newCellIndexes = _grid.Get33GridIndexesAroundPos(u.Mid);
             // For NEW cells, set visible to true
             foreach (Point p in newCellIndexes)
             {
-                this[u.Team, p.Col(), p.Row()] = true;
-                SetExploredCellForTeam(u.Team, p.Col(), p.Row());
+                SetCellVisibilityForTeam(u.Team, p, true);
+                SetCellAsExploredForTeam(u.Team, p);
             }
                 
             // For OLD cells that have been DROPPED, check if vision still exists
             var droppedCellIndexes = oldCellIndexes.Where(element => !newCellIndexes.Contains(element)).ToList();
 
             foreach (Point p in droppedCellIndexes)
-                this[u.Team, p.Col(), p.Row()] = UpdateCellVision(u.Team, p);
+                SetCellVisibilityForTeam(u.Team, p, UpdateCellVision(u.Team, p));
         }
 
         private bool UpdateCellVision(Team team, Point cellIndex)
@@ -144,7 +183,7 @@ namespace MinecaRTS
                         return true;
                 }
 
-                var cell = _grid[index.Col(), index.Row()];
+                var cell = _grid[index];
 
                 if (cell != null)
                 {
@@ -161,16 +200,10 @@ namespace MinecaRTS
 
         public void UnitAdded(Unit u)
         {
-            Point topLeft = _grid.IndexAt(u.Pos);
-            Point bottomRight = _grid.IndexAt(u.CollisionRect.BottomRight());
-
-            for (int col = topLeft.Col() - 1; col <= bottomRight.Col() + 1; col++)
+            foreach (Point cellIndex in _grid.Get33GridIndexesAroundPos(u.Mid))
             {
-                for (int row = topLeft.Row() - 1; row <= bottomRight.Row() + 1; row++)
-                {
-                    this[u.Team, col, row] = true;
-                    SetExploredCellForTeam(u.Team, col, row);
-                }
+                SetCellVisibilityForTeam(u.Team, cellIndex, true);
+                SetCellAsExploredForTeam(u.Team, cellIndex);
             }
         }
     }

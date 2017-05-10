@@ -9,6 +9,7 @@ namespace MinecaRTS
     public enum MessageType
     {
         ResourceDepleted = 1,
-        GiveMeResources = 2
+        GiveMeResources = 2,
+        UnitSpawned = 3
     }
 }

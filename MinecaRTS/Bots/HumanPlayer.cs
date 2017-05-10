@@ -133,7 +133,7 @@ namespace MinecaRTS
                 if (_isPlacingBuilding && !_data.ClickedOnUI())
                 {
                     // Don't take away building blueprint unless a valid selection was made.
-                    if (_data.BuyBuilding(_buildingToPlace))
+                    if (_data.BuyBuilding(_buildingToPlace, Camera.VecToWorld(Input.MousePos)))
                     {
                         _data.OrderSelectedWorkerToConstructBuilding(_buildingToPlace);
 

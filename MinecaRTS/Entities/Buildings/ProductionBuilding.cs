@@ -34,7 +34,7 @@ namespace MinecaRTS
             get { return _data; }
         }
 
-        private Type BeingProduced
+        public Type BeingProduced
         {
             get
             {
@@ -90,13 +90,11 @@ namespace MinecaRTS
                     {
                         _timeSpentProducing = 0;
 
-                        // TODO: This really should be some sort of message
-                        _data.AddUnit(BeingProduced, new Vector2(Mid.X, CollisionRect.Bottom), _data.Team, rallyPoint);
+                        MsgBoard.AddMessage(this, World.MSG_ID, MessageType.UnitSpawned);
                         _productionQueue.RemoveAt(0);
 
                         if (_productionQueue.Count == 0)
                             _isProducing = false;
-
                     }
                 }
             }                      

@@ -60,6 +60,12 @@ namespace MinecaRTS
             set { _cells[col][row] = value; }
         }
 
+        public Cell this[Point cellIndex]
+        {
+            get { return this[cellIndex.Col(), cellIndex.Row()]; }
+            set { this[cellIndex.Col(), cellIndex.Row()] = value; }
+        }
+
         /// <summary>
         /// Gets the number of columns in the grid.
         /// </summary>
@@ -211,6 +217,11 @@ namespace MinecaRTS
             }
 
             return result;
+        }
+
+        public List<Point> Get33GridIndexesAroundPos(Vector2 pos)
+        {
+            return Get33GridIndexesAroundIndex(IndexAt(pos));
         }
 
         /// <summary>
