@@ -152,22 +152,30 @@ namespace MinecaRTS
 
         public Resource GetResourceFromCell(Cell cell)
         {
-            return _world.GetResourceFromCell(cell);
+            if (_world.fogOfWar.TeamHasExploredPos(Team, cell.Mid))
+                return _world.GetResourceFromCell(cell);
+            return null;
         }
 
         public Track GetTrackFromCell(Cell cell)
         {
-            return _world.GetTrackFromCell(cell);
+            if (_world.fogOfWar.TeamCanSeePos(Team, cell.Mid))
+                return _world.GetTrackFromCell(cell);
+            return null;
         }
 
         public bool CellHasResource(Cell cell)
         {
-            return _world.CellHasResource(cell);
+            if (_world.fogOfWar.TeamHasExploredPos(Team, cell.Mid))
+                return _world.CellHasResource(cell);
+            return false;
         }
 
         public bool CellHasTrack(Cell cell)
         {
-            return _world.CellHasTrack(cell);
+            if (_world.fogOfWar.TeamCanSeePos(Team, cell.Mid))
+                return _world.CellHasTrack(cell);
+            return false;
         }
 
         public void AddUnit(Type unitType, Vector2 pos, Team team, Vector2 rallyPoint)
@@ -543,8 +551,7 @@ namespace MinecaRTS
 
             foreach (Resource r in _world.Resources.Values)
             {
-                Point cellIndex = _world.CoarseGrid.IndexAt(r.Mid);
-                if (!Debug.OptionActive(DebugOption.ShowFogOfWar) || _world.fogOfWar.TeamHasExploredCell(_team, cellIndex.Col(), cellIndex.Row()))
+                if (!Debug.OptionActive(DebugOption.ShowFogOfWar) || _world.fogOfWar.TeamHasExploredPos(_team, r.Mid))
                 {
                     if (r.Type == ResourceType.Wood)
                         spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.Chocolate);

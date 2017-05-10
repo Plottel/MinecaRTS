@@ -120,6 +120,11 @@ namespace MinecaRTS
             return TeamCanSeeCell(team, cellIndex.Col(), cellIndex.Row());
         }
 
+        public bool TeamCanSeePos(Team team, Vector2 pos)
+        {
+            return TeamCanSeeCell(team, _grid.IndexAt(pos));
+        }
+
         public bool TeamHasExploredCell(Team team, int col, int row)
         {
             if (col < 0 || col >= _grid.Cols || row < 0 || row >= _grid.Rows)
@@ -134,6 +139,11 @@ namespace MinecaRTS
         public bool TeamHasExploredCell(Team team, Point cellIndex)
         {
             return TeamHasExploredCell(team, cellIndex.Col(), cellIndex.Row());
+        }
+
+        public bool TeamHasExploredPos(Team team, Vector2 pos)
+        {
+            return TeamHasExploredCell(team, _grid.IndexAt(pos));
         }
 
         // Buildings will grant vision based on their size.
