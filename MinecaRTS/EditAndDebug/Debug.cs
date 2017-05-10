@@ -20,7 +20,8 @@ namespace MinecaRTS
         ShowStates = 7,
         ShowCoarseGrid = 8,
         ShowFogOfWar = 9,
-        Count = 10 // For easy iteration
+        EnableTimeSlicedPathing = 10,
+        Count = 11 // For easy iteration
     }
 
     public static class Debug
@@ -42,6 +43,7 @@ namespace MinecaRTS
             _settings.Add(DebugOption.ShowStates, false);
             _settings.Add(DebugOption.ShowCoarseGrid, false);
             _settings.Add(DebugOption.ShowFogOfWar, false);
+            _settings.Add(DebugOption.EnableTimeSlicedPathing, false);
         }
 
         public static void HandleInput()
@@ -72,6 +74,9 @@ namespace MinecaRTS
 
             if (Input.KeyTyped(Keys.D9))
                 _settings[DebugOption.ShowFogOfWar] = !_settings[DebugOption.ShowFogOfWar];
+
+            if (Input.KeyTyped(Keys.D0))
+                _settings[DebugOption.EnableTimeSlicedPathing] = !_settings[DebugOption.EnableTimeSlicedPathing];
         }
 
         public static bool OptionActive(DebugOption setting)

@@ -149,6 +149,13 @@ namespace MinecaRTS
                 {
                     var neighbours = new List<Cell>();
 
+                    // Diagonal
+                    //foreach (Point cellIndex in Get33GridIndexesAroundIndex(new Point(col, row)))
+                    //{
+                      //  AddCell(this[cellIndex], neighbours);
+                    //}
+
+                    // Orthogonal
                     AddCell(this[col - 1, row], neighbours); // West
                     AddCell(this[col, row + 1], neighbours); // South
                     AddCell(this[col + 1, row], neighbours); // East

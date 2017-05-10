@@ -121,6 +121,8 @@ namespace MinecaRTS
 
             foreach (Building b in Buildings)
                 b.Update();
+
+            TimeSlicedPathManager.Update();
         }
 
         public bool TeamCanSeeCell(int c, int r, Team team)

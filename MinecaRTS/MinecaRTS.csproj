@@ -49,7 +49,8 @@
     <Compile Include="Entities\Units\Minecart.cs" />
     <Compile Include="Pathing\MinecartPathHandler.cs" />
     <Compile Include="Render\Panel.cs" />
-    <Compile Include="SearchConditions.cs" />
+    <Compile Include="Pathing\SearchConditions.cs" />
+    <Compile Include="Pathing\SearchState.cs" />
     <Compile Include="States\MinecartStates.cs" />
     <Compile Include="Render\Animation.cs" />
     <Compile Include="Entities\Buildings\BuildingFactory.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Core\Cell.cs" />
     <Compile Include="EditAndDebug\Debug.cs" />
     <Compile Include="Entities\Buildings\Track.cs" />
+    <Compile Include="TimeSlicedPathManager.cs" />
     <Compile Include="Utils\Dir.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Messaging\MsgHandlerRegistry.cs" />

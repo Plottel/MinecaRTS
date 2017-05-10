@@ -48,9 +48,9 @@ namespace MinecaRTS
             var sourceCell = grid.CellAt(owner.Mid);
 
             if (resourceType == ResourceType.Wood)
-                path = Pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionWood, TerminationConditionWood, true);
+                path = pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionWood, TerminationConditionWood, true);
             else if (resourceType == ResourceType.Stone)
-                path = Pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionStone, TerminationConditionStone, true);
+                path = pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionStone, TerminationConditionStone, true);
             else
                 throw new Exception("Cannot fetch a path for None resource");
 
@@ -74,7 +74,7 @@ namespace MinecaRTS
 
             targetCell.Passable = true;
 
-            path = Pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+            path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
 
             targetCell.Passable = false;
         }
@@ -103,12 +103,12 @@ namespace MinecaRTS
             }
 
             // Get the path
-            path = Pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+            path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
 
             // Revert Building cells to !Passable
             if (changeCells)
             {
-                foreach (Cell c in cellsBuildingIsTouching)
+                foreach (Cell c in cellsBuildingIsTouching) 
                     c.Passable = false;
             }
         }

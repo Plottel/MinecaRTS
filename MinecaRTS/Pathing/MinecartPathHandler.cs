@@ -45,7 +45,7 @@ namespace MinecaRTS
             else
                 sourceCell = grid.CellAt(owner.Mid);
 
-            path.AddRange(Pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
+            path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
         }
 
         public void GetPathToBuildingFollowingTracks(Building building)
@@ -71,7 +71,7 @@ namespace MinecaRTS
             }
 
             // Get the path
-            path.AddRange(Pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
+            path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
             
             // Revert Building cells to !Passable
             if (changeCells)
@@ -89,7 +89,7 @@ namespace MinecaRTS
         {
             var sourceCell = grid.CellAt(owner.Mid);
 
-            return Pathfinder.SearchDijkstra(grid, sourceCell, owner, GreedyConsiderationCondition, TerminationConditionFindTrack, smoothed: true, depthLimit: 100);
+            return pathfinder.SearchDijkstra(grid, sourceCell, owner, GreedyConsiderationCondition, TerminationConditionFindTrack, smoothed: true, depthLimit: 100);
         }
     }
 }

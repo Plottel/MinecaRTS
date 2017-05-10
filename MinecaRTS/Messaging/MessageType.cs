@@ -11,6 +11,7 @@ namespace MinecaRTS
         ResourceDepleted = 1,
         GiveMeResources = 2,
         UnitSpawned = 3,
-        UnitMoved = 4
+        UnitMoved = 4,
+        SearchComplete
     }
 }

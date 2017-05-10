@@ -13,12 +13,21 @@ namespace MinecaRTS
     /// Responsible for getting a unit to follow a path.
     /// Each unit has their own instance of PathHandler.
     /// </summary>
-    public class PathHandler
+    public class PathHandler : IHandleMessages
     {
         /// <summary>
         /// Which unit the PathHandler belongs to.
         /// </summary>
         protected Unit owner;
+
+        private ulong _id;
+
+        public ulong ID
+        {
+            get { return _id; }
+        }
+
+        protected Pathfinder pathfinder;
 
         /// <summary>
         /// The grid used for path handling.
@@ -60,6 +69,42 @@ namespace MinecaRTS
             path = new List<Cell>();
             pathIndex = 0;
             _waypointThreshold = 20;
+            pathfinder = new Pathfinder(owner, this);
+
+            _id = MsgHandlerRegistry.NextID;
+            MsgHandlerRegistry.Register(this);
+        }
+
+        public void HandleMessage(Message message)
+        {
+            switch (message.type)
+            {
+                case MessageType.SearchComplete:
+                    var searchState = message.extraInfo;
+
+                    // Search has finished.
+                    if (searchState == SearchState.Failed)
+                        path = new List<Cell>();
+                    else if (searchState == SearchState.Complete)
+                    {
+                        var tempPath = pathfinder.RetracePath();
+
+                        if (pathfinder.smoothed && tempPath.Count > 2)
+                            tempPath = pathfinder.SmoothPath(owner, tempPath);
+
+                        path = tempPath;
+
+                        pathIndex = 0;
+
+                        if (path.Count > 0)
+                        {
+                            ticksSpentTravellingToCell = 0;
+                            estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
+                            owner.FollowPath = true;
+                        }
+                    }
+                    break;
+            }
         }
 
         /// <summary>
@@ -135,15 +180,28 @@ namespace MinecaRTS
             var sourceCell = grid.CellAt(owner.Mid);
             var targetCell = grid.CellAt(targetPos);
 
-            path = Pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
-            pathIndex = 0;
+            pathfinder.SetupGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
 
-            if (path.Count > 0)
+            if (Debug.OptionActive(DebugOption.EnableTimeSlicedPathing))
             {
-                ticksSpentTravellingToCell = 0;
-                estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
-                owner.FollowPath = true;
-            }           
+                owner.FollowPath = false;
+                path = new List<Cell>();
+                TimeSlicedPathManager.AddSearch(pathfinder);
+            }
+            else
+            {
+                path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+
+                pathIndex = 0;
+
+                if (path.Count > 0)
+                {
+                    ticksSpentTravellingToCell = 0;
+                    estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
+                    owner.FollowPath = true;
+                }
+            }
+                 
         }        
 
         public void RenderPath(SpriteBatch spriteBatch)

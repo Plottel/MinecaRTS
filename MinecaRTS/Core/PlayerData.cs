@@ -152,8 +152,12 @@ namespace MinecaRTS
 
         public Resource GetResourceFromCell(Cell cell)
         {
-            if (_world.fogOfWar.TeamHasExploredPos(Team, cell.Mid))
-                return _world.GetResourceFromCell(cell);
+            if (cell != null)
+            {
+                if (_world.fogOfWar.TeamHasExploredPos(Team, cell.Mid))
+                    return _world.GetResourceFromCell(cell);
+            }
+            
             return null;
         }
 
