@@ -175,6 +175,7 @@ namespace MinecaRTS
             return SearchState.Incomplete;
         }
 
+        // TODO: MESSY
         public SearchState SingleIteration()
         {
             // If we still need to search, run an iteration.
@@ -187,18 +188,27 @@ namespace MinecaRTS
 
                 // If just completed iteration finished the path, retrace.
                 if (searchState == SearchState.Complete)
-                    path = RetracePath();
+                {
+                    SetupRetracePath();
+                    searchState = SearchState.Retracing;
+                }
                 else if (searchState == SearchState.Failed)
                     return SearchState.Failed;
-
-                // If we need to smooth, set it up
-                if (searchState == SearchState.Complete && this.smoothed)
-                {
-                    SetupSmoothPath();
-                    searchState = SearchState.Smoothing;
-                }
                     
             }
+
+            if (searchState == SearchState.Retracing)
+            {
+                if (SingleIterationRetracePath())
+                {
+                    if (this.smoothed)
+                    {
+                        SetupSmoothPath();
+                        searchState = SearchState.Smoothing;
+                    }
+                }
+            }
+
             // If we've finished searching but need to smooth, then smooth.
             if (searchState == SearchState.Smoothing)
             {
@@ -559,17 +569,28 @@ namespace MinecaRTS
             return true;
         }
 
+        public bool SingleIterationRetracePath()
+        {
+            path.Insert(0, parents[Current]);
+            Current = parents[Current];
+
+            return parents[Current] == Source;
+        }
+
+        public void SetupRetracePath()
+        {
+            path = new List<Cell>();
+            path.Add(Current);
+        }
+
         public List<Cell> RetracePath()
         {
-            var path = new List<Cell>();
-            path.Add(Current);
+            SetupRetracePath();
 
             // Retrace steps until we get back to source node.
-            while (parents[Current] != Source)
-            {
-                path.Insert(0, parents[Current]);
-                Current = parents[Current];
-            }
+            bool retraceFinished = false;
+            while (!retraceFinished)
+                retraceFinished = SingleIterationRetracePath();
 
             return path;
         }

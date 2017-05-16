@@ -10,6 +10,7 @@ namespace MinecaRTS
     {
         Incomplete,
         Smoothing,
+        Retracing,
         Complete,
         Failed
     }
