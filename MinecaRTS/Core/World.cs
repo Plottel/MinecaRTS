@@ -172,7 +172,7 @@ namespace MinecaRTS
             // Filter by Y to create Z-index
             _renderables = _renderables.OrderBy(renderable => renderable.RenderRect.Y).ToList();
 
-            if (Debug.OptionActive(DebugOption.ShowFogOfWar))
+            if (Debug.IsOn(DebugOp.ShowFogOfWar))
             {
                 var neutralItemsToRenderRegardlessOfFog = new List<IRenderable>();
 
@@ -326,16 +326,16 @@ namespace MinecaRTS
         {
             // TODO: A lot of this can be put inside Unit Classes which would remove
             // a bunch of the "lol everything's public".
-            Grid.ShowGrid = Debug.OptionActive(DebugOption.ShowGrid) || MinecaRTS.Instance.editMode;
-            CoarseGrid.ShowGrid = Debug.OptionActive(DebugOption.ShowCoarseGrid);
+            Grid.ShowGrid = Debug.IsOn(DebugOp.ShowGrid) || MinecaRTS.Instance.editMode;
+            CoarseGrid.ShowGrid = Debug.IsOn(DebugOp.ShowCoarseGrid);
 
-            if (Debug.OptionActive(DebugOption.ShowPaths))
+            if (Debug.IsOn(DebugOp.ShowPaths))
             {
                 foreach (Unit u in Units)
                     u.pathHandler.RenderPath(spriteBatch);
             }
 
-            if (Debug.OptionActive(DebugOption.ShowUnitFeelers))
+            if (Debug.IsOn(DebugOp.ShowUnitFeelers))
             {
                 foreach (Unit u in Units)
                 {
@@ -346,7 +346,7 @@ namespace MinecaRTS
                 }
             }
 
-            if (Debug.OptionActive(DebugOption.ShowWallPushForce))
+            if (Debug.IsOn(DebugOp.ShowWallPushForce))
             {
                 foreach (Unit u in Units)
                 {
@@ -361,7 +361,7 @@ namespace MinecaRTS
                 }
             }
 
-            if (Debug.OptionActive(DebugOption.ShowStates))
+            if (Debug.IsOn(DebugOp.ShowStates))
             {
                 foreach (Unit u in Units)
                 {
@@ -369,7 +369,7 @@ namespace MinecaRTS
                 }
             }
 
-            if (Debug.OptionActive(DebugOption.ShowCoarseGrid))
+            if (Debug.IsOn(DebugOp.ShowCoarseGrid))
             {
                 //List<List<HashSet<Unit>>> collisionCells;
                 for (int col = 0; col < collisionCells.Grid.Cols; col++)

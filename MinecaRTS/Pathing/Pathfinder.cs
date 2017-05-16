@@ -8,24 +8,31 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 
-
 namespace MinecaRTS
 {
     public class Pathfinder
     {
+        private SearchState searchState;
+        public SearchType searchType;
         private Cell Source;
-        private Cell Target;
+        private List<Cell> Targets;
         private Cell Current;
         private List<Cell> Open;
         private List<Cell> Closed;
         private Grid Grid;
         private Func<Cell, bool> considerationCondition;
         private Func<Cell, bool> dijkstraTerminationCondition;
-        private Func<Cell, Cell, bool> greedyTerminationCondition;
+        private Func<Cell, List<Cell>, bool> greedyTerminationCondition;
         private Func<Cell, Cell, float> greedyGetScore;
         public bool smoothed;
         private uint depthLimit;
         private uint currentDepth;
+        private int smoothingFromIndex;
+        private int smoothingToIndex;
+
+        public List<Cell> path;
+        private List<Cell> smoothedPath;
+
 
         private Dictionary<Cell, Cell> parents;
         private Dictionary<Cell, float> scores;
@@ -37,6 +44,7 @@ namespace MinecaRTS
         {
             this.owner = owner;
             this.handler = handler;
+            path = new List<Cell>();
         }
 
         private List<Cell> GetAdjacentCells(Cell cell)
@@ -58,12 +66,12 @@ namespace MinecaRTS
             // Get target if it's in the open.
             foreach (Cell c in Open)
             {
-                if (c == Target)
+                if (Targets.Contains(c))
                 {
                     Current = c;
                     return;
                 }
-            }
+            }            
 
             // TODO: Implement priority queue.
             //Open.Sort((x, y) => x.Score.CompareTo(y.Score));
@@ -79,6 +87,129 @@ namespace MinecaRTS
             Current = Open[0];
         }
 
+        public SearchState SingleIterationDijkstra()
+        {
+            // If we've reached maximum depth, end the search
+            if (++currentDepth > depthLimit)
+                return SearchState.Failed;
+
+            #region /--- RESOURCE PATH CALC DEBUG ---\
+            if (Debug.IsOn(DebugOp.CalcPath))
+            {
+                Input.UpdateStates();
+                MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
+                Debug.HandleInput();
+
+                MinecaRTS.Instance.spriteBatch.Begin();
+
+                MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
+
+                // Render closed list pale blue.
+                foreach (Cell cell in Closed)
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
+
+                // Render open list cream.
+                foreach (Cell cell in Open)
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
+
+                // Render source red
+                MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
+
+                // Render current purple
+                MinecaRTS.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
+
+                // Render path to current pink
+                Cell c = Current;
+                while (c.Parent != null)
+                {
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
+                    c = c.Parent;
+                }
+
+                // Render cell scores in black text.
+                foreach (Cell openCell in Open)
+                {
+                    MinecaRTS.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(scores[openCell]).ToString(), openCell.RenderMid, Color.Black);
+                }
+
+                // Render each resource
+                foreach (Resource r in MinecaRTS.Instance.world.Resources.Values)
+                    r.Render(MinecaRTS.Instance.spriteBatch);
+
+                Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
+
+                MinecaRTS.Instance.spriteBatch.End();
+
+                MinecaRTS.Instance.GraphicsDevice.Present();
+
+                System.Threading.Thread.Sleep(50);
+            }
+
+            #endregion /--- RESOURCE PATH CALC DEBUG ---\
+
+            // Get adjacent nodes, calculate score and add to open list.
+            foreach (Cell cell in Current.Neighbours)
+            {
+                if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
+                {
+                    parents.Add(cell, Current);
+                    scores.Add(cell, scores[Current] + 1);
+                    //cell.Parent = Current;
+                    //cell.Score = cell.Parent.Score + 1; // 1 minimum cost.
+
+                    Open.Add(cell);
+
+                    // Check if new node meets termination condition.
+                    if (dijkstraTerminationCondition(cell))
+                    {
+                        Current = cell;
+                        return SearchState.Complete;
+                    }
+                }
+            }
+
+            // Get cell with lowest F score ready to add neighbours.
+            Open.Remove(Current);
+            Closed.Add(Current);
+            GetNextCurrentCell();
+            return SearchState.Incomplete;
+        }
+
+        public SearchState SingleIteration()
+        {
+            // If we still need to search, run an iteration.
+            if (searchState == SearchState.Incomplete)
+            {
+                if (searchType == SearchType.Greedy)
+                    searchState = SingleIterationGreedy();
+                else if (searchType == SearchType.Dijkstra)
+                    searchState = SingleIterationDijkstra();
+
+                // If just completed iteration finished the path, retrace.
+                if (searchState == SearchState.Complete)
+                    path = RetracePath();
+                else if (searchState == SearchState.Failed)
+                    return SearchState.Failed;
+
+                // If we need to smooth, set it up
+                if (searchState == SearchState.Complete && this.smoothed)
+                    SetupSmoothPath();
+            }
+
+            // If we've finished searching but need to smooth, then smooth.
+            if (searchState == SearchState.Complete && this.smoothed)
+            {
+                bool smoothingFinished = SingleIterationSmoothPath();
+
+                if (smoothingFinished)
+                    return SearchState.Complete;
+
+                return SearchState.Incomplete;
+            }
+
+            return searchState;
+        }
+
         /// <summary>
         /// Runs Dijkstra's to find the closest cell with a resource of the specified type.
         /// </summary>
@@ -90,132 +221,44 @@ namespace MinecaRTS
                                                 bool smoothed = false, 
                                                 uint depthLimit = uint.MaxValue)
         {
+            this.considerationCondition = considerationCondition;
+            dijkstraTerminationCondition = terminationCondition;
+            this.depthLimit = depthLimit;
+
             // Initialize relevant search details and add first node to closed list.
             Setup(grid, source);
-            Target = null;
+            Targets = new List<Cell>();
 
             parents = new Dictionary<Cell, Cell>();
             scores = new Dictionary<Cell, float>();
 
             scores.Add(Current, 0);
 
-            uint searchDepth = 0;
-            bool searchComplete = false;
+            currentDepth = 0;
+
+            searchState = SearchState.Incomplete;
 
             // Until we are considering a node with the desired resource that is not overcrowded.
-            while (!searchComplete)
-            {
-                // If we've reached maximum depth, end the search
-                if (++searchDepth > depthLimit)
-                    break;
+            while (searchState == SearchState.Incomplete)
+                searchState = SingleIterationDijkstra();
 
-                #region /--- RESOURCE PATH CALC DEBUG ---\
-                if (Debug.OptionActive(DebugOption.CalcPath))
-                {
-                    Input.UpdateStates();
-                    MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
-                    Debug.HandleInput();
-
-                    MinecaRTS.Instance.spriteBatch.Begin();
-
-                    MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
-
-                    // Render closed list pale blue.
-                    foreach (Cell cell in Closed)
-                        MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
-
-                    // Render open list cream.
-                    foreach (Cell cell in Open)
-                        MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
-
-                    // Render source red
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
-
-                    // Render current purple
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
-
-                    // Render path to current pink
-                    Cell c = Current;
-                    while (c.Parent != null)
-                    {
-                        MinecaRTS.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
-                        c = c.Parent;
-                    }
-
-                    // Render cell scores in black text.
-                    foreach (Cell openCell in Open)
-                    {
-                        MinecaRTS.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(scores[openCell]).ToString(), openCell.RenderMid, Color.Black);
-                    }
-
-                    // Render each resource
-                    foreach (Resource r in MinecaRTS.Instance.world.Resources.Values)
-                        r.Render(MinecaRTS.Instance.spriteBatch);
-
-                    Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
-
-                    MinecaRTS.Instance.spriteBatch.End();
-
-                    MinecaRTS.Instance.GraphicsDevice.Present();
-
-                    System.Threading.Thread.Sleep(50);
-                }                
-
-                #endregion /--- RESOURCE PATH CALC DEBUG ---\
-
-                // Get adjacent nodes, calculate score and add to open list.
-                foreach (Cell cell in Current.Neighbours)
-                {
-                    if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
-                    {
-                        parents.Add(cell, Current);
-                        scores.Add(cell, scores[Current] + 1);
-                        //cell.Parent = Current;
-                        //cell.Score = cell.Parent.Score + 1; // 1 minimum cost.
-
-                        Open.Add(cell);
-
-                        // Check if new node meets termination condition.
-                        if (terminationCondition(cell))
-                        {
-                            Current = cell;
-                            searchComplete = true;
-                            break;
-                        }
-                    }
-                }
-
-                // Get cell with lowest F score ready to add neighbours.
-                if (!searchComplete)
-                {
-                    Open.Remove(Current);
-                    Closed.Add(Current);
-                    GetNextCurrentCell();
-                }
-            }
-
-            if (searchComplete)
-            {
-                // Target has been found. Retrace our steps to find path.
-                var path = RetracePath();
-
-                // Don't smooth super short paths.
-                if (smoothed && path.Count > 2)
-                    path = SmoothPath(unit, path);
-
-                return path;
-            }
-            else
-            {
-                // We reached depth limit before target was found, return empty list;
+            if (searchState == SearchState.Failed)
                 return new List<Cell>();
-            }
+
+            // Target has been found. Retrace our steps to find path.
+            path = RetracePath();
+
+            // Don't smooth super short paths.
+            if (smoothed && path.Count > 2)
+                path = SmoothPath();
+
+            return path;
         }
 
         public SearchState SingleIterationGreedy()
         {        
             #region /--- GREEDY PATH CALC DEBUG ---\
-            if (Debug.OptionActive(DebugOption.CalcPath))
+            if (Debug.IsOn(DebugOp.CalcPath))
             {
                 Input.UpdateStates();
                 MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
@@ -234,7 +277,8 @@ namespace MinecaRTS
                     MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
 
                 // Render target green
-                MinecaRTS.Instance.spriteBatch.FillRectangle(Target.RenderRect, Color.LawnGreen);
+                foreach (Cell target in Targets)
+                    MinecaRTS.Instance.spriteBatch.FillRectangle(target.RenderRect, Color.LawnGreen);
 
                 // Render source red
                 MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
@@ -274,7 +318,7 @@ namespace MinecaRTS
                 if (considerationCondition(cell) && !Closed.Contains(cell) && !Open.Contains(cell))
                 {
                     parents.Add(cell, Current);
-                    scores.Add(cell, greedyGetScore(cell, Target));
+                    scores.Add(cell, greedyGetScore(cell, Targets[0]));
 
                     //cell.Parent = Current;
                     //cell.Score = getScore(cell, Target);
@@ -287,7 +331,7 @@ namespace MinecaRTS
             Open.Remove(Current);
             Closed.Add(Current);
 
-            if (greedyTerminationCondition(Current, Target))
+            if (greedyTerminationCondition(Current, Targets))
                 return SearchState.Complete;
 
             if (Open.Count == 0)
@@ -296,36 +340,44 @@ namespace MinecaRTS
             // Neighbours have been added, evaluate best node.
             GetNextCurrentCell();
 
-            return SearchState.Searching;
+            return SearchState.Incomplete;
         }
 
         public List<Cell> SearchGreedy(Grid grid, 
                                               Cell source, 
-                                              Cell target, 
+                                              List<Cell> target, 
                                               Unit unit, 
                                               Func<Cell, bool> considerationCondition, 
-                                              Func<Cell, Cell, bool> terminationCondition,
+                                              Func<Cell, List<Cell>, bool> terminationCondition,
                                               Func<Cell, Cell, float> getScore,
                                               bool smoothed = false)
         {
             parents = new Dictionary<Cell, Cell>();
             scores = new Dictionary<Cell, float>();
 
+            this.considerationCondition = considerationCondition;
+            greedyTerminationCondition = terminationCondition;
+            greedyGetScore = getScore;
+            this.smoothed = smoothed;
+            this.depthLimit = uint.MaxValue;
+            currentDepth = 0;
+
+            Targets = target;
+
             // Don't fetch a path to the same cell.
-            if (source == target)
+            if (Targets.Contains(source))
                 return new List<Cell>();
 
             // Initialise relevant search details and add first node to closed list. 
             Setup(grid, source);
-            Target = target;
 
             parents.Add(Current, source);
             scores.Add(Current, 0);
 
-            SearchState searchState = SearchState.Searching;
+            searchState = SearchState.Incomplete;
 
             // Until we consider the target node.
-            while (searchState == SearchState.Searching)
+            while (searchState == SearchState.Incomplete)
                 searchState = SingleIterationGreedy();
 
             // Search has finished.
@@ -333,51 +385,73 @@ namespace MinecaRTS
                 return new List<Cell>();
 
             // Target has been found. Retrace our steps to find path.
-            var path = RetracePath();
+            path = RetracePath();
 
             // Don't smooth super short paths.
             if (smoothed && path.Count > 2)
-                path = SmoothPath(unit, path);
+                path = SmoothPath();
 
             return path;
         }
 
-        public List<Cell> SmoothPath(Unit unit, List<Cell> path)
+        /// <summary>
+        /// True indicates smoothing is finished.
+        /// False indicates smoothing is still underway.
+        /// </summary>
+        /// <returns></returns>
+        public bool SingleIterationSmoothPath()
         {
-            var smoothedPath = new List<Cell>();
+            if (smoothingToIndex > path.Count - 1)
+                return true;
+
+            if (PathIsClear(path[smoothingFromIndex], path[smoothingToIndex], handler.Owner))
+            {
+                ++smoothingToIndex;
+            }
+            else
+            {
+                smoothingFromIndex = smoothingToIndex - 1;
+                smoothedPath.Add(path[smoothingFromIndex]);
+                smoothingToIndex = smoothingFromIndex + 1;
+            }
+
+            return false;
+        }
+
+        private void SetupSmoothPath()
+        {
+            smoothedPath = new List<Cell>();
             smoothedPath.Add(path[0]);
 
-            int indexFrom = 0;
-            int indexTo = 1;
+            smoothingFromIndex = 0;
+            smoothingToIndex = 1;
+        }
+        
+        public List<Cell> SmoothPath()
+        {
+            SetupSmoothPath();
 
-            float prevAngle = (path[indexFrom].Mid - path[indexTo].Mid).ToAngle();
-            float currentAngle = (path[indexFrom].Mid - path[indexTo].Mid).ToAngle();
+            // TODO: Can optimise if we're traveling on same angle by only calculating NEW portion.
+            //float prevAngle = (path[smoothingFromIndex].Mid - path[smoothingToIndex].Mid).ToAngle();
+            //float currentAngle = (path[smoothingFromIndex].Mid - path[smoothingToIndex].Mid).ToAngle();
 
-            while (indexTo < path.Count - 1)
+            bool smoothingFinished = false;
+            while (!smoothingFinished)
             {
-                bool pathIsClear;
+                smoothingFinished = SingleIterationSmoothPath();
+                #region Angle Optimisation
+                //bool pathIsClear;
 
-                prevAngle = currentAngle;
-                currentAngle = (path[indexFrom].Mid - path[indexTo].Mid).ToAngle();
+                //prevAngle = currentAngle;
+                //currentAngle = (path[smoothingFromIndex].Mid - path[smoothingToIndex].Mid).ToAngle();
 
                 // TODO: Is this worth??
                 // If angle is same as last calculation, only check if new section is free.
                 //if (prevAngle == currentAngle)
-                    //pathIsClear = PathIsClear(path[indexTo - 1], path[indexTo], unit);               
+                //pathIsClear = PathIsClear(path[indexTo - 1], path[indexTo], unit);               
                 //else // Different angle.
-                    pathIsClear = PathIsClear(path[indexFrom], path[indexTo], unit);               
-
-                if (pathIsClear)
-                {
-                    ++indexTo;
-                }
-                else
-                {
-                    indexFrom = indexTo - 1;
-                    smoothedPath.Add(path[indexFrom]);
-                    indexTo = indexFrom + 1;
-                }
-                    
+                //pathIsClear = PathIsClear(path[smoothingFromIndex], path[smoothingToIndex], unit);     
+                #endregion Angle Optimisation
             }
 
             // Add the destination cell.
@@ -430,7 +504,7 @@ namespace MinecaRTS
 
             // @DEBUG: Show projected rectangle and adjacent nodes for path smoothing.
             #region /--- PATH SMOOTHING DEBUG ---\
-            if (Debug.OptionActive(DebugOption.CalcPathSmoothing))
+            if (Debug.IsOn(DebugOp.CalcPathSmoothing))
             {
                 // Finish rendering so we can start fresh render for debug
                 MinecaRTS.Instance.spriteBatch.End();
@@ -505,14 +579,35 @@ namespace MinecaRTS
             this.smoothed = smoothed;
             this.depthLimit = depthLimit;
             currentDepth = 0;
+            searchType = SearchType.Dijkstra;
+            searchState = SearchState.Incomplete;
+
+            path = new List<Cell>();
+
+            Grid = grid;
+            parents = new Dictionary<Cell, Cell>();
+            scores = new Dictionary<Cell, float>();
+
+            Source = source;
+            Targets = new List<Cell>();
+            Current = source;
+
+            parents.Add(Current, null);
+            scores.Add(Current, 0);
+
+            Open = new List<Cell>();
+            Closed = new List<Cell>();
+
+            Open.Add(Current);
+
         }
 
         public void SetupGreedy(Grid grid,
                                               Cell source,
-                                              Cell target,
+                                              List<Cell> targets,
                                               Unit unit,
                                               Func<Cell, bool> considerationCondition,
-                                              Func<Cell, Cell, bool> terminationCondition,
+                                              Func<Cell, List<Cell>, bool> terminationCondition,
                                               Func<Cell, Cell, float> getScore,
                                               bool smoothed = false)
         {
@@ -520,8 +615,10 @@ namespace MinecaRTS
             parents = new Dictionary<Cell, Cell>();
             scores = new Dictionary<Cell, float>();
 
+            searchState = SearchState.Incomplete;
+
             Source = source;
-            Target = target;
+            Targets = targets;
             Current = source;
 
             Open = new List<Cell>();
@@ -529,9 +626,10 @@ namespace MinecaRTS
 
             Open.Add(Current);
 
+            path = new List<Cell>();
+
             parents.Add(Current, null);
             scores.Add(Current, 0);
-
 
             this.considerationCondition = considerationCondition;
             greedyTerminationCondition = terminationCondition;
@@ -539,6 +637,8 @@ namespace MinecaRTS
 
             this.smoothed = smoothed;
             currentDepth = 0;
+
+            searchType = SearchType.Greedy;
         }
 
         private void Setup(Grid grid, Cell source)
@@ -546,6 +646,7 @@ namespace MinecaRTS
             Grid = grid;
             Source = source;
             Current = source;
+            path = new List<Cell>();
 
             Open = new List<Cell>();
             Closed = new List<Cell>();

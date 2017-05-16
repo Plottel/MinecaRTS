@@ -24,7 +24,7 @@ namespace MinecaRTS
                 GetPathToBuilding(buildingAtPos);
             else
             {
-                Cell cell = _owner.Data.Grid.CellAt(targetPos);
+                Cell cell = grid.CellAt(targetPos);
                 Resource resource = _owner.Data.GetResourceFromCell(cell);
 
                 if (resource != null)
@@ -33,50 +33,60 @@ namespace MinecaRTS
                     base.GetPathTo(targetPos);
             }
 
-            pathIndex = 0;
-
-            if (path.Count > 0)
-            {
-                _owner.FollowPath = true;
-                ticksSpentTravellingToCell = 0;
-                estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
-            }               
+            FinalisePath();         
         }
 
         public void GetPathToClosestUnsaturatedResource(ResourceType resourceType)
         {
             var sourceCell = grid.CellAt(owner.Mid);
 
-            if (resourceType == ResourceType.Wood)
-                path = pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionWood, TerminationConditionWood, true);
-            else if (resourceType == ResourceType.Stone)
-                path = pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionStone, TerminationConditionStone, true);
-            else
-                throw new Exception("Cannot fetch a path for None resource");
-
-            // TODO: This is a special case where pathIndex / FollowPath is necessary since currently it can't be implemented in terms of GetPathTo.
-            // Consider reworking.
-            pathIndex = 0;
-
-            if (path.Count > 0)
+            if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
             {
-                owner.FollowPath = true;
-                ticksSpentTravellingToCell = 0;
-                estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
+                if (resourceType == ResourceType.Wood)
+                    pathfinder.SetupDijkstra(grid, sourceCell, owner, ConsiderationConditionWood, TerminationConditionWood, true);
+                else
+                    pathfinder.SetupDijkstra(grid, sourceCell, owner, ConsiderationConditionStone, TerminationConditionStone, true);
+
+                TimeSlicedPathManager.AddSearch(pathfinder);
             }
-                
+            else
+            {
+                if (resourceType == ResourceType.Wood)
+                    path = pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionWood, TerminationConditionWood, true);
+                else if (resourceType == ResourceType.Stone)
+                    path = pathfinder.SearchDijkstra(grid, sourceCell, owner, ConsiderationConditionStone, TerminationConditionStone, true);
+                else
+                    throw new Exception("Cannot fetch a path for None resource");
+
+                _owner.targetResourceCell = grid.CellAt(path.Last().Mid);
+
+                // TODO: This is a special case where pathIndex / FollowPath is necessary since currently it can't be implemented in terms of GetPathTo.
+                // Consider reworking.
+                FinalisePath();
+            }            
         }
 
         public void GetPathToResource(Resource resource)
         {
             var sourceCell = grid.CellAt(owner.Mid);
-            var targetCell = grid.CellAt(resource.Mid);
 
-            targetCell.Passable = true;
+            var targetCells = grid.CellsInRect(resource.CollisionRect.GetInflated(16, 16));
+            targetCells = targetCells.Where(element => element.Passable).ToList();
 
-            path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
 
-            targetCell.Passable = false;
+            _owner.resrcLookingFor = resource.Type;
+            _owner.targetResourceCell = grid.CellAt(resource.Mid);
+
+            if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
+            {
+                pathfinder.SetupGreedy(grid, sourceCell, targetCells, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+                TimeSlicedPathManager.AddSearch(pathfinder);
+            }
+            else
+            {
+                // TODO: This won't be able to find path if resource is saturated.
+                path = pathfinder.SearchGreedy(grid, sourceCell, targetCells, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+            }            
         }
 
         /// <summary>
@@ -86,31 +96,25 @@ namespace MinecaRTS
         /// <param name="building"></param>
         public void GetPathToBuilding(Building building)
         {
-            bool changeCells = !(building is Track);
-
-            // TODO: Possible optimisation by making target a Cell on the edge of building from which unit will approach.
-            // Prevents a possibly long List.Contains() for every node.
-
             var sourceCell = grid.CellAt(owner.Mid);
-            var targetCell = grid.CellAt(building.Mid);
-            var cellsBuildingIsTouching = grid.CellsInRect(building.CollisionRect);
+            //var targetCell = new List<Cell> { grid.CellAt(building.Mid) };
 
-            // Temporarily make Building cells passable.
-            if (changeCells)
+            var inflatedBuildingCells = grid.CellsInRect(building.CollisionRect.GetInflated(16, 16));
+            var buildingCells = grid.CellsInRect(building.CollisionRect);
+
+            var borderCells = inflatedBuildingCells.Where(element => !buildingCells.Contains(element)).ToList();
+            borderCells = borderCells.Where(element => element.Passable).ToList();
+
+            if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
             {
-                foreach (Cell c in cellsBuildingIsTouching)
-                    c.Passable = true;
+                pathfinder.SetupGreedy(grid, sourceCell, borderCells, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+                TimeSlicedPathManager.AddSearch(pathfinder);
             }
-
-            // Get the path
-            path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
-
-            // Revert Building cells to !Passable
-            if (changeCells)
+            else
             {
-                foreach (Cell c in cellsBuildingIsTouching) 
-                    c.Passable = false;
-            }
+                // Get the path
+                path = pathfinder.SearchGreedy(grid, sourceCell, borderCells, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+            }            
         }
     }
 }

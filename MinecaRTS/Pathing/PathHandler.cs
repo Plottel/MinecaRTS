@@ -20,7 +20,15 @@ namespace MinecaRTS
         /// </summary>
         protected Unit owner;
 
+        public Unit Owner
+        {
+            get { return owner; }
+        }
+
         private ulong _id;
+
+        // TODO: JANKY!!
+        protected Building buildingPathingTowards;
 
         public ulong ID
         {
@@ -75,7 +83,7 @@ namespace MinecaRTS
             MsgHandlerRegistry.Register(this);
         }
 
-        public void HandleMessage(Message message)
+        public virtual void HandleMessage(Message message)
         {
             switch (message.type)
             {
@@ -87,21 +95,8 @@ namespace MinecaRTS
                         path = new List<Cell>();
                     else if (searchState == SearchState.Complete)
                     {
-                        var tempPath = pathfinder.RetracePath();
-
-                        if (pathfinder.smoothed && tempPath.Count > 2)
-                            tempPath = pathfinder.SmoothPath(owner, tempPath);
-
-                        path = tempPath;
-
-                        pathIndex = 0;
-
-                        if (path.Count > 0)
-                        {
-                            ticksSpentTravellingToCell = 0;
-                            estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
-                            owner.FollowPath = true;
-                        }
+                        path = pathfinder.path;
+                        FinalisePath();
                     }
                     break;
             }
@@ -170,6 +165,18 @@ namespace MinecaRTS
             return distanceFromCell <= _waypointThreshold;
         }             
 
+        public void FinalisePath()
+        {
+            pathIndex = 0;
+
+            if (path.Count > 0)
+            {
+                ticksSpentTravellingToCell = 0;
+                estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
+                owner.FollowPath = true;
+            }
+        }
+
         /// <summary>
         /// Generates a path to the target position.
         /// If owner is set to follow paths, this will orient owner towards first cell in path.
@@ -178,28 +185,22 @@ namespace MinecaRTS
         public virtual void GetPathTo(Vector2 targetPos)
         {
             var sourceCell = grid.CellAt(owner.Mid);
-            var targetCell = grid.CellAt(targetPos);
+            var targetCell = new List<Cell> { grid.CellAt(targetPos) };
 
             pathfinder.SetupGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
 
-            if (Debug.OptionActive(DebugOption.EnableTimeSlicedPathing))
+            if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
             {
                 owner.FollowPath = false;
                 path = new List<Cell>();
                 TimeSlicedPathManager.AddSearch(pathfinder);
+
+                // TODO: Some kind of seek behaviour towards target so they don't just stand there.
             }
             else
             {
                 path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
-
-                pathIndex = 0;
-
-                if (path.Count > 0)
-                {
-                    ticksSpentTravellingToCell = 0;
-                    estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
-                    owner.FollowPath = true;
-                }
+                FinalisePath();
             }
                  
         }        
@@ -263,7 +264,7 @@ namespace MinecaRTS
         }
 
        protected bool TerminationConditionWood(Cell current)
-        {
+       {
             Resource resource = owner.Data.GetResourceFromCell(current);
 
             if (resource == null)
@@ -298,9 +299,9 @@ namespace MinecaRTS
         }
 
         // Termination condition for a standard path.
-        protected bool GreedyTerminationCondition(Cell current, Cell target)
+        protected bool GreedyTerminationCondition(Cell current, List<Cell> targets)
         {
-            return current == target;
+            return targets.Contains(current);
         }
 
         protected float GreedyScoreMethod(Cell cell, Cell Target)

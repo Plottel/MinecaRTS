@@ -9,8 +9,32 @@ namespace MinecaRTS
 {
     public class MinecartPathHandler : PathHandler
     {
+        private List<Cell> _tempPathToTrack = new List<Cell>();
+
         public MinecartPathHandler(Unit owner, Grid grid) : base (owner, grid)
         {
+        }        
+
+        public override void HandleMessage(Message message)
+        {
+            
+            switch (message.type)
+            {
+                case MessageType.SearchComplete:
+                    var searchState = message.extraInfo;
+
+                    if (searchState == SearchState.Failed)
+                        path = new List<Cell>();
+                    else
+                    {
+                        path = _tempPathToTrack;
+                        path.AddRange(pathfinder.RetracePath());
+
+                        _tempPathToTrack = new List<Cell>();
+                        FinalisePath();
+                    }
+                    break;
+            }
         }
 
         public override void GetPathTo(Vector2 targetPos)
@@ -22,62 +46,62 @@ namespace MinecaRTS
             else if (owner.Data.Grid.CellAt(targetPos).Passable)
                 GetPathToPosFollowingTracks(targetPos);
 
-            pathIndex = 0;
-
-            if (path.Count > 0)
-            {
-                owner.FollowPath = true;
-
-                ticksSpentTravellingToCell = 0;
-                estimatedTicksToReachNextCell = GetEstimatedTicksToReachCell(path[0]);
-            }                
+            FinalisePath();           
         }
 
         public void GetPathToPosFollowingTracks(Vector2 targetPos)
         {
             Cell sourceCell;
-            Cell targetCell = grid.CellAt(targetPos);
+            var targetCell = new List<Cell> { grid.CellAt(targetPos) };
 
-            path = GetPathToNearbyTrack();
+            _tempPathToTrack = GetPathToNearbyTrack();
 
-            if (path.Count > 0)
+            if (_tempPathToTrack.Count > 0)
                 sourceCell = path.Last();
             else
                 sourceCell = grid.CellAt(owner.Mid);
 
-            path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
+            if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
+            {
+                pathfinder.SetupGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false);
+                TimeSlicedPathManager.AddSearch(pathfinder);
+            }
+            else
+            {
+                path = _tempPathToTrack;
+                path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
+                _tempPathToTrack = new List<Cell>();
+            }
+
         }
 
         public void GetPathToBuildingFollowingTracks(Building building)
         {
             Cell sourceCell;
-            Cell targetCell = grid.CellAt(building.Mid);
 
-            path = GetPathToNearbyTrack();
+            var inflatedBuildingCells = grid.CellsInRect(building.CollisionRect.GetInflated(16, 16));
+            var buildingCells = grid.CellsInRect(building.CollisionRect);
 
-            if (path.Count > 0)
+            var borderCells = inflatedBuildingCells.Where(element => !buildingCells.Contains(element)).ToList();
+            borderCells = borderCells.Where(element => element.Passable).ToList();
+
+            _tempPathToTrack = GetPathToNearbyTrack();
+
+            if (_tempPathToTrack.Count > 0)
                 sourceCell = path.Last();
             else
                 sourceCell = grid.CellAt(owner.Mid);
 
-            bool changeCells = !(building is Track);
-            var cellsBuildingIsTouching = grid.CellsInRect(building.CollisionRect);
-
-            // Temporarily make Building cells passable.
-            if (changeCells)
+            if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
             {
-                foreach (Cell c in cellsBuildingIsTouching)
-                    c.Passable = true;
+                pathfinder.SetupGreedy(grid, sourceCell, borderCells, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false);
+                TimeSlicedPathManager.AddSearch(pathfinder);
             }
-
-            // Get the path
-            path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
-            
-            // Revert Building cells to !Passable
-            if (changeCells)
+            else
             {
-                foreach (Cell c in cellsBuildingIsTouching)
-                    c.Passable = false;
+                path = _tempPathToTrack;
+                path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, borderCells, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
+                _tempPathToTrack = new List<Cell>();
             }
         }
 

@@ -322,8 +322,7 @@ namespace MinecaRTS
         public bool BuyBuilding(Building building, Vector2 pos)
         {
             //if (!T.IsSubclassOf(typeof(Building)))
-               //throw new InvalidOperationException(T.Name + " does not inherit from Building");
-
+            //throw new InvalidOperationException(T.Name + " does not inherit from Building");
 
             //MethodInfo createBuilding = Type.GetType("MinecaRTS.BuildingFactory").GetMethod("Create" + T.Name);
 
@@ -555,7 +554,7 @@ namespace MinecaRTS
 
             foreach (Resource r in _world.Resources.Values)
             {
-                if (!Debug.OptionActive(DebugOption.ShowFogOfWar) || _world.fogOfWar.TeamHasExploredPos(_team, r.Mid))
+                if (!Debug.IsOn(DebugOp.ShowFogOfWar) || _world.fogOfWar.TeamHasExploredPos(_team, r.Mid))
                 {
                     if (r.Type == ResourceType.Wood)
                         spriteBatch.FillRectangle(Camera.WorldRectToMinimapRect(r.CollisionRect), Color.Chocolate);

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace MinecaRTS
 {
-    public enum SearchState
+    public enum SearchType
     {
-        Incomplete,
-        Complete,
-        Failed
+        Dijkstra,
+        Greedy
     }
 }

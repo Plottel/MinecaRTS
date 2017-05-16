@@ -42,7 +42,7 @@ namespace MinecaRTS
             //if (owner.CollisionRect.GetInflated(5, 5).Intersects(owner.targetResourceCell.CollisionRect))
             //owner.FSM.ChangeState(HarvestResource.Instance);
 
-            if (owner.CollisionRect.GetInflated(10, 10).Intersects(owner.TargetDepositBox.CollisionRect))
+            if (owner.CollisionRect.GetInflated(32, 32).Intersects(owner.TargetDepositBox.CollisionRect))
             {
                 MsgBoard.AddMessage(owner, owner.TargetDepositBox.ID, MessageType.GiveMeResources);
                 owner.FSM.ChangeState(ReturnToTownHall.Instance);
@@ -87,7 +87,7 @@ namespace MinecaRTS
 
         public override void Execute(Minecart owner)
         {
-            if (owner.CollisionRect.GetInflated(10, 10).Intersects(owner.TargetTownHall.CollisionRect))
+            if (owner.CollisionRect.GetInflated(32, 32).Intersects(owner.TargetTownHall.CollisionRect))
             {
                 owner.TargetTownHall.AcceptResources(owner.Wood, owner.Stone);
                 owner.EmptySelf();
