@@ -9,6 +9,7 @@ namespace MinecaRTS
     public enum SearchState
     {
         Incomplete,
+        Smoothing,
         Complete,
         Failed
     }

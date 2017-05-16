@@ -193,16 +193,25 @@ namespace MinecaRTS
 
                 // If we need to smooth, set it up
                 if (searchState == SearchState.Complete && this.smoothed)
+                {
                     SetupSmoothPath();
+                    searchState = SearchState.Smoothing;
+                }
+                    
             }
-
             // If we've finished searching but need to smooth, then smooth.
-            if (searchState == SearchState.Complete && this.smoothed)
+            if (searchState == SearchState.Smoothing)
             {
                 bool smoothingFinished = SingleIterationSmoothPath();
 
                 if (smoothingFinished)
+                {
+                    // Add the destination cell.
+                    smoothedPath.Add(path[path.Count - 1]);
+                    path = smoothedPath; 
+
                     return SearchState.Complete;
+                }                    
 
                 return SearchState.Incomplete;
             }

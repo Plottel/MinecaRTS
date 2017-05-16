@@ -25,7 +25,7 @@ namespace MinecaRTS
             {
                 SearchState searchState = _activeSearches[i].SingleIteration();
 
-                if (searchState != SearchState.Incomplete)
+                if (searchState == SearchState.Complete || searchState == SearchState.Failed)
                 {
                     MsgBoard.AddMessage(null, _activeSearches[i].handler.ID, MessageType.SearchComplete, info: searchState);
                     _activeSearches.RemoveAt(i);
