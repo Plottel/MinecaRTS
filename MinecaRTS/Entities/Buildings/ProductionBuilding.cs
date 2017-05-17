@@ -90,7 +90,7 @@ namespace MinecaRTS
                     {
                         _timeSpentProducing = 0;
 
-                        MsgBoard.AddMessage(this, World.MSG_ID, MessageType.UnitSpawned);
+                        MsgBoard.AddMessage(this, World.MSG_ID, MessageType.UnitSpawned, info:BeingProduced);
                         _productionQueue.RemoveAt(0);
 
                         if (_productionQueue.Count == 0)

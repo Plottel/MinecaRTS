@@ -65,20 +65,30 @@ namespace MinecaRTS
             this[_grid.IndexAt(u.Mid)].Add(u);
         }
 
-        public HashSet<Unit> GetUnitsInSameCellAsUnit(Unit u)
+        public HashSet<Unit> GetUnitsInSameCellAsPos(Vector2 pos)
         {
-            return this[_grid.IndexAt(u.Mid)];
+            return this[_grid.IndexAt(pos)];
         }
 
-        public List<HashSet<Unit>> GetUnitsInCellsAroundUnit(Unit u)
+        public List<HashSet<Unit>> GetUnitsInCellsAroundPos(Vector2 pos)
         {
             var result = new List<HashSet<Unit>>();
 
-            foreach (Point cellIndex in _grid.Get33GridIndexesAroundPos(u.Mid))
+            foreach (Point cellIndex in _grid.Get33GridIndexesAroundPos(pos))
                 result.Add(this[cellIndex]);
 
             return result;
         }
+
+        public HashSet<Unit> GetUnitsInSameCellAsUnit(Unit u)
+        {
+            return GetUnitsInSameCellAsPos(u.Mid);
+        }
+
+        public List<HashSet<Unit>> GetUnitsInCellsAroundUnit(Unit u)
+        {
+            return GetUnitsInCellsAroundPos(u.Mid);
+        }      
 
         public List<Point> GetCellIndexesAroundPos(Vector2 pos)
         {

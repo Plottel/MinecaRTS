@@ -12,6 +12,13 @@ namespace MinecaRTS
 { 
     public class World : IHandleMessages
     {
+        private static ulong _gameTime = 0;
+
+        public static ulong GameTime
+        {
+            get { return _gameTime; }
+        }
+
         /// <summary>
         /// World will always be created first and we may want to send messages to the world from anywhere.
         /// Therefore its ID is globally accessible.
@@ -41,7 +48,7 @@ namespace MinecaRTS
         public readonly Dictionary<Cell, Resource> Resources;
         public readonly Dictionary<Cell, Track> Tracks;
 
-        private HumanPlayer _playerOne;
+        private Player _playerOne;
         private PlayerData _playerOneData;
 
         public readonly CollisionCellData collisionCells;
@@ -71,7 +78,19 @@ namespace MinecaRTS
 
             SelectedUnits = new List<Unit>();
             _playerOneData = new PlayerData(this, Team.One);
-            _playerOne = new HumanPlayer(_playerOneData);
+            //_playerOne = new HumanPlayer(_playerOneData);
+            _playerOne = new MinecartO(_playerOneData);            
+        }
+
+        public void Setup()
+        {
+            AddBuilding(BuildingFactory.CreateTownHall(_playerOneData, new Vector2(320, 320)));
+
+            while (!Buildings[0].IsActive)
+                Buildings[0].Construct();
+
+            TownHall townHall = Buildings[0] as TownHall;
+            townHall.QueueUpProductionAtIndex(0);
         }
 
         public void HandleMessage(Message message)
@@ -85,7 +104,12 @@ namespace MinecaRTS
 
                 case MessageType.UnitSpawned:
                     ProductionBuilding pb = message.sender as ProductionBuilding;
-                    AddUnit(pb.BeingProduced, new Vector2(pb.Mid.X, pb.CollisionRect.Bottom), pb.Team, pb.rallyPoint);
+
+                    if (pb.Team == Team.One)
+                        MsgBoard.AddMessage(MsgBoard.SENDER_IRRELEVANT, _playerOne.ID, MessageType.ProductionBuildingTaskComplete, info: pb);
+
+
+                    AddUnit(message.extraInfo, new Vector2(pb.Mid.X, pb.CollisionRect.Bottom), pb.Team, pb.rallyPoint);
                     break;
 
                 case MessageType.UnitMoved:
@@ -98,6 +122,20 @@ namespace MinecaRTS
                     }
                     break;
 
+                case MessageType.SupplyChanged:
+                    PlayerData playerData = message.sender as PlayerData;
+
+                    if (playerData.Team == Team.One)
+                        MsgBoard.AddMessage(MsgBoard.SENDER_IRRELEVANT, _playerOne.ID, MessageType.SupplyChanged);
+                    break;
+
+                case MessageType.BuildingComplete:
+                    Building b = message.sender as Building;
+
+                    if (b.Team == Team.One)
+                        MsgBoard.AddMessage(MsgBoard.SENDER_IRRELEVANT, _playerOne.ID, MessageType.BuildingComplete, info: b);
+                    break;
+
                 default:
                     break;
             }
@@ -105,6 +143,9 @@ namespace MinecaRTS
 
         public void HandleInput()
         {
+            if (Input.KeyTyped(Keys.Space))
+                Setup();
+
             _playerOne.HandleInput();
 
             if (Input.KeyDown(Keys.F))
@@ -116,6 +157,8 @@ namespace MinecaRTS
 
         public void Update()
         {
+            ++_gameTime;
+
             foreach (Unit u in Units)
                 u.Update();
 
@@ -123,6 +166,7 @@ namespace MinecaRTS
                 b.Update();
 
             TimeSlicedPathManager.Update();
+            MsgBoard.SendMessages();
         }
 
         public bool TeamCanSeeCell(int c, int r, Team team)
@@ -235,6 +279,9 @@ namespace MinecaRTS
 
              Units.Add(u);
             _renderables.Add(u);
+
+            // Send message to player to be interpreted by bot.
+            MsgBoard.AddMessage(MsgBoard.SENDER_IRRELEVANT, _playerOne.ID, MessageType.UnitSpawned, info: u);
         }
 
         public void AddBuilding(Building building)

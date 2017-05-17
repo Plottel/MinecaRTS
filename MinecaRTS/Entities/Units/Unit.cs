@@ -28,7 +28,7 @@ namespace MinecaRTS
         {
             get { return _team; }
         }
-
+    
         /// <summary>
         /// Current velocity of the unit.
         /// </summary>

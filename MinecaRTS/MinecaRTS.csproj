@@ -41,8 +41,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Bots\Bot.cs" />
     <Compile Include="Core\CollisionCellData.cs" />
     <Compile Include="Core\FogOfWarData.cs" />
+    <Compile Include="Bots\Player.cs" />
+    <Compile Include="Bots\MinecartO.cs" />
     <Compile Include="Render\Button.cs" />
     <Compile Include="Entities\Buildings\DepositBox.cs" />
     <Compile Include="Messaging\IHandleMessages.cs" />
@@ -121,6 +124,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -64,7 +64,7 @@ namespace MinecaRTS
         public Rectangle CollisionRect
         {
             // TODO: This shouldn't create a new rectangle every time.
-            get { return new Rectangle(Pos.ToPoint(), Scale.ToPoint()); }
+            get { return new Rectangle(Pos.ToPoint(), (Scale - new Vector2(5, 5)).ToPoint()); }
         }
 
         /// <summary>

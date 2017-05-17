@@ -13,7 +13,8 @@ namespace MinecaRTS
 
         public static void AddSearch(Pathfinder newSearch)
         {
-            _activeSearches.Add(newSearch);
+            if (!_activeSearches.Contains(newSearch))
+                _activeSearches.Add(newSearch);
         }
 
         public static void Update()

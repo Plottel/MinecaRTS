@@ -24,7 +24,7 @@ namespace MinecaRTS
 
         public Building selectedBuilding;
 
-        private uint _wood = 1000;
+        private uint _wood = 10000;
         private uint _stone = 0;
         private uint _currentSupply = 0;
 
@@ -138,6 +138,11 @@ namespace MinecaRTS
         public void UpdateFogOfWarForUnit(Unit u)
         {
             _world.fogOfWar.UnitMoved(u);
+        }
+
+        public List<HashSet<Unit>> GetUnitsInCollisionCellsAroundPos(Vector2 pos)
+        {
+            return _world.collisionCells.GetUnitsInCellsAroundPos(pos);
         }
 
         public List<HashSet<Unit>> GetUnitsInCollisionCellsAroundUnit(Unit u)
@@ -256,6 +261,28 @@ namespace MinecaRTS
                 u.Stop();
         }
 
+        // TODO: SLOW - can be optimised with a floodfill using spatial partion cells.
+        public Worker GetClosestWorkerToPos(Vector2 pos)
+        {
+            float closestDistance = float.MaxValue;
+            Worker closestWorker = null;
+
+            foreach (Unit u in _world.Units)
+            {
+                if (u is Worker)
+                {
+                    var distance = Vector2.Distance(pos, u.Mid);
+
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestWorker = u as Worker;
+                    }
+                }
+            }
+            return closestWorker;
+        }
+
         public List<Unit> GetCollidingUnits(Unit unit)
         {
             var result = new List<Unit>();
@@ -370,6 +397,8 @@ namespace MinecaRTS
 
                 SpendResources(cost.woodCost, cost.stoneCost);
                 _currentSupply += cost.supplyCost;
+
+                MsgBoard.AddMessage(this, World.MSG_ID, MessageType.SupplyChanged, info: unitType);
             }
         }
 

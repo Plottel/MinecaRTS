@@ -18,7 +18,7 @@ namespace MinecaRTS
 
         public uint SupplyBoostAmount
         {
-            get { return 10; }
+            get { return 5; }
         }
 
         public House(Vector2 pos, Team team) : base(pos, new Vector2(63, 63), team, MAX_HEALTH, ACTIVE_TEXTURE, CONSTRUCTION_TEXTURE)

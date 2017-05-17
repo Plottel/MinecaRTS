@@ -56,7 +56,7 @@ namespace MinecaRTS
         {
             if (owner.targetResourceCell != null)
             {
-                if (owner.CollisionRect.GetInflated(32, 32).Intersects(owner.targetResourceCell.CollisionRect))
+                if (owner.CollisionRect.GetInflated(24, 24).Intersects(owner.targetResourceCell.CollisionRect))
                     owner.FSM.ChangeState(HarvestResource.Instance);
             }            
         }
@@ -111,7 +111,7 @@ namespace MinecaRTS
 
         public override void Execute(Worker owner)
         {
-            if (owner.CollisionRect.GetInflated(32, 32).Intersects(owner.returningResourcesTo.CollisionRect))
+            if (owner.CollisionRect.GetInflated(24, 24).Intersects(owner.returningResourcesTo.CollisionRect))
             {
                 owner.DepositResources();
                 owner.FSM.ChangeState(MoveToResource.Instance);
@@ -232,7 +232,7 @@ namespace MinecaRTS
 
         public override void Execute(Worker owner)
         {
-            if (owner.CollisionRect.GetInflated(32, 32).Intersects(owner.constructing.CollisionRect))
+            if (owner.CollisionRect.GetInflated(24, 24).Intersects(owner.constructing.CollisionRect))
                 owner.FSM.ChangeState(ConstructBuilding.Instance);
         }
 

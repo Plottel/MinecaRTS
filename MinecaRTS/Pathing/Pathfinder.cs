@@ -172,14 +172,14 @@ namespace MinecaRTS
             Open.Remove(Current);
             Closed.Add(Current);
             GetNextCurrentCell();
-            return SearchState.Incomplete;
+            return SearchState.Searching;
         }
 
         // TODO: MESSY
         public SearchState SingleIteration()
         {
             // If we still need to search, run an iteration.
-            if (searchState == SearchState.Incomplete)
+            if (searchState == SearchState.Searching)
             {
                 if (searchType == SearchType.Greedy)
                     searchState = SingleIterationGreedy();
@@ -223,7 +223,7 @@ namespace MinecaRTS
                     return SearchState.Complete;
                 }                    
 
-                return SearchState.Incomplete;
+                return SearchState.Searching;
             }
 
             return searchState;
@@ -255,10 +255,10 @@ namespace MinecaRTS
 
             currentDepth = 0;
 
-            searchState = SearchState.Incomplete;
+            searchState = SearchState.Searching;
 
             // Until we are considering a node with the desired resource that is not overcrowded.
-            while (searchState == SearchState.Incomplete)
+            while (searchState == SearchState.Searching)
                 searchState = SingleIterationDijkstra();
 
             if (searchState == SearchState.Failed)
@@ -359,7 +359,7 @@ namespace MinecaRTS
             // Neighbours have been added, evaluate best node.
             GetNextCurrentCell();
 
-            return SearchState.Incomplete;
+            return SearchState.Searching;
         }
 
         public List<Cell> SearchGreedy(Grid grid, 
@@ -393,10 +393,10 @@ namespace MinecaRTS
             parents.Add(Current, source);
             scores.Add(Current, 0);
 
-            searchState = SearchState.Incomplete;
+            searchState = SearchState.Searching;
 
             // Until we consider the target node.
-            while (searchState == SearchState.Incomplete)
+            while (searchState == SearchState.Searching)
                 searchState = SingleIterationGreedy();
 
             // Search has finished.
@@ -420,7 +420,21 @@ namespace MinecaRTS
         /// <returns></returns>
         public bool SingleIterationSmoothPath()
         {
-            if (smoothingToIndex > path.Count - 1)
+            #region Angle Optimisation
+            //bool pathIsClear;
+
+            //prevAngle = currentAngle;
+            //currentAngle = (path[smoothingFromIndex].Mid - path[smoothingToIndex].Mid).ToAngle();
+
+            // TODO: Is this worth??
+            // If angle is same as last calculation, only check if new section is free.
+            //if (prevAngle == currentAngle)
+            //pathIsClear = PathIsClear(path[indexTo - 1], path[indexTo], unit);               
+            //else // Different angle.
+            //pathIsClear = PathIsClear(path[smoothingFromIndex], path[smoothingToIndex], unit);     
+            #endregion Angle Optimisation
+
+            if (smoothingToIndex >= path.Count - 1)
                 return true;
 
             if (PathIsClear(path[smoothingFromIndex], path[smoothingToIndex], handler.Owner))
@@ -458,19 +472,6 @@ namespace MinecaRTS
             while (!smoothingFinished)
             {
                 smoothingFinished = SingleIterationSmoothPath();
-                #region Angle Optimisation
-                //bool pathIsClear;
-
-                //prevAngle = currentAngle;
-                //currentAngle = (path[smoothingFromIndex].Mid - path[smoothingToIndex].Mid).ToAngle();
-
-                // TODO: Is this worth??
-                // If angle is same as last calculation, only check if new section is free.
-                //if (prevAngle == currentAngle)
-                //pathIsClear = PathIsClear(path[indexTo - 1], path[indexTo], unit);               
-                //else // Different angle.
-                //pathIsClear = PathIsClear(path[smoothingFromIndex], path[smoothingToIndex], unit);     
-                #endregion Angle Optimisation
             }
 
             // Add the destination cell.
@@ -610,7 +611,7 @@ namespace MinecaRTS
             this.depthLimit = depthLimit;
             currentDepth = 0;
             searchType = SearchType.Dijkstra;
-            searchState = SearchState.Incomplete;
+            searchState = SearchState.Searching;
 
             path = new List<Cell>();
 
@@ -645,7 +646,7 @@ namespace MinecaRTS
             parents = new Dictionary<Cell, Cell>();
             scores = new Dictionary<Cell, float>();
 
-            searchState = SearchState.Incomplete;
+            searchState = SearchState.Searching;
 
             Source = source;
             Targets = targets;

@@ -8,7 +8,7 @@ namespace MinecaRTS
 {
     public enum SearchState
     {
-        Incomplete,
+        Searching,
         Smoothing,
         Retracing,
         Complete,

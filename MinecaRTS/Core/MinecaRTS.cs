@@ -38,7 +38,7 @@ namespace MinecaRTS
             new MoveToDepositBox();
             new ReturnToTownHall();
 
-            ProductionBuilding.productionTimes.Add(typeof(Worker), 120);
+            ProductionBuilding.productionTimes.Add(typeof(Worker), 240);
             ProductionBuilding.productionTimes.Add(typeof(Minecart), 120);
 
             // Setup Entity costs
@@ -51,10 +51,7 @@ namespace MinecaRTS
             World.entityCosts.Add(typeof(DepositBox), new Cost(0, 0, 0));
 
             Camera.WIDTH = 1366;
-            Camera.HEIGHT = 768;
-
-            // MUST BE CREATED FIRST TO HAVE ID OF 0.
-            world = new World();
+            Camera.HEIGHT = 768;            
 
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1366;
@@ -69,13 +66,19 @@ namespace MinecaRTS
 
             editMode = false;
             debugMode = false;
+
+
+            Content.RootDirectory = "Content";
+            IsMouseVisible = true;
+
+            // MUST BE CREATED FIRST TO HAVE ID OF 0.
+            world = new World();
+
             world.Grid.ShowGrid = false;
 
 
             //graphics.ToggleFullScreen();
 
-            Content.RootDirectory = "Content";
-            IsMouseVisible = true;
         }
 
         protected override void Initialize()

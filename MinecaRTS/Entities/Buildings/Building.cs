@@ -54,6 +54,7 @@ namespace MinecaRTS
                 {
                     _isActive = true;
                     _health = _maxHealth;
+                    MsgBoard.AddMessage(this, World.MSG_ID, MessageType.BuildingComplete);
                 }
             }
         }

@@ -10,10 +10,8 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
-    public class HumanPlayer
+    public class HumanPlayer : Player
     {
-        private PlayerData _data;
-
         private bool _isBoxing = false;
         private bool _isSettingRallyPoint = false;
         private Point _boxStart = Point.Zero;
@@ -25,12 +23,11 @@ namespace MinecaRTS
         private bool _isPlacingBuilding = false;
         private Building _buildingToPlace = null;
 
-        public HumanPlayer(PlayerData data)
+        public HumanPlayer(PlayerData data) : base(data)
         {
-            _data = data;
         }
 
-        public void HandleInput()
+        public override void HandleInput()
         {
             //if (Input.KeyTyped(Keys.T))
               //  _data.TestPathfindingCalculationTime();
@@ -57,7 +54,7 @@ namespace MinecaRTS
             
             if (Input.LeftMouseClicked())
             {
-                Button clickedOn = _data.ButtonAtPos(Input.MousePos);
+                Button clickedOn = Data.ButtonAtPos(Input.MousePos);
 
                 if (clickedOn != null)
                 {
@@ -65,42 +62,42 @@ namespace MinecaRTS
                     {
                         case "Town Hall":
                             _isPlacingBuilding = true;
-                            _buildingToPlace = BuildingFactory.CreateTownHall(_data, Vector2.Zero);
+                            _buildingToPlace = BuildingFactory.CreateTownHall(Data, Vector2.Zero);
                             break;
 
                         case "House":
                             _isPlacingBuilding = true;
-                            _buildingToPlace = BuildingFactory.CreateHouse(_data, Vector2.Zero);
+                            _buildingToPlace = BuildingFactory.CreateHouse(Data, Vector2.Zero);
                             break;
 
                         case "Deposit Box":
                             _isPlacingBuilding = true;
-                            _buildingToPlace = BuildingFactory.CreateDepositBox(_data, Vector2.Zero);
+                            _buildingToPlace = BuildingFactory.CreateDepositBox(Data, Vector2.Zero);
                             break;
 
                         case "Track":
                             _isPlacingBuilding = true;
-                            _buildingToPlace = BuildingFactory.CreateTrack(_data, Vector2.Zero);
+                            _buildingToPlace = BuildingFactory.CreateTrack(Data, Vector2.Zero);
                             break;
 
                         case "Stop":
-                            _data.OrderSelectedUnitsToStop();
+                            Data.OrderSelectedUnitsToStop();
                             break;
 
                         case "Gather Wood":
-                            _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Wood);
+                            Data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Wood);
                             break;
 
                         case "Gather Stone":
-                            _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);
+                            Data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);
                             break;
 
                         case "Build 0":
-                            _data.QueueUpProductionOnSelectedBuildingAtIndex(0);
+                            Data.QueueUpProductionOnSelectedBuildingAtIndex(0);
                             break;
 
                         case "Build 1":
-                            _data.QueueUpProductionOnSelectedBuildingAtIndex(1);
+                            Data.QueueUpProductionOnSelectedBuildingAtIndex(1);
                             break;
 
                         case "Rally Point":
@@ -109,10 +106,10 @@ namespace MinecaRTS
                     }
                 }                
 
-                if (_isBoxing && !_data.ClickedOnUI())
+                if (_isBoxing && !Data.ClickedOnUI())
                 {
-                    _data.SelectFirstBuildingInRect(Camera.RectToWorld(_box));
-                    _data.SelectUnitsInRect(Camera.RectToWorld(_box));                    
+                    Data.SelectFirstBuildingInRect(Camera.RectToWorld(_box));
+                    Data.SelectUnitsInRect(Camera.RectToWorld(_box));                    
                 }
 
                 _isBoxing = false;
@@ -123,26 +120,26 @@ namespace MinecaRTS
             // most likely need a State Machine here.
             if (Input.LeftMouseDown())
             {
-                if (_isSettingRallyPoint && !_data.ClickedOnUI())
+                if (_isSettingRallyPoint && !Data.ClickedOnUI())
                 {
-                    _data.SetSelectedBuildingRallyPointTo(Camera.VecToWorld(Input.MousePos));
+                    Data.SetSelectedBuildingRallyPointTo(Camera.VecToWorld(Input.MousePos));
                     _isSettingRallyPoint = false;
                 }
 
                 // Handle building placement
-                if (_isPlacingBuilding && !_data.ClickedOnUI())
+                if (_isPlacingBuilding && !Data.ClickedOnUI())
                 {
                     // Don't take away building blueprint unless a valid selection was made.
-                    if (_data.BuyBuilding(_buildingToPlace, Camera.VecToWorld(Input.MousePos)))
+                    if (Data.BuyBuilding(_buildingToPlace, Camera.VecToWorld(Input.MousePos)))
                     {
-                        _data.OrderSelectedWorkerToConstructBuilding(_buildingToPlace);
+                        Data.OrderSelectedWorkerToConstructBuilding(_buildingToPlace);
 
                         // Can create tracks without re-selecting building options.
                         if (!(_buildingToPlace is Track))
                             _isPlacingBuilding = false;
                         else
                         {
-                            _buildingToPlace = BuildingFactory.CreateTrack(_data, Vector2.Zero);
+                            _buildingToPlace = BuildingFactory.CreateTrack(Data, Vector2.Zero);
                         }
                     }                        
                 }
@@ -165,33 +162,33 @@ namespace MinecaRTS
             }
 
             if (Input.RightMousePressed())
-                _data.MoveSelectedUnitsTo(Camera.VecToWorld(Input.MousePos));
+                Data.MoveSelectedUnitsTo(Camera.VecToWorld(Input.MousePos));
 
             if (Input.KeyTyped(Keys.B))
             {
                 _isPlacingBuilding = true;
-                _buildingToPlace = BuildingFactory.CreateTownHall(_data, Vector2.Zero);
+                _buildingToPlace = BuildingFactory.CreateTownHall(Data, Vector2.Zero);
             }
 
             if (Input.KeyTyped(Keys.R))
             {
-                if (_data.selectedBuilding as ProductionBuilding != null)
+                if (Data.selectedBuilding as ProductionBuilding != null)
                     _isSettingRallyPoint = true;
             }
 
             if (_isPlacingBuilding)
             {
                 if (Input.KeyTyped(Keys.H))
-                    _buildingToPlace = BuildingFactory.CreateHouse(_data, Vector2.Zero);            
+                    _buildingToPlace = BuildingFactory.CreateHouse(Data, Vector2.Zero);            
 
                 if (Input.KeyTyped(Keys.P))
-                    _buildingToPlace = BuildingFactory.CreateTownHall(_data, Vector2.Zero);
+                    _buildingToPlace = BuildingFactory.CreateTownHall(Data, Vector2.Zero);
 
                 if (Input.KeyTyped(Keys.T))
-                    _buildingToPlace = BuildingFactory.CreateTrack(_data, Vector2.Zero);
+                    _buildingToPlace = BuildingFactory.CreateTrack(Data, Vector2.Zero);
 
                 if (Input.KeyTyped(Keys.D))
-                    _buildingToPlace = BuildingFactory.CreateDepositBox(_data, Vector2.Zero);
+                    _buildingToPlace = BuildingFactory.CreateDepositBox(Data, Vector2.Zero);
             }
 
             // C for cancel - stop placing building mode
@@ -202,23 +199,27 @@ namespace MinecaRTS
             }
 
             if (Input.KeyTyped(Keys.O))
-                _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Wood);
+                Data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Wood);
 
             if (Input.KeyTyped(Keys.S))
-                _data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);
+                Data.OrderSelectedWorkersToGatherClosestResource(ResourceType.Stone);
 
             if (Input.KeyTyped(Keys.H))
-                _data.OrderSelectedUnitsToStop();
+                Data.OrderSelectedUnitsToStop();
 
             if (Input.KeyTyped(Keys.Q))
-                _data.QueueUpProductionOnSelectedBuildingAtIndex(0);
+                Data.QueueUpProductionOnSelectedBuildingAtIndex(0);
 
             if (Input.KeyTyped(Keys.W))
-                _data.QueueUpProductionOnSelectedBuildingAtIndex(1);
+                Data.QueueUpProductionOnSelectedBuildingAtIndex(1);
 
         }
 
-        public void Render(SpriteBatch spriteBatch)
+        public override void HandleMessage(Message message)
+        {
+        }
+
+        public override void Render(SpriteBatch spriteBatch)
         {
             if (_isBoxing)
                 spriteBatch.DrawRectangle(_box, Color.SpringGreen, 2);
@@ -226,10 +227,10 @@ namespace MinecaRTS
             if (_isPlacingBuilding)
             {
                 // Treat mouse pos as building center, poffset by building scale                   
-                _buildingToPlace.Pos = _data.Grid.CellAt(Camera.VecToWorld(Input.MousePos)).Pos;
+                _buildingToPlace.Pos = Data.Grid.CellAt(Camera.VecToWorld(Input.MousePos)).Pos;
                 spriteBatch.Draw(_buildingToPlace.ActiveTexture, _buildingToPlace.RenderPos, Color.White);
 
-                foreach (Cell c in _data.Grid.CellsInRect(_buildingToPlace.CollisionRect))
+                foreach (Cell c in Data.Grid.CellsInRect(_buildingToPlace.CollisionRect))
                 {
                     if (!c.Passable)
                         spriteBatch.FillRectangle(c.RenderRect, new Color(Color.Red, 100));

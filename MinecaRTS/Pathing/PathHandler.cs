@@ -76,7 +76,7 @@ namespace MinecaRTS
             this.grid = grid;
             path = new List<Cell>();
             pathIndex = 0;
-            _waypointThreshold = 20;
+            _waypointThreshold = 5;
             pathfinder = new Pathfinder(owner, this);
 
             _id = MsgHandlerRegistry.NextID;
