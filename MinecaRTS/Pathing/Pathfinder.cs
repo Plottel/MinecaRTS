@@ -59,7 +59,7 @@ namespace MinecaRTS
             result.Add(Grid[index.Col() - 1, index.Row()]); // W    
 
             return result;
-        }        
+        }
 
         private void GetNextCurrentCell()
         {
@@ -71,17 +71,17 @@ namespace MinecaRTS
                     Current = c;
                     return;
                 }
-            }            
+            }
 
             // TODO: Implement priority queue.
             //Open.Sort((x, y) => x.Score.CompareTo(y.Score));
             Open.Sort((x, y) => scores[x].CompareTo(scores[y]));
 
             //if (Open.Contains(Current))
-                //Open.Remove(Current);
+            //Open.Remove(Current);
 
-           // if (!Closed.Contains(Current))
-                //Closed.Add(Current);
+            // if (!Closed.Contains(Current))
+            //Closed.Add(Current);
 
             // List is sorted therefore lowest score is first index.
             Current = Open[0];
@@ -93,59 +93,8 @@ namespace MinecaRTS
             if (++currentDepth > depthLimit)
                 return SearchState.Failed;
 
-            #region /--- RESOURCE PATH CALC DEBUG ---\
             if (Debug.IsOn(DebugOp.CalcPath))
-            {
-                Input.UpdateStates();
-                MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
-                Debug.HandleInput();
-
-                MinecaRTS.Instance.spriteBatch.Begin();
-
-                MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
-
-                // Render closed list pale blue.
-                foreach (Cell cell in Closed)
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
-
-                // Render open list cream.
-                foreach (Cell cell in Open)
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
-
-                // Render source red
-                MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
-
-                // Render current purple
-                MinecaRTS.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
-
-                // Render path to current pink
-                Cell c = Current;
-                while (c.Parent != null)
-                {
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
-                    c = c.Parent;
-                }
-
-                // Render cell scores in black text.
-                foreach (Cell openCell in Open)
-                {
-                    MinecaRTS.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(scores[openCell]).ToString(), openCell.RenderMid, Color.Black);
-                }
-
-                // Render each resource
-                foreach (Resource r in MinecaRTS.Instance.world.Resources.Values)
-                    r.Render(MinecaRTS.Instance.spriteBatch);
-
-                Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
-
-                MinecaRTS.Instance.spriteBatch.End();
-
-                MinecaRTS.Instance.GraphicsDevice.Present();
-
-                System.Threading.Thread.Sleep(50);
-            }
-
-            #endregion /--- RESOURCE PATH CALC DEBUG ---\
+                ShowPathSearchDebug();
 
             // Get adjacent nodes, calculate score and add to open list.
             foreach (Cell cell in Current.Neighbours)
@@ -194,7 +143,7 @@ namespace MinecaRTS
                 }
                 else if (searchState == SearchState.Failed)
                     return SearchState.Failed;
-                    
+
             }
 
             if (searchState == SearchState.Retracing)
@@ -218,10 +167,10 @@ namespace MinecaRTS
                 {
                     // Add the destination cell.
                     smoothedPath.Add(path[path.Count - 1]);
-                    path = smoothedPath; 
+                    path = smoothedPath;
 
                     return SearchState.Complete;
-                }                    
+                }
 
                 return SearchState.Searching;
             }
@@ -232,12 +181,12 @@ namespace MinecaRTS
         /// <summary>
         /// Runs Dijkstra's to find the closest cell with a resource of the specified type.
         /// </summary>
-        public List<Cell> SearchDijkstra(Grid grid, 
-                                                Cell source, 
-                                                Unit unit, 
-                                                Func<Cell, bool> considerationCondition, 
-                                                Func<Cell, bool> terminationCondition, 
-                                                bool smoothed = false, 
+        public List<Cell> SearchDijkstra(Grid grid,
+                                                Cell source,
+                                                Unit unit,
+                                                Func<Cell, bool> considerationCondition,
+                                                Func<Cell, bool> terminationCondition,
+                                                bool smoothed = false,
                                                 uint depthLimit = uint.MaxValue)
         {
             this.considerationCondition = considerationCondition;
@@ -275,60 +224,9 @@ namespace MinecaRTS
         }
 
         public SearchState SingleIterationGreedy()
-        {        
-            #region /--- GREEDY PATH CALC DEBUG ---\
+        {
             if (Debug.IsOn(DebugOp.CalcPath))
-            {
-                Input.UpdateStates();
-                MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
-                Debug.HandleInput();
-
-                MinecaRTS.Instance.spriteBatch.Begin();
-
-                MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
-
-                // Render closed list pale blue.
-                foreach (Cell cell in Closed)
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
-
-                // Render open list cream.
-                foreach (Cell cell in Open)
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
-
-                // Render target green
-                foreach (Cell target in Targets)
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(target.RenderRect, Color.LawnGreen);
-
-                // Render source red
-                MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
-
-                // Render current purple
-                MinecaRTS.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
-
-                // Render path to current pink
-                Cell c = Current;
-                while (c.Parent != null)
-                {
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
-                    c = c.Parent;
-                }
-
-                // Render cell scores in black text.
-                foreach (Cell openCell in Open)
-                {
-                    MinecaRTS.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(scores[openCell]).ToString(), openCell.RenderMid, Color.Black);
-                }
-
-                Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
-
-                MinecaRTS.Instance.spriteBatch.End();
-
-                MinecaRTS.Instance.GraphicsDevice.Present();
-
-                System.Threading.Thread.Sleep(50);
-            }
-
-            #endregion /--- GREEDY PATH CALC DEBUG ---\
+                ShowPathSearchDebug();
 
             // Get adjacent nodes, calculate score and add to open list.
             // foreach (Cell cell in GetAdjacentCells(Current))
@@ -362,11 +260,11 @@ namespace MinecaRTS
             return SearchState.Searching;
         }
 
-        public List<Cell> SearchGreedy(Grid grid, 
-                                              Cell source, 
-                                              List<Cell> target, 
-                                              Unit unit, 
-                                              Func<Cell, bool> considerationCondition, 
+        public List<Cell> SearchGreedy(Grid grid,
+                                              Cell source,
+                                              List<Cell> target,
+                                              Unit unit,
+                                              Func<Cell, bool> considerationCondition,
                                               Func<Cell, List<Cell>, bool> terminationCondition,
                                               Func<Cell, Cell, float> getScore,
                                               bool smoothed = false)
@@ -459,7 +357,7 @@ namespace MinecaRTS
             smoothingFromIndex = 0;
             smoothingToIndex = 1;
         }
-        
+
         public List<Cell> SmoothPath()
         {
             SetupSmoothPath();
@@ -522,44 +420,8 @@ namespace MinecaRTS
 
             HashSet<Cell> cellsInRect = Grid.CellsInRectFromLines(from1, to1, from2, to2);
 
-            // @DEBUG: Show projected rectangle and adjacent nodes for path smoothing.
-            #region /--- PATH SMOOTHING DEBUG ---\
             if (Debug.IsOn(DebugOp.CalcPathSmoothing))
-            {
-                // Finish rendering so we can start fresh render for debug
-                MinecaRTS.Instance.spriteBatch.End();
-                // TODO: Debug Handle Input in here not registering.
-                Input.UpdateStates();
-                Debug.HandleInput();
-
-                MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
-
-                MinecaRTS.Instance.spriteBatch.Begin();
-
-                MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
-
-                // Fill Cells the check rect is touching.
-                foreach (Cell cell in cellsInRect)
-                    MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.DarkCyan);
-
-                // Draw two cells being considered for smoothing.
-                MinecaRTS.Instance.spriteBatch.FillRectangle(from.RenderRect, Color.Green);
-                MinecaRTS.Instance.spriteBatch.FillRectangle(to.RenderRect, Color.Yellow);
-
-                // Draw line between considered cells.
-                MinecaRTS.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from1.ToVector2()), Camera.VecToScreen(to1.ToVector2()), Color.Green, 2);
-                MinecaRTS.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from2.ToVector2()), Camera.VecToScreen(to2.ToVector2()), Color.Green, 2);
-
-                Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
-
-                MinecaRTS.Instance.spriteBatch.End();
-
-                MinecaRTS.Instance.GraphicsDevice.Present();
-
-                System.Threading.Thread.Sleep(50);
-            }                
-
-            #endregion /--- PATH SMOOTHING DEBUG ---\
+                ShowPathSmoothingDebug(from, to, from1, to1, from2, to2, cellsInRect);
 
             foreach (Cell cell in cellsInRect)
             {
@@ -686,5 +548,95 @@ namespace MinecaRTS
             //Closed.Add(Current);
             Current.Parent = null;
         }
+
+        #region PATHFINDING DEBUG DISPLAY METHODS
+        private void ShowPathSearchDebug()
+        {
+            Camera.LookAt(Current.Mid.ToPoint());
+            Input.UpdateStates();
+            MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
+            Debug.HandleInput();
+
+            MinecaRTS.Instance.spriteBatch.Begin();
+
+            MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
+
+            // Render closed list pale blue.
+            foreach (Cell cell in Closed)
+                MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightSteelBlue);
+
+            // Render open list cream.
+            foreach (Cell cell in Open)
+                MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.LightGoldenrodYellow);
+
+            // Render target green
+            foreach (Cell target in Targets)
+                MinecaRTS.Instance.spriteBatch.FillRectangle(target.RenderRect, Color.LawnGreen);
+
+            // Render source red
+            MinecaRTS.Instance.spriteBatch.FillRectangle(Source.RenderRect, Color.Red);
+
+            // Render current purple
+            MinecaRTS.Instance.spriteBatch.FillRectangle(Current.RenderRect, Color.Purple);
+
+            // Render path to current pink
+            Cell c = Current;
+            while (c.Parent != null)
+            {
+                MinecaRTS.Instance.spriteBatch.FillRectangle(c.Parent.RenderRect, Color.Pink);
+                c = c.Parent;
+            }
+
+            // Render cell scores in black text.
+            foreach (Cell openCell in Open)
+            {
+                MinecaRTS.Instance.spriteBatch.DrawString(Debug.debugFont, Math.Floor(scores[openCell]).ToString(), openCell.RenderMid, Color.Black);
+            }
+
+            Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
+
+            MinecaRTS.Instance.spriteBatch.End();
+
+            MinecaRTS.Instance.GraphicsDevice.Present();
+
+            System.Threading.Thread.Sleep(50);
+        }   
+        
+        private void ShowPathSmoothingDebug(Cell from, Cell to, Point from1, Point to1, Point from2, Point to2, HashSet<Cell> cellsInRect)
+        {
+            Camera.LookAt(to2);
+            // Finish rendering so we can start fresh render for debug
+            MinecaRTS.Instance.spriteBatch.End();
+            // TODO: Debug Handle Input in here not registering.
+            Input.UpdateStates();
+            Debug.HandleInput();
+
+            MinecaRTS.Instance.GraphicsDevice.Clear(Color.Gray);
+
+            MinecaRTS.Instance.spriteBatch.Begin();
+
+            MinecaRTS.Instance.world.Render(MinecaRTS.Instance.spriteBatch);
+
+            // Fill Cells the check rect is touching.
+            foreach (Cell cell in cellsInRect)
+                MinecaRTS.Instance.spriteBatch.FillRectangle(cell.RenderRect, Color.DarkCyan);
+
+            // Draw two cells being considered for smoothing.
+            MinecaRTS.Instance.spriteBatch.FillRectangle(from.RenderRect, Color.Green);
+            MinecaRTS.Instance.spriteBatch.FillRectangle(to.RenderRect, Color.Yellow);
+
+            // Draw line between considered cells.
+            MinecaRTS.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from1.ToVector2()), Camera.VecToScreen(to1.ToVector2()), Color.Green, 2);
+            MinecaRTS.Instance.spriteBatch.DrawLine(Camera.VecToScreen(from2.ToVector2()), Camera.VecToScreen(to2.ToVector2()), Color.Green, 2);
+
+            Debug.RenderDebugOptionStates(MinecaRTS.Instance.spriteBatch);
+
+            MinecaRTS.Instance.spriteBatch.End();
+
+            MinecaRTS.Instance.GraphicsDevice.Present();
+
+            System.Threading.Thread.Sleep(50);
+        }
+        #endregion PATHFINDING DEBUG DISPLAY METHODS
     }
 }

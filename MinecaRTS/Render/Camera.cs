@@ -149,8 +149,12 @@ namespace MinecaRTS
                     (int)Math.Ceiling(rect.Width / xRatio),
                     (int)Math.Ceiling(rect.Height / yRatio));
         }
-    }
 
-        // TODO: Implement LookAt() - centers camera on location.
+        public static void LookAt(Point pos)
+        {
+            X = pos.X - WIDTH / 2;
+            Y = pos.Y - HEIGHT / 2;
+        }
+    }
         // TODO: Implement bool PosOnScreen()
 }

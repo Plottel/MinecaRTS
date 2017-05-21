@@ -53,108 +53,22 @@ namespace MinecaRTS
             SpriteSheet emptySS = Minecart.emptySS;
 
             // All directions are complete, add to master animation list.
-            Minecart.emptyAnimFrames = CreateFramesForEachDir(emptySS.cols, emptySS.cellWidth, emptySS.cellHeight, frameDuration);           
-           
-        }
-
-        public static void CreateWorkerWalkAnimation()
+            Minecart.emptyAnimFrames = CreateFramesForEachDir(emptySS.cols, emptySS.cellWidth, emptySS.cellHeight, frameDuration);          
+        }      
+        
+        public static void CreateWorkerAnimation(SpriteSheet newSS, WkrAnim animType, uint frameDuration)
         {
-            Worker.animOffsets.Add(WorkerAnimation.Walk, new Vector2(0, 0));
-            SpriteSheet walkSS = Worker.spriteSheets[WorkerAnimation.Walk];
-            uint frameDuration = 4;
+            SpriteSheet walkSS = Worker.spriteSheets[WkrAnim.Walk];
 
-            var animations = CreateFramesForEachDir(walkSS.cols, 
-                walkSS.cellWidth, 
-                walkSS.cellHeight, 
-                frameDuration);
+            float xOffset = newSS.cellWidth - walkSS.cellWidth;
+            float yOffset = newSS.cellWidth - walkSS.cellWidth;
 
-            // All directions are complete, add to master animation list
-            Worker.animFrames.Add(WorkerAnimation.Walk, animations);
-        }
+            Worker.animOffsets.Add(animType, new Vector2(xOffset, yOffset));
 
-        public static void CreateWorkerChopAnimation()
-        {
-            SpriteSheet walkSS = Worker.spriteSheets[WorkerAnimation.Walk];
-            SpriteSheet chopSS = Worker.spriteSheets[WorkerAnimation.Chop];
+            var animations = CreateFramesForEachDir(newSS.cols, newSS.cellWidth, newSS.cellHeight, frameDuration);
 
-            float xOffset = chopSS.cellWidth - walkSS.cellWidth;
-            float yOffset = chopSS.cellHeight - walkSS.cellHeight;
-
-            Worker.animOffsets.Add(WorkerAnimation.Chop, new Vector2(xOffset, yOffset));
-
-            uint frameDuration = 7;
-
-            var animations = CreateFramesForEachDir(chopSS.cols, 
-                chopSS.cellWidth, 
-                chopSS.cellHeight, 
-                frameDuration);
-
-            // All directions are complete, add to master animation list
-            Worker.animFrames.Add(WorkerAnimation.Chop, animations);
-        }
-
-        public static void CreateWorkerLogsAnimation()
-        {
-            SpriteSheet walkSS = Worker.spriteSheets[WorkerAnimation.Walk];
-            SpriteSheet logsSS = Worker.spriteSheets[WorkerAnimation.Logs];
-
-            float xOffset = logsSS.cellWidth - walkSS.cellWidth;
-            float yOffset = logsSS.cellHeight - walkSS.cellHeight;
-
-            Worker.animOffsets.Add(WorkerAnimation.Logs, new Vector2(xOffset, yOffset));
-
-            uint frameDuration = 4;
-
-            var animations = CreateFramesForEachDir(logsSS.cols,
-                logsSS.cellWidth,
-                logsSS.cellHeight,
-                frameDuration);
-
-            // All directions are complete, add to master animation list
-            Worker.animFrames.Add(WorkerAnimation.Logs, animations);
-        }
-
-        public static void CreateWorkerMineAnimation()
-        {
-            SpriteSheet walkSS = Worker.spriteSheets[WorkerAnimation.Walk];
-            SpriteSheet mineSS = Worker.spriteSheets[WorkerAnimation.Mine];
-
-            float xOffset = mineSS.cellWidth - walkSS.cellWidth;
-            float yOffset = mineSS.cellHeight - walkSS.cellHeight;
-
-            Worker.animOffsets.Add(WorkerAnimation.Mine, new Vector2(xOffset, yOffset));
-
-            uint frameDuration = 7;
-
-            var animations = CreateFramesForEachDir(mineSS.cols,
-                mineSS.cellWidth,
-                mineSS.cellHeight,
-                frameDuration);
-
-            // All directions are complete, add to master animation listg
-            Worker.animFrames.Add(WorkerAnimation.Mine, animations);
-        }
-
-        public static void CreateWorkerBagAnimation()
-        {
-            SpriteSheet walkSS = Worker.spriteSheets[WorkerAnimation.Walk];
-            SpriteSheet bagSS = Worker.spriteSheets[WorkerAnimation.Bag];
-
-            float xOffset = bagSS.cellWidth - walkSS.cellWidth;
-            float yOffset = bagSS.cellHeight - walkSS.cellHeight;
-
-            Worker.animOffsets.Add(WorkerAnimation.Bag, new Vector2(xOffset, yOffset));
-
-            uint frameDuration = 4;
-
-            var animations = CreateFramesForEachDir(bagSS.cols,
-                bagSS.cellWidth,
-                bagSS.cellHeight,
-                frameDuration);
-
-            // All directions are comlpete, add to master animation list
-            Worker.animFrames.Add(WorkerAnimation.Bag, animations);
-        }
+            Worker.animFrames.Add(animType, animations);
+        }       
 
         public static SpriteSheet LoadSpriteSheet(MinecaRTS game, string filename, int cols, int rows)
         {

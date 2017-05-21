@@ -31,7 +31,7 @@ namespace MinecaRTS
 
         public override void Enter(Worker owner)
         {
-            owner.ChangeAnimation(WorkerAnimation.Walk);
+            owner.ChangeAnimation(WkrAnim.Walk);
             owner.Steering.separationOn = false;
 
             // TODO: This check will be more robust to check if the resource has expired???
@@ -91,9 +91,9 @@ namespace MinecaRTS
         public override void Enter(Worker owner)
         {
             if (owner.resrcHolding == ResourceType.Wood)
-                owner.ChangeAnimation(WorkerAnimation.Logs);
+                owner.ChangeAnimation(WkrAnim.Logs);
             else if (owner.resrcHolding == ResourceType.Stone)
-                owner.ChangeAnimation(WorkerAnimation.Bag);
+                owner.ChangeAnimation(WkrAnim.Bag);
 
             owner.Steering.separationOn = false;
 
@@ -106,7 +106,7 @@ namespace MinecaRTS
         public override void Exit(Worker owner)
         {
             owner.Steering.separationOn = true;
-            owner.ChangeAnimation(WorkerAnimation.Walk);
+            owner.ChangeAnimation(WkrAnim.Walk);
         }
 
         public override void Execute(Worker owner)
@@ -164,9 +164,9 @@ namespace MinecaRTS
             }
 
             if (owner.resrcLookingFor == ResourceType.Wood)
-                owner.ChangeAnimation(WorkerAnimation.Chop);
+                owner.ChangeAnimation(WkrAnim.Chop);
             else if (owner.resrcLookingFor == ResourceType.Stone)
-                owner.ChangeAnimation(WorkerAnimation.Mine);
+                owner.ChangeAnimation(WkrAnim.Mine);
 
             owner.TargetResource.AddHarvester(owner);
             owner.Steering.separationOn = false;
@@ -177,7 +177,7 @@ namespace MinecaRTS
 
         public override void Exit(Worker owner)
         {
-            owner.ChangeAnimation(WorkerAnimation.Walk);
+            owner.ChangeAnimation(WkrAnim.Walk);
             owner.Steering.separationOn = true;
             owner.timeSpentHarvesting = 0;
 
@@ -265,13 +265,13 @@ namespace MinecaRTS
 
         public override void Enter(Worker owner)
         {
-            owner.ChangeAnimation(WorkerAnimation.Chop);
+            owner.ChangeAnimation(WkrAnim.Build);
             owner.FollowPath = false;
         }
 
         public override void Exit(Worker owner)
         {
-            owner.ChangeAnimation(WorkerAnimation.Walk);
+            owner.ChangeAnimation(WkrAnim.Walk);
             owner.constructing = null;
         }
 

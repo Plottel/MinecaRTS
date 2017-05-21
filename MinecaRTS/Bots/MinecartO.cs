@@ -17,6 +17,7 @@ namespace MinecaRTS
 
         public override void HandleInput()
         {
+            // Logic loop
         }
 
         public override void OnUnitSpawn(Unit newUnit)

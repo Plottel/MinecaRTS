@@ -47,9 +47,9 @@ namespace MinecaRTS
             }
             else if (Type == ResourceType.Stone)
             {
-                renderOffset = new Vector2(0, 20);
-                texture = WOOD_TEXTURE;
-                depletedTexture = WOOD_DEPLETED_TEXTURE;
+                renderOffset = new Vector2(0, 0);
+                texture = STONE_TEXTURE;
+                depletedTexture = STONE_DEPLETED_TEXTURE;
             }
         }
 
@@ -102,9 +102,6 @@ namespace MinecaRTS
                 spriteBatch.Draw(texture, RenderPos - renderOffset, Color.White);
             else
                 spriteBatch.Draw(depletedTexture, RenderRect, Color.White);
-
-            if (Type == ResourceType.Stone)
-                spriteBatch.DrawString(MinecaRTS.smallFont, "LOLSTONE", RenderPos, Color.White);
         }
 
         public override void HandleMessage(Message message)

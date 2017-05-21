@@ -78,8 +78,8 @@ namespace MinecaRTS
 
             SelectedUnits = new List<Unit>();
             _playerOneData = new PlayerData(this, Team.One);
-            //_playerOne = new HumanPlayer(_playerOneData);
-            _playerOne = new MinecartO(_playerOneData);            
+            _playerOne = new HumanPlayer(_playerOneData);
+            //_playerOne = new MinecartO(_playerOneData);            
         }
 
         public void Setup()
@@ -277,7 +277,7 @@ namespace MinecaRTS
 
             u.MoveTowards(rallyPoint);
 
-             Units.Add(u);
+            Units.Add(u);
             _renderables.Add(u);
 
             // Send message to player to be interpreted by bot.

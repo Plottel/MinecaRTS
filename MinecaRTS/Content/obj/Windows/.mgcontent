@@ -22,5 +22,8 @@
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/minecart/minecart_empty.png</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/minecart/minecart_half_wood.png</File>
     <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/buildings/deposit_box_empty.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/worker/worker_build.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/resources/half_stone.png</File>
+    <File>C:/Users/Matt/Desktop/MinecaRTS/MinecaRTS/Content/images/resources/stone.png</File>
   </SourceFiles>
 </SourceFileCollection>

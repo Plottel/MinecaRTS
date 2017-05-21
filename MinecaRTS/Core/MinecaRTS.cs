@@ -55,9 +55,7 @@ namespace MinecaRTS
 
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1366;
-            graphics.PreferredBackBufferHeight = 768;
-
-            
+            graphics.PreferredBackBufferHeight = 768;            
 
             Input.SetMaxMouseX(graphics.PreferredBackBufferWidth);
             Input.SetMaxMouseY(graphics.PreferredBackBufferHeight);
@@ -108,22 +106,27 @@ namespace MinecaRTS
             Resource.WOOD_TEXTURE = Content.Load<Texture2D>("images/resources/tree");
             Resource.WOOD_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/tree_stump");
 
+            Resource.STONE_TEXTURE = Content.Load<Texture2D>("images/resources/stone");
+            Resource.STONE_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/half_stone");
+
             Minecart.emptySS = GameResources.LoadSpriteSheet(this, "images/minecart/minecart_empty", 1, 8);
 
             GameResources.CreateMinecartEmptyAnimation();
 
+            Worker.spriteSheets.Add(WkrAnim.Walk, GameResources.LoadSpriteSheet(this, "images/worker/worker_walk", 7, 8));
+            Worker.spriteSheets.Add(WkrAnim.Chop, GameResources.LoadSpriteSheet(this, "images/worker/worker_chop", 5, 8));
+            Worker.spriteSheets.Add(WkrAnim.Logs, GameResources.LoadSpriteSheet(this, "images/worker/worker_logs", 7, 8));
+            Worker.spriteSheets.Add(WkrAnim.Mine, GameResources.LoadSpriteSheet(this, "images/worker/worker_mine", 5, 8));
+            Worker.spriteSheets.Add(WkrAnim.Bag, GameResources.LoadSpriteSheet(this, "images/worker/worker_bag", 7, 8));
+            Worker.spriteSheets.Add(WkrAnim.Build, GameResources.LoadSpriteSheet(this, "images/worker/worker_build", 6, 8));
 
-            Worker.spriteSheets.Add(WorkerAnimation.Walk, GameResources.LoadSpriteSheet(this, "images/worker/worker_walk", 7, 8));
-            Worker.spriteSheets.Add(WorkerAnimation.Chop, GameResources.LoadSpriteSheet(this, "images/worker/worker_chop", 5, 8));
-            Worker.spriteSheets.Add(WorkerAnimation.Logs, GameResources.LoadSpriteSheet(this, "images/worker/worker_logs", 7, 8));
-            Worker.spriteSheets.Add(WorkerAnimation.Mine, GameResources.LoadSpriteSheet(this, "images/worker/worker_mine", 5, 8));
-            Worker.spriteSheets.Add(WorkerAnimation.Bag, GameResources.LoadSpriteSheet(this, "images/worker/worker_bag", 7, 8));
-
-            GameResources.CreateWorkerWalkAnimation();
-            GameResources.CreateWorkerChopAnimation();
-            GameResources.CreateWorkerLogsAnimation();
-            GameResources.CreateWorkerMineAnimation();
-            GameResources.CreateWorkerBagAnimation();
+            //public static void CreateWorkerAnimation(SpriteSheet newSS, WorkerAnimation animType, uint frameDuration)
+            GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Walk], WkrAnim.Walk, 4);
+            GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Chop], WkrAnim.Chop, 7);
+            GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Logs], WkrAnim.Logs, 4);
+            GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Mine], WkrAnim.Mine, 7);
+            GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Bag], WkrAnim.Bag, 4);
+            GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Build], WkrAnim.Build, 6);
         }
 
         protected override void UnloadContent()

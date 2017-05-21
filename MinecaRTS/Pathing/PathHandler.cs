@@ -187,10 +187,11 @@ namespace MinecaRTS
             var sourceCell = grid.CellAt(owner.Mid);
             var targetCell = new List<Cell> { grid.CellAt(targetPos) };
 
-            pathfinder.SetupGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
-
+            
             if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
             {
+                pathfinder.SetupGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+
                 owner.FollowPath = false;
                 path = new List<Cell>();
                 TimeSlicedPathManager.AddSearch(pathfinder);

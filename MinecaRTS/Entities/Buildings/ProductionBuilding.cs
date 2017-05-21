@@ -11,7 +11,7 @@ namespace MinecaRTS
 {
     public class ProductionBuilding : Building
     {
-        public const int MAX_HEALTH = 200;
+        public const int MAX_HEALTH = 100000;
         public const int MAX_QUEUE_LENGTH = 5;
         public static Dictionary<Type, uint> productionTimes = new Dictionary<Type, uint>();
 

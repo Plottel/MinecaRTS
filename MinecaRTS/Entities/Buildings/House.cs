@@ -11,7 +11,7 @@ namespace MinecaRTS
 {
     public class House : Building, IBoostsSupply
     {
-        public const int MAX_HEALTH = 100;
+        public const int MAX_HEALTH = 300;
 
         public static Texture2D ACTIVE_TEXTURE;
         public static Texture2D CONSTRUCTION_TEXTURE;

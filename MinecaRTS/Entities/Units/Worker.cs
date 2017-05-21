@@ -9,22 +9,23 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
-    using AnimationDictionary = Dictionary<WorkerAnimation, Dictionary<Dir, List<Frame>>>;
+    using AnimationDictionary = Dictionary<WkrAnim, Dictionary<Dir, List<Frame>>>;
 
-    public enum WorkerAnimation
+    public enum WkrAnim
     {
         Walk,
         Chop,
         Logs,
         Mine,
-        Bag
+        Bag,
+        Build
     }
 
     public class Worker : Unit
     {
-        public static Dictionary<WorkerAnimation, SpriteSheet> spriteSheets = new Dictionary<WorkerAnimation, SpriteSheet>();
+        public static Dictionary<WkrAnim, SpriteSheet> spriteSheets = new Dictionary<WkrAnim, SpriteSheet>();
         public static AnimationDictionary animFrames = new AnimationDictionary();
-        public static Dictionary<WorkerAnimation, Vector2> animOffsets = new Dictionary<WorkerAnimation, Vector2>();
+        public static Dictionary<WkrAnim, Vector2> animOffsets = new Dictionary<WkrAnim, Vector2>();
 
         public const float BASE_SPEED = 2;
 
@@ -34,7 +35,7 @@ namespace MinecaRTS
 
         public ResourceType resrcLookingFor = ResourceType.None;
 
-        public WorkerAnimation currentAnim = WorkerAnimation.Walk;
+        public WkrAnim currentAnim = WkrAnim.Walk;
 
         public ResourceType resrcHolding = ResourceType.None;
 
@@ -56,7 +57,7 @@ namespace MinecaRTS
         {
             _fsm = new StateMachine<Worker>(this);
             Speed = BASE_SPEED;
-            animation = new Animation(spriteSheets[WorkerAnimation.Walk].texture, animFrames[WorkerAnimation.Walk][Dir.S], animOffsets[WorkerAnimation.Walk], true);
+            animation = new Animation(spriteSheets[WkrAnim.Walk].texture, animFrames[WkrAnim.Walk][Dir.S], animOffsets[WkrAnim.Walk], true);
             pathHandler = new WorkerPathHandler(this, data.Grid);
         }
 
@@ -79,7 +80,7 @@ namespace MinecaRTS
 
             // Don't update animation if not moving
             // TODO: Add checks - some animations (chopping) will still update if not moving
-            if (Vel != Vector2.Zero || currentAnim == WorkerAnimation.Chop || currentAnim == WorkerAnimation.Mine)
+            if (Vel != Vector2.Zero || currentAnim == WkrAnim.Chop || currentAnim == WkrAnim.Mine || currentAnim == WkrAnim.Build)
                 animation.Update();
 
             _fsm.Execute();
@@ -117,7 +118,7 @@ namespace MinecaRTS
             FSM.ChangeState(MoveToConstructBuilding.Instance);
         }
 
-        public void ChangeAnimation(WorkerAnimation newAnim)
+        public void ChangeAnimation(WkrAnim newAnim)
         {
             currentAnim = newAnim;
             animation.ChangeScript(animFrames[currentAnim][heading], animOffsets[currentAnim], true, true);
