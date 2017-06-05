@@ -9,8 +9,10 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
-    // TODO: Add overloads for X/Y rather than just Point / Vector.
-    // creating a bunch of unnecessary Vector / Point objects.
+    /// <summary>
+    /// 2D array of cells with a whoooooole bunch of helper functions!
+    /// MORE LINES OF STUFF
+    /// </summary>
     public class Grid
     {
         private int _cellSize;
@@ -261,6 +263,27 @@ namespace MinecaRTS
                 for (int row = min.Row(); row <= max.Row(); row++)
                 {
                     AddCell(this[col, row], result);
+                }
+            }
+
+            return result;
+        }
+
+        public List<Point> IndexesInRect(Rectangle rect)
+        {
+            var result = new List<Point>();
+
+            Point min = IndexAt(new Vector2(rect.Left, rect.Top));
+            Point max = IndexAt(new Vector2(rect.Right, rect.Bottom));
+
+            for (int col = min.Col(); col <= max.Col(); col++)
+            {
+                for (int row = min.Row(); row <= max.Row(); row++)
+                {
+                    if (col < 0 || col > Cols - 1 || row < 0 || row > Rows - 1)
+                        continue;
+
+                    result.Add(new Point(col, row));
                 }
             }
 

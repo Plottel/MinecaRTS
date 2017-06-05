@@ -1,0 +1,190 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.IRenderable
+  commentId: T:MinecaRTS.IRenderable
+  id: IRenderable
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.IRenderable.Mid
+  - MinecaRTS.IRenderable.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.IRenderable.RenderRect
+  langs:
+  - csharp
+  - vb
+  name: IRenderable
+  nameWithType: IRenderable
+  fullName: MinecaRTS.IRenderable
+  type: Interface
+  source:
+    remote:
+      path: MinecaRTS/Render/IRenderable.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: IRenderable
+    path: MinecaRTS/Render/IRenderable.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public interface IRenderable
+    content.vb: Public Interface IRenderable
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: MinecaRTS.IRenderable.RenderRect
+  commentId: P:MinecaRTS.IRenderable.RenderRect
+  id: RenderRect
+  parent: MinecaRTS.IRenderable
+  langs:
+  - csharp
+  - vb
+  name: RenderRect
+  nameWithType: IRenderable.RenderRect
+  fullName: MinecaRTS.IRenderable.RenderRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/IRenderable.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderRect
+    path: MinecaRTS/Render/IRenderable.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Rectangle RenderRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: ReadOnly Property RenderRect As Rectangle
+  overload: MinecaRTS.IRenderable.RenderRect*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: MinecaRTS.IRenderable.Mid
+  commentId: P:MinecaRTS.IRenderable.Mid
+  id: Mid
+  parent: MinecaRTS.IRenderable
+  langs:
+  - csharp
+  - vb
+  name: Mid
+  nameWithType: IRenderable.Mid
+  fullName: MinecaRTS.IRenderable.Mid
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/IRenderable.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Mid
+    path: MinecaRTS/Render/IRenderable.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Vector2 Mid { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: ReadOnly Property Mid As Vector2
+  overload: MinecaRTS.IRenderable.Mid*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: MinecaRTS.IRenderable.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.IRenderable.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.IRenderable
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: IRenderable.Render(SpriteBatch)
+  fullName: MinecaRTS.IRenderable.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/IRenderable.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: MinecaRTS/Render/IRenderable.cs
+    startLine: 22
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Sub Render(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.IRenderable.Render*
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.IRenderable.RenderRect*
+  commentId: Overload:MinecaRTS.IRenderable.RenderRect
+  isExternal: false
+  name: RenderRect
+  nameWithType: IRenderable.RenderRect
+  fullName: MinecaRTS.IRenderable.RenderRect
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.IRenderable.Mid*
+  commentId: Overload:MinecaRTS.IRenderable.Mid
+  isExternal: false
+  name: Mid
+  nameWithType: IRenderable.Mid
+  fullName: MinecaRTS.IRenderable.Mid
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: MinecaRTS.IRenderable.Render*
+  commentId: Overload:MinecaRTS.IRenderable.Render
+  isExternal: false
+  name: Render
+  nameWithType: IRenderable.Render
+  fullName: MinecaRTS.IRenderable.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics

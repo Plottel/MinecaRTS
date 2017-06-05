@@ -1,0 +1,137 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.IHandleMessages
+  commentId: T:MinecaRTS.IHandleMessages
+  id: IHandleMessages
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  - MinecaRTS.IHandleMessages.ID
+  langs:
+  - csharp
+  - vb
+  name: IHandleMessages
+  nameWithType: IHandleMessages
+  fullName: MinecaRTS.IHandleMessages
+  type: Interface
+  source:
+    remote:
+      path: MinecaRTS/Messaging/IHandleMessages.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: IHandleMessages
+    path: MinecaRTS/Messaging/IHandleMessages.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public interface IHandleMessages
+    content.vb: Public Interface IHandleMessages
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: MinecaRTS.IHandleMessages.ID
+  commentId: P:MinecaRTS.IHandleMessages.ID
+  id: ID
+  parent: MinecaRTS.IHandleMessages
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: IHandleMessages.ID
+  fullName: MinecaRTS.IHandleMessages.ID
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Messaging/IHandleMessages.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ID
+    path: MinecaRTS/Messaging/IHandleMessages.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ulong ID { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: ReadOnly Property ID As ULong
+  overload: MinecaRTS.IHandleMessages.ID*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  id: HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.IHandleMessages
+  langs:
+  - csharp
+  - vb
+  name: HandleMessage(Message)
+  nameWithType: IHandleMessages.HandleMessage(Message)
+  fullName: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Messaging/IHandleMessages.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleMessage
+    path: MinecaRTS/Messaging/IHandleMessages.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: void HandleMessage(Message message)
+    parameters:
+    - id: message
+      type: MinecaRTS.Message
+    content.vb: Sub HandleMessage(message As Message)
+  overload: MinecaRTS.IHandleMessages.HandleMessage*
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.IHandleMessages.ID*
+  commentId: Overload:MinecaRTS.IHandleMessages.ID
+  isExternal: false
+  name: ID
+  nameWithType: IHandleMessages.ID
+  fullName: MinecaRTS.IHandleMessages.ID
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.IHandleMessages.HandleMessage*
+  commentId: Overload:MinecaRTS.IHandleMessages.HandleMessage
+  isExternal: false
+  name: HandleMessage
+  nameWithType: IHandleMessages.HandleMessage
+  fullName: MinecaRTS.IHandleMessages.HandleMessage
+- uid: MinecaRTS.Message
+  commentId: T:MinecaRTS.Message
+  parent: MinecaRTS
+  isExternal: false
+  name: Message
+  nameWithType: Message
+  fullName: MinecaRTS.Message

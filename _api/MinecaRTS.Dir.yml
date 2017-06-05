@@ -1,0 +1,345 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Dir
+  commentId: T:MinecaRTS.Dir
+  id: Dir
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Dir.Count
+  - MinecaRTS.Dir.E
+  - MinecaRTS.Dir.N
+  - MinecaRTS.Dir.NE
+  - MinecaRTS.Dir.NW
+  - MinecaRTS.Dir.S
+  - MinecaRTS.Dir.SE
+  - MinecaRTS.Dir.SW
+  - MinecaRTS.Dir.W
+  langs:
+  - csharp
+  - vb
+  name: Dir
+  nameWithType: Dir
+  fullName: MinecaRTS.Dir
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Dir
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum Dir
+    content.vb: Public Enum Dir
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.Dir.S
+  commentId: F:MinecaRTS.Dir.S
+  id: S
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: S
+  nameWithType: Dir.S
+  fullName: MinecaRTS.Dir.S
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: S
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: S = 0
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.SW
+  commentId: F:MinecaRTS.Dir.SW
+  id: SW
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: SW
+  nameWithType: Dir.SW
+  fullName: MinecaRTS.Dir.SW
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SW
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: SW = 1
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.W
+  commentId: F:MinecaRTS.Dir.W
+  id: W
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: W
+  nameWithType: Dir.W
+  fullName: MinecaRTS.Dir.W
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: W
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: W = 2
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.NW
+  commentId: F:MinecaRTS.Dir.NW
+  id: NW
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: NW
+  nameWithType: Dir.NW
+  fullName: MinecaRTS.Dir.NW
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: NW
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: NW = 3
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.N
+  commentId: F:MinecaRTS.Dir.N
+  id: N
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: N
+  nameWithType: Dir.N
+  fullName: MinecaRTS.Dir.N
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: N
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: N = 4
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.NE
+  commentId: F:MinecaRTS.Dir.NE
+  id: NE
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: NE
+  nameWithType: Dir.NE
+  fullName: MinecaRTS.Dir.NE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: NE
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: NE = 5
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.E
+  commentId: F:MinecaRTS.Dir.E
+  id: E
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: E
+  nameWithType: Dir.E
+  fullName: MinecaRTS.Dir.E
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: E
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: E = 6
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.SE
+  commentId: F:MinecaRTS.Dir.SE
+  id: SE
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: SE
+  nameWithType: Dir.SE
+  fullName: MinecaRTS.Dir.SE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SE
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: SE = 7
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Dir.Count
+  commentId: F:MinecaRTS.Dir.Count
+  id: Count
+  parent: MinecaRTS.Dir
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: Dir.Count
+  fullName: MinecaRTS.Dir.Count
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Utils/Dir.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Count
+    path: MinecaRTS/Utils/Dir.cs
+    startLine: 18
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Count = 8
+    return:
+      type: MinecaRTS.Dir
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.Dir
+  commentId: T:MinecaRTS.Dir
+  parent: MinecaRTS
+  isExternal: false
+  name: Dir
+  nameWithType: Dir
+  fullName: MinecaRTS.Dir

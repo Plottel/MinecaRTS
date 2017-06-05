@@ -1,0 +1,114 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.SearchType
+  commentId: T:MinecaRTS.SearchType
+  id: SearchType
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.SearchType.Dijkstra
+  - MinecaRTS.SearchType.Greedy
+  langs:
+  - csharp
+  - vb
+  name: SearchType
+  nameWithType: SearchType
+  fullName: MinecaRTS.SearchType
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SearchType
+    path: MinecaRTS/Pathing/SearchType.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum SearchType
+    content.vb: Public Enum SearchType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.SearchType.Dijkstra
+  commentId: F:MinecaRTS.SearchType.Dijkstra
+  id: Dijkstra
+  parent: MinecaRTS.SearchType
+  langs:
+  - csharp
+  - vb
+  name: Dijkstra
+  nameWithType: SearchType.Dijkstra
+  fullName: MinecaRTS.SearchType.Dijkstra
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Dijkstra
+    path: MinecaRTS/Pathing/SearchType.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Dijkstra = 0
+    return:
+      type: MinecaRTS.SearchType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.SearchType.Greedy
+  commentId: F:MinecaRTS.SearchType.Greedy
+  id: Greedy
+  parent: MinecaRTS.SearchType
+  langs:
+  - csharp
+  - vb
+  name: Greedy
+  nameWithType: SearchType.Greedy
+  fullName: MinecaRTS.SearchType.Greedy
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Greedy
+    path: MinecaRTS/Pathing/SearchType.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Greedy = 1
+    return:
+      type: MinecaRTS.SearchType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.SearchType
+  commentId: T:MinecaRTS.SearchType
+  parent: MinecaRTS
+  isExternal: false
+  name: SearchType
+  nameWithType: SearchType
+  fullName: MinecaRTS.SearchType

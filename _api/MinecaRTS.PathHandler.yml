@@ -1,0 +1,1697 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.PathHandler
+  commentId: T:MinecaRTS.PathHandler
+  id: PathHandler
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.PathHandler.#ctor(MinecaRTS.Unit,MinecaRTS.Grid)
+  - MinecaRTS.PathHandler.buildingPathingTowards
+  - MinecaRTS.PathHandler.ConsiderationConditionStone(MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.ConsiderationConditionWood(MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.estimatedTicksToReachNextCell
+  - MinecaRTS.PathHandler.FinalisePath
+  - MinecaRTS.PathHandler.GetEstimatedTicksToReachCell(MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.GetPathTo(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PathHandler.GreedyConsiderationCondition(MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.GreedyScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.GreedyTerminationCondition(MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell})
+  - MinecaRTS.PathHandler.grid
+  - MinecaRTS.PathHandler.HandleMessage(MinecaRTS.Message)
+  - MinecaRTS.PathHandler.HasPath
+  - MinecaRTS.PathHandler.ID
+  - MinecaRTS.PathHandler.owner
+  - MinecaRTS.PathHandler.Owner
+  - MinecaRTS.PathHandler.path
+  - MinecaRTS.PathHandler.pathfinder
+  - MinecaRTS.PathHandler.pathIndex
+  - MinecaRTS.PathHandler.RenderPath(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.PathHandler.TargetCell
+  - MinecaRTS.PathHandler.TerminationConditionFindTrack(MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.TerminationConditionStone(MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.TerminationConditionWood(MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.ticksSpentTravellingToCell
+  - MinecaRTS.PathHandler.TrackScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  - MinecaRTS.PathHandler.Update
+  langs:
+  - csharp
+  - vb
+  name: PathHandler
+  nameWithType: PathHandler
+  fullName: MinecaRTS.PathHandler
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: PathHandler
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nResponsible for getting a unit to follow a path.\nEach unit has their own instance of PathHandler.\n"
+  example: []
+  syntax:
+    content: 'public class PathHandler : IHandleMessages'
+    content.vb: >-
+      Public Class PathHandler
+          Implements IHandleMessages
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - MinecaRTS.MinecartPathHandler
+  implements:
+  - MinecaRTS.IHandleMessages
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.PathHandler.owner
+  commentId: F:MinecaRTS.PathHandler.owner
+  id: owner
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: owner
+  nameWithType: PathHandler.owner
+  fullName: MinecaRTS.PathHandler.owner
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: owner
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 20
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nWhich unit the PathHandler belongs to.\n"
+  example: []
+  syntax:
+    content: protected Unit owner
+    return:
+      type: MinecaRTS.Unit
+    content.vb: Protected owner As Unit
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.Owner
+  commentId: P:MinecaRTS.PathHandler.Owner
+  id: Owner
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: PathHandler.Owner
+  fullName: MinecaRTS.PathHandler.Owner
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Owner
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 22
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Unit Owner { get; }
+    parameters: []
+    return:
+      type: MinecaRTS.Unit
+    content.vb: Public ReadOnly Property Owner As Unit
+  overload: MinecaRTS.PathHandler.Owner*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PathHandler.buildingPathingTowards
+  commentId: F:MinecaRTS.PathHandler.buildingPathingTowards
+  id: buildingPathingTowards
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: buildingPathingTowards
+  nameWithType: PathHandler.buildingPathingTowards
+  fullName: MinecaRTS.PathHandler.buildingPathingTowards
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: buildingPathingTowards
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 30
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected Building buildingPathingTowards
+    return:
+      type: MinecaRTS.Building
+    content.vb: Protected buildingPathingTowards As Building
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.ID
+  commentId: P:MinecaRTS.PathHandler.ID
+  id: ID
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: PathHandler.ID
+  fullName: MinecaRTS.PathHandler.ID
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ID
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 32
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public ulong ID { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property ID As ULong
+  overload: MinecaRTS.PathHandler.ID*
+  implements:
+  - MinecaRTS.IHandleMessages.ID
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PathHandler.pathfinder
+  commentId: F:MinecaRTS.PathHandler.pathfinder
+  id: pathfinder
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: pathfinder
+  nameWithType: PathHandler.pathfinder
+  fullName: MinecaRTS.PathHandler.pathfinder
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: pathfinder
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 37
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected Pathfinder pathfinder
+    return:
+      type: MinecaRTS.Pathfinder
+    content.vb: Protected pathfinder As Pathfinder
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.grid
+  commentId: F:MinecaRTS.PathHandler.grid
+  id: grid
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: grid
+  nameWithType: PathHandler.grid
+  fullName: MinecaRTS.PathHandler.grid
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: grid
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 42
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe grid used for path handling.\n"
+  example: []
+  syntax:
+    content: protected Grid grid
+    return:
+      type: MinecaRTS.Grid
+    content.vb: Protected grid As Grid
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.path
+  commentId: F:MinecaRTS.PathHandler.path
+  id: path
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: path
+  nameWithType: PathHandler.path
+  fullName: MinecaRTS.PathHandler.path
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: path
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 47
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe current path.\n"
+  example: []
+  syntax:
+    content: public List<Cell> path
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public path As List(Of Cell)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PathHandler.pathIndex
+  commentId: F:MinecaRTS.PathHandler.pathIndex
+  id: pathIndex
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: pathIndex
+  nameWithType: PathHandler.pathIndex
+  fullName: MinecaRTS.PathHandler.pathIndex
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: pathIndex
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 52
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe index in the path the unit is currently moving towards.\n"
+  example: []
+  syntax:
+    content: protected int pathIndex
+    return:
+      type: System.Int32
+    content.vb: Protected pathIndex As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.estimatedTicksToReachNextCell
+  commentId: F:MinecaRTS.PathHandler.estimatedTicksToReachNextCell
+  id: estimatedTicksToReachNextCell
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: estimatedTicksToReachNextCell
+  nameWithType: PathHandler.estimatedTicksToReachNextCell
+  fullName: MinecaRTS.PathHandler.estimatedTicksToReachNextCell
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: estimatedTicksToReachNextCell
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 59
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected int estimatedTicksToReachNextCell
+    return:
+      type: System.Int32
+    content.vb: Protected estimatedTicksToReachNextCell As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.ticksSpentTravellingToCell
+  commentId: F:MinecaRTS.PathHandler.ticksSpentTravellingToCell
+  id: ticksSpentTravellingToCell
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: ticksSpentTravellingToCell
+  nameWithType: PathHandler.ticksSpentTravellingToCell
+  fullName: MinecaRTS.PathHandler.ticksSpentTravellingToCell
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ticksSpentTravellingToCell
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 60
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected int ticksSpentTravellingToCell
+    return:
+      type: System.Int32
+    content.vb: Protected ticksSpentTravellingToCell As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.HasPath
+  commentId: P:MinecaRTS.PathHandler.HasPath
+  id: HasPath
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: HasPath
+  nameWithType: PathHandler.HasPath
+  fullName: MinecaRTS.PathHandler.HasPath
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HasPath
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 62
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool HasPath { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasPath As Boolean
+  overload: MinecaRTS.PathHandler.HasPath*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PathHandler.TargetCell
+  commentId: P:MinecaRTS.PathHandler.TargetCell
+  id: TargetCell
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: TargetCell
+  nameWithType: PathHandler.TargetCell
+  fullName: MinecaRTS.PathHandler.TargetCell
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TargetCell
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 67
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Cell TargetCell { get; }
+    parameters: []
+    return:
+      type: MinecaRTS.Cell
+    content.vb: Public ReadOnly Property TargetCell As Cell
+  overload: MinecaRTS.PathHandler.TargetCell*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PathHandler.#ctor(MinecaRTS.Unit,MinecaRTS.Grid)
+  commentId: M:MinecaRTS.PathHandler.#ctor(MinecaRTS.Unit,MinecaRTS.Grid)
+  id: '#ctor(MinecaRTS.Unit,MinecaRTS.Grid)'
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: PathHandler(Unit, Grid)
+  nameWithType: PathHandler.PathHandler(Unit, Grid)
+  fullName: MinecaRTS.PathHandler.PathHandler(MinecaRTS.Unit, MinecaRTS.Grid)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 72
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public PathHandler(Unit owner, Grid grid)
+    parameters:
+    - id: owner
+      type: MinecaRTS.Unit
+    - id: grid
+      type: MinecaRTS.Grid
+    content.vb: Public Sub New(owner As Unit, grid As Grid)
+  overload: MinecaRTS.PathHandler.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PathHandler.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.PathHandler.HandleMessage(MinecaRTS.Message)
+  id: HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: HandleMessage(Message)
+  nameWithType: PathHandler.HandleMessage(Message)
+  fullName: MinecaRTS.PathHandler.HandleMessage(MinecaRTS.Message)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleMessage
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 85
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public virtual void HandleMessage(Message message)
+    parameters:
+    - id: message
+      type: MinecaRTS.Message
+    content.vb: Public Overridable Sub HandleMessage(message As Message)
+  overload: MinecaRTS.PathHandler.HandleMessage*
+  implements:
+  - MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: MinecaRTS.PathHandler.Update
+  commentId: M:MinecaRTS.PathHandler.Update
+  id: Update
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: PathHandler.Update()
+  fullName: MinecaRTS.PathHandler.Update()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Update
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 107
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nChecks if owner has reached current cell index and, if it has, orients towards next cell.\n"
+  example: []
+  syntax:
+    content: public Vector2 Update()
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Function Update As Vector2
+  overload: MinecaRTS.PathHandler.Update*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PathHandler.GetEstimatedTicksToReachCell(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.GetEstimatedTicksToReachCell(MinecaRTS.Cell)
+  id: GetEstimatedTicksToReachCell(MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: GetEstimatedTicksToReachCell(Cell)
+  nameWithType: PathHandler.GetEstimatedTicksToReachCell(Cell)
+  fullName: MinecaRTS.PathHandler.GetEstimatedTicksToReachCell(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetEstimatedTicksToReachCell
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 139
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public int GetEstimatedTicksToReachCell(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Int32
+    content.vb: Public Function GetEstimatedTicksToReachCell(cell As Cell) As Integer
+  overload: MinecaRTS.PathHandler.GetEstimatedTicksToReachCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PathHandler.FinalisePath
+  commentId: M:MinecaRTS.PathHandler.FinalisePath
+  id: FinalisePath
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: FinalisePath()
+  nameWithType: PathHandler.FinalisePath()
+  fullName: MinecaRTS.PathHandler.FinalisePath()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: FinalisePath
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 167
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void FinalisePath()
+    content.vb: Public Sub FinalisePath
+  overload: MinecaRTS.PathHandler.FinalisePath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PathHandler.GetPathTo(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PathHandler.GetPathTo(Microsoft.Xna.Framework.Vector2)
+  id: GetPathTo(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: GetPathTo(Vector2)
+  nameWithType: PathHandler.GetPathTo(Vector2)
+  fullName: MinecaRTS.PathHandler.GetPathTo(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetPathTo
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 184
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nGenerates a path to the target position.\nIf owner is set to follow paths, this will orient owner towards first cell in path.\n"
+  example: []
+  syntax:
+    content: public virtual void GetPathTo(Vector2 targetPos)
+    parameters:
+    - id: targetPos
+      type: Microsoft.Xna.Framework.Vector2
+      description: ''
+    content.vb: Public Overridable Sub GetPathTo(targetPos As Vector2)
+  overload: MinecaRTS.PathHandler.GetPathTo*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: MinecaRTS.PathHandler.RenderPath(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.PathHandler.RenderPath(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: RenderPath(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: RenderPath(SpriteBatch)
+  nameWithType: PathHandler.RenderPath(SpriteBatch)
+  fullName: MinecaRTS.PathHandler.RenderPath(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderPath
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 208
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RenderPath(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Sub RenderPath(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.PathHandler.RenderPath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PathHandler.TrackScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.TrackScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  id: TrackScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: TrackScoreMethod(Cell, Cell)
+  nameWithType: PathHandler.TrackScoreMethod(Cell, Cell)
+  fullName: MinecaRTS.PathHandler.TrackScoreMethod(MinecaRTS.Cell, MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TrackScoreMethod
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 226
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected float TrackScoreMethod(Cell cell, Cell Target)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    - id: Target
+      type: MinecaRTS.Cell
+    return:
+      type: System.Single
+    content.vb: Protected Function TrackScoreMethod(cell As Cell, Target As Cell) As Single
+  overload: MinecaRTS.PathHandler.TrackScoreMethod*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.ConsiderationConditionWood(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.ConsiderationConditionWood(MinecaRTS.Cell)
+  id: ConsiderationConditionWood(MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: ConsiderationConditionWood(Cell)
+  nameWithType: PathHandler.ConsiderationConditionWood(Cell)
+  fullName: MinecaRTS.PathHandler.ConsiderationConditionWood(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ConsiderationConditionWood
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 238
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected bool ConsiderationConditionWood(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Protected Function ConsiderationConditionWood(cell As Cell) As Boolean
+  overload: MinecaRTS.PathHandler.ConsiderationConditionWood*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.ConsiderationConditionStone(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.ConsiderationConditionStone(MinecaRTS.Cell)
+  id: ConsiderationConditionStone(MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: ConsiderationConditionStone(Cell)
+  nameWithType: PathHandler.ConsiderationConditionStone(Cell)
+  fullName: MinecaRTS.PathHandler.ConsiderationConditionStone(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ConsiderationConditionStone
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 252
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected bool ConsiderationConditionStone(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Protected Function ConsiderationConditionStone(cell As Cell) As Boolean
+  overload: MinecaRTS.PathHandler.ConsiderationConditionStone*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.TerminationConditionWood(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.TerminationConditionWood(MinecaRTS.Cell)
+  id: TerminationConditionWood(MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: TerminationConditionWood(Cell)
+  nameWithType: PathHandler.TerminationConditionWood(Cell)
+  fullName: MinecaRTS.PathHandler.TerminationConditionWood(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TerminationConditionWood
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 266
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected bool TerminationConditionWood(Cell current)
+    parameters:
+    - id: current
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Protected Function TerminationConditionWood(current As Cell) As Boolean
+  overload: MinecaRTS.PathHandler.TerminationConditionWood*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.TerminationConditionStone(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.TerminationConditionStone(MinecaRTS.Cell)
+  id: TerminationConditionStone(MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: TerminationConditionStone(Cell)
+  nameWithType: PathHandler.TerminationConditionStone(Cell)
+  fullName: MinecaRTS.PathHandler.TerminationConditionStone(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TerminationConditionStone
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 278
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected bool TerminationConditionStone(Cell current)
+    parameters:
+    - id: current
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Protected Function TerminationConditionStone(current As Cell) As Boolean
+  overload: MinecaRTS.PathHandler.TerminationConditionStone*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.TerminationConditionFindTrack(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.TerminationConditionFindTrack(MinecaRTS.Cell)
+  id: TerminationConditionFindTrack(MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: TerminationConditionFindTrack(Cell)
+  nameWithType: PathHandler.TerminationConditionFindTrack(Cell)
+  fullName: MinecaRTS.PathHandler.TerminationConditionFindTrack(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TerminationConditionFindTrack
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 290
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected bool TerminationConditionFindTrack(Cell current)
+    parameters:
+    - id: current
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Protected Function TerminationConditionFindTrack(current As Cell) As Boolean
+  overload: MinecaRTS.PathHandler.TerminationConditionFindTrack*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.GreedyConsiderationCondition(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.GreedyConsiderationCondition(MinecaRTS.Cell)
+  id: GreedyConsiderationCondition(MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: GreedyConsiderationCondition(Cell)
+  nameWithType: PathHandler.GreedyConsiderationCondition(Cell)
+  fullName: MinecaRTS.PathHandler.GreedyConsiderationCondition(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GreedyConsiderationCondition
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 296
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected bool GreedyConsiderationCondition(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Protected Function GreedyConsiderationCondition(cell As Cell) As Boolean
+  overload: MinecaRTS.PathHandler.GreedyConsiderationCondition*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: MinecaRTS.PathHandler.GreedyTerminationCondition(MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell})
+  commentId: M:MinecaRTS.PathHandler.GreedyTerminationCondition(MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell})
+  id: GreedyTerminationCondition(MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell})
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: GreedyTerminationCondition(Cell, List<Cell>)
+  nameWithType: PathHandler.GreedyTerminationCondition(Cell, List<Cell>)
+  fullName: MinecaRTS.PathHandler.GreedyTerminationCondition(MinecaRTS.Cell, System.Collections.Generic.List<MinecaRTS.Cell>)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GreedyTerminationCondition
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 302
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected bool GreedyTerminationCondition(Cell current, List<Cell> targets)
+    parameters:
+    - id: current
+      type: MinecaRTS.Cell
+    - id: targets
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    return:
+      type: System.Boolean
+    content.vb: Protected Function GreedyTerminationCondition(current As Cell, targets As List(Of Cell)) As Boolean
+  overload: MinecaRTS.PathHandler.GreedyTerminationCondition*
+  nameWithType.vb: PathHandler.GreedyTerminationCondition(Cell, List(Of Cell))
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: MinecaRTS.PathHandler.GreedyTerminationCondition(MinecaRTS.Cell, System.Collections.Generic.List(Of MinecaRTS.Cell))
+  name.vb: GreedyTerminationCondition(Cell, List(Of Cell))
+- uid: MinecaRTS.PathHandler.GreedyScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PathHandler.GreedyScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  id: GreedyScoreMethod(MinecaRTS.Cell,MinecaRTS.Cell)
+  parent: MinecaRTS.PathHandler
+  langs:
+  - csharp
+  - vb
+  name: GreedyScoreMethod(Cell, Cell)
+  nameWithType: PathHandler.GreedyScoreMethod(Cell, Cell)
+  fullName: MinecaRTS.PathHandler.GreedyScoreMethod(MinecaRTS.Cell, MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/PathHandler.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GreedyScoreMethod
+    path: MinecaRTS/Pathing/PathHandler.cs
+    startLine: 307
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: protected float GreedyScoreMethod(Cell cell, Cell Target)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    - id: Target
+      type: MinecaRTS.Cell
+    return:
+      type: System.Single
+    content.vb: Protected Function GreedyScoreMethod(cell As Cell, Target As Cell) As Single
+  overload: MinecaRTS.PathHandler.GreedyScoreMethod*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: MinecaRTS.IHandleMessages
+  commentId: T:MinecaRTS.IHandleMessages
+  parent: MinecaRTS
+  isExternal: false
+  name: IHandleMessages
+  nameWithType: IHandleMessages
+  fullName: MinecaRTS.IHandleMessages
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.Unit
+  commentId: T:MinecaRTS.Unit
+  parent: MinecaRTS
+  isExternal: false
+  name: Unit
+  nameWithType: Unit
+  fullName: MinecaRTS.Unit
+- uid: MinecaRTS.PathHandler.Owner*
+  commentId: Overload:MinecaRTS.PathHandler.Owner
+  isExternal: false
+  name: Owner
+  nameWithType: PathHandler.Owner
+  fullName: MinecaRTS.PathHandler.Owner
+- uid: MinecaRTS.Building
+  commentId: T:MinecaRTS.Building
+  parent: MinecaRTS
+  isExternal: false
+  name: Building
+  nameWithType: Building
+  fullName: MinecaRTS.Building
+- uid: MinecaRTS.PathHandler.ID*
+  commentId: Overload:MinecaRTS.PathHandler.ID
+  isExternal: false
+  name: ID
+  nameWithType: PathHandler.ID
+  fullName: MinecaRTS.PathHandler.ID
+- uid: MinecaRTS.IHandleMessages.ID
+  commentId: P:MinecaRTS.IHandleMessages.ID
+  parent: MinecaRTS.IHandleMessages
+  isExternal: false
+  name: ID
+  nameWithType: IHandleMessages.ID
+  fullName: MinecaRTS.IHandleMessages.ID
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: MinecaRTS.Pathfinder
+  commentId: T:MinecaRTS.Pathfinder
+  parent: MinecaRTS
+  isExternal: false
+  name: Pathfinder
+  nameWithType: Pathfinder
+  fullName: MinecaRTS.Pathfinder
+- uid: MinecaRTS.Grid
+  commentId: T:MinecaRTS.Grid
+  parent: MinecaRTS
+  isExternal: false
+  name: Grid
+  nameWithType: Grid
+  fullName: MinecaRTS.Grid
+- uid: System.Collections.Generic.List{MinecaRTS.Cell}
+  commentId: T:System.Collections.Generic.List{MinecaRTS.Cell}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Cell>
+  nameWithType: List<Cell>
+  fullName: System.Collections.Generic.List<MinecaRTS.Cell>
+  nameWithType.vb: List(Of Cell)
+  fullName.vb: System.Collections.Generic.List(Of MinecaRTS.Cell)
+  name.vb: List(Of Cell)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MinecaRTS.PathHandler.HasPath*
+  commentId: Overload:MinecaRTS.PathHandler.HasPath
+  isExternal: false
+  name: HasPath
+  nameWithType: PathHandler.HasPath
+  fullName: MinecaRTS.PathHandler.HasPath
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MinecaRTS.PathHandler.TargetCell*
+  commentId: Overload:MinecaRTS.PathHandler.TargetCell
+  isExternal: false
+  name: TargetCell
+  nameWithType: PathHandler.TargetCell
+  fullName: MinecaRTS.PathHandler.TargetCell
+- uid: MinecaRTS.Cell
+  commentId: T:MinecaRTS.Cell
+  parent: MinecaRTS
+  isExternal: false
+  name: Cell
+  nameWithType: Cell
+  fullName: MinecaRTS.Cell
+- uid: MinecaRTS.PathHandler.#ctor*
+  commentId: Overload:MinecaRTS.PathHandler.#ctor
+  isExternal: false
+  name: PathHandler
+  nameWithType: PathHandler.PathHandler
+  fullName: MinecaRTS.PathHandler.PathHandler
+- uid: MinecaRTS.PathHandler.HandleMessage*
+  commentId: Overload:MinecaRTS.PathHandler.HandleMessage
+  isExternal: false
+  name: HandleMessage
+  nameWithType: PathHandler.HandleMessage
+  fullName: MinecaRTS.PathHandler.HandleMessage
+- uid: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.IHandleMessages
+  isExternal: false
+  name: HandleMessage(Message)
+  nameWithType: IHandleMessages.HandleMessage(Message)
+  fullName: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  spec.csharp:
+  - uid: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: IHandleMessages.HandleMessage
+    fullName: MinecaRTS.IHandleMessages.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: IHandleMessages.HandleMessage
+    fullName: MinecaRTS.IHandleMessages.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Message
+  commentId: T:MinecaRTS.Message
+  parent: MinecaRTS
+  isExternal: false
+  name: Message
+  nameWithType: Message
+  fullName: MinecaRTS.Message
+- uid: MinecaRTS.PathHandler.Update*
+  commentId: Overload:MinecaRTS.PathHandler.Update
+  isExternal: false
+  name: Update
+  nameWithType: PathHandler.Update
+  fullName: MinecaRTS.PathHandler.Update
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.PathHandler.GetEstimatedTicksToReachCell*
+  commentId: Overload:MinecaRTS.PathHandler.GetEstimatedTicksToReachCell
+  isExternal: false
+  name: GetEstimatedTicksToReachCell
+  nameWithType: PathHandler.GetEstimatedTicksToReachCell
+  fullName: MinecaRTS.PathHandler.GetEstimatedTicksToReachCell
+- uid: MinecaRTS.PathHandler.FinalisePath*
+  commentId: Overload:MinecaRTS.PathHandler.FinalisePath
+  isExternal: false
+  name: FinalisePath
+  nameWithType: PathHandler.FinalisePath
+  fullName: MinecaRTS.PathHandler.FinalisePath
+- uid: MinecaRTS.PathHandler.GetPathTo*
+  commentId: Overload:MinecaRTS.PathHandler.GetPathTo
+  isExternal: false
+  name: GetPathTo
+  nameWithType: PathHandler.GetPathTo
+  fullName: MinecaRTS.PathHandler.GetPathTo
+- uid: MinecaRTS.PathHandler.RenderPath*
+  commentId: Overload:MinecaRTS.PathHandler.RenderPath
+  isExternal: false
+  name: RenderPath
+  nameWithType: PathHandler.RenderPath
+  fullName: MinecaRTS.PathHandler.RenderPath
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics
+- uid: MinecaRTS.PathHandler.TrackScoreMethod*
+  commentId: Overload:MinecaRTS.PathHandler.TrackScoreMethod
+  isExternal: false
+  name: TrackScoreMethod
+  nameWithType: PathHandler.TrackScoreMethod
+  fullName: MinecaRTS.PathHandler.TrackScoreMethod
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MinecaRTS.PathHandler.ConsiderationConditionWood*
+  commentId: Overload:MinecaRTS.PathHandler.ConsiderationConditionWood
+  isExternal: false
+  name: ConsiderationConditionWood
+  nameWithType: PathHandler.ConsiderationConditionWood
+  fullName: MinecaRTS.PathHandler.ConsiderationConditionWood
+- uid: MinecaRTS.PathHandler.ConsiderationConditionStone*
+  commentId: Overload:MinecaRTS.PathHandler.ConsiderationConditionStone
+  isExternal: false
+  name: ConsiderationConditionStone
+  nameWithType: PathHandler.ConsiderationConditionStone
+  fullName: MinecaRTS.PathHandler.ConsiderationConditionStone
+- uid: MinecaRTS.PathHandler.TerminationConditionWood*
+  commentId: Overload:MinecaRTS.PathHandler.TerminationConditionWood
+  isExternal: false
+  name: TerminationConditionWood
+  nameWithType: PathHandler.TerminationConditionWood
+  fullName: MinecaRTS.PathHandler.TerminationConditionWood
+- uid: MinecaRTS.PathHandler.TerminationConditionStone*
+  commentId: Overload:MinecaRTS.PathHandler.TerminationConditionStone
+  isExternal: false
+  name: TerminationConditionStone
+  nameWithType: PathHandler.TerminationConditionStone
+  fullName: MinecaRTS.PathHandler.TerminationConditionStone
+- uid: MinecaRTS.PathHandler.TerminationConditionFindTrack*
+  commentId: Overload:MinecaRTS.PathHandler.TerminationConditionFindTrack
+  isExternal: false
+  name: TerminationConditionFindTrack
+  nameWithType: PathHandler.TerminationConditionFindTrack
+  fullName: MinecaRTS.PathHandler.TerminationConditionFindTrack
+- uid: MinecaRTS.PathHandler.GreedyConsiderationCondition*
+  commentId: Overload:MinecaRTS.PathHandler.GreedyConsiderationCondition
+  isExternal: false
+  name: GreedyConsiderationCondition
+  nameWithType: PathHandler.GreedyConsiderationCondition
+  fullName: MinecaRTS.PathHandler.GreedyConsiderationCondition
+- uid: MinecaRTS.PathHandler.GreedyTerminationCondition*
+  commentId: Overload:MinecaRTS.PathHandler.GreedyTerminationCondition
+  isExternal: false
+  name: GreedyTerminationCondition
+  nameWithType: PathHandler.GreedyTerminationCondition
+  fullName: MinecaRTS.PathHandler.GreedyTerminationCondition
+- uid: MinecaRTS.PathHandler.GreedyScoreMethod*
+  commentId: Overload:MinecaRTS.PathHandler.GreedyScoreMethod
+  isExternal: false
+  name: GreedyScoreMethod
+  nameWithType: PathHandler.GreedyScoreMethod
+  fullName: MinecaRTS.PathHandler.GreedyScoreMethod

@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.ResourceType
+  commentId: T:MinecaRTS.ResourceType
+  id: ResourceType
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.ResourceType.None
+  - MinecaRTS.ResourceType.Stone
+  - MinecaRTS.ResourceType.Wood
+  langs:
+  - csharp
+  - vb
+  name: ResourceType
+  nameWithType: ResourceType
+  fullName: MinecaRTS.ResourceType
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/Resource/ResourceType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ResourceType
+    path: MinecaRTS/Resource/ResourceType.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum ResourceType
+    content.vb: Public Enum ResourceType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.ResourceType.None
+  commentId: F:MinecaRTS.ResourceType.None
+  id: None
+  parent: MinecaRTS.ResourceType
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ResourceType.None
+  fullName: MinecaRTS.ResourceType.None
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/ResourceType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: None
+    path: MinecaRTS/Resource/ResourceType.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: None = 0
+    return:
+      type: MinecaRTS.ResourceType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.ResourceType.Wood
+  commentId: F:MinecaRTS.ResourceType.Wood
+  id: Wood
+  parent: MinecaRTS.ResourceType
+  langs:
+  - csharp
+  - vb
+  name: Wood
+  nameWithType: ResourceType.Wood
+  fullName: MinecaRTS.ResourceType.Wood
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/ResourceType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Wood
+    path: MinecaRTS/Resource/ResourceType.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Wood = 1
+    return:
+      type: MinecaRTS.ResourceType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.ResourceType.Stone
+  commentId: F:MinecaRTS.ResourceType.Stone
+  id: Stone
+  parent: MinecaRTS.ResourceType
+  langs:
+  - csharp
+  - vb
+  name: Stone
+  nameWithType: ResourceType.Stone
+  fullName: MinecaRTS.ResourceType.Stone
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/ResourceType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Stone
+    path: MinecaRTS/Resource/ResourceType.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Stone = 2
+    return:
+      type: MinecaRTS.ResourceType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.ResourceType
+  commentId: T:MinecaRTS.ResourceType
+  parent: MinecaRTS
+  isExternal: false
+  name: ResourceType
+  nameWithType: ResourceType
+  fullName: MinecaRTS.ResourceType

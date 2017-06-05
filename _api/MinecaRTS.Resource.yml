@@ -1,0 +1,1608 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Resource
+  commentId: T:MinecaRTS.Resource
+  id: Resource
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Resource.#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MinecaRTS.ResourceType)
+  - MinecaRTS.Resource.AddHarvester(MinecaRTS.Worker)
+  - MinecaRTS.Resource.ExitState
+  - MinecaRTS.Resource.GiveResources(MinecaRTS.Worker)
+  - MinecaRTS.Resource.HandleMessage(MinecaRTS.Message)
+  - MinecaRTS.Resource.HARVEST_AMOUNT
+  - MinecaRTS.Resource.HARVEST_DURATION
+  - MinecaRTS.Resource.Harvesters
+  - MinecaRTS.Resource.HasHarvester(MinecaRTS.Worker)
+  - MinecaRTS.Resource.IsDepleted
+  - MinecaRTS.Resource.IsSaturated
+  - MinecaRTS.Resource.MAX_HARVESTERS
+  - MinecaRTS.Resource.MAX_VALUE
+  - MinecaRTS.Resource.RemoveHarvester(MinecaRTS.Worker)
+  - MinecaRTS.Resource.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Resource.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Resource.STONE_DEPLETED_TEXTURE
+  - MinecaRTS.Resource.STONE_TEXTURE
+  - MinecaRTS.Resource.Type
+  - MinecaRTS.Resource.Update
+  - MinecaRTS.Resource.WOOD_DEPLETED_TEXTURE
+  - MinecaRTS.Resource.WOOD_TEXTURE
+  langs:
+  - csharp
+  - vb
+  name: Resource
+  nameWithType: Resource
+  fullName: MinecaRTS.Resource
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Resource
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: 'public class Resource : Entity, IRenderable, IHandleMessages'
+    content.vb: >-
+      Public Class Resource
+          Inherits Entity
+          Implements IRenderable, IHandleMessages
+  inheritance:
+  - System.Object
+  - MinecaRTS.Entity
+  implements:
+  - MinecaRTS.IRenderable
+  - MinecaRTS.IHandleMessages
+  inheritedMembers:
+  - MinecaRTS.Entity.Pos
+  - MinecaRTS.Entity.Scale
+  - MinecaRTS.Entity.ID
+  - MinecaRTS.Entity.RenderPos
+  - MinecaRTS.Entity.CollisionRect
+  - MinecaRTS.Entity.RenderRect
+  - MinecaRTS.Entity.Mid
+  - MinecaRTS.Entity.RenderMid
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.Resource.HARVEST_DURATION
+  commentId: F:MinecaRTS.Resource.HARVEST_DURATION
+  id: HARVEST_DURATION
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: HARVEST_DURATION
+  nameWithType: Resource.HARVEST_DURATION
+  fullName: MinecaRTS.Resource.HARVEST_DURATION
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HARVEST_DURATION
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public const int HARVEST_DURATION = 180
+    return:
+      type: System.Int32
+    content.vb: Public Const HARVEST_DURATION As Integer = 180
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Resource.MAX_HARVESTERS
+  commentId: F:MinecaRTS.Resource.MAX_HARVESTERS
+  id: MAX_HARVESTERS
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: MAX_HARVESTERS
+  nameWithType: Resource.MAX_HARVESTERS
+  fullName: MinecaRTS.Resource.MAX_HARVESTERS
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MAX_HARVESTERS
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public const int MAX_HARVESTERS = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const MAX_HARVESTERS As Integer = 3
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Resource.HARVEST_AMOUNT
+  commentId: F:MinecaRTS.Resource.HARVEST_AMOUNT
+  id: HARVEST_AMOUNT
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: HARVEST_AMOUNT
+  nameWithType: Resource.HARVEST_AMOUNT
+  fullName: MinecaRTS.Resource.HARVEST_AMOUNT
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HARVEST_AMOUNT
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public const int HARVEST_AMOUNT = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const HARVEST_AMOUNT As Integer = 5
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Resource.MAX_VALUE
+  commentId: F:MinecaRTS.Resource.MAX_VALUE
+  id: MAX_VALUE
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: MAX_VALUE
+  nameWithType: Resource.MAX_VALUE
+  fullName: MinecaRTS.Resource.MAX_VALUE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MAX_VALUE
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public const int MAX_VALUE = 100
+    return:
+      type: System.Int32
+    content.vb: Public Const MAX_VALUE As Integer = 100
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Resource.WOOD_TEXTURE
+  commentId: F:MinecaRTS.Resource.WOOD_TEXTURE
+  id: WOOD_TEXTURE
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: WOOD_TEXTURE
+  nameWithType: Resource.WOOD_TEXTURE
+  fullName: MinecaRTS.Resource.WOOD_TEXTURE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: WOOD_TEXTURE
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 19
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Texture2D WOOD_TEXTURE
+    return:
+      type: Microsoft.Xna.Framework.Graphics.Texture2D
+    content.vb: Public Shared WOOD_TEXTURE As Texture2D
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Resource.WOOD_DEPLETED_TEXTURE
+  commentId: F:MinecaRTS.Resource.WOOD_DEPLETED_TEXTURE
+  id: WOOD_DEPLETED_TEXTURE
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: WOOD_DEPLETED_TEXTURE
+  nameWithType: Resource.WOOD_DEPLETED_TEXTURE
+  fullName: MinecaRTS.Resource.WOOD_DEPLETED_TEXTURE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: WOOD_DEPLETED_TEXTURE
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 20
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Texture2D WOOD_DEPLETED_TEXTURE
+    return:
+      type: Microsoft.Xna.Framework.Graphics.Texture2D
+    content.vb: Public Shared WOOD_DEPLETED_TEXTURE As Texture2D
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Resource.STONE_TEXTURE
+  commentId: F:MinecaRTS.Resource.STONE_TEXTURE
+  id: STONE_TEXTURE
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: STONE_TEXTURE
+  nameWithType: Resource.STONE_TEXTURE
+  fullName: MinecaRTS.Resource.STONE_TEXTURE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: STONE_TEXTURE
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 21
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Texture2D STONE_TEXTURE
+    return:
+      type: Microsoft.Xna.Framework.Graphics.Texture2D
+    content.vb: Public Shared STONE_TEXTURE As Texture2D
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Resource.STONE_DEPLETED_TEXTURE
+  commentId: F:MinecaRTS.Resource.STONE_DEPLETED_TEXTURE
+  id: STONE_DEPLETED_TEXTURE
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: STONE_DEPLETED_TEXTURE
+  nameWithType: Resource.STONE_DEPLETED_TEXTURE
+  fullName: MinecaRTS.Resource.STONE_DEPLETED_TEXTURE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: STONE_DEPLETED_TEXTURE
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 22
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Texture2D STONE_DEPLETED_TEXTURE
+    return:
+      type: Microsoft.Xna.Framework.Graphics.Texture2D
+    content.vb: Public Shared STONE_DEPLETED_TEXTURE As Texture2D
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Resource.Type
+  commentId: F:MinecaRTS.Resource.Type
+  id: Type
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Resource.Type
+  fullName: MinecaRTS.Resource.Type
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Type
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 33
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public ResourceType Type
+    return:
+      type: MinecaRTS.ResourceType
+    content.vb: Public Type As ResourceType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Resource.#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MinecaRTS.ResourceType)
+  commentId: M:MinecaRTS.Resource.#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MinecaRTS.ResourceType)
+  id: '#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MinecaRTS.ResourceType)'
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: Resource(Vector2, Vector2, ResourceType)
+  nameWithType: Resource.Resource(Vector2, Vector2, ResourceType)
+  fullName: MinecaRTS.Resource.Resource(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2, MinecaRTS.ResourceType)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 37
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Resource(Vector2 pos, Vector2 scale, ResourceType t)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    - id: scale
+      type: Microsoft.Xna.Framework.Vector2
+    - id: t
+      type: MinecaRTS.ResourceType
+    content.vb: Public Sub New(pos As Vector2, scale As Vector2, t As ResourceType)
+  overload: MinecaRTS.Resource.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Resource.Harvesters
+  commentId: P:MinecaRTS.Resource.Harvesters
+  id: Harvesters
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: Harvesters
+  nameWithType: Resource.Harvesters
+  fullName: MinecaRTS.Resource.Harvesters
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Harvesters
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 55
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Worker> Harvesters { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Worker}
+    content.vb: Public ReadOnly Property Harvesters As HashSet(Of Worker)
+  overload: MinecaRTS.Resource.Harvesters*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Resource.IsSaturated
+  commentId: P:MinecaRTS.Resource.IsSaturated
+  id: IsSaturated
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: IsSaturated
+  nameWithType: Resource.IsSaturated
+  fullName: MinecaRTS.Resource.IsSaturated
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: IsSaturated
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 60
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool IsSaturated { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSaturated As Boolean
+  overload: MinecaRTS.Resource.IsSaturated*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Resource.IsDepleted
+  commentId: P:MinecaRTS.Resource.IsDepleted
+  id: IsDepleted
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: IsDepleted
+  nameWithType: Resource.IsDepleted
+  fullName: MinecaRTS.Resource.IsDepleted
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: IsDepleted
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 65
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool IsDepleted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDepleted As Boolean
+  overload: MinecaRTS.Resource.IsDepleted*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Resource.GiveResources(MinecaRTS.Worker)
+  commentId: M:MinecaRTS.Resource.GiveResources(MinecaRTS.Worker)
+  id: GiveResources(MinecaRTS.Worker)
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: GiveResources(Worker)
+  nameWithType: Resource.GiveResources(Worker)
+  fullName: MinecaRTS.Resource.GiveResources(MinecaRTS.Worker)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GiveResources
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 70
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void GiveResources(Worker harvester)
+    parameters:
+    - id: harvester
+      type: MinecaRTS.Worker
+    content.vb: Public Sub GiveResources(harvester As Worker)
+  overload: MinecaRTS.Resource.GiveResources*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Resource.RemoveHarvester(MinecaRTS.Worker)
+  commentId: M:MinecaRTS.Resource.RemoveHarvester(MinecaRTS.Worker)
+  id: RemoveHarvester(MinecaRTS.Worker)
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: RemoveHarvester(Worker)
+  nameWithType: Resource.RemoveHarvester(Worker)
+  fullName: MinecaRTS.Resource.RemoveHarvester(MinecaRTS.Worker)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RemoveHarvester
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 79
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RemoveHarvester(Worker harvester)
+    parameters:
+    - id: harvester
+      type: MinecaRTS.Worker
+    content.vb: Public Sub RemoveHarvester(harvester As Worker)
+  overload: MinecaRTS.Resource.RemoveHarvester*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Resource.AddHarvester(MinecaRTS.Worker)
+  commentId: M:MinecaRTS.Resource.AddHarvester(MinecaRTS.Worker)
+  id: AddHarvester(MinecaRTS.Worker)
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: AddHarvester(Worker)
+  nameWithType: Resource.AddHarvester(Worker)
+  fullName: MinecaRTS.Resource.AddHarvester(MinecaRTS.Worker)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddHarvester
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 84
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddHarvester(Worker harvester)
+    parameters:
+    - id: harvester
+      type: MinecaRTS.Worker
+    content.vb: Public Sub AddHarvester(harvester As Worker)
+  overload: MinecaRTS.Resource.AddHarvester*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Resource.HasHarvester(MinecaRTS.Worker)
+  commentId: M:MinecaRTS.Resource.HasHarvester(MinecaRTS.Worker)
+  id: HasHarvester(MinecaRTS.Worker)
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: HasHarvester(Worker)
+  nameWithType: Resource.HasHarvester(Worker)
+  fullName: MinecaRTS.Resource.HasHarvester(MinecaRTS.Worker)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HasHarvester
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 89
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool HasHarvester(Worker harvester)
+    parameters:
+    - id: harvester
+      type: MinecaRTS.Worker
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasHarvester(harvester As Worker) As Boolean
+  overload: MinecaRTS.Resource.HasHarvester*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Resource.Update
+  commentId: M:MinecaRTS.Resource.Update
+  id: Update
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: Resource.Update()
+  fullName: MinecaRTS.Resource.Update()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Update
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 94
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void Update()
+    content.vb: Public Overrides Sub Update
+  overridden: MinecaRTS.Entity.Update
+  overload: MinecaRTS.Resource.Update*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.Resource.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Resource.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: Resource.Render(SpriteBatch)
+  fullName: MinecaRTS.Resource.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 98
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Overrides Sub Render(spriteBatch As SpriteBatch)
+  overridden: MinecaRTS.Entity.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  overload: MinecaRTS.Resource.Render*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.Resource.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.Resource.HandleMessage(MinecaRTS.Message)
+  id: HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: HandleMessage(Message)
+  nameWithType: Resource.HandleMessage(Message)
+  fullName: MinecaRTS.Resource.HandleMessage(MinecaRTS.Message)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleMessage
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 106
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void HandleMessage(Message message)
+    parameters:
+    - id: message
+      type: MinecaRTS.Message
+    content.vb: Public Overrides Sub HandleMessage(message As Message)
+  overridden: MinecaRTS.Entity.HandleMessage(MinecaRTS.Message)
+  overload: MinecaRTS.Resource.HandleMessage*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.Resource.ExitState
+  commentId: M:MinecaRTS.Resource.ExitState
+  id: ExitState
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: ExitState()
+  nameWithType: Resource.ExitState()
+  fullName: MinecaRTS.Resource.ExitState()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ExitState
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 111
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void ExitState()
+    content.vb: Public Overrides Sub ExitState
+  overridden: MinecaRTS.Entity.ExitState
+  overload: MinecaRTS.Resource.ExitState*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.Resource.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Resource.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Resource
+  langs:
+  - csharp
+  - vb
+  name: RenderDebug(SpriteBatch)
+  nameWithType: Resource.RenderDebug(SpriteBatch)
+  fullName: MinecaRTS.Resource.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/Resource.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderDebug
+    path: MinecaRTS/Resource/Resource.cs
+    startLine: 114
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void RenderDebug(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Overrides Sub RenderDebug(spriteBatch As SpriteBatch)
+  overridden: MinecaRTS.Entity.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  overload: MinecaRTS.Resource.RenderDebug*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: MinecaRTS.Entity
+  commentId: T:MinecaRTS.Entity
+  parent: MinecaRTS
+  isExternal: false
+  name: Entity
+  nameWithType: Entity
+  fullName: MinecaRTS.Entity
+- uid: MinecaRTS.IRenderable
+  commentId: T:MinecaRTS.IRenderable
+  parent: MinecaRTS
+  isExternal: false
+  name: IRenderable
+  nameWithType: IRenderable
+  fullName: MinecaRTS.IRenderable
+- uid: MinecaRTS.IHandleMessages
+  commentId: T:MinecaRTS.IHandleMessages
+  parent: MinecaRTS
+  isExternal: false
+  name: IHandleMessages
+  nameWithType: IHandleMessages
+  fullName: MinecaRTS.IHandleMessages
+- uid: MinecaRTS.Entity.Pos
+  commentId: F:MinecaRTS.Entity.Pos
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: Pos
+  nameWithType: Entity.Pos
+  fullName: MinecaRTS.Entity.Pos
+- uid: MinecaRTS.Entity.Scale
+  commentId: F:MinecaRTS.Entity.Scale
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: Scale
+  nameWithType: Entity.Scale
+  fullName: MinecaRTS.Entity.Scale
+- uid: MinecaRTS.Entity.ID
+  commentId: P:MinecaRTS.Entity.ID
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: ID
+  nameWithType: Entity.ID
+  fullName: MinecaRTS.Entity.ID
+- uid: MinecaRTS.Entity.RenderPos
+  commentId: P:MinecaRTS.Entity.RenderPos
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: RenderPos
+  nameWithType: Entity.RenderPos
+  fullName: MinecaRTS.Entity.RenderPos
+- uid: MinecaRTS.Entity.CollisionRect
+  commentId: P:MinecaRTS.Entity.CollisionRect
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: CollisionRect
+  nameWithType: Entity.CollisionRect
+  fullName: MinecaRTS.Entity.CollisionRect
+- uid: MinecaRTS.Entity.RenderRect
+  commentId: P:MinecaRTS.Entity.RenderRect
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: RenderRect
+  nameWithType: Entity.RenderRect
+  fullName: MinecaRTS.Entity.RenderRect
+- uid: MinecaRTS.Entity.Mid
+  commentId: P:MinecaRTS.Entity.Mid
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: Mid
+  nameWithType: Entity.Mid
+  fullName: MinecaRTS.Entity.Mid
+- uid: MinecaRTS.Entity.RenderMid
+  commentId: P:MinecaRTS.Entity.RenderMid
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: RenderMid
+  nameWithType: Entity.RenderMid
+  fullName: MinecaRTS.Entity.RenderMid
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Microsoft.Xna.Framework.Graphics.Texture2D
+  commentId: T:Microsoft.Xna.Framework.Graphics.Texture2D
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: Microsoft.Xna.Framework.Graphics.Texture2D
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics
+- uid: MinecaRTS.ResourceType
+  commentId: T:MinecaRTS.ResourceType
+  parent: MinecaRTS
+  isExternal: false
+  name: ResourceType
+  nameWithType: ResourceType
+  fullName: MinecaRTS.ResourceType
+- uid: MinecaRTS.Resource.#ctor*
+  commentId: Overload:MinecaRTS.Resource.#ctor
+  isExternal: false
+  name: Resource
+  nameWithType: Resource.Resource
+  fullName: MinecaRTS.Resource.Resource
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.Resource.Harvesters*
+  commentId: Overload:MinecaRTS.Resource.Harvesters
+  isExternal: false
+  name: Harvesters
+  nameWithType: Resource.Harvesters
+  fullName: MinecaRTS.Resource.Harvesters
+- uid: System.Collections.Generic.HashSet{MinecaRTS.Worker}
+  commentId: T:System.Collections.Generic.HashSet{MinecaRTS.Worker}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<Worker>
+  nameWithType: HashSet<Worker>
+  fullName: System.Collections.Generic.HashSet<MinecaRTS.Worker>
+  nameWithType.vb: HashSet(Of Worker)
+  fullName.vb: System.Collections.Generic.HashSet(Of MinecaRTS.Worker)
+  name.vb: HashSet(Of Worker)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Worker
+    name: Worker
+    nameWithType: Worker
+    fullName: MinecaRTS.Worker
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Worker
+    name: Worker
+    nameWithType: Worker
+    fullName: MinecaRTS.Worker
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: MinecaRTS.Resource.IsSaturated*
+  commentId: Overload:MinecaRTS.Resource.IsSaturated
+  isExternal: false
+  name: IsSaturated
+  nameWithType: Resource.IsSaturated
+  fullName: MinecaRTS.Resource.IsSaturated
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MinecaRTS.Resource.IsDepleted*
+  commentId: Overload:MinecaRTS.Resource.IsDepleted
+  isExternal: false
+  name: IsDepleted
+  nameWithType: Resource.IsDepleted
+  fullName: MinecaRTS.Resource.IsDepleted
+- uid: MinecaRTS.Resource.GiveResources*
+  commentId: Overload:MinecaRTS.Resource.GiveResources
+  isExternal: false
+  name: GiveResources
+  nameWithType: Resource.GiveResources
+  fullName: MinecaRTS.Resource.GiveResources
+- uid: MinecaRTS.Worker
+  commentId: T:MinecaRTS.Worker
+  parent: MinecaRTS
+  isExternal: false
+  name: Worker
+  nameWithType: Worker
+  fullName: MinecaRTS.Worker
+- uid: MinecaRTS.Resource.RemoveHarvester*
+  commentId: Overload:MinecaRTS.Resource.RemoveHarvester
+  isExternal: false
+  name: RemoveHarvester
+  nameWithType: Resource.RemoveHarvester
+  fullName: MinecaRTS.Resource.RemoveHarvester
+- uid: MinecaRTS.Resource.AddHarvester*
+  commentId: Overload:MinecaRTS.Resource.AddHarvester
+  isExternal: false
+  name: AddHarvester
+  nameWithType: Resource.AddHarvester
+  fullName: MinecaRTS.Resource.AddHarvester
+- uid: MinecaRTS.Resource.HasHarvester*
+  commentId: Overload:MinecaRTS.Resource.HasHarvester
+  isExternal: false
+  name: HasHarvester
+  nameWithType: Resource.HasHarvester
+  fullName: MinecaRTS.Resource.HasHarvester
+- uid: MinecaRTS.Entity.Update
+  commentId: M:MinecaRTS.Entity.Update
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: Update()
+  nameWithType: Entity.Update()
+  fullName: MinecaRTS.Entity.Update()
+  spec.csharp:
+  - uid: MinecaRTS.Entity.Update
+    name: Update
+    nameWithType: Entity.Update
+    fullName: MinecaRTS.Entity.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Entity.Update
+    name: Update
+    nameWithType: Entity.Update
+    fullName: MinecaRTS.Entity.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Resource.Update*
+  commentId: Overload:MinecaRTS.Resource.Update
+  isExternal: false
+  name: Update
+  nameWithType: Resource.Update
+  fullName: MinecaRTS.Resource.Update
+- uid: MinecaRTS.Entity.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Entity.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Entity
+  isExternal: true
+  name: Render(SpriteBatch)
+  nameWithType: Entity.Render(SpriteBatch)
+  fullName: MinecaRTS.Entity.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  spec.csharp:
+  - uid: MinecaRTS.Entity.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: Render
+    nameWithType: Entity.Render
+    fullName: MinecaRTS.Entity.Render
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Entity.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: Render
+    nameWithType: Entity.Render
+    fullName: MinecaRTS.Entity.Render
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Resource.Render*
+  commentId: Overload:MinecaRTS.Resource.Render
+  isExternal: false
+  name: Render
+  nameWithType: Resource.Render
+  fullName: MinecaRTS.Resource.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: MinecaRTS.Entity.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.Entity.HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: HandleMessage(Message)
+  nameWithType: Entity.HandleMessage(Message)
+  fullName: MinecaRTS.Entity.HandleMessage(MinecaRTS.Message)
+  spec.csharp:
+  - uid: MinecaRTS.Entity.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: Entity.HandleMessage
+    fullName: MinecaRTS.Entity.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Entity.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: Entity.HandleMessage
+    fullName: MinecaRTS.Entity.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Resource.HandleMessage*
+  commentId: Overload:MinecaRTS.Resource.HandleMessage
+  isExternal: false
+  name: HandleMessage
+  nameWithType: Resource.HandleMessage
+  fullName: MinecaRTS.Resource.HandleMessage
+- uid: MinecaRTS.Message
+  commentId: T:MinecaRTS.Message
+  parent: MinecaRTS
+  isExternal: false
+  name: Message
+  nameWithType: Message
+  fullName: MinecaRTS.Message
+- uid: MinecaRTS.Entity.ExitState
+  commentId: M:MinecaRTS.Entity.ExitState
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: ExitState()
+  nameWithType: Entity.ExitState()
+  fullName: MinecaRTS.Entity.ExitState()
+  spec.csharp:
+  - uid: MinecaRTS.Entity.ExitState
+    name: ExitState
+    nameWithType: Entity.ExitState
+    fullName: MinecaRTS.Entity.ExitState
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Entity.ExitState
+    name: ExitState
+    nameWithType: Entity.ExitState
+    fullName: MinecaRTS.Entity.ExitState
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Resource.ExitState*
+  commentId: Overload:MinecaRTS.Resource.ExitState
+  isExternal: false
+  name: ExitState
+  nameWithType: Resource.ExitState
+  fullName: MinecaRTS.Resource.ExitState
+- uid: MinecaRTS.Entity.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Entity.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Entity
+  isExternal: true
+  name: RenderDebug(SpriteBatch)
+  nameWithType: Entity.RenderDebug(SpriteBatch)
+  fullName: MinecaRTS.Entity.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  spec.csharp:
+  - uid: MinecaRTS.Entity.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: RenderDebug
+    nameWithType: Entity.RenderDebug
+    fullName: MinecaRTS.Entity.RenderDebug
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Entity.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: RenderDebug
+    nameWithType: Entity.RenderDebug
+    fullName: MinecaRTS.Entity.RenderDebug
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Resource.RenderDebug*
+  commentId: Overload:MinecaRTS.Resource.RenderDebug
+  isExternal: false
+  name: RenderDebug
+  nameWithType: Resource.RenderDebug
+  fullName: MinecaRTS.Resource.RenderDebug

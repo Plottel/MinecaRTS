@@ -82,6 +82,8 @@ namespace MinecaRTS
         protected override void Initialize()
         {
             base.Initialize();
+            
+            Mouse.WindowHandle = Window.Handle;
         }
 
         protected override void LoadContent()

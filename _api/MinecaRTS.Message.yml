@@ -1,0 +1,577 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Message
+  commentId: T:MinecaRTS.Message
+  id: Message
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Message.#ctor(System.Object,MinecaRTS.IHandleMessages,MinecaRTS.MessageType,System.Object,System.UInt64)
+  - MinecaRTS.Message.delay
+  - MinecaRTS.Message.dispatchTime
+  - MinecaRTS.Message.extraInfo
+  - MinecaRTS.Message.receiver
+  - MinecaRTS.Message.sender
+  - MinecaRTS.Message.type
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: Message
+  fullName: MinecaRTS.Message
+  type: Struct
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Message
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public struct Message
+    content.vb: Public Structure Message
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: MinecaRTS.Message.sender
+  commentId: F:MinecaRTS.Message.sender
+  id: sender
+  parent: MinecaRTS.Message
+  langs:
+  - csharp
+  - vb
+  name: sender
+  nameWithType: Message.sender
+  fullName: MinecaRTS.Message.sender
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: sender
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public object sender
+    return:
+      type: System.Object
+    content.vb: Public sender As Object
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Message.receiver
+  commentId: F:MinecaRTS.Message.receiver
+  id: receiver
+  parent: MinecaRTS.Message
+  langs:
+  - csharp
+  - vb
+  name: receiver
+  nameWithType: Message.receiver
+  fullName: MinecaRTS.Message.receiver
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: receiver
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public IHandleMessages receiver
+    return:
+      type: MinecaRTS.IHandleMessages
+    content.vb: Public receiver As IHandleMessages
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Message.type
+  commentId: F:MinecaRTS.Message.type
+  id: type
+  parent: MinecaRTS.Message
+  langs:
+  - csharp
+  - vb
+  name: type
+  nameWithType: Message.type
+  fullName: MinecaRTS.Message.type
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: type
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public MessageType type
+    return:
+      type: MinecaRTS.MessageType
+    content.vb: Public type As MessageType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Message.delay
+  commentId: F:MinecaRTS.Message.delay
+  id: delay
+  parent: MinecaRTS.Message
+  langs:
+  - csharp
+  - vb
+  name: delay
+  nameWithType: Message.delay
+  fullName: MinecaRTS.Message.delay
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: delay
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public ulong delay
+    return:
+      type: System.UInt64
+    content.vb: Public delay As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Message.extraInfo
+  commentId: F:MinecaRTS.Message.extraInfo
+  id: extraInfo
+  parent: MinecaRTS.Message
+  langs:
+  - csharp
+  - vb
+  name: extraInfo
+  nameWithType: Message.extraInfo
+  fullName: MinecaRTS.Message.extraInfo
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: extraInfo
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public dynamic extraInfo
+    return:
+      type: System.Object
+    content.vb: Public extraInfo As Object
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Message.dispatchTime
+  commentId: F:MinecaRTS.Message.dispatchTime
+  id: dispatchTime
+  parent: MinecaRTS.Message
+  langs:
+  - csharp
+  - vb
+  name: dispatchTime
+  nameWithType: Message.dispatchTime
+  fullName: MinecaRTS.Message.dispatchTime
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: dispatchTime
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public ulong dispatchTime
+    return:
+      type: System.UInt64
+    content.vb: Public dispatchTime As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Message.#ctor(System.Object,MinecaRTS.IHandleMessages,MinecaRTS.MessageType,System.Object,System.UInt64)
+  commentId: M:MinecaRTS.Message.#ctor(System.Object,MinecaRTS.IHandleMessages,MinecaRTS.MessageType,System.Object,System.UInt64)
+  id: '#ctor(System.Object,MinecaRTS.IHandleMessages,MinecaRTS.MessageType,System.Object,System.UInt64)'
+  parent: MinecaRTS.Message
+  langs:
+  - csharp
+  - vb
+  name: Message(Object, IHandleMessages, MessageType, Object, UInt64)
+  nameWithType: Message.Message(Object, IHandleMessages, MessageType, Object, UInt64)
+  fullName: MinecaRTS.Message.Message(System.Object, MinecaRTS.IHandleMessages, MinecaRTS.MessageType, System.Object, System.UInt64)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MsgBoard.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Messaging/MsgBoard.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Message(object s, IHandleMessages r, MessageType msgType, dynamic info = null, ulong d = 0UL)
+    parameters:
+    - id: s
+      type: System.Object
+    - id: r
+      type: MinecaRTS.IHandleMessages
+    - id: msgType
+      type: MinecaRTS.MessageType
+    - id: info
+      type: System.Object
+    - id: d
+      type: System.UInt64
+    content.vb: Public Sub New(s As Object, r As IHandleMessages, msgType As MessageType, info As Object = Nothing, d As ULong = 0UL)
+  overload: MinecaRTS.Message.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.IHandleMessages
+  commentId: T:MinecaRTS.IHandleMessages
+  parent: MinecaRTS
+  isExternal: false
+  name: IHandleMessages
+  nameWithType: IHandleMessages
+  fullName: MinecaRTS.IHandleMessages
+- uid: MinecaRTS.MessageType
+  commentId: T:MinecaRTS.MessageType
+  parent: MinecaRTS
+  isExternal: false
+  name: MessageType
+  nameWithType: MessageType
+  fullName: MinecaRTS.MessageType
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: MinecaRTS.Message.#ctor*
+  commentId: Overload:MinecaRTS.Message.#ctor
+  isExternal: false
+  name: Message
+  nameWithType: Message.Message
+  fullName: MinecaRTS.Message.Message

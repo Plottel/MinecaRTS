@@ -1,0 +1,411 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.DebugOp
+  commentId: T:MinecaRTS.DebugOp
+  id: DebugOp
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.DebugOp.CalcPath
+  - MinecaRTS.DebugOp.CalcPathSmoothing
+  - MinecaRTS.DebugOp.Count
+  - MinecaRTS.DebugOp.EnableTimeSlicedPathing
+  - MinecaRTS.DebugOp.ShowCoarseGrid
+  - MinecaRTS.DebugOp.ShowFogOfWar
+  - MinecaRTS.DebugOp.ShowGrid
+  - MinecaRTS.DebugOp.ShowPaths
+  - MinecaRTS.DebugOp.ShowStates
+  - MinecaRTS.DebugOp.ShowUnitFeelers
+  - MinecaRTS.DebugOp.ShowWallPushForce
+  langs:
+  - csharp
+  - vb
+  name: DebugOp
+  nameWithType: DebugOp
+  fullName: MinecaRTS.DebugOp
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: DebugOp
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum DebugOp
+    content.vb: Public Enum DebugOp
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.DebugOp.ShowPaths
+  commentId: F:MinecaRTS.DebugOp.ShowPaths
+  id: ShowPaths
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: ShowPaths
+  nameWithType: DebugOp.ShowPaths
+  fullName: MinecaRTS.DebugOp.ShowPaths
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowPaths
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ShowPaths = 1
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.ShowGrid
+  commentId: F:MinecaRTS.DebugOp.ShowGrid
+  id: ShowGrid
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: ShowGrid
+  nameWithType: DebugOp.ShowGrid
+  fullName: MinecaRTS.DebugOp.ShowGrid
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowGrid
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ShowGrid = 2
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.CalcPath
+  commentId: F:MinecaRTS.DebugOp.CalcPath
+  id: CalcPath
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: CalcPath
+  nameWithType: DebugOp.CalcPath
+  fullName: MinecaRTS.DebugOp.CalcPath
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CalcPath
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: CalcPath = 3
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.CalcPathSmoothing
+  commentId: F:MinecaRTS.DebugOp.CalcPathSmoothing
+  id: CalcPathSmoothing
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: CalcPathSmoothing
+  nameWithType: DebugOp.CalcPathSmoothing
+  fullName: MinecaRTS.DebugOp.CalcPathSmoothing
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CalcPathSmoothing
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: CalcPathSmoothing = 4
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.ShowUnitFeelers
+  commentId: F:MinecaRTS.DebugOp.ShowUnitFeelers
+  id: ShowUnitFeelers
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: ShowUnitFeelers
+  nameWithType: DebugOp.ShowUnitFeelers
+  fullName: MinecaRTS.DebugOp.ShowUnitFeelers
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowUnitFeelers
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ShowUnitFeelers = 5
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.ShowWallPushForce
+  commentId: F:MinecaRTS.DebugOp.ShowWallPushForce
+  id: ShowWallPushForce
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: ShowWallPushForce
+  nameWithType: DebugOp.ShowWallPushForce
+  fullName: MinecaRTS.DebugOp.ShowWallPushForce
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowWallPushForce
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 18
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ShowWallPushForce = 6
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.ShowStates
+  commentId: F:MinecaRTS.DebugOp.ShowStates
+  id: ShowStates
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: ShowStates
+  nameWithType: DebugOp.ShowStates
+  fullName: MinecaRTS.DebugOp.ShowStates
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowStates
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 19
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ShowStates = 7
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.ShowCoarseGrid
+  commentId: F:MinecaRTS.DebugOp.ShowCoarseGrid
+  id: ShowCoarseGrid
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: ShowCoarseGrid
+  nameWithType: DebugOp.ShowCoarseGrid
+  fullName: MinecaRTS.DebugOp.ShowCoarseGrid
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowCoarseGrid
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 20
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ShowCoarseGrid = 8
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.ShowFogOfWar
+  commentId: F:MinecaRTS.DebugOp.ShowFogOfWar
+  id: ShowFogOfWar
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: ShowFogOfWar
+  nameWithType: DebugOp.ShowFogOfWar
+  fullName: MinecaRTS.DebugOp.ShowFogOfWar
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowFogOfWar
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 21
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ShowFogOfWar = 9
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.EnableTimeSlicedPathing
+  commentId: F:MinecaRTS.DebugOp.EnableTimeSlicedPathing
+  id: EnableTimeSlicedPathing
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: EnableTimeSlicedPathing
+  nameWithType: DebugOp.EnableTimeSlicedPathing
+  fullName: MinecaRTS.DebugOp.EnableTimeSlicedPathing
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: EnableTimeSlicedPathing
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 22
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: EnableTimeSlicedPathing = 10
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.DebugOp.Count
+  commentId: F:MinecaRTS.DebugOp.Count
+  id: Count
+  parent: MinecaRTS.DebugOp
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: DebugOp.Count
+  fullName: MinecaRTS.DebugOp.Count
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Count
+    path: ../MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 23
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Count = 11
+    return:
+      type: MinecaRTS.DebugOp
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.DebugOp
+  commentId: T:MinecaRTS.DebugOp
+  parent: MinecaRTS
+  isExternal: false
+  name: DebugOp
+  nameWithType: DebugOp
+  fullName: MinecaRTS.DebugOp

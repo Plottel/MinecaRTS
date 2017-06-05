@@ -1,0 +1,521 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.GameResources
+  commentId: T:MinecaRTS.GameResources
+  id: GameResources
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.GameResources.CreateMinecartEmptyAnimation
+  - MinecaRTS.GameResources.CreateWorkerAnimation(MinecaRTS.SpriteSheet,MinecaRTS.WkrAnim,System.UInt32)
+  - MinecaRTS.GameResources.LoadSpriteSheet(MinecaRTS.MinecaRTS,System.String,System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: GameResources
+  nameWithType: GameResources
+  fullName: MinecaRTS.GameResources
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Render/GameResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GameResources
+    path: MinecaRTS/Render/GameResources.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static class GameResources
+    content.vb: Public Module GameResources
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: MinecaRTS.GameResources.CreateMinecartEmptyAnimation
+  commentId: M:MinecaRTS.GameResources.CreateMinecartEmptyAnimation
+  id: CreateMinecartEmptyAnimation
+  parent: MinecaRTS.GameResources
+  langs:
+  - csharp
+  - vb
+  name: CreateMinecartEmptyAnimation()
+  nameWithType: GameResources.CreateMinecartEmptyAnimation()
+  fullName: MinecaRTS.GameResources.CreateMinecartEmptyAnimation()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/GameResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CreateMinecartEmptyAnimation
+    path: MinecaRTS/Render/GameResources.cs
+    startLine: 48
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void CreateMinecartEmptyAnimation()
+    content.vb: Public Shared Sub CreateMinecartEmptyAnimation
+  overload: MinecaRTS.GameResources.CreateMinecartEmptyAnimation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.GameResources.CreateWorkerAnimation(MinecaRTS.SpriteSheet,MinecaRTS.WkrAnim,System.UInt32)
+  commentId: M:MinecaRTS.GameResources.CreateWorkerAnimation(MinecaRTS.SpriteSheet,MinecaRTS.WkrAnim,System.UInt32)
+  id: CreateWorkerAnimation(MinecaRTS.SpriteSheet,MinecaRTS.WkrAnim,System.UInt32)
+  parent: MinecaRTS.GameResources
+  langs:
+  - csharp
+  - vb
+  name: CreateWorkerAnimation(SpriteSheet, WkrAnim, UInt32)
+  nameWithType: GameResources.CreateWorkerAnimation(SpriteSheet, WkrAnim, UInt32)
+  fullName: MinecaRTS.GameResources.CreateWorkerAnimation(MinecaRTS.SpriteSheet, MinecaRTS.WkrAnim, System.UInt32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/GameResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CreateWorkerAnimation
+    path: MinecaRTS/Render/GameResources.cs
+    startLine: 58
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void CreateWorkerAnimation(SpriteSheet newSS, WkrAnim animType, uint frameDuration)
+    parameters:
+    - id: newSS
+      type: MinecaRTS.SpriteSheet
+    - id: animType
+      type: MinecaRTS.WkrAnim
+    - id: frameDuration
+      type: System.UInt32
+    content.vb: Public Shared Sub CreateWorkerAnimation(newSS As SpriteSheet, animType As WkrAnim, frameDuration As UInteger)
+  overload: MinecaRTS.GameResources.CreateWorkerAnimation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.GameResources.LoadSpriteSheet(MinecaRTS.MinecaRTS,System.String,System.Int32,System.Int32)
+  commentId: M:MinecaRTS.GameResources.LoadSpriteSheet(MinecaRTS.MinecaRTS,System.String,System.Int32,System.Int32)
+  id: LoadSpriteSheet(MinecaRTS.MinecaRTS,System.String,System.Int32,System.Int32)
+  parent: MinecaRTS.GameResources
+  langs:
+  - csharp
+  - vb
+  name: LoadSpriteSheet(MinecaRTS, String, Int32, Int32)
+  nameWithType: GameResources.LoadSpriteSheet(MinecaRTS, String, Int32, Int32)
+  fullName: MinecaRTS.GameResources.LoadSpriteSheet(MinecaRTS.MinecaRTS, System.String, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/GameResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: LoadSpriteSheet
+    path: MinecaRTS/Render/GameResources.cs
+    startLine: 72
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static SpriteSheet LoadSpriteSheet(MinecaRTS game, string filename, int cols, int rows)
+    parameters:
+    - id: game
+      type: MinecaRTS.MinecaRTS
+    - id: filename
+      type: System.String
+    - id: cols
+      type: System.Int32
+    - id: rows
+      type: System.Int32
+    return:
+      type: MinecaRTS.SpriteSheet
+    content.vb: Public Shared Function LoadSpriteSheet(game As MinecaRTS, filename As String, cols As Integer, rows As Integer) As SpriteSheet
+  overload: MinecaRTS.GameResources.LoadSpriteSheet*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.GameResources.CreateMinecartEmptyAnimation*
+  commentId: Overload:MinecaRTS.GameResources.CreateMinecartEmptyAnimation
+  isExternal: false
+  name: CreateMinecartEmptyAnimation
+  nameWithType: GameResources.CreateMinecartEmptyAnimation
+  fullName: MinecaRTS.GameResources.CreateMinecartEmptyAnimation
+- uid: MinecaRTS.GameResources.CreateWorkerAnimation*
+  commentId: Overload:MinecaRTS.GameResources.CreateWorkerAnimation
+  isExternal: false
+  name: CreateWorkerAnimation
+  nameWithType: GameResources.CreateWorkerAnimation
+  fullName: MinecaRTS.GameResources.CreateWorkerAnimation
+- uid: MinecaRTS.SpriteSheet
+  commentId: T:MinecaRTS.SpriteSheet
+  parent: MinecaRTS
+  isExternal: false
+  name: SpriteSheet
+  nameWithType: SpriteSheet
+  fullName: MinecaRTS.SpriteSheet
+- uid: MinecaRTS.WkrAnim
+  commentId: T:MinecaRTS.WkrAnim
+  parent: MinecaRTS
+  isExternal: false
+  name: WkrAnim
+  nameWithType: WkrAnim
+  fullName: MinecaRTS.WkrAnim
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: MinecaRTS.GameResources.LoadSpriteSheet*
+  commentId: Overload:MinecaRTS.GameResources.LoadSpriteSheet
+  isExternal: false
+  name: LoadSpriteSheet
+  nameWithType: GameResources.LoadSpriteSheet
+  fullName: MinecaRTS.GameResources.LoadSpriteSheet
+- uid: MinecaRTS.MinecaRTS
+  commentId: T:MinecaRTS.MinecaRTS
+  parent: MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS.MinecaRTS
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

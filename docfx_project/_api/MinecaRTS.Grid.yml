@@ -1,0 +1,1848 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Grid
+  commentId: T:MinecaRTS.Grid
+  id: Grid
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Grid.#ctor(Microsoft.Xna.Framework.Vector2,System.Int32,System.Int32,System.Int32)
+  - MinecaRTS.Grid.AddCell(MinecaRTS.Cell,System.Collections.Generic.ICollection{MinecaRTS.Cell})
+  - MinecaRTS.Grid.AddColumns(System.Int32)
+  - MinecaRTS.Grid.AddRows(System.Int32)
+  - MinecaRTS.Grid.CellAt(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Grid.CellAtMousePos
+  - MinecaRTS.Grid.CellsInRect(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.Grid.CellsInRectFromLines(Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Grid.CellSize
+  - MinecaRTS.Grid.CellsOnLine(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Grid.CollisionRect
+  - MinecaRTS.Grid.Cols
+  - MinecaRTS.Grid.Get33GridIndexesAroundIndex(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Grid.Get33GridIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Grid.Height
+  - MinecaRTS.Grid.IndexAt(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Grid.Item(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Grid.Item(System.Int32,System.Int32)
+  - MinecaRTS.Grid.MakeBorder
+  - MinecaRTS.Grid.Pos
+  - MinecaRTS.Grid.RectIsClear(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.Grid.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Grid.RenderRect
+  - MinecaRTS.Grid.Rows
+  - MinecaRTS.Grid.ShowGrid
+  - MinecaRTS.Grid.Width
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: Grid
+  fullName: MinecaRTS.Grid
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Grid
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public class Grid
+    content.vb: Public Class Grid
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.Grid.CellSize
+  commentId: P:MinecaRTS.Grid.CellSize
+  id: CellSize
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellSize
+  nameWithType: Grid.CellSize
+  fullName: MinecaRTS.Grid.CellSize
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellSize
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public int CellSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CellSize As Integer
+  overload: MinecaRTS.Grid.CellSize*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Grid.Pos
+  commentId: P:MinecaRTS.Grid.Pos
+  id: Pos
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Pos
+  nameWithType: Grid.Pos
+  fullName: MinecaRTS.Grid.Pos
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Pos
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 41
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe position of the grid in world coordinates.\n"
+  example: []
+  syntax:
+    content: public Vector2 Pos { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Property Pos As Vector2
+  overload: MinecaRTS.Grid.Pos*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.Item(System.Int32,System.Int32)
+  commentId: P:MinecaRTS.Grid.Item(System.Int32,System.Int32)
+  id: Item(System.Int32,System.Int32)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32, Int32]
+  nameWithType: Grid.Item[Int32, Int32]
+  fullName: MinecaRTS.Grid.Item[System.Int32, System.Int32]
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: this[]
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 49
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nGets or sets the Cell at the given index.\n"
+  example: []
+  syntax:
+    content: public Cell this[int col, int row] { get; set; }
+    parameters:
+    - id: col
+      type: System.Int32
+      description: The column index.
+    - id: row
+      type: System.Int32
+      description: The row index.
+    return:
+      type: MinecaRTS.Cell
+      description: ''
+    content.vb: Public Property Item(col As Integer, row As Integer) As Cell
+  overload: MinecaRTS.Grid.Item*
+  nameWithType.vb: Grid.Item(Int32, Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.Grid.Item(System.Int32, System.Int32)
+  name.vb: Item(Int32, Int32)
+- uid: MinecaRTS.Grid.Item(Microsoft.Xna.Framework.Point)
+  commentId: P:MinecaRTS.Grid.Item(Microsoft.Xna.Framework.Point)
+  id: Item(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Item[Point]
+  nameWithType: Grid.Item[Point]
+  fullName: MinecaRTS.Grid.Item[Microsoft.Xna.Framework.Point]
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: this[]
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 62
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Cell this[Point cellIndex] { get; set; }
+    parameters:
+    - id: cellIndex
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: MinecaRTS.Cell
+    content.vb: Public Property Item(cellIndex As Point) As Cell
+  overload: MinecaRTS.Grid.Item*
+  nameWithType.vb: Grid.Item(Point)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.Grid.Item(Microsoft.Xna.Framework.Point)
+  name.vb: Item(Point)
+- uid: MinecaRTS.Grid.Cols
+  commentId: P:MinecaRTS.Grid.Cols
+  id: Cols
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Cols
+  nameWithType: Grid.Cols
+  fullName: MinecaRTS.Grid.Cols
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Cols
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 71
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nGets the number of columns in the grid.\n"
+  example: []
+  syntax:
+    content: public int Cols { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Cols As Integer
+  overload: MinecaRTS.Grid.Cols*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Grid.Rows
+  commentId: P:MinecaRTS.Grid.Rows
+  id: Rows
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Rows
+  nameWithType: Grid.Rows
+  fullName: MinecaRTS.Grid.Rows
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Rows
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 79
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nGets the number of rows in the grid.\n"
+  example: []
+  syntax:
+    content: public int Rows { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Rows As Integer
+  overload: MinecaRTS.Grid.Rows*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Grid.Width
+  commentId: P:MinecaRTS.Grid.Width
+  id: Width
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Grid.Width
+  fullName: MinecaRTS.Grid.Width
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Width
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 88
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe width of the grid.\n-1 so the absolute edge doesn't register next cell and out of bounds.\n"
+  example: []
+  syntax:
+    content: public int Width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Width As Integer
+  overload: MinecaRTS.Grid.Width*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Grid.Height
+  commentId: P:MinecaRTS.Grid.Height
+  id: Height
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Grid.Height
+  fullName: MinecaRTS.Grid.Height
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Height
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 97
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe height of the grid.\n-1 so the absolute edge doesn't register next cell and out of bounds.\n"
+  example: []
+  syntax:
+    content: public int Height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Height As Integer
+  overload: MinecaRTS.Grid.Height*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Grid.CollisionRect
+  commentId: P:MinecaRTS.Grid.CollisionRect
+  id: CollisionRect
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: CollisionRect
+  nameWithType: Grid.CollisionRect
+  fullName: MinecaRTS.Grid.CollisionRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CollisionRect
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 105
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe bounding rectangle of the grid in world coordinates.\n"
+  example: []
+  syntax:
+    content: public Rectangle CollisionRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public ReadOnly Property CollisionRect As Rectangle
+  overload: MinecaRTS.Grid.CollisionRect*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Grid.RenderRect
+  commentId: P:MinecaRTS.Grid.RenderRect
+  id: RenderRect
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: RenderRect
+  nameWithType: Grid.RenderRect
+  fullName: MinecaRTS.Grid.RenderRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderRect
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 113
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe bounding rectangle of the grid in screen coordinates.\n"
+  example: []
+  syntax:
+    content: public Rectangle RenderRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public ReadOnly Property RenderRect As Rectangle
+  overload: MinecaRTS.Grid.RenderRect*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Grid.ShowGrid
+  commentId: P:MinecaRTS.Grid.ShowGrid
+  id: ShowGrid
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: ShowGrid
+  nameWithType: Grid.ShowGrid
+  fullName: MinecaRTS.Grid.ShowGrid
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ShowGrid
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 121
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if a rectangle should be drawn around each cell.\n"
+  example: []
+  syntax:
+    content: public bool ShowGrid { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ShowGrid As Boolean
+  overload: MinecaRTS.Grid.ShowGrid*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.#ctor(Microsoft.Xna.Framework.Vector2,System.Int32,System.Int32,System.Int32)
+  commentId: M:MinecaRTS.Grid.#ctor(Microsoft.Xna.Framework.Vector2,System.Int32,System.Int32,System.Int32)
+  id: '#ctor(Microsoft.Xna.Framework.Vector2,System.Int32,System.Int32,System.Int32)'
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Grid(Vector2, Int32, Int32, Int32)
+  nameWithType: Grid.Grid(Vector2, Int32, Int32, Int32)
+  fullName: MinecaRTS.Grid.Grid(Microsoft.Xna.Framework.Vector2, System.Int32, System.Int32, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 130
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nCreates a new grid.\n"
+  example: []
+  syntax:
+    content: public Grid(Vector2 pos, int cols, int rows, int cellSize)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    - id: cols
+      type: System.Int32
+      description: ''
+    - id: rows
+      type: System.Int32
+      description: ''
+    - id: cellSize
+      type: System.Int32
+    content.vb: Public Sub New(pos As Vector2, cols As Integer, rows As Integer, cellSize As Integer)
+  overload: MinecaRTS.Grid.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.AddCell(MinecaRTS.Cell,System.Collections.Generic.ICollection{MinecaRTS.Cell})
+  commentId: M:MinecaRTS.Grid.AddCell(MinecaRTS.Cell,System.Collections.Generic.ICollection{MinecaRTS.Cell})
+  id: AddCell(MinecaRTS.Cell,System.Collections.Generic.ICollection{MinecaRTS.Cell})
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: AddCell(Cell, ICollection<Cell>)
+  nameWithType: Grid.AddCell(Cell, ICollection<Cell>)
+  fullName: MinecaRTS.Grid.AddCell(MinecaRTS.Cell, System.Collections.Generic.ICollection<MinecaRTS.Cell>)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddCell
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 171
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nNull checks the passed in cell and adds it to the list if it is not null.\n"
+  example: []
+  syntax:
+    content: public void AddCell(Cell cell, ICollection<Cell> list)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    - id: list
+      type: System.Collections.Generic.ICollection{MinecaRTS.Cell}
+    content.vb: Public Sub AddCell(cell As Cell, list As ICollection(Of Cell))
+  overload: MinecaRTS.Grid.AddCell*
+  nameWithType.vb: Grid.AddCell(Cell, ICollection(Of Cell))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.Grid.AddCell(MinecaRTS.Cell, System.Collections.Generic.ICollection(Of MinecaRTS.Cell))
+  name.vb: AddCell(Cell, ICollection(Of Cell))
+- uid: MinecaRTS.Grid.CellAt(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Grid.CellAt(Microsoft.Xna.Framework.Vector2)
+  id: CellAt(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellAt(Vector2)
+  nameWithType: Grid.CellAt(Vector2)
+  fullName: MinecaRTS.Grid.CellAt(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellAt
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 181
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nReturns the cell at the given position.\n"
+  example: []
+  syntax:
+    content: public Cell CellAt(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+      description: The position to check.
+    return:
+      type: MinecaRTS.Cell
+    content.vb: Public Function CellAt(pos As Vector2) As Cell
+  overload: MinecaRTS.Grid.CellAt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.CellAtMousePos
+  commentId: M:MinecaRTS.Grid.CellAtMousePos
+  id: CellAtMousePos
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellAtMousePos()
+  nameWithType: Grid.CellAtMousePos()
+  fullName: MinecaRTS.Grid.CellAtMousePos()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellAtMousePos
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 192
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nReturns the cell at the mouse position.\n"
+  example: []
+  syntax:
+    content: public Cell CellAtMousePos()
+    return:
+      type: MinecaRTS.Cell
+    content.vb: Public Function CellAtMousePos As Cell
+  overload: MinecaRTS.Grid.CellAtMousePos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.IndexAt(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Grid.IndexAt(Microsoft.Xna.Framework.Vector2)
+  id: IndexAt(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: IndexAt(Vector2)
+  nameWithType: Grid.IndexAt(Vector2)
+  fullName: MinecaRTS.Grid.IndexAt(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: IndexAt
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 202
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nReturns the index of the cell at the given position.\nReturned as a Point where X = Col and Y = Row.\n"
+  example: []
+  syntax:
+    content: public Point IndexAt(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+      description: The position to check
+    return:
+      type: Microsoft.Xna.Framework.Point
+    content.vb: Public Function IndexAt(pos As Vector2) As Point
+  overload: MinecaRTS.Grid.IndexAt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.Get33GridIndexesAroundIndex(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.Grid.Get33GridIndexesAroundIndex(Microsoft.Xna.Framework.Point)
+  id: Get33GridIndexesAroundIndex(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Get33GridIndexesAroundIndex(Point)
+  nameWithType: Grid.Get33GridIndexesAroundIndex(Point)
+  fullName: MinecaRTS.Grid.Get33GridIndexesAroundIndex(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Get33GridIndexesAroundIndex
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 210
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Point> Get33GridIndexesAroundIndex(Point index)
+    parameters:
+    - id: index
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Collections.Generic.List{Microsoft.Xna.Framework.Point}
+    content.vb: Public Function Get33GridIndexesAroundIndex(index As Point) As List(Of Point)
+  overload: MinecaRTS.Grid.Get33GridIndexesAroundIndex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.Get33GridIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Grid.Get33GridIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  id: Get33GridIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Get33GridIndexesAroundPos(Vector2)
+  nameWithType: Grid.Get33GridIndexesAroundPos(Vector2)
+  fullName: MinecaRTS.Grid.Get33GridIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Get33GridIndexesAroundPos
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 228
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Point> Get33GridIndexesAroundPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Collections.Generic.List{Microsoft.Xna.Framework.Point}
+    content.vb: Public Function Get33GridIndexesAroundPos(pos As Vector2) As List(Of Point)
+  overload: MinecaRTS.Grid.Get33GridIndexesAroundPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.RectIsClear(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.Grid.RectIsClear(Microsoft.Xna.Framework.Rectangle)
+  id: RectIsClear(Microsoft.Xna.Framework.Rectangle)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: RectIsClear(Rectangle)
+  nameWithType: Grid.RectIsClear(Rectangle)
+  fullName: MinecaRTS.Grid.RectIsClear(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RectIsClear
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 237
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if every cell the passed in rectangle touches is traversable.\nIf the rect touches 1 or more unpassable cells, this returns false.\n"
+  example: []
+  syntax:
+    content: public bool RectIsClear(Rectangle rect)
+    parameters:
+    - id: rect
+      type: Microsoft.Xna.Framework.Rectangle
+    return:
+      type: System.Boolean
+    content.vb: Public Function RectIsClear(rect As Rectangle) As Boolean
+  overload: MinecaRTS.Grid.RectIsClear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.CellsInRect(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.Grid.CellsInRect(Microsoft.Xna.Framework.Rectangle)
+  id: CellsInRect(Microsoft.Xna.Framework.Rectangle)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellsInRect(Rectangle)
+  nameWithType: Grid.CellsInRect(Rectangle)
+  fullName: MinecaRTS.Grid.CellsInRect(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellsInRect
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 251
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nReturns a list of cells the passed in Rectangle touches.\n"
+  example: []
+  syntax:
+    content: public List<Cell> CellsInRect(Rectangle rect)
+    parameters:
+    - id: rect
+      type: Microsoft.Xna.Framework.Rectangle
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public Function CellsInRect(rect As Rectangle) As List(Of Cell)
+  overload: MinecaRTS.Grid.CellsInRect*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.CellsInRectFromLines(Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.Grid.CellsInRectFromLines(Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point)
+  id: CellsInRectFromLines(Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellsInRectFromLines(Point, Point, Point, Point)
+  nameWithType: Grid.CellsInRectFromLines(Point, Point, Point, Point)
+  fullName: MinecaRTS.Grid.CellsInRectFromLines(Microsoft.Xna.Framework.Point, Microsoft.Xna.Framework.Point, Microsoft.Xna.Framework.Point, Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellsInRectFromLines
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 272
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nProjects a rectangle from two lines and returns all cells the rectangle is touching.\n"
+  example: []
+  syntax:
+    content: public HashSet<Cell> CellsInRectFromLines(Point from1, Point to1, Point from2, Point to2)
+    parameters:
+    - id: from1
+      type: Microsoft.Xna.Framework.Point
+    - id: to1
+      type: Microsoft.Xna.Framework.Point
+    - id: from2
+      type: Microsoft.Xna.Framework.Point
+    - id: to2
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Cell}
+    content.vb: Public Function CellsInRectFromLines(from1 As Point, to1 As Point, from2 As Point, to2 As Point) As HashSet(Of Cell)
+  overload: MinecaRTS.Grid.CellsInRectFromLines*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.CellsOnLine(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Grid.CellsOnLine(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+  id: CellsOnLine(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellsOnLine(Vector2, Vector2)
+  nameWithType: Grid.CellsOnLine(Vector2, Vector2)
+  fullName: MinecaRTS.Grid.CellsOnLine(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellsOnLine
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 281
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Cell> CellsOnLine(Vector2 v1, Vector2 v2)
+    parameters:
+    - id: v1
+      type: Microsoft.Xna.Framework.Vector2
+    - id: v2
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Cell}
+    content.vb: Public Function CellsOnLine(v1 As Vector2, v2 As Vector2) As HashSet(Of Cell)
+  overload: MinecaRTS.Grid.CellsOnLine*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.AddColumns(System.Int32)
+  commentId: M:MinecaRTS.Grid.AddColumns(System.Int32)
+  id: AddColumns(System.Int32)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: AddColumns(Int32)
+  nameWithType: Grid.AddColumns(Int32)
+  fullName: MinecaRTS.Grid.AddColumns(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddColumns
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 332
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nAdds columns to the grid.\nColumns are the outer list, so adding a column creates a new list and populates it.\n"
+  example: []
+  syntax:
+    content: public void AddColumns(int amountToAdd)
+    parameters:
+    - id: amountToAdd
+      type: System.Int32
+      description: The number of columns to add.
+    content.vb: Public Sub AddColumns(amountToAdd As Integer)
+  overload: MinecaRTS.Grid.AddColumns*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.AddRows(System.Int32)
+  commentId: M:MinecaRTS.Grid.AddRows(System.Int32)
+  id: AddRows(System.Int32)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: AddRows(Int32)
+  nameWithType: Grid.AddRows(Int32)
+  fullName: MinecaRTS.Grid.AddRows(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddRows
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 359
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nAdds rows to the grid.\nRows are the inner list, so adding a row appends a new cell to the end of each list.\n"
+  example: []
+  syntax:
+    content: public void AddRows(int amountToAdd)
+    parameters:
+    - id: amountToAdd
+      type: System.Int32
+      description: The number of rows to add.
+    content.vb: Public Sub AddRows(amountToAdd As Integer)
+  overload: MinecaRTS.Grid.AddRows*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.MakeBorder
+  commentId: M:MinecaRTS.Grid.MakeBorder
+  id: MakeBorder
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: MakeBorder()
+  nameWithType: Grid.MakeBorder()
+  fullName: MinecaRTS.Grid.MakeBorder()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MakeBorder
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 381
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nMakes walls around the edge of the grid - for easy initialisation.\n"
+  example: []
+  syntax:
+    content: public void MakeBorder()
+    content.vb: Public Sub MakeBorder
+  overload: MinecaRTS.Grid.MakeBorder*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Grid.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Grid.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Grid
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: Grid.Render(SpriteBatch)
+  fullName: MinecaRTS.Grid.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Grid.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: ../MinecaRTS/Core/Grid.cs
+    startLine: 401
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nRenders the grid.\nCalls render on each Cell and draws a rectangle around it if ShowGrid is turned on.\n"
+  example: []
+  syntax:
+    content: public void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+      description: ''
+    content.vb: Public Sub Render(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.Grid.Render*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.Grid.CellSize*
+  commentId: Overload:MinecaRTS.Grid.CellSize
+  isExternal: false
+  name: CellSize
+  nameWithType: Grid.CellSize
+  fullName: MinecaRTS.Grid.CellSize
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MinecaRTS.Grid.Pos*
+  commentId: Overload:MinecaRTS.Grid.Pos
+  isExternal: false
+  name: Pos
+  nameWithType: Grid.Pos
+  fullName: MinecaRTS.Grid.Pos
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.Grid.Item*
+  commentId: Overload:MinecaRTS.Grid.Item
+  isExternal: false
+  name: Item
+  nameWithType: Grid.Item
+  fullName: MinecaRTS.Grid.Item
+- uid: MinecaRTS.Cell
+  commentId: T:MinecaRTS.Cell
+  parent: MinecaRTS
+  isExternal: false
+  name: Cell
+  nameWithType: Cell
+  fullName: MinecaRTS.Cell
+- uid: Microsoft.Xna.Framework.Point
+  commentId: T:Microsoft.Xna.Framework.Point
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: Microsoft.Xna.Framework.Point
+- uid: MinecaRTS.Grid.Cols*
+  commentId: Overload:MinecaRTS.Grid.Cols
+  isExternal: false
+  name: Cols
+  nameWithType: Grid.Cols
+  fullName: MinecaRTS.Grid.Cols
+- uid: MinecaRTS.Grid.Rows*
+  commentId: Overload:MinecaRTS.Grid.Rows
+  isExternal: false
+  name: Rows
+  nameWithType: Grid.Rows
+  fullName: MinecaRTS.Grid.Rows
+- uid: MinecaRTS.Grid.Width*
+  commentId: Overload:MinecaRTS.Grid.Width
+  isExternal: false
+  name: Width
+  nameWithType: Grid.Width
+  fullName: MinecaRTS.Grid.Width
+- uid: MinecaRTS.Grid.Height*
+  commentId: Overload:MinecaRTS.Grid.Height
+  isExternal: false
+  name: Height
+  nameWithType: Grid.Height
+  fullName: MinecaRTS.Grid.Height
+- uid: MinecaRTS.Grid.CollisionRect*
+  commentId: Overload:MinecaRTS.Grid.CollisionRect
+  isExternal: false
+  name: CollisionRect
+  nameWithType: Grid.CollisionRect
+  fullName: MinecaRTS.Grid.CollisionRect
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: MinecaRTS.Grid.RenderRect*
+  commentId: Overload:MinecaRTS.Grid.RenderRect
+  isExternal: false
+  name: RenderRect
+  nameWithType: Grid.RenderRect
+  fullName: MinecaRTS.Grid.RenderRect
+- uid: MinecaRTS.Grid.ShowGrid*
+  commentId: Overload:MinecaRTS.Grid.ShowGrid
+  isExternal: false
+  name: ShowGrid
+  nameWithType: Grid.ShowGrid
+  fullName: MinecaRTS.Grid.ShowGrid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MinecaRTS.Grid.#ctor*
+  commentId: Overload:MinecaRTS.Grid.#ctor
+  isExternal: false
+  name: Grid
+  nameWithType: Grid.Grid
+  fullName: MinecaRTS.Grid.Grid
+- uid: MinecaRTS.Grid.AddCell*
+  commentId: Overload:MinecaRTS.Grid.AddCell
+  isExternal: false
+  name: AddCell
+  nameWithType: Grid.AddCell
+  fullName: MinecaRTS.Grid.AddCell
+- uid: System.Collections.Generic.ICollection{MinecaRTS.Cell}
+  commentId: T:System.Collections.Generic.ICollection{MinecaRTS.Cell}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  name: ICollection<Cell>
+  nameWithType: ICollection<Cell>
+  fullName: System.Collections.Generic.ICollection<MinecaRTS.Cell>
+  nameWithType.vb: ICollection(Of Cell)
+  fullName.vb: System.Collections.Generic.ICollection(Of MinecaRTS.Cell)
+  name.vb: ICollection(Of Cell)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    nameWithType: ICollection
+    fullName: System.Collections.Generic.ICollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    nameWithType: ICollection
+    fullName: System.Collections.Generic.ICollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    nameWithType: ICollection
+    fullName: System.Collections.Generic.ICollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    nameWithType: ICollection
+    fullName: System.Collections.Generic.ICollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: MinecaRTS.Grid.CellAt*
+  commentId: Overload:MinecaRTS.Grid.CellAt
+  isExternal: false
+  name: CellAt
+  nameWithType: Grid.CellAt
+  fullName: MinecaRTS.Grid.CellAt
+- uid: MinecaRTS.Grid.CellAtMousePos*
+  commentId: Overload:MinecaRTS.Grid.CellAtMousePos
+  isExternal: false
+  name: CellAtMousePos
+  nameWithType: Grid.CellAtMousePos
+  fullName: MinecaRTS.Grid.CellAtMousePos
+- uid: MinecaRTS.Grid.IndexAt*
+  commentId: Overload:MinecaRTS.Grid.IndexAt
+  isExternal: false
+  name: IndexAt
+  nameWithType: Grid.IndexAt
+  fullName: MinecaRTS.Grid.IndexAt
+- uid: MinecaRTS.Grid.Get33GridIndexesAroundIndex*
+  commentId: Overload:MinecaRTS.Grid.Get33GridIndexesAroundIndex
+  isExternal: false
+  name: Get33GridIndexesAroundIndex
+  nameWithType: Grid.Get33GridIndexesAroundIndex
+  fullName: MinecaRTS.Grid.Get33GridIndexesAroundIndex
+- uid: System.Collections.Generic.List{Microsoft.Xna.Framework.Point}
+  commentId: T:System.Collections.Generic.List{Microsoft.Xna.Framework.Point}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Point>
+  nameWithType: List<Point>
+  fullName: System.Collections.Generic.List<Microsoft.Xna.Framework.Point>
+  nameWithType.vb: List(Of Point)
+  fullName.vb: System.Collections.Generic.List(Of Microsoft.Xna.Framework.Point)
+  name.vb: List(Of Point)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Microsoft.Xna.Framework.Point
+    name: Point
+    nameWithType: Point
+    fullName: Microsoft.Xna.Framework.Point
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Microsoft.Xna.Framework.Point
+    name: Point
+    nameWithType: Point
+    fullName: Microsoft.Xna.Framework.Point
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Grid.Get33GridIndexesAroundPos*
+  commentId: Overload:MinecaRTS.Grid.Get33GridIndexesAroundPos
+  isExternal: false
+  name: Get33GridIndexesAroundPos
+  nameWithType: Grid.Get33GridIndexesAroundPos
+  fullName: MinecaRTS.Grid.Get33GridIndexesAroundPos
+- uid: MinecaRTS.Grid.RectIsClear*
+  commentId: Overload:MinecaRTS.Grid.RectIsClear
+  isExternal: false
+  name: RectIsClear
+  nameWithType: Grid.RectIsClear
+  fullName: MinecaRTS.Grid.RectIsClear
+- uid: MinecaRTS.Grid.CellsInRect*
+  commentId: Overload:MinecaRTS.Grid.CellsInRect
+  isExternal: false
+  name: CellsInRect
+  nameWithType: Grid.CellsInRect
+  fullName: MinecaRTS.Grid.CellsInRect
+- uid: System.Collections.Generic.List{MinecaRTS.Cell}
+  commentId: T:System.Collections.Generic.List{MinecaRTS.Cell}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Cell>
+  nameWithType: List<Cell>
+  fullName: System.Collections.Generic.List<MinecaRTS.Cell>
+  nameWithType.vb: List(Of Cell)
+  fullName.vb: System.Collections.Generic.List(Of MinecaRTS.Cell)
+  name.vb: List(Of Cell)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Grid.CellsInRectFromLines*
+  commentId: Overload:MinecaRTS.Grid.CellsInRectFromLines
+  isExternal: false
+  name: CellsInRectFromLines
+  nameWithType: Grid.CellsInRectFromLines
+  fullName: MinecaRTS.Grid.CellsInRectFromLines
+- uid: System.Collections.Generic.HashSet{MinecaRTS.Cell}
+  commentId: T:System.Collections.Generic.HashSet{MinecaRTS.Cell}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<Cell>
+  nameWithType: HashSet<Cell>
+  fullName: System.Collections.Generic.HashSet<MinecaRTS.Cell>
+  nameWithType.vb: HashSet(Of Cell)
+  fullName.vb: System.Collections.Generic.HashSet(Of MinecaRTS.Cell)
+  name.vb: HashSet(Of Cell)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Grid.CellsOnLine*
+  commentId: Overload:MinecaRTS.Grid.CellsOnLine
+  isExternal: false
+  name: CellsOnLine
+  nameWithType: Grid.CellsOnLine
+  fullName: MinecaRTS.Grid.CellsOnLine
+- uid: MinecaRTS.Grid.AddColumns*
+  commentId: Overload:MinecaRTS.Grid.AddColumns
+  isExternal: false
+  name: AddColumns
+  nameWithType: Grid.AddColumns
+  fullName: MinecaRTS.Grid.AddColumns
+- uid: MinecaRTS.Grid.AddRows*
+  commentId: Overload:MinecaRTS.Grid.AddRows
+  isExternal: false
+  name: AddRows
+  nameWithType: Grid.AddRows
+  fullName: MinecaRTS.Grid.AddRows
+- uid: MinecaRTS.Grid.MakeBorder*
+  commentId: Overload:MinecaRTS.Grid.MakeBorder
+  isExternal: false
+  name: MakeBorder
+  nameWithType: Grid.MakeBorder
+  fullName: MinecaRTS.Grid.MakeBorder
+- uid: MinecaRTS.Grid.Render*
+  commentId: Overload:MinecaRTS.Grid.Render
+  isExternal: false
+  name: Render
+  nameWithType: Grid.Render
+  fullName: MinecaRTS.Grid.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics

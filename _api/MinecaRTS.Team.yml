@@ -1,0 +1,114 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Team
+  commentId: T:MinecaRTS.Team
+  id: Team
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Team.One
+  - MinecaRTS.Team.Two
+  langs:
+  - csharp
+  - vb
+  name: Team
+  nameWithType: Team
+  fullName: MinecaRTS.Team
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/Core/Team.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Team
+    path: MinecaRTS/Core/Team.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum Team
+    content.vb: Public Enum Team
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.Team.One
+  commentId: F:MinecaRTS.Team.One
+  id: One
+  parent: MinecaRTS.Team
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: Team.One
+  fullName: MinecaRTS.Team.One
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/Team.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: One
+    path: MinecaRTS/Core/Team.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: One = 0
+    return:
+      type: MinecaRTS.Team
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Team.Two
+  commentId: F:MinecaRTS.Team.Two
+  id: Two
+  parent: MinecaRTS.Team
+  langs:
+  - csharp
+  - vb
+  name: Two
+  nameWithType: Team.Two
+  fullName: MinecaRTS.Team.Two
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/Team.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Two
+    path: MinecaRTS/Core/Team.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Two = 1
+    return:
+      type: MinecaRTS.Team
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.Team
+  commentId: T:MinecaRTS.Team
+  parent: MinecaRTS
+  isExternal: false
+  name: Team
+  nameWithType: Team
+  fullName: MinecaRTS.Team

@@ -57,7 +57,7 @@ namespace MinecaRTS
             _tempPathToTrack = GetPathToNearbyTrack();
 
             if (_tempPathToTrack.Count > 0)
-                sourceCell = path.Last();
+                sourceCell = _tempPathToTrack.Last();
             else
                 sourceCell = grid.CellAt(owner.Mid);
 
@@ -68,6 +68,8 @@ namespace MinecaRTS
             }
             else
             {
+                // Remove last node so we don't double up since it also is the start node of greedy search.
+                _tempPathToTrack.Remove(_tempPathToTrack.Last());
                 path = _tempPathToTrack;
                 path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
                 _tempPathToTrack = new List<Cell>();

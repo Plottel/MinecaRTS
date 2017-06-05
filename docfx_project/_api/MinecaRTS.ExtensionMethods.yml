@@ -1,0 +1,675 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.ExtensionMethods
+  commentId: T:MinecaRTS.ExtensionMethods
+  id: ExtensionMethods
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.ExtensionMethods.BottomRight(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.ExtensionMethods.Col(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle,System.Int32,System.Int32)
+  - MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle,System.Single,System.Single)
+  - MinecaRTS.ExtensionMethods.Row(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.ExtensionMethods.TopLeft(Microsoft.Xna.Framework.Rectangle)
+  langs:
+  - csharp
+  - vb
+  name: ExtensionMethods
+  nameWithType: ExtensionMethods
+  fullName: MinecaRTS.ExtensionMethods
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Utils/ExtensionMethods.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ExtensionMethods
+    path: ../MinecaRTS/Utils/ExtensionMethods.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static class ExtensionMethods
+    content.vb: Public Module ExtensionMethods
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle,System.Int32,System.Int32)
+  commentId: M:MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle,System.Int32,System.Int32)
+  id: GetInflated(Microsoft.Xna.Framework.Rectangle,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: MinecaRTS.ExtensionMethods
+  langs:
+  - csharp
+  - vb
+  name: GetInflated(Rectangle, Int32, Int32)
+  nameWithType: ExtensionMethods.GetInflated(Rectangle, Int32, Int32)
+  fullName: MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/ExtensionMethods.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetInflated
+    path: ../MinecaRTS/Utils/ExtensionMethods.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Rectangle GetInflated(this Rectangle rectangle, int horizontalAmount, int verticalAmount)
+    parameters:
+    - id: rectangle
+      type: Microsoft.Xna.Framework.Rectangle
+    - id: horizontalAmount
+      type: System.Int32
+    - id: verticalAmount
+      type: System.Int32
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetInflated(rectangle As Rectangle, horizontalAmount As Integer, verticalAmount As Integer) As Rectangle
+  overload: MinecaRTS.ExtensionMethods.GetInflated*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle,System.Single,System.Single)
+  commentId: M:MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle,System.Single,System.Single)
+  id: GetInflated(Microsoft.Xna.Framework.Rectangle,System.Single,System.Single)
+  isExtensionMethod: true
+  parent: MinecaRTS.ExtensionMethods
+  langs:
+  - csharp
+  - vb
+  name: GetInflated(Rectangle, Single, Single)
+  nameWithType: ExtensionMethods.GetInflated(Rectangle, Single, Single)
+  fullName: MinecaRTS.ExtensionMethods.GetInflated(Microsoft.Xna.Framework.Rectangle, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/ExtensionMethods.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetInflated
+    path: ../MinecaRTS/Utils/ExtensionMethods.cs
+    startLine: 20
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Rectangle GetInflated(this Rectangle rectangle, float horizontalAmount, float verticalAmount)
+    parameters:
+    - id: rectangle
+      type: Microsoft.Xna.Framework.Rectangle
+    - id: horizontalAmount
+      type: System.Single
+    - id: verticalAmount
+      type: System.Single
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetInflated(rectangle As Rectangle, horizontalAmount As Single, verticalAmount As Single) As Rectangle
+  overload: MinecaRTS.ExtensionMethods.GetInflated*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.ExtensionMethods.TopLeft(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.ExtensionMethods.TopLeft(Microsoft.Xna.Framework.Rectangle)
+  id: TopLeft(Microsoft.Xna.Framework.Rectangle)
+  isExtensionMethod: true
+  parent: MinecaRTS.ExtensionMethods
+  langs:
+  - csharp
+  - vb
+  name: TopLeft(Rectangle)
+  nameWithType: ExtensionMethods.TopLeft(Rectangle)
+  fullName: MinecaRTS.ExtensionMethods.TopLeft(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/ExtensionMethods.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TopLeft
+    path: ../MinecaRTS/Utils/ExtensionMethods.cs
+    startLine: 28
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Vector2 TopLeft(this Rectangle rectangle)
+    parameters:
+    - id: rectangle
+      type: Microsoft.Xna.Framework.Rectangle
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function TopLeft(rectangle As Rectangle) As Vector2
+  overload: MinecaRTS.ExtensionMethods.TopLeft*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.ExtensionMethods.BottomRight(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.ExtensionMethods.BottomRight(Microsoft.Xna.Framework.Rectangle)
+  id: BottomRight(Microsoft.Xna.Framework.Rectangle)
+  isExtensionMethod: true
+  parent: MinecaRTS.ExtensionMethods
+  langs:
+  - csharp
+  - vb
+  name: BottomRight(Rectangle)
+  nameWithType: ExtensionMethods.BottomRight(Rectangle)
+  fullName: MinecaRTS.ExtensionMethods.BottomRight(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/ExtensionMethods.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: BottomRight
+    path: ../MinecaRTS/Utils/ExtensionMethods.cs
+    startLine: 33
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Vector2 BottomRight(this Rectangle rectangle)
+    parameters:
+    - id: rectangle
+      type: Microsoft.Xna.Framework.Rectangle
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function BottomRight(rectangle As Rectangle) As Vector2
+  overload: MinecaRTS.ExtensionMethods.BottomRight*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.ExtensionMethods.Col(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.ExtensionMethods.Col(Microsoft.Xna.Framework.Point)
+  id: Col(Microsoft.Xna.Framework.Point)
+  isExtensionMethod: true
+  parent: MinecaRTS.ExtensionMethods
+  langs:
+  - csharp
+  - vb
+  name: Col(Point)
+  nameWithType: ExtensionMethods.Col(Point)
+  fullName: MinecaRTS.ExtensionMethods.Col(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/ExtensionMethods.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Col
+    path: ../MinecaRTS/Utils/ExtensionMethods.cs
+    startLine: 38
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int Col(this Point pt)
+    parameters:
+    - id: pt
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Col(pt As Point) As Integer
+  overload: MinecaRTS.ExtensionMethods.Col*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.ExtensionMethods.Row(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.ExtensionMethods.Row(Microsoft.Xna.Framework.Point)
+  id: Row(Microsoft.Xna.Framework.Point)
+  isExtensionMethod: true
+  parent: MinecaRTS.ExtensionMethods
+  langs:
+  - csharp
+  - vb
+  name: Row(Point)
+  nameWithType: ExtensionMethods.Row(Point)
+  fullName: MinecaRTS.ExtensionMethods.Row(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/ExtensionMethods.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Row
+    path: ../MinecaRTS/Utils/ExtensionMethods.cs
+    startLine: 43
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int Row(this Point pt)
+    parameters:
+    - id: pt
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Row(pt As Point) As Integer
+  overload: MinecaRTS.ExtensionMethods.Row*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.ExtensionMethods.GetInflated*
+  commentId: Overload:MinecaRTS.ExtensionMethods.GetInflated
+  isExternal: false
+  name: GetInflated
+  nameWithType: ExtensionMethods.GetInflated
+  fullName: MinecaRTS.ExtensionMethods.GetInflated
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MinecaRTS.ExtensionMethods.TopLeft*
+  commentId: Overload:MinecaRTS.ExtensionMethods.TopLeft
+  isExternal: false
+  name: TopLeft
+  nameWithType: ExtensionMethods.TopLeft
+  fullName: MinecaRTS.ExtensionMethods.TopLeft
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: MinecaRTS.ExtensionMethods.BottomRight*
+  commentId: Overload:MinecaRTS.ExtensionMethods.BottomRight
+  isExternal: false
+  name: BottomRight
+  nameWithType: ExtensionMethods.BottomRight
+  fullName: MinecaRTS.ExtensionMethods.BottomRight
+- uid: MinecaRTS.ExtensionMethods.Col*
+  commentId: Overload:MinecaRTS.ExtensionMethods.Col
+  isExternal: false
+  name: Col
+  nameWithType: ExtensionMethods.Col
+  fullName: MinecaRTS.ExtensionMethods.Col
+- uid: Microsoft.Xna.Framework.Point
+  commentId: T:Microsoft.Xna.Framework.Point
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: Microsoft.Xna.Framework.Point
+- uid: MinecaRTS.ExtensionMethods.Row*
+  commentId: Overload:MinecaRTS.ExtensionMethods.Row
+  isExternal: false
+  name: Row
+  nameWithType: ExtensionMethods.Row
+  fullName: MinecaRTS.ExtensionMethods.Row

@@ -1,0 +1,839 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.FogOfWarData
+  commentId: T:MinecaRTS.FogOfWarData
+  id: FogOfWarData
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.FogOfWarData.#ctor(MinecaRTS.Grid,MinecaRTS.CollisionCellData,MinecaRTS.World)
+  - MinecaRTS.FogOfWarData.BuildingAdded(MinecaRTS.Building)
+  - MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  - MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team,System.Int32,System.Int32)
+  - MinecaRTS.FogOfWarData.TeamCanSeePos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  - MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team,System.Int32,System.Int32)
+  - MinecaRTS.FogOfWarData.TeamHasExploredPos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.FogOfWarData.UnitAdded(MinecaRTS.Unit)
+  - MinecaRTS.FogOfWarData.UnitMoved(MinecaRTS.Unit)
+  langs:
+  - csharp
+  - vb
+  name: FogOfWarData
+  nameWithType: FogOfWarData
+  fullName: MinecaRTS.FogOfWarData
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: FogOfWarData
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public class FogOfWarData
+    content.vb: Public Class FogOfWarData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.FogOfWarData.#ctor(MinecaRTS.Grid,MinecaRTS.CollisionCellData,MinecaRTS.World)
+  commentId: M:MinecaRTS.FogOfWarData.#ctor(MinecaRTS.Grid,MinecaRTS.CollisionCellData,MinecaRTS.World)
+  id: '#ctor(MinecaRTS.Grid,MinecaRTS.CollisionCellData,MinecaRTS.World)'
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: FogOfWarData(Grid, CollisionCellData, World)
+  nameWithType: FogOfWarData.FogOfWarData(Grid, CollisionCellData, World)
+  fullName: MinecaRTS.FogOfWarData.FogOfWarData(MinecaRTS.Grid, MinecaRTS.CollisionCellData, MinecaRTS.World)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 46
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public FogOfWarData(Grid grid, CollisionCellData collisionCells, World world)
+    parameters:
+    - id: grid
+      type: MinecaRTS.Grid
+    - id: collisionCells
+      type: MinecaRTS.CollisionCellData
+    - id: world
+      type: MinecaRTS.World
+    content.vb: Public Sub New(grid As Grid, collisionCells As CollisionCellData, world As World)
+  overload: MinecaRTS.FogOfWarData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team,System.Int32,System.Int32)
+  commentId: M:MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team,System.Int32,System.Int32)
+  id: TeamCanSeeCell(MinecaRTS.Team,System.Int32,System.Int32)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: TeamCanSeeCell(Team, Int32, Int32)
+  nameWithType: FogOfWarData.TeamCanSeeCell(Team, Int32, Int32)
+  fullName: MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TeamCanSeeCell
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 106
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool TeamCanSeeCell(Team team, int col, int row)
+    parameters:
+    - id: team
+      type: MinecaRTS.Team
+    - id: col
+      type: System.Int32
+    - id: row
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function TeamCanSeeCell(team As Team, col As Integer, row As Integer) As Boolean
+  overload: MinecaRTS.FogOfWarData.TeamCanSeeCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  id: TeamCanSeeCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: TeamCanSeeCell(Team, Point)
+  nameWithType: FogOfWarData.TeamCanSeeCell(Team, Point)
+  fullName: MinecaRTS.FogOfWarData.TeamCanSeeCell(MinecaRTS.Team, Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TeamCanSeeCell
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 117
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool TeamCanSeeCell(Team team, Point cellIndex)
+    parameters:
+    - id: team
+      type: MinecaRTS.Team
+    - id: cellIndex
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Boolean
+    content.vb: Public Function TeamCanSeeCell(team As Team, cellIndex As Point) As Boolean
+  overload: MinecaRTS.FogOfWarData.TeamCanSeeCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.TeamCanSeePos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.FogOfWarData.TeamCanSeePos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  id: TeamCanSeePos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: TeamCanSeePos(Team, Vector2)
+  nameWithType: FogOfWarData.TeamCanSeePos(Team, Vector2)
+  fullName: MinecaRTS.FogOfWarData.TeamCanSeePos(MinecaRTS.Team, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TeamCanSeePos
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 122
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool TeamCanSeePos(Team team, Vector2 pos)
+    parameters:
+    - id: team
+      type: MinecaRTS.Team
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Boolean
+    content.vb: Public Function TeamCanSeePos(team As Team, pos As Vector2) As Boolean
+  overload: MinecaRTS.FogOfWarData.TeamCanSeePos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team,System.Int32,System.Int32)
+  commentId: M:MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team,System.Int32,System.Int32)
+  id: TeamHasExploredCell(MinecaRTS.Team,System.Int32,System.Int32)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: TeamHasExploredCell(Team, Int32, Int32)
+  nameWithType: FogOfWarData.TeamHasExploredCell(Team, Int32, Int32)
+  fullName: MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TeamHasExploredCell
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 127
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool TeamHasExploredCell(Team team, int col, int row)
+    parameters:
+    - id: team
+      type: MinecaRTS.Team
+    - id: col
+      type: System.Int32
+    - id: row
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function TeamHasExploredCell(team As Team, col As Integer, row As Integer) As Boolean
+  overload: MinecaRTS.FogOfWarData.TeamHasExploredCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  id: TeamHasExploredCell(MinecaRTS.Team,Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: TeamHasExploredCell(Team, Point)
+  nameWithType: FogOfWarData.TeamHasExploredCell(Team, Point)
+  fullName: MinecaRTS.FogOfWarData.TeamHasExploredCell(MinecaRTS.Team, Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TeamHasExploredCell
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 138
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool TeamHasExploredCell(Team team, Point cellIndex)
+    parameters:
+    - id: team
+      type: MinecaRTS.Team
+    - id: cellIndex
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Boolean
+    content.vb: Public Function TeamHasExploredCell(team As Team, cellIndex As Point) As Boolean
+  overload: MinecaRTS.FogOfWarData.TeamHasExploredCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.TeamHasExploredPos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.FogOfWarData.TeamHasExploredPos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  id: TeamHasExploredPos(MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: TeamHasExploredPos(Team, Vector2)
+  nameWithType: FogOfWarData.TeamHasExploredPos(Team, Vector2)
+  fullName: MinecaRTS.FogOfWarData.TeamHasExploredPos(MinecaRTS.Team, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TeamHasExploredPos
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 143
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool TeamHasExploredPos(Team team, Vector2 pos)
+    parameters:
+    - id: team
+      type: MinecaRTS.Team
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Boolean
+    content.vb: Public Function TeamHasExploredPos(team As Team, pos As Vector2) As Boolean
+  overload: MinecaRTS.FogOfWarData.TeamHasExploredPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.BuildingAdded(MinecaRTS.Building)
+  commentId: M:MinecaRTS.FogOfWarData.BuildingAdded(MinecaRTS.Building)
+  id: BuildingAdded(MinecaRTS.Building)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: BuildingAdded(Building)
+  nameWithType: FogOfWarData.BuildingAdded(Building)
+  fullName: MinecaRTS.FogOfWarData.BuildingAdded(MinecaRTS.Building)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: BuildingAdded
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 150
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void BuildingAdded(Building b)
+    parameters:
+    - id: b
+      type: MinecaRTS.Building
+    content.vb: Public Sub BuildingAdded(b As Building)
+  overload: MinecaRTS.FogOfWarData.BuildingAdded*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.UnitMoved(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.FogOfWarData.UnitMoved(MinecaRTS.Unit)
+  id: UnitMoved(MinecaRTS.Unit)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: UnitMoved(Unit)
+  nameWithType: FogOfWarData.UnitMoved(Unit)
+  fullName: MinecaRTS.FogOfWarData.UnitMoved(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UnitMoved
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 165
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void UnitMoved(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub UnitMoved(u As Unit)
+  overload: MinecaRTS.FogOfWarData.UnitMoved*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.FogOfWarData.UnitAdded(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.FogOfWarData.UnitAdded(MinecaRTS.Unit)
+  id: UnitAdded(MinecaRTS.Unit)
+  parent: MinecaRTS.FogOfWarData
+  langs:
+  - csharp
+  - vb
+  name: UnitAdded(Unit)
+  nameWithType: FogOfWarData.UnitAdded(Unit)
+  fullName: MinecaRTS.FogOfWarData.UnitAdded(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/FogOfWarData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UnitAdded
+    path: MinecaRTS/Core/FogOfWarData.cs
+    startLine: 210
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void UnitAdded(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub UnitAdded(u As Unit)
+  overload: MinecaRTS.FogOfWarData.UnitAdded*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.FogOfWarData.#ctor*
+  commentId: Overload:MinecaRTS.FogOfWarData.#ctor
+  isExternal: false
+  name: FogOfWarData
+  nameWithType: FogOfWarData.FogOfWarData
+  fullName: MinecaRTS.FogOfWarData.FogOfWarData
+- uid: MinecaRTS.Grid
+  commentId: T:MinecaRTS.Grid
+  parent: MinecaRTS
+  isExternal: false
+  name: Grid
+  nameWithType: Grid
+  fullName: MinecaRTS.Grid
+- uid: MinecaRTS.CollisionCellData
+  commentId: T:MinecaRTS.CollisionCellData
+  parent: MinecaRTS
+  isExternal: false
+  name: CollisionCellData
+  nameWithType: CollisionCellData
+  fullName: MinecaRTS.CollisionCellData
+- uid: MinecaRTS.World
+  commentId: T:MinecaRTS.World
+  parent: MinecaRTS
+  isExternal: false
+  name: World
+  nameWithType: World
+  fullName: MinecaRTS.World
+- uid: MinecaRTS.FogOfWarData.TeamCanSeeCell*
+  commentId: Overload:MinecaRTS.FogOfWarData.TeamCanSeeCell
+  isExternal: false
+  name: TeamCanSeeCell
+  nameWithType: FogOfWarData.TeamCanSeeCell
+  fullName: MinecaRTS.FogOfWarData.TeamCanSeeCell
+- uid: MinecaRTS.Team
+  commentId: T:MinecaRTS.Team
+  parent: MinecaRTS
+  isExternal: false
+  name: Team
+  nameWithType: Team
+  fullName: MinecaRTS.Team
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Microsoft.Xna.Framework.Point
+  commentId: T:Microsoft.Xna.Framework.Point
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: Microsoft.Xna.Framework.Point
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.FogOfWarData.TeamCanSeePos*
+  commentId: Overload:MinecaRTS.FogOfWarData.TeamCanSeePos
+  isExternal: false
+  name: TeamCanSeePos
+  nameWithType: FogOfWarData.TeamCanSeePos
+  fullName: MinecaRTS.FogOfWarData.TeamCanSeePos
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: MinecaRTS.FogOfWarData.TeamHasExploredCell*
+  commentId: Overload:MinecaRTS.FogOfWarData.TeamHasExploredCell
+  isExternal: false
+  name: TeamHasExploredCell
+  nameWithType: FogOfWarData.TeamHasExploredCell
+  fullName: MinecaRTS.FogOfWarData.TeamHasExploredCell
+- uid: MinecaRTS.FogOfWarData.TeamHasExploredPos*
+  commentId: Overload:MinecaRTS.FogOfWarData.TeamHasExploredPos
+  isExternal: false
+  name: TeamHasExploredPos
+  nameWithType: FogOfWarData.TeamHasExploredPos
+  fullName: MinecaRTS.FogOfWarData.TeamHasExploredPos
+- uid: MinecaRTS.FogOfWarData.BuildingAdded*
+  commentId: Overload:MinecaRTS.FogOfWarData.BuildingAdded
+  isExternal: false
+  name: BuildingAdded
+  nameWithType: FogOfWarData.BuildingAdded
+  fullName: MinecaRTS.FogOfWarData.BuildingAdded
+- uid: MinecaRTS.Building
+  commentId: T:MinecaRTS.Building
+  parent: MinecaRTS
+  isExternal: false
+  name: Building
+  nameWithType: Building
+  fullName: MinecaRTS.Building
+- uid: MinecaRTS.FogOfWarData.UnitMoved*
+  commentId: Overload:MinecaRTS.FogOfWarData.UnitMoved
+  isExternal: false
+  name: UnitMoved
+  nameWithType: FogOfWarData.UnitMoved
+  fullName: MinecaRTS.FogOfWarData.UnitMoved
+- uid: MinecaRTS.Unit
+  commentId: T:MinecaRTS.Unit
+  parent: MinecaRTS
+  isExternal: false
+  name: Unit
+  nameWithType: Unit
+  fullName: MinecaRTS.Unit
+- uid: MinecaRTS.FogOfWarData.UnitAdded*
+  commentId: Overload:MinecaRTS.FogOfWarData.UnitAdded
+  isExternal: false
+  name: UnitAdded
+  nameWithType: FogOfWarData.UnitAdded
+  fullName: MinecaRTS.FogOfWarData.UnitAdded

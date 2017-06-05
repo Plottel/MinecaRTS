@@ -30,7 +30,7 @@ namespace MinecaRTS
         public override void HandleInput()
         {
             //if (Input.KeyTyped(Keys.T))
-              //  _data.TestPathfindingCalculationTime();
+              //  Data.TestPathfindingCalculationTime();
 
             // Move camera with arrow keys.
             if (Input.KeyDown(Keys.Left))

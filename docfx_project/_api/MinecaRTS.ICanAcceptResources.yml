@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.ICanAcceptResources
+  commentId: T:MinecaRTS.ICanAcceptResources
+  id: ICanAcceptResources
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+  - MinecaRTS.ICanAcceptResources.CollisionRect
+  - MinecaRTS.ICanAcceptResources.Mid
+  langs:
+  - csharp
+  - vb
+  name: ICanAcceptResources
+  nameWithType: ICanAcceptResources
+  fullName: MinecaRTS.ICanAcceptResources
+  type: Interface
+  source:
+    remote:
+      path: MinecaRTS/Resource/ICanAcceptResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ICanAcceptResources
+    path: ../MinecaRTS/Resource/ICanAcceptResources.cs
+    startLine: 9
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public interface ICanAcceptResources
+    content.vb: Public Interface ICanAcceptResources
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: MinecaRTS.ICanAcceptResources.CollisionRect
+  commentId: P:MinecaRTS.ICanAcceptResources.CollisionRect
+  id: CollisionRect
+  parent: MinecaRTS.ICanAcceptResources
+  langs:
+  - csharp
+  - vb
+  name: CollisionRect
+  nameWithType: ICanAcceptResources.CollisionRect
+  fullName: MinecaRTS.ICanAcceptResources.CollisionRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Resource/ICanAcceptResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CollisionRect
+    path: ../MinecaRTS/Resource/ICanAcceptResources.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Rectangle CollisionRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: ReadOnly Property CollisionRect As Rectangle
+  overload: MinecaRTS.ICanAcceptResources.CollisionRect*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: MinecaRTS.ICanAcceptResources.Mid
+  commentId: P:MinecaRTS.ICanAcceptResources.Mid
+  id: Mid
+  parent: MinecaRTS.ICanAcceptResources
+  langs:
+  - csharp
+  - vb
+  name: Mid
+  nameWithType: ICanAcceptResources.Mid
+  fullName: MinecaRTS.ICanAcceptResources.Mid
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Resource/ICanAcceptResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Mid
+    path: ../MinecaRTS/Resource/ICanAcceptResources.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Vector2 Mid { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: ReadOnly Property Mid As Vector2
+  overload: MinecaRTS.ICanAcceptResources.Mid*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+  commentId: M:MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+  id: AcceptResources(System.UInt32,System.UInt32)
+  parent: MinecaRTS.ICanAcceptResources
+  langs:
+  - csharp
+  - vb
+  name: AcceptResources(UInt32, UInt32)
+  nameWithType: ICanAcceptResources.AcceptResources(UInt32, UInt32)
+  fullName: MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32, System.UInt32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Resource/ICanAcceptResources.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AcceptResources
+    path: ../MinecaRTS/Resource/ICanAcceptResources.cs
+    startLine: 21
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: void AcceptResources(uint woodAmount, uint stoneAmount)
+    parameters:
+    - id: woodAmount
+      type: System.UInt32
+    - id: stoneAmount
+      type: System.UInt32
+    content.vb: Sub AcceptResources(woodAmount As UInteger, stoneAmount As UInteger)
+  overload: MinecaRTS.ICanAcceptResources.AcceptResources*
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.ICanAcceptResources.CollisionRect*
+  commentId: Overload:MinecaRTS.ICanAcceptResources.CollisionRect
+  isExternal: false
+  name: CollisionRect
+  nameWithType: ICanAcceptResources.CollisionRect
+  fullName: MinecaRTS.ICanAcceptResources.CollisionRect
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.ICanAcceptResources.Mid*
+  commentId: Overload:MinecaRTS.ICanAcceptResources.Mid
+  isExternal: false
+  name: Mid
+  nameWithType: ICanAcceptResources.Mid
+  fullName: MinecaRTS.ICanAcceptResources.Mid
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: MinecaRTS.ICanAcceptResources.AcceptResources*
+  commentId: Overload:MinecaRTS.ICanAcceptResources.AcceptResources
+  isExternal: false
+  name: AcceptResources
+  nameWithType: ICanAcceptResources.AcceptResources
+  fullName: MinecaRTS.ICanAcceptResources.AcceptResources
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System

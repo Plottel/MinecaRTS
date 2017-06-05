@@ -1,0 +1,246 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.WkrAnim
+  commentId: T:MinecaRTS.WkrAnim
+  id: WkrAnim
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.WkrAnim.Bag
+  - MinecaRTS.WkrAnim.Build
+  - MinecaRTS.WkrAnim.Chop
+  - MinecaRTS.WkrAnim.Logs
+  - MinecaRTS.WkrAnim.Mine
+  - MinecaRTS.WkrAnim.Walk
+  langs:
+  - csharp
+  - vb
+  name: WkrAnim
+  nameWithType: WkrAnim
+  fullName: MinecaRTS.WkrAnim
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/Entities/Units/Worker.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: WkrAnim
+    path: MinecaRTS/Entities/Units/Worker.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum WkrAnim
+    content.vb: Public Enum WkrAnim
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.WkrAnim.Walk
+  commentId: F:MinecaRTS.WkrAnim.Walk
+  id: Walk
+  parent: MinecaRTS.WkrAnim
+  langs:
+  - csharp
+  - vb
+  name: Walk
+  nameWithType: WkrAnim.Walk
+  fullName: MinecaRTS.WkrAnim.Walk
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Units/Worker.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Walk
+    path: MinecaRTS/Entities/Units/Worker.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Walk = 0
+    return:
+      type: MinecaRTS.WkrAnim
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.WkrAnim.Chop
+  commentId: F:MinecaRTS.WkrAnim.Chop
+  id: Chop
+  parent: MinecaRTS.WkrAnim
+  langs:
+  - csharp
+  - vb
+  name: Chop
+  nameWithType: WkrAnim.Chop
+  fullName: MinecaRTS.WkrAnim.Chop
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Units/Worker.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Chop
+    path: MinecaRTS/Entities/Units/Worker.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Chop = 1
+    return:
+      type: MinecaRTS.WkrAnim
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.WkrAnim.Logs
+  commentId: F:MinecaRTS.WkrAnim.Logs
+  id: Logs
+  parent: MinecaRTS.WkrAnim
+  langs:
+  - csharp
+  - vb
+  name: Logs
+  nameWithType: WkrAnim.Logs
+  fullName: MinecaRTS.WkrAnim.Logs
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Units/Worker.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Logs
+    path: MinecaRTS/Entities/Units/Worker.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Logs = 2
+    return:
+      type: MinecaRTS.WkrAnim
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.WkrAnim.Mine
+  commentId: F:MinecaRTS.WkrAnim.Mine
+  id: Mine
+  parent: MinecaRTS.WkrAnim
+  langs:
+  - csharp
+  - vb
+  name: Mine
+  nameWithType: WkrAnim.Mine
+  fullName: MinecaRTS.WkrAnim.Mine
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Units/Worker.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Mine
+    path: MinecaRTS/Entities/Units/Worker.cs
+    startLine: 18
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Mine = 3
+    return:
+      type: MinecaRTS.WkrAnim
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.WkrAnim.Bag
+  commentId: F:MinecaRTS.WkrAnim.Bag
+  id: Bag
+  parent: MinecaRTS.WkrAnim
+  langs:
+  - csharp
+  - vb
+  name: Bag
+  nameWithType: WkrAnim.Bag
+  fullName: MinecaRTS.WkrAnim.Bag
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Units/Worker.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Bag
+    path: MinecaRTS/Entities/Units/Worker.cs
+    startLine: 19
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Bag = 4
+    return:
+      type: MinecaRTS.WkrAnim
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.WkrAnim.Build
+  commentId: F:MinecaRTS.WkrAnim.Build
+  id: Build
+  parent: MinecaRTS.WkrAnim
+  langs:
+  - csharp
+  - vb
+  name: Build
+  nameWithType: WkrAnim.Build
+  fullName: MinecaRTS.WkrAnim.Build
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Units/Worker.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Build
+    path: MinecaRTS/Entities/Units/Worker.cs
+    startLine: 20
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Build = 5
+    return:
+      type: MinecaRTS.WkrAnim
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.WkrAnim
+  commentId: T:MinecaRTS.WkrAnim
+  parent: MinecaRTS
+  isExternal: false
+  name: WkrAnim
+  nameWithType: WkrAnim
+  fullName: MinecaRTS.WkrAnim

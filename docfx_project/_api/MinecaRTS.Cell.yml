@@ -1,0 +1,1035 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Cell
+  commentId: T:MinecaRTS.Cell
+  id: Cell
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Cell.#ctor(Microsoft.Xna.Framework.Vector2,System.Int32)
+  - MinecaRTS.Cell.CollisionRect
+  - MinecaRTS.Cell.Color
+  - MinecaRTS.Cell.Mid
+  - MinecaRTS.Cell.Neighbours
+  - MinecaRTS.Cell.Parent
+  - MinecaRTS.Cell.Passable
+  - MinecaRTS.Cell.Pos
+  - MinecaRTS.Cell.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Cell.RenderMid
+  - MinecaRTS.Cell.RenderRect
+  - MinecaRTS.Cell.Score
+  - MinecaRTS.Cell.Size
+  langs:
+  - csharp
+  - vb
+  name: Cell
+  nameWithType: Cell
+  fullName: MinecaRTS.Cell
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Cell
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public class Cell
+    content.vb: Public Class Cell
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.Cell.Size
+  commentId: P:MinecaRTS.Cell.Size
+  id: Size
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: Cell.Size
+  fullName: MinecaRTS.Cell.Size
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Size
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public int Size { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Size As Integer
+  overload: MinecaRTS.Cell.Size*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Cell.Pos
+  commentId: P:MinecaRTS.Cell.Pos
+  id: Pos
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Pos
+  nameWithType: Cell.Pos
+  fullName: MinecaRTS.Cell.Pos
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Pos
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 23
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe position of the cell.\n"
+  example: []
+  syntax:
+    content: public Vector2 Pos { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Property Pos As Vector2
+  overload: MinecaRTS.Cell.Pos*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Cell.Color
+  commentId: P:MinecaRTS.Cell.Color
+  id: Color
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: Cell.Color
+  fullName: MinecaRTS.Cell.Color
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Color
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 28
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe color.\n"
+  example: []
+  syntax:
+    content: public Color Color { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Color
+    content.vb: Public Property Color As Color
+  overload: MinecaRTS.Cell.Color*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Cell.Neighbours
+  commentId: F:MinecaRTS.Cell.Neighbours
+  id: Neighbours
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Neighbours
+  nameWithType: Cell.Neighbours
+  fullName: MinecaRTS.Cell.Neighbours
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Neighbours
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 33
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Cell> Neighbours
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public Neighbours As List(Of Cell)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Cell.Passable
+  commentId: P:MinecaRTS.Cell.Passable
+  id: Passable
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Passable
+  nameWithType: Cell.Passable
+  fullName: MinecaRTS.Cell.Passable
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Passable
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 39
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nWhether or not the cell can be walked on.\n"
+  example: []
+  syntax:
+    content: public bool Passable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Passable As Boolean
+  overload: MinecaRTS.Cell.Passable*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Cell.Parent
+  commentId: F:MinecaRTS.Cell.Parent
+  id: Parent
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: Cell.Parent
+  fullName: MinecaRTS.Cell.Parent
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Parent
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 44
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe parent of the cell in graph traversal.\n"
+  example: []
+  syntax:
+    content: public Cell Parent
+    return:
+      type: MinecaRTS.Cell
+    content.vb: Public Parent As Cell
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Cell.Score
+  commentId: F:MinecaRTS.Cell.Score
+  id: Score
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Score
+  nameWithType: Cell.Score
+  fullName: MinecaRTS.Cell.Score
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Score
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 49
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe score associated with this cell in the path being calculated.\n"
+  example: []
+  syntax:
+    content: public float Score
+    return:
+      type: System.Single
+    content.vb: Public Score As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Cell.CollisionRect
+  commentId: P:MinecaRTS.Cell.CollisionRect
+  id: CollisionRect
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: CollisionRect
+  nameWithType: Cell.CollisionRect
+  fullName: MinecaRTS.Cell.CollisionRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CollisionRect
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 55
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe world coordinate rectangle used for collisions.\n"
+  example: []
+  syntax:
+    content: public Rectangle CollisionRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public ReadOnly Property CollisionRect As Rectangle
+  overload: MinecaRTS.Cell.CollisionRect*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Cell.Mid
+  commentId: P:MinecaRTS.Cell.Mid
+  id: Mid
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Mid
+  nameWithType: Cell.Mid
+  fullName: MinecaRTS.Cell.Mid
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Mid
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 63
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe mid point of the collision rectangle.\n"
+  example: []
+  syntax:
+    content: public Vector2 Mid { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public ReadOnly Property Mid As Vector2
+  overload: MinecaRTS.Cell.Mid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Cell.RenderRect
+  commentId: P:MinecaRTS.Cell.RenderRect
+  id: RenderRect
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: RenderRect
+  nameWithType: Cell.RenderRect
+  fullName: MinecaRTS.Cell.RenderRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderRect
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 71
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe screen coordinate rectangle used for rendering.\n"
+  example: []
+  syntax:
+    content: public Rectangle RenderRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public ReadOnly Property RenderRect As Rectangle
+  overload: MinecaRTS.Cell.RenderRect*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Cell.RenderMid
+  commentId: P:MinecaRTS.Cell.RenderMid
+  id: RenderMid
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: RenderMid
+  nameWithType: Cell.RenderMid
+  fullName: MinecaRTS.Cell.RenderMid
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderMid
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 79
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe mid point of the render rectangle.\n"
+  example: []
+  syntax:
+    content: public Vector2 RenderMid { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public ReadOnly Property RenderMid As Vector2
+  overload: MinecaRTS.Cell.RenderMid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Cell.#ctor(Microsoft.Xna.Framework.Vector2,System.Int32)
+  commentId: M:MinecaRTS.Cell.#ctor(Microsoft.Xna.Framework.Vector2,System.Int32)
+  id: '#ctor(Microsoft.Xna.Framework.Vector2,System.Int32)'
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Cell(Vector2, Int32)
+  nameWithType: Cell.Cell(Vector2, Int32)
+  fullName: MinecaRTS.Cell.Cell(Microsoft.Xna.Framework.Vector2, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 89
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nInitialises cell values.\n"
+  example: []
+  syntax:
+    content: public Cell(Vector2 pos, int size)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    - id: size
+      type: System.Int32
+    content.vb: Public Sub New(pos As Vector2, size As Integer)
+  overload: MinecaRTS.Cell.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Cell.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Cell.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Cell
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: Cell.Render(SpriteBatch)
+  fullName: MinecaRTS.Cell.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/Cell.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: ../MinecaRTS/Core/Cell.cs
+    startLine: 101
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nRenders a black rectangle around the cell border.\n"
+  example: []
+  syntax:
+    content: public void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+      description: The SpriteBatch to render to.
+    content.vb: Public Sub Render(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.Cell.Render*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.Cell.Size*
+  commentId: Overload:MinecaRTS.Cell.Size
+  isExternal: false
+  name: Size
+  nameWithType: Cell.Size
+  fullName: MinecaRTS.Cell.Size
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MinecaRTS.Cell.Pos*
+  commentId: Overload:MinecaRTS.Cell.Pos
+  isExternal: false
+  name: Pos
+  nameWithType: Cell.Pos
+  fullName: MinecaRTS.Cell.Pos
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.Cell.Color*
+  commentId: Overload:MinecaRTS.Cell.Color
+  isExternal: false
+  name: Color
+  nameWithType: Cell.Color
+  fullName: MinecaRTS.Cell.Color
+- uid: Microsoft.Xna.Framework.Color
+  commentId: T:Microsoft.Xna.Framework.Color
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Microsoft.Xna.Framework.Color
+- uid: System.Collections.Generic.List{MinecaRTS.Cell}
+  commentId: T:System.Collections.Generic.List{MinecaRTS.Cell}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Cell>
+  nameWithType: List<Cell>
+  fullName: System.Collections.Generic.List<MinecaRTS.Cell>
+  nameWithType.vb: List(Of Cell)
+  fullName.vb: System.Collections.Generic.List(Of MinecaRTS.Cell)
+  name.vb: List(Of Cell)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: MinecaRTS.Cell.Passable*
+  commentId: Overload:MinecaRTS.Cell.Passable
+  isExternal: false
+  name: Passable
+  nameWithType: Cell.Passable
+  fullName: MinecaRTS.Cell.Passable
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MinecaRTS.Cell
+  commentId: T:MinecaRTS.Cell
+  parent: MinecaRTS
+  isExternal: false
+  name: Cell
+  nameWithType: Cell
+  fullName: MinecaRTS.Cell
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MinecaRTS.Cell.CollisionRect*
+  commentId: Overload:MinecaRTS.Cell.CollisionRect
+  isExternal: false
+  name: CollisionRect
+  nameWithType: Cell.CollisionRect
+  fullName: MinecaRTS.Cell.CollisionRect
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: MinecaRTS.Cell.Mid*
+  commentId: Overload:MinecaRTS.Cell.Mid
+  isExternal: false
+  name: Mid
+  nameWithType: Cell.Mid
+  fullName: MinecaRTS.Cell.Mid
+- uid: MinecaRTS.Cell.RenderRect*
+  commentId: Overload:MinecaRTS.Cell.RenderRect
+  isExternal: false
+  name: RenderRect
+  nameWithType: Cell.RenderRect
+  fullName: MinecaRTS.Cell.RenderRect
+- uid: MinecaRTS.Cell.RenderMid*
+  commentId: Overload:MinecaRTS.Cell.RenderMid
+  isExternal: false
+  name: RenderMid
+  nameWithType: Cell.RenderMid
+  fullName: MinecaRTS.Cell.RenderMid
+- uid: MinecaRTS.Cell.#ctor*
+  commentId: Overload:MinecaRTS.Cell.#ctor
+  isExternal: false
+  name: Cell
+  nameWithType: Cell.Cell
+  fullName: MinecaRTS.Cell.Cell
+- uid: MinecaRTS.Cell.Render*
+  commentId: Overload:MinecaRTS.Cell.Render
+  isExternal: false
+  name: Render
+  nameWithType: Cell.Render
+  fullName: MinecaRTS.Cell.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics

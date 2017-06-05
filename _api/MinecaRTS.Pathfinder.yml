@@ -1,0 +1,1615 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Pathfinder
+  commentId: T:MinecaRTS.Pathfinder
+  id: Pathfinder
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Pathfinder.#ctor(MinecaRTS.Unit,MinecaRTS.PathHandler)
+  - MinecaRTS.Pathfinder.handler
+  - MinecaRTS.Pathfinder.owner
+  - MinecaRTS.Pathfinder.path
+  - MinecaRTS.Pathfinder.PathIsClear(MinecaRTS.Cell,MinecaRTS.Cell,MinecaRTS.Unit)
+  - MinecaRTS.Pathfinder.RetracePath
+  - MinecaRTS.Pathfinder.SearchDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  - MinecaRTS.Pathfinder.SearchGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  - MinecaRTS.Pathfinder.searchType
+  - MinecaRTS.Pathfinder.SetupDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  - MinecaRTS.Pathfinder.SetupGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  - MinecaRTS.Pathfinder.SetupRetracePath
+  - MinecaRTS.Pathfinder.SingleIteration
+  - MinecaRTS.Pathfinder.SingleIterationDijkstra
+  - MinecaRTS.Pathfinder.SingleIterationGreedy
+  - MinecaRTS.Pathfinder.SingleIterationRetracePath
+  - MinecaRTS.Pathfinder.SingleIterationSmoothPath
+  - MinecaRTS.Pathfinder.smoothed
+  - MinecaRTS.Pathfinder.SmoothPath
+  langs:
+  - csharp
+  - vb
+  name: Pathfinder
+  nameWithType: Pathfinder
+  fullName: MinecaRTS.Pathfinder
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Pathfinder
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public class Pathfinder
+    content.vb: Public Class Pathfinder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.Pathfinder.searchType
+  commentId: F:MinecaRTS.Pathfinder.searchType
+  id: searchType
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: searchType
+  nameWithType: Pathfinder.searchType
+  fullName: MinecaRTS.Pathfinder.searchType
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: searchType
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public SearchType searchType
+    return:
+      type: MinecaRTS.SearchType
+    content.vb: Public searchType As SearchType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.smoothed
+  commentId: F:MinecaRTS.Pathfinder.smoothed
+  id: smoothed
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: smoothed
+  nameWithType: Pathfinder.smoothed
+  fullName: MinecaRTS.Pathfinder.smoothed
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: smoothed
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 26
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool smoothed
+    return:
+      type: System.Boolean
+    content.vb: Public smoothed As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.path
+  commentId: F:MinecaRTS.Pathfinder.path
+  id: path
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: path
+  nameWithType: Pathfinder.path
+  fullName: MinecaRTS.Pathfinder.path
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: path
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 32
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Cell> path
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public path As List(Of Cell)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.handler
+  commentId: F:MinecaRTS.Pathfinder.handler
+  id: handler
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: handler
+  nameWithType: Pathfinder.handler
+  fullName: MinecaRTS.Pathfinder.handler
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: handler
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 39
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public PathHandler handler
+    return:
+      type: MinecaRTS.PathHandler
+    content.vb: Public handler As PathHandler
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.owner
+  commentId: F:MinecaRTS.Pathfinder.owner
+  id: owner
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: owner
+  nameWithType: Pathfinder.owner
+  fullName: MinecaRTS.Pathfinder.owner
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: owner
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 40
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Unit owner
+    return:
+      type: MinecaRTS.Unit
+    content.vb: Public owner As Unit
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.#ctor(MinecaRTS.Unit,MinecaRTS.PathHandler)
+  commentId: M:MinecaRTS.Pathfinder.#ctor(MinecaRTS.Unit,MinecaRTS.PathHandler)
+  id: '#ctor(MinecaRTS.Unit,MinecaRTS.PathHandler)'
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: Pathfinder(Unit, PathHandler)
+  nameWithType: Pathfinder.Pathfinder(Unit, PathHandler)
+  fullName: MinecaRTS.Pathfinder.Pathfinder(MinecaRTS.Unit, MinecaRTS.PathHandler)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 42
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Pathfinder(Unit owner, PathHandler handler)
+    parameters:
+    - id: owner
+      type: MinecaRTS.Unit
+    - id: handler
+      type: MinecaRTS.PathHandler
+    content.vb: Public Sub New(owner As Unit, handler As PathHandler)
+  overload: MinecaRTS.Pathfinder.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SingleIterationDijkstra
+  commentId: M:MinecaRTS.Pathfinder.SingleIterationDijkstra
+  id: SingleIterationDijkstra
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SingleIterationDijkstra()
+  nameWithType: Pathfinder.SingleIterationDijkstra()
+  fullName: MinecaRTS.Pathfinder.SingleIterationDijkstra()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SingleIterationDijkstra
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 89
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public SearchState SingleIterationDijkstra()
+    return:
+      type: MinecaRTS.SearchState
+    content.vb: Public Function SingleIterationDijkstra As SearchState
+  overload: MinecaRTS.Pathfinder.SingleIterationDijkstra*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SingleIteration
+  commentId: M:MinecaRTS.Pathfinder.SingleIteration
+  id: SingleIteration
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SingleIteration()
+  nameWithType: Pathfinder.SingleIteration()
+  fullName: MinecaRTS.Pathfinder.SingleIteration()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SingleIteration
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 127
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public SearchState SingleIteration()
+    return:
+      type: MinecaRTS.SearchState
+    content.vb: Public Function SingleIteration As SearchState
+  overload: MinecaRTS.Pathfinder.SingleIteration*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SearchDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  commentId: M:MinecaRTS.Pathfinder.SearchDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  id: SearchDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SearchDijkstra(Grid, Cell, Unit, Func<Cell, Boolean>, Func<Cell, Boolean>, Boolean, UInt32)
+  nameWithType: Pathfinder.SearchDijkstra(Grid, Cell, Unit, Func<Cell, Boolean>, Func<Cell, Boolean>, Boolean, UInt32)
+  fullName: MinecaRTS.Pathfinder.SearchDijkstra(MinecaRTS.Grid, MinecaRTS.Cell, MinecaRTS.Unit, System.Func<MinecaRTS.Cell, System.Boolean>, System.Func<MinecaRTS.Cell, System.Boolean>, System.Boolean, System.UInt32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SearchDijkstra
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 183
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nRuns Dijkstra's to find the closest cell with a resource of the specified type.\n"
+  example: []
+  syntax:
+    content: public List<Cell> SearchDijkstra(Grid grid, Cell source, Unit unit, Func<Cell, bool> considerationCondition, Func<Cell, bool> terminationCondition, bool smoothed = false, uint depthLimit = 4294967295U)
+    parameters:
+    - id: grid
+      type: MinecaRTS.Grid
+    - id: source
+      type: MinecaRTS.Cell
+    - id: unit
+      type: MinecaRTS.Unit
+    - id: considerationCondition
+      type: System.Func{MinecaRTS.Cell,System.Boolean}
+    - id: terminationCondition
+      type: System.Func{MinecaRTS.Cell,System.Boolean}
+    - id: smoothed
+      type: System.Boolean
+    - id: depthLimit
+      type: System.UInt32
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public Function SearchDijkstra(grid As Grid, source As Cell, unit As Unit, considerationCondition As Func(Of Cell, Boolean), terminationCondition As Func(Of Cell, Boolean), smoothed As Boolean = False, depthLimit As UInteger = 4294967295UI) As List(Of Cell)
+  overload: MinecaRTS.Pathfinder.SearchDijkstra*
+  nameWithType.vb: Pathfinder.SearchDijkstra(Grid, Cell, Unit, Func(Of Cell, Boolean), Func(Of Cell, Boolean), Boolean, UInt32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.Pathfinder.SearchDijkstra(MinecaRTS.Grid, MinecaRTS.Cell, MinecaRTS.Unit, System.Func(Of MinecaRTS.Cell, System.Boolean), System.Func(Of MinecaRTS.Cell, System.Boolean), System.Boolean, System.UInt32)
+  name.vb: SearchDijkstra(Grid, Cell, Unit, Func(Of Cell, Boolean), Func(Of Cell, Boolean), Boolean, UInt32)
+- uid: MinecaRTS.Pathfinder.SingleIterationGreedy
+  commentId: M:MinecaRTS.Pathfinder.SingleIterationGreedy
+  id: SingleIterationGreedy
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SingleIterationGreedy()
+  nameWithType: Pathfinder.SingleIterationGreedy()
+  fullName: MinecaRTS.Pathfinder.SingleIterationGreedy()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SingleIterationGreedy
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 225
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public SearchState SingleIterationGreedy()
+    return:
+      type: MinecaRTS.SearchState
+    content.vb: Public Function SingleIterationGreedy As SearchState
+  overload: MinecaRTS.Pathfinder.SingleIterationGreedy*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SearchGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  commentId: M:MinecaRTS.Pathfinder.SearchGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  id: SearchGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SearchGreedy(Grid, Cell, List<Cell>, Unit, Func<Cell, Boolean>, Func<Cell, List<Cell>, Boolean>, Func<Cell, Cell, Single>, Boolean)
+  nameWithType: Pathfinder.SearchGreedy(Grid, Cell, List<Cell>, Unit, Func<Cell, Boolean>, Func<Cell, List<Cell>, Boolean>, Func<Cell, Cell, Single>, Boolean)
+  fullName: MinecaRTS.Pathfinder.SearchGreedy(MinecaRTS.Grid, MinecaRTS.Cell, System.Collections.Generic.List<MinecaRTS.Cell>, MinecaRTS.Unit, System.Func<MinecaRTS.Cell, System.Boolean>, System.Func<MinecaRTS.Cell, System.Collections.Generic.List<MinecaRTS.Cell>, System.Boolean>, System.Func<MinecaRTS.Cell, MinecaRTS.Cell, System.Single>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SearchGreedy
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 262
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Cell> SearchGreedy(Grid grid, Cell source, List<Cell> target, Unit unit, Func<Cell, bool> considerationCondition, Func<Cell, List<Cell>, bool> terminationCondition, Func<Cell, Cell, float> getScore, bool smoothed = false)
+    parameters:
+    - id: grid
+      type: MinecaRTS.Grid
+    - id: source
+      type: MinecaRTS.Cell
+    - id: target
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    - id: unit
+      type: MinecaRTS.Unit
+    - id: considerationCondition
+      type: System.Func{MinecaRTS.Cell,System.Boolean}
+    - id: terminationCondition
+      type: System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean}
+    - id: getScore
+      type: System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single}
+    - id: smoothed
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public Function SearchGreedy(grid As Grid, source As Cell, target As List(Of Cell), unit As Unit, considerationCondition As Func(Of Cell, Boolean), terminationCondition As Func(Of Cell, List(Of Cell), Boolean), getScore As Func(Of Cell, Cell, Single), smoothed As Boolean = False) As List(Of Cell)
+  overload: MinecaRTS.Pathfinder.SearchGreedy*
+  nameWithType.vb: Pathfinder.SearchGreedy(Grid, Cell, List(Of Cell), Unit, Func(Of Cell, Boolean), Func(Of Cell, List(Of Cell), Boolean), Func(Of Cell, Cell, Single), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.Pathfinder.SearchGreedy(MinecaRTS.Grid, MinecaRTS.Cell, System.Collections.Generic.List(Of MinecaRTS.Cell), MinecaRTS.Unit, System.Func(Of MinecaRTS.Cell, System.Boolean), System.Func(Of MinecaRTS.Cell, System.Collections.Generic.List(Of MinecaRTS.Cell), System.Boolean), System.Func(Of MinecaRTS.Cell, MinecaRTS.Cell, System.Single), System.Boolean)
+  name.vb: SearchGreedy(Grid, Cell, List(Of Cell), Unit, Func(Of Cell, Boolean), Func(Of Cell, List(Of Cell), Boolean), Func(Of Cell, Cell, Single), Boolean)
+- uid: MinecaRTS.Pathfinder.SingleIterationSmoothPath
+  commentId: M:MinecaRTS.Pathfinder.SingleIterationSmoothPath
+  id: SingleIterationSmoothPath
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SingleIterationSmoothPath()
+  nameWithType: Pathfinder.SingleIterationSmoothPath()
+  fullName: MinecaRTS.Pathfinder.SingleIterationSmoothPath()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SingleIterationSmoothPath
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 318
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nTrue indicates smoothing is finished.\nFalse indicates smoothing is still underway.\n"
+  example: []
+  syntax:
+    content: public bool SingleIterationSmoothPath()
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function SingleIterationSmoothPath As Boolean
+  overload: MinecaRTS.Pathfinder.SingleIterationSmoothPath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SmoothPath
+  commentId: M:MinecaRTS.Pathfinder.SmoothPath
+  id: SmoothPath
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SmoothPath()
+  nameWithType: Pathfinder.SmoothPath()
+  fullName: MinecaRTS.Pathfinder.SmoothPath()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SmoothPath
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 360
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Cell> SmoothPath()
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public Function SmoothPath As List(Of Cell)
+  overload: MinecaRTS.Pathfinder.SmoothPath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.PathIsClear(MinecaRTS.Cell,MinecaRTS.Cell,MinecaRTS.Unit)
+  commentId: M:MinecaRTS.Pathfinder.PathIsClear(MinecaRTS.Cell,MinecaRTS.Cell,MinecaRTS.Unit)
+  id: PathIsClear(MinecaRTS.Cell,MinecaRTS.Cell,MinecaRTS.Unit)
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: PathIsClear(Cell, Cell, Unit)
+  nameWithType: Pathfinder.PathIsClear(Cell, Cell, Unit)
+  fullName: MinecaRTS.Pathfinder.PathIsClear(MinecaRTS.Cell, MinecaRTS.Cell, MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: PathIsClear
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 380
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool PathIsClear(Cell from, Cell to, Unit unit)
+    parameters:
+    - id: from
+      type: MinecaRTS.Cell
+    - id: to
+      type: MinecaRTS.Cell
+    - id: unit
+      type: MinecaRTS.Unit
+    return:
+      type: System.Boolean
+    content.vb: Public Function PathIsClear(from As Cell, to As Cell, unit As Unit) As Boolean
+  overload: MinecaRTS.Pathfinder.PathIsClear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SingleIterationRetracePath
+  commentId: M:MinecaRTS.Pathfinder.SingleIterationRetracePath
+  id: SingleIterationRetracePath
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SingleIterationRetracePath()
+  nameWithType: Pathfinder.SingleIterationRetracePath()
+  fullName: MinecaRTS.Pathfinder.SingleIterationRetracePath()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SingleIterationRetracePath
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 434
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool SingleIterationRetracePath()
+    return:
+      type: System.Boolean
+    content.vb: Public Function SingleIterationRetracePath As Boolean
+  overload: MinecaRTS.Pathfinder.SingleIterationRetracePath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SetupRetracePath
+  commentId: M:MinecaRTS.Pathfinder.SetupRetracePath
+  id: SetupRetracePath
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SetupRetracePath()
+  nameWithType: Pathfinder.SetupRetracePath()
+  fullName: MinecaRTS.Pathfinder.SetupRetracePath()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SetupRetracePath
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 442
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SetupRetracePath()
+    content.vb: Public Sub SetupRetracePath
+  overload: MinecaRTS.Pathfinder.SetupRetracePath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.RetracePath
+  commentId: M:MinecaRTS.Pathfinder.RetracePath
+  id: RetracePath
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: RetracePath()
+  nameWithType: Pathfinder.RetracePath()
+  fullName: MinecaRTS.Pathfinder.RetracePath()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RetracePath
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 448
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Cell> RetracePath()
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    content.vb: Public Function RetracePath As List(Of Cell)
+  overload: MinecaRTS.Pathfinder.RetracePath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Pathfinder.SetupDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  commentId: M:MinecaRTS.Pathfinder.SetupDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  id: SetupDijkstra(MinecaRTS.Grid,MinecaRTS.Cell,MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Boolean},System.Boolean,System.UInt32)
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SetupDijkstra(Grid, Cell, Unit, Func<Cell, Boolean>, Func<Cell, Boolean>, Boolean, UInt32)
+  nameWithType: Pathfinder.SetupDijkstra(Grid, Cell, Unit, Func<Cell, Boolean>, Func<Cell, Boolean>, Boolean, UInt32)
+  fullName: MinecaRTS.Pathfinder.SetupDijkstra(MinecaRTS.Grid, MinecaRTS.Cell, MinecaRTS.Unit, System.Func<MinecaRTS.Cell, System.Boolean>, System.Func<MinecaRTS.Cell, System.Boolean>, System.Boolean, System.UInt32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SetupDijkstra
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 460
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SetupDijkstra(Grid grid, Cell source, Unit unit, Func<Cell, bool> considerationCondition, Func<Cell, bool> terminationCondition, bool smoothed = false, uint depthLimit = 4294967295U)
+    parameters:
+    - id: grid
+      type: MinecaRTS.Grid
+    - id: source
+      type: MinecaRTS.Cell
+    - id: unit
+      type: MinecaRTS.Unit
+    - id: considerationCondition
+      type: System.Func{MinecaRTS.Cell,System.Boolean}
+    - id: terminationCondition
+      type: System.Func{MinecaRTS.Cell,System.Boolean}
+    - id: smoothed
+      type: System.Boolean
+    - id: depthLimit
+      type: System.UInt32
+    content.vb: Public Sub SetupDijkstra(grid As Grid, source As Cell, unit As Unit, considerationCondition As Func(Of Cell, Boolean), terminationCondition As Func(Of Cell, Boolean), smoothed As Boolean = False, depthLimit As UInteger = 4294967295UI)
+  overload: MinecaRTS.Pathfinder.SetupDijkstra*
+  nameWithType.vb: Pathfinder.SetupDijkstra(Grid, Cell, Unit, Func(Of Cell, Boolean), Func(Of Cell, Boolean), Boolean, UInt32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.Pathfinder.SetupDijkstra(MinecaRTS.Grid, MinecaRTS.Cell, MinecaRTS.Unit, System.Func(Of MinecaRTS.Cell, System.Boolean), System.Func(Of MinecaRTS.Cell, System.Boolean), System.Boolean, System.UInt32)
+  name.vb: SetupDijkstra(Grid, Cell, Unit, Func(Of Cell, Boolean), Func(Of Cell, Boolean), Boolean, UInt32)
+- uid: MinecaRTS.Pathfinder.SetupGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  commentId: M:MinecaRTS.Pathfinder.SetupGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  id: SetupGreedy(MinecaRTS.Grid,MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},MinecaRTS.Unit,System.Func{MinecaRTS.Cell,System.Boolean},System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean},System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single},System.Boolean)
+  parent: MinecaRTS.Pathfinder
+  langs:
+  - csharp
+  - vb
+  name: SetupGreedy(Grid, Cell, List<Cell>, Unit, Func<Cell, Boolean>, Func<Cell, List<Cell>, Boolean>, Func<Cell, Cell, Single>, Boolean)
+  nameWithType: Pathfinder.SetupGreedy(Grid, Cell, List<Cell>, Unit, Func<Cell, Boolean>, Func<Cell, List<Cell>, Boolean>, Func<Cell, Cell, Single>, Boolean)
+  fullName: MinecaRTS.Pathfinder.SetupGreedy(MinecaRTS.Grid, MinecaRTS.Cell, System.Collections.Generic.List<MinecaRTS.Cell>, MinecaRTS.Unit, System.Func<MinecaRTS.Cell, System.Boolean>, System.Func<MinecaRTS.Cell, System.Collections.Generic.List<MinecaRTS.Cell>, System.Boolean>, System.Func<MinecaRTS.Cell, MinecaRTS.Cell, System.Single>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/Pathfinder.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SetupGreedy
+    path: MinecaRTS/Pathing/Pathfinder.cs
+    startLine: 497
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SetupGreedy(Grid grid, Cell source, List<Cell> targets, Unit unit, Func<Cell, bool> considerationCondition, Func<Cell, List<Cell>, bool> terminationCondition, Func<Cell, Cell, float> getScore, bool smoothed = false)
+    parameters:
+    - id: grid
+      type: MinecaRTS.Grid
+    - id: source
+      type: MinecaRTS.Cell
+    - id: targets
+      type: System.Collections.Generic.List{MinecaRTS.Cell}
+    - id: unit
+      type: MinecaRTS.Unit
+    - id: considerationCondition
+      type: System.Func{MinecaRTS.Cell,System.Boolean}
+    - id: terminationCondition
+      type: System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean}
+    - id: getScore
+      type: System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single}
+    - id: smoothed
+      type: System.Boolean
+    content.vb: Public Sub SetupGreedy(grid As Grid, source As Cell, targets As List(Of Cell), unit As Unit, considerationCondition As Func(Of Cell, Boolean), terminationCondition As Func(Of Cell, List(Of Cell), Boolean), getScore As Func(Of Cell, Cell, Single), smoothed As Boolean = False)
+  overload: MinecaRTS.Pathfinder.SetupGreedy*
+  nameWithType.vb: Pathfinder.SetupGreedy(Grid, Cell, List(Of Cell), Unit, Func(Of Cell, Boolean), Func(Of Cell, List(Of Cell), Boolean), Func(Of Cell, Cell, Single), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.Pathfinder.SetupGreedy(MinecaRTS.Grid, MinecaRTS.Cell, System.Collections.Generic.List(Of MinecaRTS.Cell), MinecaRTS.Unit, System.Func(Of MinecaRTS.Cell, System.Boolean), System.Func(Of MinecaRTS.Cell, System.Collections.Generic.List(Of MinecaRTS.Cell), System.Boolean), System.Func(Of MinecaRTS.Cell, MinecaRTS.Cell, System.Single), System.Boolean)
+  name.vb: SetupGreedy(Grid, Cell, List(Of Cell), Unit, Func(Of Cell, Boolean), Func(Of Cell, List(Of Cell), Boolean), Func(Of Cell, Cell, Single), Boolean)
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.SearchType
+  commentId: T:MinecaRTS.SearchType
+  parent: MinecaRTS
+  isExternal: false
+  name: SearchType
+  nameWithType: SearchType
+  fullName: MinecaRTS.SearchType
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Collections.Generic.List{MinecaRTS.Cell}
+  commentId: T:System.Collections.Generic.List{MinecaRTS.Cell}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Cell>
+  nameWithType: List<Cell>
+  fullName: System.Collections.Generic.List<MinecaRTS.Cell>
+  nameWithType.vb: List(Of Cell)
+  fullName.vb: System.Collections.Generic.List(Of MinecaRTS.Cell)
+  name.vb: List(Of Cell)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: MinecaRTS.PathHandler
+  commentId: T:MinecaRTS.PathHandler
+  parent: MinecaRTS
+  isExternal: false
+  name: PathHandler
+  nameWithType: PathHandler
+  fullName: MinecaRTS.PathHandler
+- uid: MinecaRTS.Unit
+  commentId: T:MinecaRTS.Unit
+  parent: MinecaRTS
+  isExternal: false
+  name: Unit
+  nameWithType: Unit
+  fullName: MinecaRTS.Unit
+- uid: MinecaRTS.Pathfinder.#ctor*
+  commentId: Overload:MinecaRTS.Pathfinder.#ctor
+  isExternal: false
+  name: Pathfinder
+  nameWithType: Pathfinder.Pathfinder
+  fullName: MinecaRTS.Pathfinder.Pathfinder
+- uid: MinecaRTS.Pathfinder.SingleIterationDijkstra*
+  commentId: Overload:MinecaRTS.Pathfinder.SingleIterationDijkstra
+  isExternal: false
+  name: SingleIterationDijkstra
+  nameWithType: Pathfinder.SingleIterationDijkstra
+  fullName: MinecaRTS.Pathfinder.SingleIterationDijkstra
+- uid: MinecaRTS.SearchState
+  commentId: T:MinecaRTS.SearchState
+  parent: MinecaRTS
+  isExternal: false
+  name: SearchState
+  nameWithType: SearchState
+  fullName: MinecaRTS.SearchState
+- uid: MinecaRTS.Pathfinder.SingleIteration*
+  commentId: Overload:MinecaRTS.Pathfinder.SingleIteration
+  isExternal: false
+  name: SingleIteration
+  nameWithType: Pathfinder.SingleIteration
+  fullName: MinecaRTS.Pathfinder.SingleIteration
+- uid: MinecaRTS.Pathfinder.SearchDijkstra*
+  commentId: Overload:MinecaRTS.Pathfinder.SearchDijkstra
+  isExternal: false
+  name: SearchDijkstra
+  nameWithType: Pathfinder.SearchDijkstra
+  fullName: MinecaRTS.Pathfinder.SearchDijkstra
+- uid: MinecaRTS.Grid
+  commentId: T:MinecaRTS.Grid
+  parent: MinecaRTS
+  isExternal: false
+  name: Grid
+  nameWithType: Grid
+  fullName: MinecaRTS.Grid
+- uid: MinecaRTS.Cell
+  commentId: T:MinecaRTS.Cell
+  parent: MinecaRTS
+  isExternal: false
+  name: Cell
+  nameWithType: Cell
+  fullName: MinecaRTS.Cell
+- uid: System.Func{MinecaRTS.Cell,System.Boolean}
+  commentId: T:System.Func{MinecaRTS.Cell,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<Cell, Boolean>
+  nameWithType: Func<Cell, Boolean>
+  fullName: System.Func<MinecaRTS.Cell, System.Boolean>
+  nameWithType.vb: Func(Of Cell, Boolean)
+  fullName.vb: System.Func(Of MinecaRTS.Cell, System.Boolean)
+  name.vb: Func(Of Cell, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Pathfinder.SingleIterationGreedy*
+  commentId: Overload:MinecaRTS.Pathfinder.SingleIterationGreedy
+  isExternal: false
+  name: SingleIterationGreedy
+  nameWithType: Pathfinder.SingleIterationGreedy
+  fullName: MinecaRTS.Pathfinder.SingleIterationGreedy
+- uid: MinecaRTS.Pathfinder.SearchGreedy*
+  commentId: Overload:MinecaRTS.Pathfinder.SearchGreedy
+  isExternal: false
+  name: SearchGreedy
+  nameWithType: Pathfinder.SearchGreedy
+  fullName: MinecaRTS.Pathfinder.SearchGreedy
+- uid: System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean}
+  commentId: T:System.Func{MinecaRTS.Cell,System.Collections.Generic.List{MinecaRTS.Cell},System.Boolean}
+  parent: System
+  definition: System.Func`3
+  name: Func<Cell, List<Cell>, Boolean>
+  nameWithType: Func<Cell, List<Cell>, Boolean>
+  fullName: System.Func<MinecaRTS.Cell, System.Collections.Generic.List<MinecaRTS.Cell>, System.Boolean>
+  nameWithType.vb: Func(Of Cell, List(Of Cell), Boolean)
+  fullName.vb: System.Func(Of MinecaRTS.Cell, System.Collections.Generic.List(Of MinecaRTS.Cell), System.Boolean)
+  name.vb: Func(Of Cell, List(Of Cell), Boolean)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single}
+  commentId: T:System.Func{MinecaRTS.Cell,MinecaRTS.Cell,System.Single}
+  parent: System
+  definition: System.Func`3
+  name: Func<Cell, Cell, Single>
+  nameWithType: Func<Cell, Cell, Single>
+  fullName: System.Func<MinecaRTS.Cell, MinecaRTS.Cell, System.Single>
+  nameWithType.vb: Func(Of Cell, Cell, Single)
+  fullName.vb: System.Func(Of MinecaRTS.Cell, MinecaRTS.Cell, System.Single)
+  name.vb: Func(Of Cell, Cell, Single)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Pathfinder.SingleIterationSmoothPath*
+  commentId: Overload:MinecaRTS.Pathfinder.SingleIterationSmoothPath
+  isExternal: false
+  name: SingleIterationSmoothPath
+  nameWithType: Pathfinder.SingleIterationSmoothPath
+  fullName: MinecaRTS.Pathfinder.SingleIterationSmoothPath
+- uid: MinecaRTS.Pathfinder.SmoothPath*
+  commentId: Overload:MinecaRTS.Pathfinder.SmoothPath
+  isExternal: false
+  name: SmoothPath
+  nameWithType: Pathfinder.SmoothPath
+  fullName: MinecaRTS.Pathfinder.SmoothPath
+- uid: MinecaRTS.Pathfinder.PathIsClear*
+  commentId: Overload:MinecaRTS.Pathfinder.PathIsClear
+  isExternal: false
+  name: PathIsClear
+  nameWithType: Pathfinder.PathIsClear
+  fullName: MinecaRTS.Pathfinder.PathIsClear
+- uid: MinecaRTS.Pathfinder.SingleIterationRetracePath*
+  commentId: Overload:MinecaRTS.Pathfinder.SingleIterationRetracePath
+  isExternal: false
+  name: SingleIterationRetracePath
+  nameWithType: Pathfinder.SingleIterationRetracePath
+  fullName: MinecaRTS.Pathfinder.SingleIterationRetracePath
+- uid: MinecaRTS.Pathfinder.SetupRetracePath*
+  commentId: Overload:MinecaRTS.Pathfinder.SetupRetracePath
+  isExternal: false
+  name: SetupRetracePath
+  nameWithType: Pathfinder.SetupRetracePath
+  fullName: MinecaRTS.Pathfinder.SetupRetracePath
+- uid: MinecaRTS.Pathfinder.RetracePath*
+  commentId: Overload:MinecaRTS.Pathfinder.RetracePath
+  isExternal: false
+  name: RetracePath
+  nameWithType: Pathfinder.RetracePath
+  fullName: MinecaRTS.Pathfinder.RetracePath
+- uid: MinecaRTS.Pathfinder.SetupDijkstra*
+  commentId: Overload:MinecaRTS.Pathfinder.SetupDijkstra
+  isExternal: false
+  name: SetupDijkstra
+  nameWithType: Pathfinder.SetupDijkstra
+  fullName: MinecaRTS.Pathfinder.SetupDijkstra
+- uid: MinecaRTS.Pathfinder.SetupGreedy*
+  commentId: Overload:MinecaRTS.Pathfinder.SetupGreedy
+  isExternal: false
+  name: SetupGreedy
+  nameWithType: Pathfinder.SetupGreedy
+  fullName: MinecaRTS.Pathfinder.SetupGreedy

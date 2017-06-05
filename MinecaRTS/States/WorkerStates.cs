@@ -32,7 +32,7 @@ namespace MinecaRTS
         public override void Enter(Worker owner)
         {
             owner.ChangeAnimation(WkrAnim.Walk);
-            owner.Steering.separationOn = false;
+            owner.Steering.separationIsOn = false;
 
             // TODO: This check will be more robust to check if the resource has expired???
             // should just Greedy if already has target resource.
@@ -49,7 +49,7 @@ namespace MinecaRTS
 
         public override void Exit(Worker owner)
         {
-            owner.Steering.separationOn = true;
+            owner.Steering.separationIsOn = true;
         }
 
         public override void Execute(Worker owner)
@@ -95,7 +95,7 @@ namespace MinecaRTS
             else if (owner.resrcHolding == ResourceType.Stone)
                 owner.ChangeAnimation(WkrAnim.Bag);
 
-            owner.Steering.separationOn = false;
+            owner.Steering.separationIsOn = false;
 
             // Get path to base
             Building closestBuilding = owner.Data.GetClosestResourceReturnPoint(owner);
@@ -105,7 +105,7 @@ namespace MinecaRTS
 
         public override void Exit(Worker owner)
         {
-            owner.Steering.separationOn = true;
+            owner.Steering.separationIsOn = true;
             owner.ChangeAnimation(WkrAnim.Walk);
         }
 
@@ -169,7 +169,7 @@ namespace MinecaRTS
                 owner.ChangeAnimation(WkrAnim.Mine);
 
             owner.TargetResource.AddHarvester(owner);
-            owner.Steering.separationOn = false;
+            owner.Steering.separationIsOn = false;
             owner.timeSpentHarvesting = 0;
             owner.FollowPath = false;
             owner.Vel = Vector2.Zero;
@@ -178,7 +178,7 @@ namespace MinecaRTS
         public override void Exit(Worker owner)
         {
             owner.ChangeAnimation(WkrAnim.Walk);
-            owner.Steering.separationOn = true;
+            owner.Steering.separationIsOn = true;
             owner.timeSpentHarvesting = 0;
 
             if (owner.TargetResource != null)

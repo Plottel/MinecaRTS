@@ -21,7 +21,8 @@ namespace MinecaRTS
         ShowCoarseGrid = 8,
         ShowFogOfWar = 9,
         EnableTimeSlicedPathing = 10,
-        Count = 11 // For easy iteration
+        ShowInfluence = 11,
+        Count = 12 // For easy iteration
     }
 
     public static class Debug
@@ -44,6 +45,7 @@ namespace MinecaRTS
             _settings.Add(DebugOp.ShowCoarseGrid, false);
             _settings.Add(DebugOp.ShowFogOfWar, false);
             _settings.Add(DebugOp.EnableTimeSlicedPathing, false);
+            _settings.Add(DebugOp.ShowInfluence, false);
         }
 
         public static void HandleInput()
@@ -77,6 +79,9 @@ namespace MinecaRTS
 
             if (Input.KeyTyped(Keys.D0))
                 _settings[DebugOp.EnableTimeSlicedPathing] = !_settings[DebugOp.EnableTimeSlicedPathing];
+
+            if (Input.KeyTyped(Keys.I))
+                _settings[DebugOp.ShowInfluence] = !_settings[DebugOp.ShowInfluence];
         }
 
         public static bool IsOn(DebugOp setting)
@@ -90,14 +95,7 @@ namespace MinecaRTS
             {
                 DebugOp opt = (DebugOp)i;
                 spriteBatch.DrawString(debugFont, "(" + i + ") " + opt.ToString() + " --- " + _settings[opt], new Vector2(5, 5 + (i * 15)), _debugColor);
-            }
-            //spriteBatch.DrawString(debugFont, "Show Paths (1) : " + _settings[DebugOption.ShowPaths], new Vector2(5, 5), _debugColor);
-            //spriteBatch.DrawString(debugFont, "Show Grid (2) : " + _settings[DebugOption.ShowGrid], new Vector2(5, 20), _debugColor);
-            //spriteBatch.DrawString(debugFont, "Calc Path Smoothing (3) : " + _settings[DebugOption.CalcPathSmoothing], new Vector2(5, 35), _debugColor);
-            //spriteBatch.DrawString(debugFont, "Calc Path (4) : " + _settings[DebugOption.CalcPath], new Vector2(5, 50), _debugColor);
-            //spriteBatch.DrawString(debugFont, "Show Unit Feelers (5) : " + _settings[DebugOption.ShowUnitFeelers], new Vector2(5, 65), _debugColor);
-            //spriteBatch.DrawString(debugFont, "Show Wall Push Force (6) : " + _settings[DebugOption.ShowWallPushForce], new Vector2(5, 80), _debugColor);
-            //spriteBatch.DrawString(debugFont, "Show States (7) : " + _settings[DebugOption.ShowStates], new Vector2(5, 95), _debugColor);
+            }            
         }
 
         public static void ClearHookedText()

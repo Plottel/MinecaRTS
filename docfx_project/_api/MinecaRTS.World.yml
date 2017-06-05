@@ -1,0 +1,2047 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.World
+  commentId: T:MinecaRTS.World
+  id: World
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.World.#ctor
+  - MinecaRTS.World.AddBuilding(MinecaRTS.Building)
+  - MinecaRTS.World.AddResourceToCell(MinecaRTS.Resource,MinecaRTS.Cell)
+  - MinecaRTS.World.AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.World.Buildings
+  - MinecaRTS.World.CellHasResource(MinecaRTS.Cell)
+  - MinecaRTS.World.CellHasTrack(MinecaRTS.Cell)
+  - MinecaRTS.World.CoarseGrid
+  - MinecaRTS.World.collisionCells
+  - MinecaRTS.World.entityCosts
+  - MinecaRTS.World.fogOfWar
+  - MinecaRTS.World.GameTime
+  - MinecaRTS.World.GetResourceFromCell(MinecaRTS.Cell)
+  - MinecaRTS.World.GetTrackFromCell(MinecaRTS.Cell)
+  - MinecaRTS.World.Grid
+  - MinecaRTS.World.HandleInput
+  - MinecaRTS.World.HandleMessage(MinecaRTS.Message)
+  - MinecaRTS.World.Height
+  - MinecaRTS.World.ID
+  - MinecaRTS.World.MSG_ID
+  - MinecaRTS.World.RemoveResourceFromCell(MinecaRTS.Cell)
+  - MinecaRTS.World.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.World.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.World.Resources
+  - MinecaRTS.World.SelectedUnits
+  - MinecaRTS.World.Setup
+  - MinecaRTS.World.TeamCanSeeCell(System.Int32,System.Int32,MinecaRTS.Team)
+  - MinecaRTS.World.Tracks
+  - MinecaRTS.World.Units
+  - MinecaRTS.World.Update
+  - MinecaRTS.World.Width
+  langs:
+  - csharp
+  - vb
+  name: World
+  nameWithType: World
+  fullName: MinecaRTS.World
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: World
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: 'public class World : IHandleMessages'
+    content.vb: >-
+      Public Class World
+          Implements IHandleMessages
+  inheritance:
+  - System.Object
+  implements:
+  - MinecaRTS.IHandleMessages
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.World.GameTime
+  commentId: P:MinecaRTS.World.GameTime
+  id: GameTime
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: GameTime
+  nameWithType: World.GameTime
+  fullName: MinecaRTS.World.GameTime
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GameTime
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static ulong GameTime { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Shared ReadOnly Property GameTime As ULong
+  overload: MinecaRTS.World.GameTime*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.World.MSG_ID
+  commentId: F:MinecaRTS.World.MSG_ID
+  id: MSG_ID
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: MSG_ID
+  nameWithType: World.MSG_ID
+  fullName: MinecaRTS.World.MSG_ID
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MSG_ID
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 25
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nWorld will always be created first and we may want to send messages to the world from anywhere.\nTherefore its ID is globally accessible.\n"
+  example: []
+  syntax:
+    content: public const int MSG_ID = 0
+    return:
+      type: System.Int32
+    content.vb: Public Const MSG_ID As Integer = 0
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.World.ID
+  commentId: P:MinecaRTS.World.ID
+  id: ID
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: World.ID
+  fullName: MinecaRTS.World.ID
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ID
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 29
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public ulong ID { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property ID As ULong
+  overload: MinecaRTS.World.ID*
+  implements:
+  - MinecaRTS.IHandleMessages.ID
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.Width
+  commentId: F:MinecaRTS.World.Width
+  id: Width
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: World.Width
+  fullName: MinecaRTS.World.Width
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Width
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 34
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int Width
+    return:
+      type: System.Int32
+    content.vb: Public Shared Width As Integer
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.World.Height
+  commentId: F:MinecaRTS.World.Height
+  id: Height
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: World.Height
+  fullName: MinecaRTS.World.Height
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Height
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 35
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int Height
+    return:
+      type: System.Int32
+    content.vb: Public Shared Height As Integer
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.World.entityCosts
+  commentId: F:MinecaRTS.World.entityCosts
+  id: entityCosts
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: entityCosts
+  nameWithType: World.entityCosts
+  fullName: MinecaRTS.World.entityCosts
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: entityCosts
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 37
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Dictionary<Type, Cost> entityCosts
+    return:
+      type: System.Collections.Generic.Dictionary{System.Type,MinecaRTS.Cost}
+    content.vb: Public Shared entityCosts As Dictionary(Of Type, Cost)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.World.Grid
+  commentId: F:MinecaRTS.World.Grid
+  id: Grid
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: World.Grid
+  fullName: MinecaRTS.World.Grid
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Grid
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 41
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly Grid Grid
+    return:
+      type: MinecaRTS.Grid
+    content.vb: Public ReadOnly Grid As Grid
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.CoarseGrid
+  commentId: F:MinecaRTS.World.CoarseGrid
+  id: CoarseGrid
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: CoarseGrid
+  nameWithType: World.CoarseGrid
+  fullName: MinecaRTS.World.CoarseGrid
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CoarseGrid
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 42
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly Grid CoarseGrid
+    return:
+      type: MinecaRTS.Grid
+    content.vb: Public ReadOnly CoarseGrid As Grid
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.Units
+  commentId: F:MinecaRTS.World.Units
+  id: Units
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Units
+  nameWithType: World.Units
+  fullName: MinecaRTS.World.Units
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Units
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 43
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly List<Unit> Units
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Unit}
+    content.vb: Public ReadOnly Units As List(Of Unit)
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.Buildings
+  commentId: F:MinecaRTS.World.Buildings
+  id: Buildings
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Buildings
+  nameWithType: World.Buildings
+  fullName: MinecaRTS.World.Buildings
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Buildings
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 44
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly List<Building> Buildings
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Building}
+    content.vb: Public ReadOnly Buildings As List(Of Building)
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.SelectedUnits
+  commentId: F:MinecaRTS.World.SelectedUnits
+  id: SelectedUnits
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: SelectedUnits
+  nameWithType: World.SelectedUnits
+  fullName: MinecaRTS.World.SelectedUnits
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SelectedUnits
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 45
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Unit> SelectedUnits
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Unit}
+    content.vb: Public SelectedUnits As List(Of Unit)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.Resources
+  commentId: F:MinecaRTS.World.Resources
+  id: Resources
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Resources
+  nameWithType: World.Resources
+  fullName: MinecaRTS.World.Resources
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Resources
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 47
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly Dictionary<Cell, Resource> Resources
+    return:
+      type: System.Collections.Generic.Dictionary{MinecaRTS.Cell,MinecaRTS.Resource}
+    content.vb: Public ReadOnly Resources As Dictionary(Of Cell, Resource)
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.Tracks
+  commentId: F:MinecaRTS.World.Tracks
+  id: Tracks
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Tracks
+  nameWithType: World.Tracks
+  fullName: MinecaRTS.World.Tracks
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Tracks
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 48
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly Dictionary<Cell, Track> Tracks
+    return:
+      type: System.Collections.Generic.Dictionary{MinecaRTS.Cell,MinecaRTS.Track}
+    content.vb: Public ReadOnly Tracks As Dictionary(Of Cell, Track)
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.collisionCells
+  commentId: F:MinecaRTS.World.collisionCells
+  id: collisionCells
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: collisionCells
+  nameWithType: World.collisionCells
+  fullName: MinecaRTS.World.collisionCells
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: collisionCells
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 53
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly CollisionCellData collisionCells
+    return:
+      type: MinecaRTS.CollisionCellData
+    content.vb: Public ReadOnly collisionCells As CollisionCellData
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.fogOfWar
+  commentId: F:MinecaRTS.World.fogOfWar
+  id: fogOfWar
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: fogOfWar
+  nameWithType: World.fogOfWar
+  fullName: MinecaRTS.World.fogOfWar
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: fogOfWar
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 54
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public readonly FogOfWarData fogOfWar
+    return:
+      type: MinecaRTS.FogOfWarData
+    content.vb: Public ReadOnly fogOfWar As FogOfWarData
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.World.#ctor
+  commentId: M:MinecaRTS.World.#ctor
+  id: '#ctor'
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: World()
+  nameWithType: World.World()
+  fullName: MinecaRTS.World.World()
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 57
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public World()
+    content.vb: Public Sub New
+  overload: MinecaRTS.World.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.Setup
+  commentId: M:MinecaRTS.World.Setup
+  id: Setup
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Setup()
+  nameWithType: World.Setup()
+  fullName: MinecaRTS.World.Setup()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Setup
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 84
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void Setup()
+    content.vb: Public Sub Setup
+  overload: MinecaRTS.World.Setup*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.World.HandleMessage(MinecaRTS.Message)
+  id: HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: HandleMessage(Message)
+  nameWithType: World.HandleMessage(Message)
+  fullName: MinecaRTS.World.HandleMessage(MinecaRTS.Message)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleMessage
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 95
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void HandleMessage(Message message)
+    parameters:
+    - id: message
+      type: MinecaRTS.Message
+    content.vb: Public Sub HandleMessage(message As Message)
+  overload: MinecaRTS.World.HandleMessage*
+  implements:
+  - MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.HandleInput
+  commentId: M:MinecaRTS.World.HandleInput
+  id: HandleInput
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: HandleInput()
+  nameWithType: World.HandleInput()
+  fullName: MinecaRTS.World.HandleInput()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleInput
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 143
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void HandleInput()
+    content.vb: Public Sub HandleInput
+  overload: MinecaRTS.World.HandleInput*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.Update
+  commentId: M:MinecaRTS.World.Update
+  id: Update
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: World.Update()
+  fullName: MinecaRTS.World.Update()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Update
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 157
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void Update()
+    content.vb: Public Sub Update
+  overload: MinecaRTS.World.Update*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.TeamCanSeeCell(System.Int32,System.Int32,MinecaRTS.Team)
+  commentId: M:MinecaRTS.World.TeamCanSeeCell(System.Int32,System.Int32,MinecaRTS.Team)
+  id: TeamCanSeeCell(System.Int32,System.Int32,MinecaRTS.Team)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: TeamCanSeeCell(Int32, Int32, Team)
+  nameWithType: World.TeamCanSeeCell(Int32, Int32, Team)
+  fullName: MinecaRTS.World.TeamCanSeeCell(System.Int32, System.Int32, MinecaRTS.Team)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TeamCanSeeCell
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 171
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool TeamCanSeeCell(int c, int r, Team team)
+    parameters:
+    - id: c
+      type: System.Int32
+    - id: r
+      type: System.Int32
+    - id: team
+      type: MinecaRTS.Team
+    return:
+      type: System.Boolean
+    content.vb: Public Function TeamCanSeeCell(c As Integer, r As Integer, team As Team) As Boolean
+  overload: MinecaRTS.World.TeamCanSeeCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.World.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: World.Render(SpriteBatch)
+  fullName: MinecaRTS.World.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 205
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Sub Render(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.World.Render*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.World.AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  id: AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: AddUnit(Type, Vector2, Team, Vector2)
+  nameWithType: World.AddUnit(Type, Vector2, Team, Vector2)
+  fullName: MinecaRTS.World.AddUnit(System.Type, Microsoft.Xna.Framework.Vector2, MinecaRTS.Team, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddUnit
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 265
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddUnit(Type unitType, Vector2 pos, Team team, Vector2 rallyPoint)
+    parameters:
+    - id: unitType
+      type: System.Type
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    - id: team
+      type: MinecaRTS.Team
+    - id: rallyPoint
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Sub AddUnit(unitType As Type, pos As Vector2, team As Team, rallyPoint As Vector2)
+  overload: MinecaRTS.World.AddUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.AddBuilding(MinecaRTS.Building)
+  commentId: M:MinecaRTS.World.AddBuilding(MinecaRTS.Building)
+  id: AddBuilding(MinecaRTS.Building)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: AddBuilding(Building)
+  nameWithType: World.AddBuilding(Building)
+  fullName: MinecaRTS.World.AddBuilding(MinecaRTS.Building)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddBuilding
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 286
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddBuilding(Building building)
+    parameters:
+    - id: building
+      type: MinecaRTS.Building
+    content.vb: Public Sub AddBuilding(building As Building)
+  overload: MinecaRTS.World.AddBuilding*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.AddResourceToCell(MinecaRTS.Resource,MinecaRTS.Cell)
+  commentId: M:MinecaRTS.World.AddResourceToCell(MinecaRTS.Resource,MinecaRTS.Cell)
+  id: AddResourceToCell(MinecaRTS.Resource,MinecaRTS.Cell)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: AddResourceToCell(Resource, Cell)
+  nameWithType: World.AddResourceToCell(Resource, Cell)
+  fullName: MinecaRTS.World.AddResourceToCell(MinecaRTS.Resource, MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddResourceToCell
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 307
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddResourceToCell(Resource resource, Cell cell)
+    parameters:
+    - id: resource
+      type: MinecaRTS.Resource
+    - id: cell
+      type: MinecaRTS.Cell
+    content.vb: Public Sub AddResourceToCell(resource As Resource, cell As Cell)
+  overload: MinecaRTS.World.AddResourceToCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.RemoveResourceFromCell(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.World.RemoveResourceFromCell(MinecaRTS.Cell)
+  id: RemoveResourceFromCell(MinecaRTS.Cell)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: RemoveResourceFromCell(Cell)
+  nameWithType: World.RemoveResourceFromCell(Cell)
+  fullName: MinecaRTS.World.RemoveResourceFromCell(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RemoveResourceFromCell
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 323
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RemoveResourceFromCell(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    content.vb: Public Sub RemoveResourceFromCell(cell As Cell)
+  overload: MinecaRTS.World.RemoveResourceFromCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.CellHasResource(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.World.CellHasResource(MinecaRTS.Cell)
+  id: CellHasResource(MinecaRTS.Cell)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: CellHasResource(Cell)
+  nameWithType: World.CellHasResource(Cell)
+  fullName: MinecaRTS.World.CellHasResource(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellHasResource
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 339
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool CellHasResource(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Public Function CellHasResource(cell As Cell) As Boolean
+  overload: MinecaRTS.World.CellHasResource*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.CellHasTrack(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.World.CellHasTrack(MinecaRTS.Cell)
+  id: CellHasTrack(MinecaRTS.Cell)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: CellHasTrack(Cell)
+  nameWithType: World.CellHasTrack(Cell)
+  fullName: MinecaRTS.World.CellHasTrack(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellHasTrack
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 344
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool CellHasTrack(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Public Function CellHasTrack(cell As Cell) As Boolean
+  overload: MinecaRTS.World.CellHasTrack*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.GetResourceFromCell(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.World.GetResourceFromCell(MinecaRTS.Cell)
+  id: GetResourceFromCell(MinecaRTS.Cell)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: GetResourceFromCell(Cell)
+  nameWithType: World.GetResourceFromCell(Cell)
+  fullName: MinecaRTS.World.GetResourceFromCell(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetResourceFromCell
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 349
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Resource GetResourceFromCell(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: MinecaRTS.Resource
+    content.vb: Public Function GetResourceFromCell(cell As Cell) As Resource
+  overload: MinecaRTS.World.GetResourceFromCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.GetTrackFromCell(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.World.GetTrackFromCell(MinecaRTS.Cell)
+  id: GetTrackFromCell(MinecaRTS.Cell)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: GetTrackFromCell(Cell)
+  nameWithType: World.GetTrackFromCell(Cell)
+  fullName: MinecaRTS.World.GetTrackFromCell(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetTrackFromCell
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 360
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Track GetTrackFromCell(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: MinecaRTS.Track
+    content.vb: Public Function GetTrackFromCell(cell As Cell) As Track
+  overload: MinecaRTS.World.GetTrackFromCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.World.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.World.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.World
+  langs:
+  - csharp
+  - vb
+  name: RenderDebug(SpriteBatch)
+  nameWithType: World.RenderDebug(SpriteBatch)
+  fullName: MinecaRTS.World.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/World.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderDebug
+    path: ../MinecaRTS/Core/World.cs
+    startLine: 371
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RenderDebug(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Sub RenderDebug(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.World.RenderDebug*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: MinecaRTS.IHandleMessages
+  commentId: T:MinecaRTS.IHandleMessages
+  parent: MinecaRTS
+  isExternal: false
+  name: IHandleMessages
+  nameWithType: IHandleMessages
+  fullName: MinecaRTS.IHandleMessages
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.World.GameTime*
+  commentId: Overload:MinecaRTS.World.GameTime
+  isExternal: false
+  name: GameTime
+  nameWithType: World.GameTime
+  fullName: MinecaRTS.World.GameTime
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MinecaRTS.World.ID*
+  commentId: Overload:MinecaRTS.World.ID
+  isExternal: false
+  name: ID
+  nameWithType: World.ID
+  fullName: MinecaRTS.World.ID
+- uid: MinecaRTS.IHandleMessages.ID
+  commentId: P:MinecaRTS.IHandleMessages.ID
+  parent: MinecaRTS.IHandleMessages
+  isExternal: false
+  name: ID
+  nameWithType: IHandleMessages.ID
+  fullName: MinecaRTS.IHandleMessages.ID
+- uid: System.Collections.Generic.Dictionary{System.Type,MinecaRTS.Cost}
+  commentId: T:System.Collections.Generic.Dictionary{System.Type,MinecaRTS.Cost}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<Type, Cost>
+  nameWithType: Dictionary<Type, Cost>
+  fullName: System.Collections.Generic.Dictionary<System.Type, MinecaRTS.Cost>
+  nameWithType.vb: Dictionary(Of Type, Cost)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.Type, MinecaRTS.Cost)
+  name.vb: Dictionary(Of Type, Cost)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Type
+    name: Type
+    nameWithType: Type
+    fullName: System.Type
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Cost
+    name: Cost
+    nameWithType: Cost
+    fullName: MinecaRTS.Cost
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Type
+    name: Type
+    nameWithType: Type
+    fullName: System.Type
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Cost
+    name: Cost
+    nameWithType: Cost
+    fullName: MinecaRTS.Cost
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: MinecaRTS.Grid
+  commentId: T:MinecaRTS.Grid
+  parent: MinecaRTS
+  isExternal: false
+  name: Grid
+  nameWithType: Grid
+  fullName: MinecaRTS.Grid
+- uid: System.Collections.Generic.List{MinecaRTS.Unit}
+  commentId: T:System.Collections.Generic.List{MinecaRTS.Unit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Unit>
+  nameWithType: List<Unit>
+  fullName: System.Collections.Generic.List<MinecaRTS.Unit>
+  nameWithType.vb: List(Of Unit)
+  fullName.vb: System.Collections.Generic.List(Of MinecaRTS.Unit)
+  name.vb: List(Of Unit)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{MinecaRTS.Building}
+  commentId: T:System.Collections.Generic.List{MinecaRTS.Building}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Building>
+  nameWithType: List<Building>
+  fullName: System.Collections.Generic.List<MinecaRTS.Building>
+  nameWithType.vb: List(Of Building)
+  fullName.vb: System.Collections.Generic.List(Of MinecaRTS.Building)
+  name.vb: List(Of Building)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Building
+    name: Building
+    nameWithType: Building
+    fullName: MinecaRTS.Building
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Building
+    name: Building
+    nameWithType: Building
+    fullName: MinecaRTS.Building
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary{MinecaRTS.Cell,MinecaRTS.Resource}
+  commentId: T:System.Collections.Generic.Dictionary{MinecaRTS.Cell,MinecaRTS.Resource}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<Cell, Resource>
+  nameWithType: Dictionary<Cell, Resource>
+  fullName: System.Collections.Generic.Dictionary<MinecaRTS.Cell, MinecaRTS.Resource>
+  nameWithType.vb: Dictionary(Of Cell, Resource)
+  fullName.vb: System.Collections.Generic.Dictionary(Of MinecaRTS.Cell, MinecaRTS.Resource)
+  name.vb: Dictionary(Of Cell, Resource)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Resource
+    name: Resource
+    nameWithType: Resource
+    fullName: MinecaRTS.Resource
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Resource
+    name: Resource
+    nameWithType: Resource
+    fullName: MinecaRTS.Resource
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary{MinecaRTS.Cell,MinecaRTS.Track}
+  commentId: T:System.Collections.Generic.Dictionary{MinecaRTS.Cell,MinecaRTS.Track}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<Cell, Track>
+  nameWithType: Dictionary<Cell, Track>
+  fullName: System.Collections.Generic.Dictionary<MinecaRTS.Cell, MinecaRTS.Track>
+  nameWithType.vb: Dictionary(Of Cell, Track)
+  fullName.vb: System.Collections.Generic.Dictionary(Of MinecaRTS.Cell, MinecaRTS.Track)
+  name.vb: Dictionary(Of Cell, Track)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Track
+    name: Track
+    nameWithType: Track
+    fullName: MinecaRTS.Track
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Cell
+    name: Cell
+    nameWithType: Cell
+    fullName: MinecaRTS.Cell
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Track
+    name: Track
+    nameWithType: Track
+    fullName: MinecaRTS.Track
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.CollisionCellData
+  commentId: T:MinecaRTS.CollisionCellData
+  parent: MinecaRTS
+  isExternal: false
+  name: CollisionCellData
+  nameWithType: CollisionCellData
+  fullName: MinecaRTS.CollisionCellData
+- uid: MinecaRTS.FogOfWarData
+  commentId: T:MinecaRTS.FogOfWarData
+  parent: MinecaRTS
+  isExternal: false
+  name: FogOfWarData
+  nameWithType: FogOfWarData
+  fullName: MinecaRTS.FogOfWarData
+- uid: MinecaRTS.World.#ctor*
+  commentId: Overload:MinecaRTS.World.#ctor
+  isExternal: false
+  name: World
+  nameWithType: World.World
+  fullName: MinecaRTS.World.World
+- uid: MinecaRTS.World.Setup*
+  commentId: Overload:MinecaRTS.World.Setup
+  isExternal: false
+  name: Setup
+  nameWithType: World.Setup
+  fullName: MinecaRTS.World.Setup
+- uid: MinecaRTS.World.HandleMessage*
+  commentId: Overload:MinecaRTS.World.HandleMessage
+  isExternal: false
+  name: HandleMessage
+  nameWithType: World.HandleMessage
+  fullName: MinecaRTS.World.HandleMessage
+- uid: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.IHandleMessages
+  isExternal: false
+  name: HandleMessage(Message)
+  nameWithType: IHandleMessages.HandleMessage(Message)
+  fullName: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+  spec.csharp:
+  - uid: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: IHandleMessages.HandleMessage
+    fullName: MinecaRTS.IHandleMessages.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.IHandleMessages.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: IHandleMessages.HandleMessage
+    fullName: MinecaRTS.IHandleMessages.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Message
+  commentId: T:MinecaRTS.Message
+  parent: MinecaRTS
+  isExternal: false
+  name: Message
+  nameWithType: Message
+  fullName: MinecaRTS.Message
+- uid: MinecaRTS.World.HandleInput*
+  commentId: Overload:MinecaRTS.World.HandleInput
+  isExternal: false
+  name: HandleInput
+  nameWithType: World.HandleInput
+  fullName: MinecaRTS.World.HandleInput
+- uid: MinecaRTS.World.Update*
+  commentId: Overload:MinecaRTS.World.Update
+  isExternal: false
+  name: Update
+  nameWithType: World.Update
+  fullName: MinecaRTS.World.Update
+- uid: MinecaRTS.World.TeamCanSeeCell*
+  commentId: Overload:MinecaRTS.World.TeamCanSeeCell
+  isExternal: false
+  name: TeamCanSeeCell
+  nameWithType: World.TeamCanSeeCell
+  fullName: MinecaRTS.World.TeamCanSeeCell
+- uid: MinecaRTS.Team
+  commentId: T:MinecaRTS.Team
+  parent: MinecaRTS
+  isExternal: false
+  name: Team
+  nameWithType: Team
+  fullName: MinecaRTS.Team
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MinecaRTS.World.Render*
+  commentId: Overload:MinecaRTS.World.Render
+  isExternal: false
+  name: Render
+  nameWithType: World.Render
+  fullName: MinecaRTS.World.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics
+- uid: MinecaRTS.World.AddUnit*
+  commentId: Overload:MinecaRTS.World.AddUnit
+  isExternal: false
+  name: AddUnit
+  nameWithType: World.AddUnit
+  fullName: MinecaRTS.World.AddUnit
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.World.AddBuilding*
+  commentId: Overload:MinecaRTS.World.AddBuilding
+  isExternal: false
+  name: AddBuilding
+  nameWithType: World.AddBuilding
+  fullName: MinecaRTS.World.AddBuilding
+- uid: MinecaRTS.Building
+  commentId: T:MinecaRTS.Building
+  parent: MinecaRTS
+  isExternal: false
+  name: Building
+  nameWithType: Building
+  fullName: MinecaRTS.Building
+- uid: MinecaRTS.World.AddResourceToCell*
+  commentId: Overload:MinecaRTS.World.AddResourceToCell
+  isExternal: false
+  name: AddResourceToCell
+  nameWithType: World.AddResourceToCell
+  fullName: MinecaRTS.World.AddResourceToCell
+- uid: MinecaRTS.Resource
+  commentId: T:MinecaRTS.Resource
+  parent: MinecaRTS
+  isExternal: false
+  name: Resource
+  nameWithType: Resource
+  fullName: MinecaRTS.Resource
+- uid: MinecaRTS.Cell
+  commentId: T:MinecaRTS.Cell
+  parent: MinecaRTS
+  isExternal: false
+  name: Cell
+  nameWithType: Cell
+  fullName: MinecaRTS.Cell
+- uid: MinecaRTS.World.RemoveResourceFromCell*
+  commentId: Overload:MinecaRTS.World.RemoveResourceFromCell
+  isExternal: false
+  name: RemoveResourceFromCell
+  nameWithType: World.RemoveResourceFromCell
+  fullName: MinecaRTS.World.RemoveResourceFromCell
+- uid: MinecaRTS.World.CellHasResource*
+  commentId: Overload:MinecaRTS.World.CellHasResource
+  isExternal: false
+  name: CellHasResource
+  nameWithType: World.CellHasResource
+  fullName: MinecaRTS.World.CellHasResource
+- uid: MinecaRTS.World.CellHasTrack*
+  commentId: Overload:MinecaRTS.World.CellHasTrack
+  isExternal: false
+  name: CellHasTrack
+  nameWithType: World.CellHasTrack
+  fullName: MinecaRTS.World.CellHasTrack
+- uid: MinecaRTS.World.GetResourceFromCell*
+  commentId: Overload:MinecaRTS.World.GetResourceFromCell
+  isExternal: false
+  name: GetResourceFromCell
+  nameWithType: World.GetResourceFromCell
+  fullName: MinecaRTS.World.GetResourceFromCell
+- uid: MinecaRTS.World.GetTrackFromCell*
+  commentId: Overload:MinecaRTS.World.GetTrackFromCell
+  isExternal: false
+  name: GetTrackFromCell
+  nameWithType: World.GetTrackFromCell
+  fullName: MinecaRTS.World.GetTrackFromCell
+- uid: MinecaRTS.Track
+  commentId: T:MinecaRTS.Track
+  parent: MinecaRTS
+  isExternal: false
+  name: Track
+  nameWithType: Track
+  fullName: MinecaRTS.Track
+- uid: MinecaRTS.World.RenderDebug*
+  commentId: Overload:MinecaRTS.World.RenderDebug
+  isExternal: false
+  name: RenderDebug
+  nameWithType: World.RenderDebug
+  fullName: MinecaRTS.World.RenderDebug

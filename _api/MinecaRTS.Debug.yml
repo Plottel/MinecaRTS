@@ -1,0 +1,706 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Debug
+  commentId: T:MinecaRTS.Debug
+  id: Debug
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Debug.ClearHookedText
+  - MinecaRTS.Debug.debugFont
+  - MinecaRTS.Debug.HandleInput
+  - MinecaRTS.Debug.HookText(System.String)
+  - MinecaRTS.Debug.Init
+  - MinecaRTS.Debug.IsOn(MinecaRTS.DebugOp)
+  - MinecaRTS.Debug.RenderDebugOptionStates(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Debug.RenderHookedText(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  langs:
+  - csharp
+  - vb
+  name: Debug
+  nameWithType: Debug
+  fullName: MinecaRTS.Debug
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Debug
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 26
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static class Debug
+    content.vb: Public Module Debug
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: MinecaRTS.Debug.debugFont
+  commentId: F:MinecaRTS.Debug.debugFont
+  id: debugFont
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: debugFont
+  nameWithType: Debug.debugFont
+  fullName: MinecaRTS.Debug.debugFont
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: debugFont
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 28
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static SpriteFont debugFont
+    return:
+      type: Microsoft.Xna.Framework.Graphics.SpriteFont
+    content.vb: Public Shared debugFont As SpriteFont
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Debug.Init
+  commentId: M:MinecaRTS.Debug.Init
+  id: Init
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: Init()
+  nameWithType: Debug.Init()
+  fullName: MinecaRTS.Debug.Init()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Init
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 34
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void Init()
+    content.vb: Public Shared Sub Init
+  overload: MinecaRTS.Debug.Init*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Debug.HandleInput
+  commentId: M:MinecaRTS.Debug.HandleInput
+  id: HandleInput
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: HandleInput()
+  nameWithType: Debug.HandleInput()
+  fullName: MinecaRTS.Debug.HandleInput()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleInput
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 48
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void HandleInput()
+    content.vb: Public Shared Sub HandleInput
+  overload: MinecaRTS.Debug.HandleInput*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Debug.IsOn(MinecaRTS.DebugOp)
+  commentId: M:MinecaRTS.Debug.IsOn(MinecaRTS.DebugOp)
+  id: IsOn(MinecaRTS.DebugOp)
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: IsOn(DebugOp)
+  nameWithType: Debug.IsOn(DebugOp)
+  fullName: MinecaRTS.Debug.IsOn(MinecaRTS.DebugOp)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: IsOn
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 81
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static bool IsOn(DebugOp setting)
+    parameters:
+    - id: setting
+      type: MinecaRTS.DebugOp
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsOn(setting As DebugOp) As Boolean
+  overload: MinecaRTS.Debug.IsOn*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Debug.RenderDebugOptionStates(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Debug.RenderDebugOptionStates(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: RenderDebugOptionStates(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: RenderDebugOptionStates(SpriteBatch)
+  nameWithType: Debug.RenderDebugOptionStates(SpriteBatch)
+  fullName: MinecaRTS.Debug.RenderDebugOptionStates(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderDebugOptionStates
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 86
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void RenderDebugOptionStates(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Shared Sub RenderDebugOptionStates(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.Debug.RenderDebugOptionStates*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Debug.ClearHookedText
+  commentId: M:MinecaRTS.Debug.ClearHookedText
+  id: ClearHookedText
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: ClearHookedText()
+  nameWithType: Debug.ClearHookedText()
+  fullName: MinecaRTS.Debug.ClearHookedText()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ClearHookedText
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 102
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void ClearHookedText()
+    content.vb: Public Shared Sub ClearHookedText
+  overload: MinecaRTS.Debug.ClearHookedText*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Debug.HookText(System.String)
+  commentId: M:MinecaRTS.Debug.HookText(System.String)
+  id: HookText(System.String)
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: HookText(String)
+  nameWithType: Debug.HookText(String)
+  fullName: MinecaRTS.Debug.HookText(System.String)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HookText
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 107
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void HookText(string text)
+    parameters:
+    - id: text
+      type: System.String
+    content.vb: Public Shared Sub HookText(text As String)
+  overload: MinecaRTS.Debug.HookText*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Debug.RenderHookedText(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Debug.RenderHookedText(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: RenderHookedText(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Debug
+  langs:
+  - csharp
+  - vb
+  name: RenderHookedText(SpriteBatch)
+  nameWithType: Debug.RenderHookedText(SpriteBatch)
+  fullName: MinecaRTS.Debug.RenderHookedText(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/EditAndDebug/Debug.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderHookedText
+    path: MinecaRTS/EditAndDebug/Debug.cs
+    startLine: 112
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void RenderHookedText(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Shared Sub RenderHookedText(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.Debug.RenderHookedText*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.Xna.Framework.Graphics.SpriteFont
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteFont
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteFont
+  nameWithType: SpriteFont
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteFont
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics
+- uid: MinecaRTS.Debug.Init*
+  commentId: Overload:MinecaRTS.Debug.Init
+  isExternal: false
+  name: Init
+  nameWithType: Debug.Init
+  fullName: MinecaRTS.Debug.Init
+- uid: MinecaRTS.Debug.HandleInput*
+  commentId: Overload:MinecaRTS.Debug.HandleInput
+  isExternal: false
+  name: HandleInput
+  nameWithType: Debug.HandleInput
+  fullName: MinecaRTS.Debug.HandleInput
+- uid: MinecaRTS.Debug.IsOn*
+  commentId: Overload:MinecaRTS.Debug.IsOn
+  isExternal: false
+  name: IsOn
+  nameWithType: Debug.IsOn
+  fullName: MinecaRTS.Debug.IsOn
+- uid: MinecaRTS.DebugOp
+  commentId: T:MinecaRTS.DebugOp
+  parent: MinecaRTS
+  isExternal: false
+  name: DebugOp
+  nameWithType: DebugOp
+  fullName: MinecaRTS.DebugOp
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MinecaRTS.Debug.RenderDebugOptionStates*
+  commentId: Overload:MinecaRTS.Debug.RenderDebugOptionStates
+  isExternal: false
+  name: RenderDebugOptionStates
+  nameWithType: Debug.RenderDebugOptionStates
+  fullName: MinecaRTS.Debug.RenderDebugOptionStates
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: MinecaRTS.Debug.ClearHookedText*
+  commentId: Overload:MinecaRTS.Debug.ClearHookedText
+  isExternal: false
+  name: ClearHookedText
+  nameWithType: Debug.ClearHookedText
+  fullName: MinecaRTS.Debug.ClearHookedText
+- uid: MinecaRTS.Debug.HookText*
+  commentId: Overload:MinecaRTS.Debug.HookText
+  isExternal: false
+  name: HookText
+  nameWithType: Debug.HookText
+  fullName: MinecaRTS.Debug.HookText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: MinecaRTS.Debug.RenderHookedText*
+  commentId: Overload:MinecaRTS.Debug.RenderHookedText
+  isExternal: false
+  name: RenderHookedText
+  nameWithType: Debug.RenderHookedText
+  fullName: MinecaRTS.Debug.RenderHookedText

@@ -10,6 +10,11 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    /// <summary>
+    /// Represents the class responsible for generating all paths.
+    /// Each path handler owns a pathfinder to generate paths and can send it to the
+    /// TimeSlicedPathManager for time slicing.
+    /// </summary>
     public class Pathfinder
     {
         private SearchState searchState;
@@ -436,6 +441,9 @@ namespace MinecaRTS
         {
             path.Insert(0, parents[Current]);
             Current = parents[Current];
+
+            if (!parents.ContainsKey(Current))
+                return true;
 
             return parents[Current] == Source;
         }

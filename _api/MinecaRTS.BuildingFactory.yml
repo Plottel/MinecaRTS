@@ -1,0 +1,576 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.BuildingFactory
+  commentId: T:MinecaRTS.BuildingFactory
+  id: BuildingFactory
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.BuildingFactory.CreateDepositBox(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.BuildingFactory.CreateHouse(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.BuildingFactory.CreateTownHall(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.BuildingFactory.CreateTrack(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  langs:
+  - csharp
+  - vb
+  name: BuildingFactory
+  nameWithType: BuildingFactory
+  fullName: MinecaRTS.BuildingFactory
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: BuildingFactory
+    path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+    startLine: 9
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static class BuildingFactory
+    content.vb: Public Module BuildingFactory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: MinecaRTS.BuildingFactory.CreateTownHall(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.BuildingFactory.CreateTownHall(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  id: CreateTownHall(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.BuildingFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateTownHall(PlayerData, Vector2)
+  nameWithType: BuildingFactory.CreateTownHall(PlayerData, Vector2)
+  fullName: MinecaRTS.BuildingFactory.CreateTownHall(MinecaRTS.PlayerData, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CreateTownHall
+    path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static TownHall CreateTownHall(PlayerData data, Vector2 pos)
+    parameters:
+    - id: data
+      type: MinecaRTS.PlayerData
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.TownHall
+    content.vb: Public Shared Function CreateTownHall(data As PlayerData, pos As Vector2) As TownHall
+  overload: MinecaRTS.BuildingFactory.CreateTownHall*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.BuildingFactory.CreateHouse(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.BuildingFactory.CreateHouse(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  id: CreateHouse(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.BuildingFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateHouse(PlayerData, Vector2)
+  nameWithType: BuildingFactory.CreateHouse(PlayerData, Vector2)
+  fullName: MinecaRTS.BuildingFactory.CreateHouse(MinecaRTS.PlayerData, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CreateHouse
+    path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+    startLine: 19
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static House CreateHouse(PlayerData data, Vector2 pos)
+    parameters:
+    - id: data
+      type: MinecaRTS.PlayerData
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.House
+    content.vb: Public Shared Function CreateHouse(data As PlayerData, pos As Vector2) As House
+  overload: MinecaRTS.BuildingFactory.CreateHouse*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.BuildingFactory.CreateTrack(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.BuildingFactory.CreateTrack(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  id: CreateTrack(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.BuildingFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateTrack(PlayerData, Vector2)
+  nameWithType: BuildingFactory.CreateTrack(PlayerData, Vector2)
+  fullName: MinecaRTS.BuildingFactory.CreateTrack(MinecaRTS.PlayerData, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CreateTrack
+    path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+    startLine: 24
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Track CreateTrack(PlayerData data, Vector2 pos)
+    parameters:
+    - id: data
+      type: MinecaRTS.PlayerData
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.Track
+    content.vb: Public Shared Function CreateTrack(data As PlayerData, pos As Vector2) As Track
+  overload: MinecaRTS.BuildingFactory.CreateTrack*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.BuildingFactory.CreateDepositBox(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.BuildingFactory.CreateDepositBox(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  id: CreateDepositBox(MinecaRTS.PlayerData,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.BuildingFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateDepositBox(PlayerData, Vector2)
+  nameWithType: BuildingFactory.CreateDepositBox(PlayerData, Vector2)
+  fullName: MinecaRTS.BuildingFactory.CreateDepositBox(MinecaRTS.PlayerData, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CreateDepositBox
+    path: MinecaRTS/Entities/Buildings/BuildingFactory.cs
+    startLine: 29
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static DepositBox CreateDepositBox(PlayerData data, Vector2 pos)
+    parameters:
+    - id: data
+      type: MinecaRTS.PlayerData
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.DepositBox
+    content.vb: Public Shared Function CreateDepositBox(data As PlayerData, pos As Vector2) As DepositBox
+  overload: MinecaRTS.BuildingFactory.CreateDepositBox*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.BuildingFactory.CreateTownHall*
+  commentId: Overload:MinecaRTS.BuildingFactory.CreateTownHall
+  isExternal: false
+  name: CreateTownHall
+  nameWithType: BuildingFactory.CreateTownHall
+  fullName: MinecaRTS.BuildingFactory.CreateTownHall
+- uid: MinecaRTS.PlayerData
+  commentId: T:MinecaRTS.PlayerData
+  parent: MinecaRTS
+  isExternal: false
+  name: PlayerData
+  nameWithType: PlayerData
+  fullName: MinecaRTS.PlayerData
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: MinecaRTS.TownHall
+  commentId: T:MinecaRTS.TownHall
+  parent: MinecaRTS
+  isExternal: false
+  name: TownHall
+  nameWithType: TownHall
+  fullName: MinecaRTS.TownHall
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.BuildingFactory.CreateHouse*
+  commentId: Overload:MinecaRTS.BuildingFactory.CreateHouse
+  isExternal: false
+  name: CreateHouse
+  nameWithType: BuildingFactory.CreateHouse
+  fullName: MinecaRTS.BuildingFactory.CreateHouse
+- uid: MinecaRTS.House
+  commentId: T:MinecaRTS.House
+  parent: MinecaRTS
+  isExternal: false
+  name: House
+  nameWithType: House
+  fullName: MinecaRTS.House
+- uid: MinecaRTS.BuildingFactory.CreateTrack*
+  commentId: Overload:MinecaRTS.BuildingFactory.CreateTrack
+  isExternal: false
+  name: CreateTrack
+  nameWithType: BuildingFactory.CreateTrack
+  fullName: MinecaRTS.BuildingFactory.CreateTrack
+- uid: MinecaRTS.Track
+  commentId: T:MinecaRTS.Track
+  parent: MinecaRTS
+  isExternal: false
+  name: Track
+  nameWithType: Track
+  fullName: MinecaRTS.Track
+- uid: MinecaRTS.BuildingFactory.CreateDepositBox*
+  commentId: Overload:MinecaRTS.BuildingFactory.CreateDepositBox
+  isExternal: false
+  name: CreateDepositBox
+  nameWithType: BuildingFactory.CreateDepositBox
+  fullName: MinecaRTS.BuildingFactory.CreateDepositBox
+- uid: MinecaRTS.DepositBox
+  commentId: T:MinecaRTS.DepositBox
+  parent: MinecaRTS
+  isExternal: false
+  name: DepositBox
+  nameWithType: DepositBox
+  fullName: MinecaRTS.DepositBox

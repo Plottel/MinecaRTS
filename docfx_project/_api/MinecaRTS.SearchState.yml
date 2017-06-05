@@ -1,0 +1,213 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.SearchState
+  commentId: T:MinecaRTS.SearchState
+  id: SearchState
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.SearchState.Complete
+  - MinecaRTS.SearchState.Failed
+  - MinecaRTS.SearchState.Retracing
+  - MinecaRTS.SearchState.Searching
+  - MinecaRTS.SearchState.Smoothing
+  langs:
+  - csharp
+  - vb
+  name: SearchState
+  nameWithType: SearchState
+  fullName: MinecaRTS.SearchState
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchState.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SearchState
+    path: ../MinecaRTS/Pathing/SearchState.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum SearchState
+    content.vb: Public Enum SearchState
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.SearchState.Searching
+  commentId: F:MinecaRTS.SearchState.Searching
+  id: Searching
+  parent: MinecaRTS.SearchState
+  langs:
+  - csharp
+  - vb
+  name: Searching
+  nameWithType: SearchState.Searching
+  fullName: MinecaRTS.SearchState.Searching
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchState.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Searching
+    path: ../MinecaRTS/Pathing/SearchState.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Searching = 0
+    return:
+      type: MinecaRTS.SearchState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.SearchState.Smoothing
+  commentId: F:MinecaRTS.SearchState.Smoothing
+  id: Smoothing
+  parent: MinecaRTS.SearchState
+  langs:
+  - csharp
+  - vb
+  name: Smoothing
+  nameWithType: SearchState.Smoothing
+  fullName: MinecaRTS.SearchState.Smoothing
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchState.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Smoothing
+    path: ../MinecaRTS/Pathing/SearchState.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Smoothing = 1
+    return:
+      type: MinecaRTS.SearchState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.SearchState.Retracing
+  commentId: F:MinecaRTS.SearchState.Retracing
+  id: Retracing
+  parent: MinecaRTS.SearchState
+  langs:
+  - csharp
+  - vb
+  name: Retracing
+  nameWithType: SearchState.Retracing
+  fullName: MinecaRTS.SearchState.Retracing
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchState.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Retracing
+    path: ../MinecaRTS/Pathing/SearchState.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Retracing = 2
+    return:
+      type: MinecaRTS.SearchState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.SearchState.Complete
+  commentId: F:MinecaRTS.SearchState.Complete
+  id: Complete
+  parent: MinecaRTS.SearchState
+  langs:
+  - csharp
+  - vb
+  name: Complete
+  nameWithType: SearchState.Complete
+  fullName: MinecaRTS.SearchState.Complete
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchState.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Complete
+    path: ../MinecaRTS/Pathing/SearchState.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Complete = 3
+    return:
+      type: MinecaRTS.SearchState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.SearchState.Failed
+  commentId: F:MinecaRTS.SearchState.Failed
+  id: Failed
+  parent: MinecaRTS.SearchState
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: SearchState.Failed
+  fullName: MinecaRTS.SearchState.Failed
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SearchState.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Failed
+    path: ../MinecaRTS/Pathing/SearchState.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: Failed = 4
+    return:
+      type: MinecaRTS.SearchState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.SearchState
+  commentId: T:MinecaRTS.SearchState
+  parent: MinecaRTS
+  isExternal: false
+  name: SearchState
+  nameWithType: SearchState
+  fullName: MinecaRTS.SearchState

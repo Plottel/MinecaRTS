@@ -48,3 +48,4 @@ C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Priority Queue.x
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\worker\worker_build.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\resources\half_stone.xnb
 C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\Content\images\resources\stone.xnb
+C:\Users\Matt\Desktop\MinecaRTS\MinecaRTS\bin\Windows\x86\Debug\MinecaRTS.exe.config

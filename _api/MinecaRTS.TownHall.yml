@@ -1,0 +1,1162 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.TownHall
+  commentId: T:MinecaRTS.TownHall
+  id: TownHall
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.TownHall.#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List{System.Type},MinecaRTS.PlayerData)
+  - MinecaRTS.TownHall.AcceptResources(System.UInt32,System.UInt32)
+  - MinecaRTS.TownHall.ACTIVE_TEXTURE
+  - MinecaRTS.TownHall.CONSTRUCTION_TEXTURE
+  langs:
+  - csharp
+  - vb
+  name: TownHall
+  nameWithType: TownHall
+  fullName: MinecaRTS.TownHall
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/TownHall.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TownHall
+    path: MinecaRTS/Entities/Buildings/TownHall.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: 'public class TownHall : ProductionBuilding, IRenderable, IHandleMessages, ICanAcceptResources'
+    content.vb: >-
+      Public Class TownHall
+          Inherits ProductionBuilding
+          Implements IRenderable, IHandleMessages, ICanAcceptResources
+  inheritance:
+  - System.Object
+  - MinecaRTS.Entity
+  - MinecaRTS.Building
+  - MinecaRTS.ProductionBuilding
+  implements:
+  - MinecaRTS.IRenderable
+  - MinecaRTS.IHandleMessages
+  - MinecaRTS.ICanAcceptResources
+  inheritedMembers:
+  - MinecaRTS.ProductionBuilding.MAX_HEALTH
+  - MinecaRTS.ProductionBuilding.MAX_QUEUE_LENGTH
+  - MinecaRTS.ProductionBuilding.productionTimes
+  - MinecaRTS.ProductionBuilding.ProductionTypes
+  - MinecaRTS.ProductionBuilding.rallyPoint
+  - MinecaRTS.ProductionBuilding.Data
+  - MinecaRTS.ProductionBuilding.BeingProduced
+  - MinecaRTS.ProductionBuilding.ResetRallyPoint
+  - MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex(System.Int32)
+  - MinecaRTS.ProductionBuilding.Update
+  - MinecaRTS.ProductionBuilding.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Building.ActiveTexture
+  - MinecaRTS.Building.IsActive
+  - MinecaRTS.Building.Team
+  - MinecaRTS.Building.Construct
+  - MinecaRTS.Building.HandleMessage(MinecaRTS.Message)
+  - MinecaRTS.Building.ExitState
+  - MinecaRTS.Building.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Entity.Pos
+  - MinecaRTS.Entity.Scale
+  - MinecaRTS.Entity.ID
+  - MinecaRTS.Entity.RenderPos
+  - MinecaRTS.Entity.CollisionRect
+  - MinecaRTS.Entity.RenderRect
+  - MinecaRTS.Entity.Mid
+  - MinecaRTS.Entity.RenderMid
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.TownHall.ACTIVE_TEXTURE
+  commentId: F:MinecaRTS.TownHall.ACTIVE_TEXTURE
+  id: ACTIVE_TEXTURE
+  parent: MinecaRTS.TownHall
+  langs:
+  - csharp
+  - vb
+  name: ACTIVE_TEXTURE
+  nameWithType: TownHall.ACTIVE_TEXTURE
+  fullName: MinecaRTS.TownHall.ACTIVE_TEXTURE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/TownHall.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ACTIVE_TEXTURE
+    path: MinecaRTS/Entities/Buildings/TownHall.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Texture2D ACTIVE_TEXTURE
+    return:
+      type: Microsoft.Xna.Framework.Graphics.Texture2D
+    content.vb: Public Shared ACTIVE_TEXTURE As Texture2D
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.TownHall.CONSTRUCTION_TEXTURE
+  commentId: F:MinecaRTS.TownHall.CONSTRUCTION_TEXTURE
+  id: CONSTRUCTION_TEXTURE
+  parent: MinecaRTS.TownHall
+  langs:
+  - csharp
+  - vb
+  name: CONSTRUCTION_TEXTURE
+  nameWithType: TownHall.CONSTRUCTION_TEXTURE
+  fullName: MinecaRTS.TownHall.CONSTRUCTION_TEXTURE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/TownHall.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CONSTRUCTION_TEXTURE
+    path: MinecaRTS/Entities/Buildings/TownHall.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Texture2D CONSTRUCTION_TEXTURE
+    return:
+      type: Microsoft.Xna.Framework.Graphics.Texture2D
+    content.vb: Public Shared CONSTRUCTION_TEXTURE As Texture2D
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.TownHall.#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List{System.Type},MinecaRTS.PlayerData)
+  commentId: M:MinecaRTS.TownHall.#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List{System.Type},MinecaRTS.PlayerData)
+  id: '#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List{System.Type},MinecaRTS.PlayerData)'
+  parent: MinecaRTS.TownHall
+  langs:
+  - csharp
+  - vb
+  name: TownHall(Vector2, Vector2, List<Type>, PlayerData)
+  nameWithType: TownHall.TownHall(Vector2, Vector2, List<Type>, PlayerData)
+  fullName: MinecaRTS.TownHall.TownHall(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2, System.Collections.Generic.List<System.Type>, MinecaRTS.PlayerData)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/TownHall.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Entities/Buildings/TownHall.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public TownHall(Vector2 pos, Vector2 scale, List<Type> productionTypes, PlayerData data)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    - id: scale
+      type: Microsoft.Xna.Framework.Vector2
+    - id: productionTypes
+      type: System.Collections.Generic.List{System.Type}
+    - id: data
+      type: MinecaRTS.PlayerData
+    content.vb: Public Sub New(pos As Vector2, scale As Vector2, productionTypes As List(Of Type), data As PlayerData)
+  overload: MinecaRTS.TownHall.#ctor*
+  nameWithType.vb: TownHall.TownHall(Vector2, Vector2, List(Of Type), PlayerData)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.TownHall.TownHall(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2, System.Collections.Generic.List(Of System.Type), MinecaRTS.PlayerData)
+  name.vb: TownHall(Vector2, Vector2, List(Of Type), PlayerData)
+- uid: MinecaRTS.TownHall.AcceptResources(System.UInt32,System.UInt32)
+  commentId: M:MinecaRTS.TownHall.AcceptResources(System.UInt32,System.UInt32)
+  id: AcceptResources(System.UInt32,System.UInt32)
+  parent: MinecaRTS.TownHall
+  langs:
+  - csharp
+  - vb
+  name: AcceptResources(UInt32, UInt32)
+  nameWithType: TownHall.AcceptResources(UInt32, UInt32)
+  fullName: MinecaRTS.TownHall.AcceptResources(System.UInt32, System.UInt32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Entities/Buildings/TownHall.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AcceptResources
+    path: MinecaRTS/Entities/Buildings/TownHall.cs
+    startLine: 19
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AcceptResources(uint woodAmount, uint stoneAmount)
+    parameters:
+    - id: woodAmount
+      type: System.UInt32
+    - id: stoneAmount
+      type: System.UInt32
+    content.vb: Public Sub AcceptResources(woodAmount As UInteger, stoneAmount As UInteger)
+  overload: MinecaRTS.TownHall.AcceptResources*
+  implements:
+  - MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: MinecaRTS.Entity
+  commentId: T:MinecaRTS.Entity
+  parent: MinecaRTS
+  isExternal: false
+  name: Entity
+  nameWithType: Entity
+  fullName: MinecaRTS.Entity
+- uid: MinecaRTS.Building
+  commentId: T:MinecaRTS.Building
+  parent: MinecaRTS
+  isExternal: false
+  name: Building
+  nameWithType: Building
+  fullName: MinecaRTS.Building
+- uid: MinecaRTS.ProductionBuilding
+  commentId: T:MinecaRTS.ProductionBuilding
+  parent: MinecaRTS
+  isExternal: false
+  name: ProductionBuilding
+  nameWithType: ProductionBuilding
+  fullName: MinecaRTS.ProductionBuilding
+- uid: MinecaRTS.IRenderable
+  commentId: T:MinecaRTS.IRenderable
+  parent: MinecaRTS
+  isExternal: false
+  name: IRenderable
+  nameWithType: IRenderable
+  fullName: MinecaRTS.IRenderable
+- uid: MinecaRTS.IHandleMessages
+  commentId: T:MinecaRTS.IHandleMessages
+  parent: MinecaRTS
+  isExternal: false
+  name: IHandleMessages
+  nameWithType: IHandleMessages
+  fullName: MinecaRTS.IHandleMessages
+- uid: MinecaRTS.ICanAcceptResources
+  commentId: T:MinecaRTS.ICanAcceptResources
+  parent: MinecaRTS
+  isExternal: false
+  name: ICanAcceptResources
+  nameWithType: ICanAcceptResources
+  fullName: MinecaRTS.ICanAcceptResources
+- uid: MinecaRTS.ProductionBuilding.MAX_HEALTH
+  commentId: F:MinecaRTS.ProductionBuilding.MAX_HEALTH
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: MAX_HEALTH
+  nameWithType: ProductionBuilding.MAX_HEALTH
+  fullName: MinecaRTS.ProductionBuilding.MAX_HEALTH
+- uid: MinecaRTS.ProductionBuilding.MAX_QUEUE_LENGTH
+  commentId: F:MinecaRTS.ProductionBuilding.MAX_QUEUE_LENGTH
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: MAX_QUEUE_LENGTH
+  nameWithType: ProductionBuilding.MAX_QUEUE_LENGTH
+  fullName: MinecaRTS.ProductionBuilding.MAX_QUEUE_LENGTH
+- uid: MinecaRTS.ProductionBuilding.productionTimes
+  commentId: F:MinecaRTS.ProductionBuilding.productionTimes
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: productionTimes
+  nameWithType: ProductionBuilding.productionTimes
+  fullName: MinecaRTS.ProductionBuilding.productionTimes
+- uid: MinecaRTS.ProductionBuilding.ProductionTypes
+  commentId: P:MinecaRTS.ProductionBuilding.ProductionTypes
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: ProductionTypes
+  nameWithType: ProductionBuilding.ProductionTypes
+  fullName: MinecaRTS.ProductionBuilding.ProductionTypes
+- uid: MinecaRTS.ProductionBuilding.rallyPoint
+  commentId: F:MinecaRTS.ProductionBuilding.rallyPoint
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: rallyPoint
+  nameWithType: ProductionBuilding.rallyPoint
+  fullName: MinecaRTS.ProductionBuilding.rallyPoint
+- uid: MinecaRTS.ProductionBuilding.Data
+  commentId: P:MinecaRTS.ProductionBuilding.Data
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: Data
+  nameWithType: ProductionBuilding.Data
+  fullName: MinecaRTS.ProductionBuilding.Data
+- uid: MinecaRTS.ProductionBuilding.BeingProduced
+  commentId: P:MinecaRTS.ProductionBuilding.BeingProduced
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: BeingProduced
+  nameWithType: ProductionBuilding.BeingProduced
+  fullName: MinecaRTS.ProductionBuilding.BeingProduced
+- uid: MinecaRTS.ProductionBuilding.ResetRallyPoint
+  commentId: M:MinecaRTS.ProductionBuilding.ResetRallyPoint
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: ResetRallyPoint()
+  nameWithType: ProductionBuilding.ResetRallyPoint()
+  fullName: MinecaRTS.ProductionBuilding.ResetRallyPoint()
+  spec.csharp:
+  - uid: MinecaRTS.ProductionBuilding.ResetRallyPoint
+    name: ResetRallyPoint
+    nameWithType: ProductionBuilding.ResetRallyPoint
+    fullName: MinecaRTS.ProductionBuilding.ResetRallyPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.ProductionBuilding.ResetRallyPoint
+    name: ResetRallyPoint
+    nameWithType: ProductionBuilding.ResetRallyPoint
+    fullName: MinecaRTS.ProductionBuilding.ResetRallyPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex(System.Int32)
+  commentId: M:MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex(System.Int32)
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: true
+  name: QueueUpProductionAtIndex(Int32)
+  nameWithType: ProductionBuilding.QueueUpProductionAtIndex(Int32)
+  fullName: MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex(System.Int32)
+  spec.csharp:
+  - uid: MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex(System.Int32)
+    name: QueueUpProductionAtIndex
+    nameWithType: ProductionBuilding.QueueUpProductionAtIndex
+    fullName: MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex(System.Int32)
+    name: QueueUpProductionAtIndex
+    nameWithType: ProductionBuilding.QueueUpProductionAtIndex
+    fullName: MinecaRTS.ProductionBuilding.QueueUpProductionAtIndex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ProductionBuilding.Update
+  commentId: M:MinecaRTS.ProductionBuilding.Update
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: false
+  name: Update()
+  nameWithType: ProductionBuilding.Update()
+  fullName: MinecaRTS.ProductionBuilding.Update()
+  spec.csharp:
+  - uid: MinecaRTS.ProductionBuilding.Update
+    name: Update
+    nameWithType: ProductionBuilding.Update
+    fullName: MinecaRTS.ProductionBuilding.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.ProductionBuilding.Update
+    name: Update
+    nameWithType: ProductionBuilding.Update
+    fullName: MinecaRTS.ProductionBuilding.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ProductionBuilding.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.ProductionBuilding.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.ProductionBuilding
+  isExternal: true
+  name: Render(SpriteBatch)
+  nameWithType: ProductionBuilding.Render(SpriteBatch)
+  fullName: MinecaRTS.ProductionBuilding.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  spec.csharp:
+  - uid: MinecaRTS.ProductionBuilding.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: Render
+    nameWithType: ProductionBuilding.Render
+    fullName: MinecaRTS.ProductionBuilding.Render
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.ProductionBuilding.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: Render
+    nameWithType: ProductionBuilding.Render
+    fullName: MinecaRTS.ProductionBuilding.Render
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Building.ActiveTexture
+  commentId: P:MinecaRTS.Building.ActiveTexture
+  parent: MinecaRTS.Building
+  isExternal: false
+  name: ActiveTexture
+  nameWithType: Building.ActiveTexture
+  fullName: MinecaRTS.Building.ActiveTexture
+- uid: MinecaRTS.Building.IsActive
+  commentId: P:MinecaRTS.Building.IsActive
+  parent: MinecaRTS.Building
+  isExternal: false
+  name: IsActive
+  nameWithType: Building.IsActive
+  fullName: MinecaRTS.Building.IsActive
+- uid: MinecaRTS.Building.Team
+  commentId: P:MinecaRTS.Building.Team
+  parent: MinecaRTS.Building
+  isExternal: false
+  name: Team
+  nameWithType: Building.Team
+  fullName: MinecaRTS.Building.Team
+- uid: MinecaRTS.Building.Construct
+  commentId: M:MinecaRTS.Building.Construct
+  parent: MinecaRTS.Building
+  isExternal: false
+  name: Construct()
+  nameWithType: Building.Construct()
+  fullName: MinecaRTS.Building.Construct()
+  spec.csharp:
+  - uid: MinecaRTS.Building.Construct
+    name: Construct
+    nameWithType: Building.Construct
+    fullName: MinecaRTS.Building.Construct
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Building.Construct
+    name: Construct
+    nameWithType: Building.Construct
+    fullName: MinecaRTS.Building.Construct
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Building.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.Building.HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.Building
+  isExternal: false
+  name: HandleMessage(Message)
+  nameWithType: Building.HandleMessage(Message)
+  fullName: MinecaRTS.Building.HandleMessage(MinecaRTS.Message)
+  spec.csharp:
+  - uid: MinecaRTS.Building.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: Building.HandleMessage
+    fullName: MinecaRTS.Building.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Building.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: Building.HandleMessage
+    fullName: MinecaRTS.Building.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Building.ExitState
+  commentId: M:MinecaRTS.Building.ExitState
+  parent: MinecaRTS.Building
+  isExternal: false
+  name: ExitState()
+  nameWithType: Building.ExitState()
+  fullName: MinecaRTS.Building.ExitState()
+  spec.csharp:
+  - uid: MinecaRTS.Building.ExitState
+    name: ExitState
+    nameWithType: Building.ExitState
+    fullName: MinecaRTS.Building.ExitState
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Building.ExitState
+    name: ExitState
+    nameWithType: Building.ExitState
+    fullName: MinecaRTS.Building.ExitState
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Building.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Building.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Building
+  isExternal: true
+  name: RenderDebug(SpriteBatch)
+  nameWithType: Building.RenderDebug(SpriteBatch)
+  fullName: MinecaRTS.Building.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  spec.csharp:
+  - uid: MinecaRTS.Building.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: RenderDebug
+    nameWithType: Building.RenderDebug
+    fullName: MinecaRTS.Building.RenderDebug
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Building.RenderDebug(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: RenderDebug
+    nameWithType: Building.RenderDebug
+    fullName: MinecaRTS.Building.RenderDebug
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Entity.Pos
+  commentId: F:MinecaRTS.Entity.Pos
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: Pos
+  nameWithType: Entity.Pos
+  fullName: MinecaRTS.Entity.Pos
+- uid: MinecaRTS.Entity.Scale
+  commentId: F:MinecaRTS.Entity.Scale
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: Scale
+  nameWithType: Entity.Scale
+  fullName: MinecaRTS.Entity.Scale
+- uid: MinecaRTS.Entity.ID
+  commentId: P:MinecaRTS.Entity.ID
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: ID
+  nameWithType: Entity.ID
+  fullName: MinecaRTS.Entity.ID
+- uid: MinecaRTS.Entity.RenderPos
+  commentId: P:MinecaRTS.Entity.RenderPos
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: RenderPos
+  nameWithType: Entity.RenderPos
+  fullName: MinecaRTS.Entity.RenderPos
+- uid: MinecaRTS.Entity.CollisionRect
+  commentId: P:MinecaRTS.Entity.CollisionRect
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: CollisionRect
+  nameWithType: Entity.CollisionRect
+  fullName: MinecaRTS.Entity.CollisionRect
+- uid: MinecaRTS.Entity.RenderRect
+  commentId: P:MinecaRTS.Entity.RenderRect
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: RenderRect
+  nameWithType: Entity.RenderRect
+  fullName: MinecaRTS.Entity.RenderRect
+- uid: MinecaRTS.Entity.Mid
+  commentId: P:MinecaRTS.Entity.Mid
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: Mid
+  nameWithType: Entity.Mid
+  fullName: MinecaRTS.Entity.Mid
+- uid: MinecaRTS.Entity.RenderMid
+  commentId: P:MinecaRTS.Entity.RenderMid
+  parent: MinecaRTS.Entity
+  isExternal: false
+  name: RenderMid
+  nameWithType: Entity.RenderMid
+  fullName: MinecaRTS.Entity.RenderMid
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.Xna.Framework.Graphics.Texture2D
+  commentId: T:Microsoft.Xna.Framework.Graphics.Texture2D
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: Microsoft.Xna.Framework.Graphics.Texture2D
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics
+- uid: MinecaRTS.TownHall.#ctor*
+  commentId: Overload:MinecaRTS.TownHall.#ctor
+  isExternal: false
+  name: TownHall
+  nameWithType: TownHall.TownHall
+  fullName: MinecaRTS.TownHall.TownHall
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: System.Collections.Generic.List{System.Type}
+  commentId: T:System.Collections.Generic.List{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Type>
+  nameWithType: List<Type>
+  fullName: System.Collections.Generic.List<System.Type>
+  nameWithType.vb: List(Of Type)
+  fullName.vb: System.Collections.Generic.List(Of System.Type)
+  name.vb: List(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Type
+    name: Type
+    nameWithType: Type
+    fullName: System.Type
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Type
+    name: Type
+    nameWithType: Type
+    fullName: System.Type
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.PlayerData
+  commentId: T:MinecaRTS.PlayerData
+  parent: MinecaRTS
+  isExternal: false
+  name: PlayerData
+  nameWithType: PlayerData
+  fullName: MinecaRTS.PlayerData
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: MinecaRTS.TownHall.AcceptResources*
+  commentId: Overload:MinecaRTS.TownHall.AcceptResources
+  isExternal: false
+  name: AcceptResources
+  nameWithType: TownHall.AcceptResources
+  fullName: MinecaRTS.TownHall.AcceptResources
+- uid: MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+  commentId: M:MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+  parent: MinecaRTS.ICanAcceptResources
+  isExternal: true
+  name: AcceptResources(UInt32, UInt32)
+  nameWithType: ICanAcceptResources.AcceptResources(UInt32, UInt32)
+  fullName: MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32, System.UInt32)
+  spec.csharp:
+  - uid: MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+    name: AcceptResources
+    nameWithType: ICanAcceptResources.AcceptResources
+    fullName: MinecaRTS.ICanAcceptResources.AcceptResources
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.ICanAcceptResources.AcceptResources(System.UInt32,System.UInt32)
+    name: AcceptResources
+    nameWithType: ICanAcceptResources.AcceptResources
+    fullName: MinecaRTS.ICanAcceptResources.AcceptResources
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32

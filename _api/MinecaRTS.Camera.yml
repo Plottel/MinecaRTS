@@ -1,0 +1,1471 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Camera
+  commentId: T:MinecaRTS.Camera
+  id: Camera
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Camera.HEIGHT
+  - MinecaRTS.Camera.LookAt(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Camera.MINIMAP_SIZE
+  - MinecaRTS.Camera.MINIMAP_X
+  - MinecaRTS.Camera.MINIMAP_Y
+  - MinecaRTS.Camera.MinimapRect
+  - MinecaRTS.Camera.MoveBy(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Camera.MoveBy(System.Int32,System.Int32)
+  - MinecaRTS.Camera.MoveTo(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Camera.MoveTo(System.Int32,System.Int32)
+  - MinecaRTS.Camera.Pos
+  - MinecaRTS.Camera.PtToScreen(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Camera.PtToWorld(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.Camera.Rect
+  - MinecaRTS.Camera.RectToScreen(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.Camera.RectToWorld(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.Camera.VecToScreen(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Camera.VecToWorld(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Camera.WIDTH
+  - MinecaRTS.Camera.WorldRectToMinimapRect(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.Camera.X
+  - MinecaRTS.Camera.XToScreen(System.Single)
+  - MinecaRTS.Camera.XToWorld(System.Single)
+  - MinecaRTS.Camera.Y
+  - MinecaRTS.Camera.YToScreen(System.Single)
+  - MinecaRTS.Camera.YToWorld(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: Camera
+  nameWithType: Camera
+  fullName: MinecaRTS.Camera
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Camera
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 9
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static class Camera
+    content.vb: Public Module Camera
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: MinecaRTS.Camera.Pos
+  commentId: F:MinecaRTS.Camera.Pos
+  id: Pos
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: Pos
+  nameWithType: Camera.Pos
+  fullName: MinecaRTS.Camera.Pos
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Pos
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Point Pos
+    return:
+      type: Microsoft.Xna.Framework.Point
+    content.vb: Public Shared Pos As Point
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.WIDTH
+  commentId: F:MinecaRTS.Camera.WIDTH
+  id: WIDTH
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: WIDTH
+  nameWithType: Camera.WIDTH
+  fullName: MinecaRTS.Camera.WIDTH
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: WIDTH
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int WIDTH
+    return:
+      type: System.Int32
+    content.vb: Public Shared WIDTH As Integer
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.HEIGHT
+  commentId: F:MinecaRTS.Camera.HEIGHT
+  id: HEIGHT
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: HEIGHT
+  nameWithType: Camera.HEIGHT
+  fullName: MinecaRTS.Camera.HEIGHT
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HEIGHT
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int HEIGHT
+    return:
+      type: System.Int32
+    content.vb: Public Shared HEIGHT As Integer
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.MINIMAP_SIZE
+  commentId: F:MinecaRTS.Camera.MINIMAP_SIZE
+  id: MINIMAP_SIZE
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MINIMAP_SIZE
+  nameWithType: Camera.MINIMAP_SIZE
+  fullName: MinecaRTS.Camera.MINIMAP_SIZE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MINIMAP_SIZE
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public const int MINIMAP_SIZE = 250
+    return:
+      type: System.Int32
+    content.vb: Public Const MINIMAP_SIZE As Integer = 250
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.Camera.MINIMAP_X
+  commentId: P:MinecaRTS.Camera.MINIMAP_X
+  id: MINIMAP_X
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MINIMAP_X
+  nameWithType: Camera.MINIMAP_X
+  fullName: MinecaRTS.Camera.MINIMAP_X
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MINIMAP_X
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int MINIMAP_X { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property MINIMAP_X As Integer
+  overload: MinecaRTS.Camera.MINIMAP_X*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.Camera.MINIMAP_Y
+  commentId: P:MinecaRTS.Camera.MINIMAP_Y
+  id: MINIMAP_Y
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MINIMAP_Y
+  nameWithType: Camera.MINIMAP_Y
+  fullName: MinecaRTS.Camera.MINIMAP_Y
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MINIMAP_Y
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 22
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int MINIMAP_Y { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property MINIMAP_Y As Integer
+  overload: MinecaRTS.Camera.MINIMAP_Y*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.Camera.X
+  commentId: P:MinecaRTS.Camera.X
+  id: X
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Camera.X
+  fullName: MinecaRTS.Camera.X
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: X
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 27
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int X { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared Property X As Integer
+  overload: MinecaRTS.Camera.X*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.Y
+  commentId: P:MinecaRTS.Camera.Y
+  id: Y
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Camera.Y
+  fullName: MinecaRTS.Camera.Y
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Y
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 43
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int Y { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared Property Y As Integer
+  overload: MinecaRTS.Camera.Y*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.Rect
+  commentId: P:MinecaRTS.Camera.Rect
+  id: Rect
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: Rect
+  nameWithType: Camera.Rect
+  fullName: MinecaRTS.Camera.Rect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Rect
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 57
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Rectangle Rect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public Shared ReadOnly Property Rect As Rectangle
+  overload: MinecaRTS.Camera.Rect*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.Camera.MinimapRect
+  commentId: P:MinecaRTS.Camera.MinimapRect
+  id: MinimapRect
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MinimapRect
+  nameWithType: Camera.MinimapRect
+  fullName: MinecaRTS.Camera.MinimapRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MinimapRect
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 62
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Rectangle MinimapRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public Shared ReadOnly Property MinimapRect As Rectangle
+  overload: MinecaRTS.Camera.MinimapRect*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.Camera.MoveBy(System.Int32,System.Int32)
+  commentId: M:MinecaRTS.Camera.MoveBy(System.Int32,System.Int32)
+  id: MoveBy(System.Int32,System.Int32)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MoveBy(Int32, Int32)
+  nameWithType: Camera.MoveBy(Int32, Int32)
+  fullName: MinecaRTS.Camera.MoveBy(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MoveBy
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 67
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void MoveBy(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    content.vb: Public Shared Sub MoveBy(x As Integer, y As Integer)
+  overload: MinecaRTS.Camera.MoveBy*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.MoveBy(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.Camera.MoveBy(Microsoft.Xna.Framework.Point)
+  id: MoveBy(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MoveBy(Point)
+  nameWithType: Camera.MoveBy(Point)
+  fullName: MinecaRTS.Camera.MoveBy(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MoveBy
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 73
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void MoveBy(Point pt)
+    parameters:
+    - id: pt
+      type: Microsoft.Xna.Framework.Point
+    content.vb: Public Shared Sub MoveBy(pt As Point)
+  overload: MinecaRTS.Camera.MoveBy*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.MoveTo(System.Int32,System.Int32)
+  commentId: M:MinecaRTS.Camera.MoveTo(System.Int32,System.Int32)
+  id: MoveTo(System.Int32,System.Int32)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MoveTo(Int32, Int32)
+  nameWithType: Camera.MoveTo(Int32, Int32)
+  fullName: MinecaRTS.Camera.MoveTo(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MoveTo
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 79
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void MoveTo(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    content.vb: Public Shared Sub MoveTo(x As Integer, y As Integer)
+  overload: MinecaRTS.Camera.MoveTo*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.MoveTo(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.Camera.MoveTo(Microsoft.Xna.Framework.Point)
+  id: MoveTo(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: MoveTo(Point)
+  nameWithType: Camera.MoveTo(Point)
+  fullName: MinecaRTS.Camera.MoveTo(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MoveTo
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 85
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void MoveTo(Point pt)
+    parameters:
+    - id: pt
+      type: Microsoft.Xna.Framework.Point
+    content.vb: Public Shared Sub MoveTo(pt As Point)
+  overload: MinecaRTS.Camera.MoveTo*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.VecToWorld(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Camera.VecToWorld(Microsoft.Xna.Framework.Vector2)
+  id: VecToWorld(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: VecToWorld(Vector2)
+  nameWithType: Camera.VecToWorld(Vector2)
+  fullName: MinecaRTS.Camera.VecToWorld(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: VecToWorld
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 91
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Vector2 VecToWorld(Vector2 v)
+    parameters:
+    - id: v
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Shared Function VecToWorld(v As Vector2) As Vector2
+  overload: MinecaRTS.Camera.VecToWorld*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.PtToWorld(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.Camera.PtToWorld(Microsoft.Xna.Framework.Point)
+  id: PtToWorld(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: PtToWorld(Point)
+  nameWithType: Camera.PtToWorld(Point)
+  fullName: MinecaRTS.Camera.PtToWorld(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: PtToWorld
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 96
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Point PtToWorld(Point p)
+    parameters:
+    - id: p
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: Microsoft.Xna.Framework.Point
+    content.vb: Public Shared Function PtToWorld(p As Point) As Point
+  overload: MinecaRTS.Camera.PtToWorld*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.XToWorld(System.Single)
+  commentId: M:MinecaRTS.Camera.XToWorld(System.Single)
+  id: XToWorld(System.Single)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: XToWorld(Single)
+  nameWithType: Camera.XToWorld(Single)
+  fullName: MinecaRTS.Camera.XToWorld(System.Single)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: XToWorld
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 101
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static float XToWorld(float x)
+    parameters:
+    - id: x
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function XToWorld(x As Single) As Single
+  overload: MinecaRTS.Camera.XToWorld*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.YToWorld(System.Single)
+  commentId: M:MinecaRTS.Camera.YToWorld(System.Single)
+  id: YToWorld(System.Single)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: YToWorld(Single)
+  nameWithType: Camera.YToWorld(Single)
+  fullName: MinecaRTS.Camera.YToWorld(System.Single)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: YToWorld
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 106
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static float YToWorld(float y)
+    parameters:
+    - id: y
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function YToWorld(y As Single) As Single
+  overload: MinecaRTS.Camera.YToWorld*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.VecToScreen(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Camera.VecToScreen(Microsoft.Xna.Framework.Vector2)
+  id: VecToScreen(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: VecToScreen(Vector2)
+  nameWithType: Camera.VecToScreen(Vector2)
+  fullName: MinecaRTS.Camera.VecToScreen(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: VecToScreen
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 111
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Vector2 VecToScreen(Vector2 v)
+    parameters:
+    - id: v
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Shared Function VecToScreen(v As Vector2) As Vector2
+  overload: MinecaRTS.Camera.VecToScreen*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.PtToScreen(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.Camera.PtToScreen(Microsoft.Xna.Framework.Point)
+  id: PtToScreen(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: PtToScreen(Point)
+  nameWithType: Camera.PtToScreen(Point)
+  fullName: MinecaRTS.Camera.PtToScreen(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: PtToScreen
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 116
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Point PtToScreen(Point p)
+    parameters:
+    - id: p
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: Microsoft.Xna.Framework.Point
+    content.vb: Public Shared Function PtToScreen(p As Point) As Point
+  overload: MinecaRTS.Camera.PtToScreen*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.XToScreen(System.Single)
+  commentId: M:MinecaRTS.Camera.XToScreen(System.Single)
+  id: XToScreen(System.Single)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: XToScreen(Single)
+  nameWithType: Camera.XToScreen(Single)
+  fullName: MinecaRTS.Camera.XToScreen(System.Single)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: XToScreen
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 121
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static float XToScreen(float x)
+    parameters:
+    - id: x
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function XToScreen(x As Single) As Single
+  overload: MinecaRTS.Camera.XToScreen*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.YToScreen(System.Single)
+  commentId: M:MinecaRTS.Camera.YToScreen(System.Single)
+  id: YToScreen(System.Single)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: YToScreen(Single)
+  nameWithType: Camera.YToScreen(Single)
+  fullName: MinecaRTS.Camera.YToScreen(System.Single)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: YToScreen
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 126
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static float YToScreen(float y)
+    parameters:
+    - id: y
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function YToScreen(y As Single) As Single
+  overload: MinecaRTS.Camera.YToScreen*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.RectToWorld(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.Camera.RectToWorld(Microsoft.Xna.Framework.Rectangle)
+  id: RectToWorld(Microsoft.Xna.Framework.Rectangle)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: RectToWorld(Rectangle)
+  nameWithType: Camera.RectToWorld(Rectangle)
+  fullName: MinecaRTS.Camera.RectToWorld(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RectToWorld
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 131
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Rectangle RectToWorld(Rectangle rect)
+    parameters:
+    - id: rect
+      type: Microsoft.Xna.Framework.Rectangle
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public Shared Function RectToWorld(rect As Rectangle) As Rectangle
+  overload: MinecaRTS.Camera.RectToWorld*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.RectToScreen(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.Camera.RectToScreen(Microsoft.Xna.Framework.Rectangle)
+  id: RectToScreen(Microsoft.Xna.Framework.Rectangle)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: RectToScreen(Rectangle)
+  nameWithType: Camera.RectToScreen(Rectangle)
+  fullName: MinecaRTS.Camera.RectToScreen(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RectToScreen
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 136
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Rectangle RectToScreen(Rectangle rect)
+    parameters:
+    - id: rect
+      type: Microsoft.Xna.Framework.Rectangle
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public Shared Function RectToScreen(rect As Rectangle) As Rectangle
+  overload: MinecaRTS.Camera.RectToScreen*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.WorldRectToMinimapRect(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.Camera.WorldRectToMinimapRect(Microsoft.Xna.Framework.Rectangle)
+  id: WorldRectToMinimapRect(Microsoft.Xna.Framework.Rectangle)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: WorldRectToMinimapRect(Rectangle)
+  nameWithType: Camera.WorldRectToMinimapRect(Rectangle)
+  fullName: MinecaRTS.Camera.WorldRectToMinimapRect(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: WorldRectToMinimapRect
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 141
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static Rectangle WorldRectToMinimapRect(Rectangle rect)
+    parameters:
+    - id: rect
+      type: Microsoft.Xna.Framework.Rectangle
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public Shared Function WorldRectToMinimapRect(rect As Rectangle) As Rectangle
+  overload: MinecaRTS.Camera.WorldRectToMinimapRect*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Camera.LookAt(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.Camera.LookAt(Microsoft.Xna.Framework.Point)
+  id: LookAt(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.Camera
+  langs:
+  - csharp
+  - vb
+  name: LookAt(Point)
+  nameWithType: Camera.LookAt(Point)
+  fullName: MinecaRTS.Camera.LookAt(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Camera.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: LookAt
+    path: MinecaRTS/Render/Camera.cs
+    startLine: 152
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static void LookAt(Point pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Point
+    content.vb: Public Shared Sub LookAt(pos As Point)
+  overload: MinecaRTS.Camera.LookAt*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.Xna.Framework.Point
+  commentId: T:Microsoft.Xna.Framework.Point
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: Microsoft.Xna.Framework.Point
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MinecaRTS.Camera.MINIMAP_X*
+  commentId: Overload:MinecaRTS.Camera.MINIMAP_X
+  isExternal: false
+  name: MINIMAP_X
+  nameWithType: Camera.MINIMAP_X
+  fullName: MinecaRTS.Camera.MINIMAP_X
+- uid: MinecaRTS.Camera.MINIMAP_Y*
+  commentId: Overload:MinecaRTS.Camera.MINIMAP_Y
+  isExternal: false
+  name: MINIMAP_Y
+  nameWithType: Camera.MINIMAP_Y
+  fullName: MinecaRTS.Camera.MINIMAP_Y
+- uid: MinecaRTS.Camera.X*
+  commentId: Overload:MinecaRTS.Camera.X
+  isExternal: false
+  name: X
+  nameWithType: Camera.X
+  fullName: MinecaRTS.Camera.X
+- uid: MinecaRTS.Camera.Y*
+  commentId: Overload:MinecaRTS.Camera.Y
+  isExternal: false
+  name: Y
+  nameWithType: Camera.Y
+  fullName: MinecaRTS.Camera.Y
+- uid: MinecaRTS.Camera.Rect*
+  commentId: Overload:MinecaRTS.Camera.Rect
+  isExternal: false
+  name: Rect
+  nameWithType: Camera.Rect
+  fullName: MinecaRTS.Camera.Rect
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: MinecaRTS.Camera.MinimapRect*
+  commentId: Overload:MinecaRTS.Camera.MinimapRect
+  isExternal: false
+  name: MinimapRect
+  nameWithType: Camera.MinimapRect
+  fullName: MinecaRTS.Camera.MinimapRect
+- uid: MinecaRTS.Camera.MoveBy*
+  commentId: Overload:MinecaRTS.Camera.MoveBy
+  isExternal: false
+  name: MoveBy
+  nameWithType: Camera.MoveBy
+  fullName: MinecaRTS.Camera.MoveBy
+- uid: MinecaRTS.Camera.MoveTo*
+  commentId: Overload:MinecaRTS.Camera.MoveTo
+  isExternal: false
+  name: MoveTo
+  nameWithType: Camera.MoveTo
+  fullName: MinecaRTS.Camera.MoveTo
+- uid: MinecaRTS.Camera.VecToWorld*
+  commentId: Overload:MinecaRTS.Camera.VecToWorld
+  isExternal: false
+  name: VecToWorld
+  nameWithType: Camera.VecToWorld
+  fullName: MinecaRTS.Camera.VecToWorld
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: MinecaRTS.Camera.PtToWorld*
+  commentId: Overload:MinecaRTS.Camera.PtToWorld
+  isExternal: false
+  name: PtToWorld
+  nameWithType: Camera.PtToWorld
+  fullName: MinecaRTS.Camera.PtToWorld
+- uid: MinecaRTS.Camera.XToWorld*
+  commentId: Overload:MinecaRTS.Camera.XToWorld
+  isExternal: false
+  name: XToWorld
+  nameWithType: Camera.XToWorld
+  fullName: MinecaRTS.Camera.XToWorld
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MinecaRTS.Camera.YToWorld*
+  commentId: Overload:MinecaRTS.Camera.YToWorld
+  isExternal: false
+  name: YToWorld
+  nameWithType: Camera.YToWorld
+  fullName: MinecaRTS.Camera.YToWorld
+- uid: MinecaRTS.Camera.VecToScreen*
+  commentId: Overload:MinecaRTS.Camera.VecToScreen
+  isExternal: false
+  name: VecToScreen
+  nameWithType: Camera.VecToScreen
+  fullName: MinecaRTS.Camera.VecToScreen
+- uid: MinecaRTS.Camera.PtToScreen*
+  commentId: Overload:MinecaRTS.Camera.PtToScreen
+  isExternal: false
+  name: PtToScreen
+  nameWithType: Camera.PtToScreen
+  fullName: MinecaRTS.Camera.PtToScreen
+- uid: MinecaRTS.Camera.XToScreen*
+  commentId: Overload:MinecaRTS.Camera.XToScreen
+  isExternal: false
+  name: XToScreen
+  nameWithType: Camera.XToScreen
+  fullName: MinecaRTS.Camera.XToScreen
+- uid: MinecaRTS.Camera.YToScreen*
+  commentId: Overload:MinecaRTS.Camera.YToScreen
+  isExternal: false
+  name: YToScreen
+  nameWithType: Camera.YToScreen
+  fullName: MinecaRTS.Camera.YToScreen
+- uid: MinecaRTS.Camera.RectToWorld*
+  commentId: Overload:MinecaRTS.Camera.RectToWorld
+  isExternal: false
+  name: RectToWorld
+  nameWithType: Camera.RectToWorld
+  fullName: MinecaRTS.Camera.RectToWorld
+- uid: MinecaRTS.Camera.RectToScreen*
+  commentId: Overload:MinecaRTS.Camera.RectToScreen
+  isExternal: false
+  name: RectToScreen
+  nameWithType: Camera.RectToScreen
+  fullName: MinecaRTS.Camera.RectToScreen
+- uid: MinecaRTS.Camera.WorldRectToMinimapRect*
+  commentId: Overload:MinecaRTS.Camera.WorldRectToMinimapRect
+  isExternal: false
+  name: WorldRectToMinimapRect
+  nameWithType: Camera.WorldRectToMinimapRect
+  fullName: MinecaRTS.Camera.WorldRectToMinimapRect
+- uid: MinecaRTS.Camera.LookAt*
+  commentId: Overload:MinecaRTS.Camera.LookAt
+  isExternal: false
+  name: LookAt
+  nameWithType: Camera.LookAt
+  fullName: MinecaRTS.Camera.LookAt

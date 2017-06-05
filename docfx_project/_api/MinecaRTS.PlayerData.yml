@@ -1,0 +1,2636 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.PlayerData
+  commentId: T:MinecaRTS.PlayerData
+  id: PlayerData
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.PlayerData.#ctor(MinecaRTS.World,MinecaRTS.Team)
+  - MinecaRTS.PlayerData.AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.AddUnitToCollisionCells(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.BuildingAtPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.BuyBuilding(MinecaRTS.Building,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.CanAffordEntityType(System.Type)
+  - MinecaRTS.PlayerData.CellHasResource(MinecaRTS.Cell)
+  - MinecaRTS.PlayerData.CellHasTrack(MinecaRTS.Cell)
+  - MinecaRTS.PlayerData.ClickedOnUI
+  - MinecaRTS.PlayerData.GetClosestActiveBuilding``1(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.GetClosestResourceReturnPoint(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.GetClosestWorkerToPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.GetCollidingUnits(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.GetResourceFromCell(MinecaRTS.Cell)
+  - MinecaRTS.PlayerData.GetTrackFromCell(MinecaRTS.Cell)
+  - MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.GetUnitsInRadius(MinecaRTS.Unit,System.Single)
+  - MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.GiveResources(System.UInt32,MinecaRTS.ResourceType)
+  - MinecaRTS.PlayerData.Grid
+  - MinecaRTS.PlayerData.MaxSupply
+  - MinecaRTS.PlayerData.MoveSelectedUnitsTo(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.OrderSelectedUnitsToStop
+  - MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource(MinecaRTS.ResourceType)
+  - MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding(MinecaRTS.Building)
+  - MinecaRTS.PlayerData.PanelAtPos(System.String,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex(System.Int32)
+  - MinecaRTS.PlayerData.RemoveUnitFromCollisionCells(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.PlayerData.RenderMinimap(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.PlayerData.RenderUI(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.PlayerData.selectedBuilding
+  - MinecaRTS.PlayerData.SelectedWorker
+  - MinecaRTS.PlayerData.SelectFirstBuildingInRect(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.PlayerData.SelectUnitsInRect(Microsoft.Xna.Framework.Rectangle)
+  - MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.PlayerData.SpareSupply
+  - MinecaRTS.PlayerData.SpendResources(System.UInt32,System.UInt32)
+  - MinecaRTS.PlayerData.SpendResourcesForUnitType(System.Type)
+  - MinecaRTS.PlayerData.Stone
+  - MinecaRTS.PlayerData.Team
+  - MinecaRTS.PlayerData.TestPathfindingCalculationTime
+  - MinecaRTS.PlayerData.UpdateFogOfWarForUnit(MinecaRTS.Unit)
+  - MinecaRTS.PlayerData.Wood
+  langs:
+  - csharp
+  - vb
+  name: PlayerData
+  nameWithType: PlayerData
+  fullName: MinecaRTS.PlayerData
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: PlayerData
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe interface through which the player interacts with the world.\nBots can be plugged in to a PlayerData and can access it to issue commands.\n"
+  example: []
+  syntax:
+    content: public class PlayerData
+    content.vb: Public Class PlayerData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.PlayerData.selectedBuilding
+  commentId: F:MinecaRTS.PlayerData.selectedBuilding
+  id: selectedBuilding
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: selectedBuilding
+  nameWithType: PlayerData.selectedBuilding
+  fullName: MinecaRTS.PlayerData.selectedBuilding
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: selectedBuilding
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 24
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Building selectedBuilding
+    return:
+      type: MinecaRTS.Building
+    content.vb: Public selectedBuilding As Building
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.Team
+  commentId: P:MinecaRTS.PlayerData.Team
+  id: Team
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: Team
+  nameWithType: PlayerData.Team
+  fullName: MinecaRTS.PlayerData.Team
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Team
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 36
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Team Team { get; }
+    parameters: []
+    return:
+      type: MinecaRTS.Team
+    content.vb: Public ReadOnly Property Team As Team
+  overload: MinecaRTS.PlayerData.Team*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PlayerData.Wood
+  commentId: P:MinecaRTS.PlayerData.Wood
+  id: Wood
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: Wood
+  nameWithType: PlayerData.Wood
+  fullName: MinecaRTS.PlayerData.Wood
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Wood
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 41
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public uint Wood { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property Wood As UInteger
+  overload: MinecaRTS.PlayerData.Wood*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PlayerData.Stone
+  commentId: P:MinecaRTS.PlayerData.Stone
+  id: Stone
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: Stone
+  nameWithType: PlayerData.Stone
+  fullName: MinecaRTS.PlayerData.Stone
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Stone
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 46
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public uint Stone { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property Stone As UInteger
+  overload: MinecaRTS.PlayerData.Stone*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PlayerData.MaxSupply
+  commentId: P:MinecaRTS.PlayerData.MaxSupply
+  id: MaxSupply
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: MaxSupply
+  nameWithType: PlayerData.MaxSupply
+  fullName: MinecaRTS.PlayerData.MaxSupply
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MaxSupply
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 52
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public uint MaxSupply { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property MaxSupply As UInteger
+  overload: MinecaRTS.PlayerData.MaxSupply*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PlayerData.SpareSupply
+  commentId: P:MinecaRTS.PlayerData.SpareSupply
+  id: SpareSupply
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: SpareSupply
+  nameWithType: PlayerData.SpareSupply
+  fullName: MinecaRTS.PlayerData.SpareSupply
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SpareSupply
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 76
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public uint SpareSupply { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property SpareSupply As UInteger
+  overload: MinecaRTS.PlayerData.SpareSupply*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PlayerData.SelectedWorker
+  commentId: P:MinecaRTS.PlayerData.SelectedWorker
+  id: SelectedWorker
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: SelectedWorker
+  nameWithType: PlayerData.SelectedWorker
+  fullName: MinecaRTS.PlayerData.SelectedWorker
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SelectedWorker
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 81
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Worker SelectedWorker { get; }
+    parameters: []
+    return:
+      type: MinecaRTS.Worker
+    content.vb: Public ReadOnly Property SelectedWorker As Worker
+  overload: MinecaRTS.PlayerData.SelectedWorker*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PlayerData.#ctor(MinecaRTS.World,MinecaRTS.Team)
+  commentId: M:MinecaRTS.PlayerData.#ctor(MinecaRTS.World,MinecaRTS.Team)
+  id: '#ctor(MinecaRTS.World,MinecaRTS.Team)'
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: PlayerData(World, Team)
+  nameWithType: PlayerData.PlayerData(World, Team)
+  fullName: MinecaRTS.PlayerData.PlayerData(MinecaRTS.World, MinecaRTS.Team)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 97
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public PlayerData(World w, Team team)
+    parameters:
+    - id: w
+      type: MinecaRTS.World
+    - id: team
+      type: MinecaRTS.Team
+    content.vb: Public Sub New(w As World, team As Team)
+  overload: MinecaRTS.PlayerData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.Grid
+  commentId: P:MinecaRTS.PlayerData.Grid
+  id: Grid
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: PlayerData.Grid
+  fullName: MinecaRTS.PlayerData.Grid
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Grid
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 122
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Grid Grid { get; }
+    parameters: []
+    return:
+      type: MinecaRTS.Grid
+    content.vb: Public ReadOnly Property Grid As Grid
+  overload: MinecaRTS.PlayerData.Grid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.PlayerData.RemoveUnitFromCollisionCells(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.RemoveUnitFromCollisionCells(MinecaRTS.Unit)
+  id: RemoveUnitFromCollisionCells(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: RemoveUnitFromCollisionCells(Unit)
+  nameWithType: PlayerData.RemoveUnitFromCollisionCells(Unit)
+  fullName: MinecaRTS.PlayerData.RemoveUnitFromCollisionCells(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RemoveUnitFromCollisionCells
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 127
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RemoveUnitFromCollisionCells(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub RemoveUnitFromCollisionCells(u As Unit)
+  overload: MinecaRTS.PlayerData.RemoveUnitFromCollisionCells*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.AddUnitToCollisionCells(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.AddUnitToCollisionCells(MinecaRTS.Unit)
+  id: AddUnitToCollisionCells(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: AddUnitToCollisionCells(Unit)
+  nameWithType: PlayerData.AddUnitToCollisionCells(Unit)
+  fullName: MinecaRTS.PlayerData.AddUnitToCollisionCells(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddUnitToCollisionCells
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 132
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddUnitToCollisionCells(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub AddUnitToCollisionCells(u As Unit)
+  overload: MinecaRTS.PlayerData.AddUnitToCollisionCells*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.UpdateFogOfWarForUnit(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.UpdateFogOfWarForUnit(MinecaRTS.Unit)
+  id: UpdateFogOfWarForUnit(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: UpdateFogOfWarForUnit(Unit)
+  nameWithType: PlayerData.UpdateFogOfWarForUnit(Unit)
+  fullName: MinecaRTS.PlayerData.UpdateFogOfWarForUnit(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UpdateFogOfWarForUnit
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 137
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void UpdateFogOfWarForUnit(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub UpdateFogOfWarForUnit(u As Unit)
+  overload: MinecaRTS.PlayerData.UpdateFogOfWarForUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  id: GetUnitsInCollisionCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInCollisionCellsAroundPos(Vector2)
+  nameWithType: PlayerData.GetUnitsInCollisionCellsAroundPos(Vector2)
+  fullName: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInCollisionCellsAroundPos
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 142
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<HashSet<Unit>> GetUnitsInCollisionCellsAroundPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+    content.vb: Public Function GetUnitsInCollisionCellsAroundPos(pos As Vector2) As List(Of HashSet(Of Unit))
+  overload: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit(MinecaRTS.Unit)
+  id: GetUnitsInCollisionCellsAroundUnit(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInCollisionCellsAroundUnit(Unit)
+  nameWithType: PlayerData.GetUnitsInCollisionCellsAroundUnit(Unit)
+  fullName: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInCollisionCellsAroundUnit
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 147
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<HashSet<Unit>> GetUnitsInCollisionCellsAroundUnit(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+    content.vb: Public Function GetUnitsInCollisionCellsAroundUnit(u As Unit) As List(Of HashSet(Of Unit))
+  overload: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit(MinecaRTS.Unit)
+  id: GetUnitsInSameCollisionCellsAsUnit(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInSameCollisionCellsAsUnit(Unit)
+  nameWithType: PlayerData.GetUnitsInSameCollisionCellsAsUnit(Unit)
+  fullName: MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInSameCollisionCellsAsUnit
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 152
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Unit> GetUnitsInSameCollisionCellsAsUnit(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+    content.vb: Public Function GetUnitsInSameCollisionCellsAsUnit(u As Unit) As HashSet(Of Unit)
+  overload: MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetResourceFromCell(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PlayerData.GetResourceFromCell(MinecaRTS.Cell)
+  id: GetResourceFromCell(MinecaRTS.Cell)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetResourceFromCell(Cell)
+  nameWithType: PlayerData.GetResourceFromCell(Cell)
+  fullName: MinecaRTS.PlayerData.GetResourceFromCell(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetResourceFromCell
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 157
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Resource GetResourceFromCell(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: MinecaRTS.Resource
+    content.vb: Public Function GetResourceFromCell(cell As Cell) As Resource
+  overload: MinecaRTS.PlayerData.GetResourceFromCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetTrackFromCell(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PlayerData.GetTrackFromCell(MinecaRTS.Cell)
+  id: GetTrackFromCell(MinecaRTS.Cell)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetTrackFromCell(Cell)
+  nameWithType: PlayerData.GetTrackFromCell(Cell)
+  fullName: MinecaRTS.PlayerData.GetTrackFromCell(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetTrackFromCell
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 168
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Track GetTrackFromCell(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: MinecaRTS.Track
+    content.vb: Public Function GetTrackFromCell(cell As Cell) As Track
+  overload: MinecaRTS.PlayerData.GetTrackFromCell*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.CellHasResource(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PlayerData.CellHasResource(MinecaRTS.Cell)
+  id: CellHasResource(MinecaRTS.Cell)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: CellHasResource(Cell)
+  nameWithType: PlayerData.CellHasResource(Cell)
+  fullName: MinecaRTS.PlayerData.CellHasResource(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellHasResource
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 175
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool CellHasResource(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Public Function CellHasResource(cell As Cell) As Boolean
+  overload: MinecaRTS.PlayerData.CellHasResource*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.CellHasTrack(MinecaRTS.Cell)
+  commentId: M:MinecaRTS.PlayerData.CellHasTrack(MinecaRTS.Cell)
+  id: CellHasTrack(MinecaRTS.Cell)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: CellHasTrack(Cell)
+  nameWithType: PlayerData.CellHasTrack(Cell)
+  fullName: MinecaRTS.PlayerData.CellHasTrack(MinecaRTS.Cell)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CellHasTrack
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 182
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool CellHasTrack(Cell cell)
+    parameters:
+    - id: cell
+      type: MinecaRTS.Cell
+    return:
+      type: System.Boolean
+    content.vb: Public Function CellHasTrack(cell As Cell) As Boolean
+  overload: MinecaRTS.PlayerData.CellHasTrack*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  id: AddUnit(System.Type,Microsoft.Xna.Framework.Vector2,MinecaRTS.Team,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: AddUnit(Type, Vector2, Team, Vector2)
+  nameWithType: PlayerData.AddUnit(Type, Vector2, Team, Vector2)
+  fullName: MinecaRTS.PlayerData.AddUnit(System.Type, Microsoft.Xna.Framework.Vector2, MinecaRTS.Team, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddUnit
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 189
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddUnit(Type unitType, Vector2 pos, Team team, Vector2 rallyPoint)
+    parameters:
+    - id: unitType
+      type: System.Type
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    - id: team
+      type: MinecaRTS.Team
+    - id: rallyPoint
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Sub AddUnit(unitType As Type, pos As Vector2, team As Team, rallyPoint As Vector2)
+  overload: MinecaRTS.PlayerData.AddUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GiveResources(System.UInt32,MinecaRTS.ResourceType)
+  commentId: M:MinecaRTS.PlayerData.GiveResources(System.UInt32,MinecaRTS.ResourceType)
+  id: GiveResources(System.UInt32,MinecaRTS.ResourceType)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GiveResources(UInt32, ResourceType)
+  nameWithType: PlayerData.GiveResources(UInt32, ResourceType)
+  fullName: MinecaRTS.PlayerData.GiveResources(System.UInt32, MinecaRTS.ResourceType)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GiveResources
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 196
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void GiveResources(uint amount, ResourceType type)
+    parameters:
+    - id: amount
+      type: System.UInt32
+    - id: type
+      type: MinecaRTS.ResourceType
+    content.vb: Public Sub GiveResources(amount As UInteger, type As ResourceType)
+  overload: MinecaRTS.PlayerData.GiveResources*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.SelectUnitsInRect(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.PlayerData.SelectUnitsInRect(Microsoft.Xna.Framework.Rectangle)
+  id: SelectUnitsInRect(Microsoft.Xna.Framework.Rectangle)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: SelectUnitsInRect(Rectangle)
+  nameWithType: PlayerData.SelectUnitsInRect(Rectangle)
+  fullName: MinecaRTS.PlayerData.SelectUnitsInRect(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SelectUnitsInRect
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 206
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SelectUnitsInRect(Rectangle selectAt)
+    parameters:
+    - id: selectAt
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public Sub SelectUnitsInRect(selectAt As Rectangle)
+  overload: MinecaRTS.PlayerData.SelectUnitsInRect*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.MoveSelectedUnitsTo(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.MoveSelectedUnitsTo(Microsoft.Xna.Framework.Vector2)
+  id: MoveSelectedUnitsTo(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: MoveSelectedUnitsTo(Vector2)
+  nameWithType: PlayerData.MoveSelectedUnitsTo(Vector2)
+  fullName: MinecaRTS.PlayerData.MoveSelectedUnitsTo(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MoveSelectedUnitsTo
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 219
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void MoveSelectedUnitsTo(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Sub MoveSelectedUnitsTo(pos As Vector2)
+  overload: MinecaRTS.PlayerData.MoveSelectedUnitsTo*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource(MinecaRTS.ResourceType)
+  commentId: M:MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource(MinecaRTS.ResourceType)
+  id: OrderSelectedWorkersToGatherClosestResource(MinecaRTS.ResourceType)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: OrderSelectedWorkersToGatherClosestResource(ResourceType)
+  nameWithType: PlayerData.OrderSelectedWorkersToGatherClosestResource(ResourceType)
+  fullName: MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource(MinecaRTS.ResourceType)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: OrderSelectedWorkersToGatherClosestResource
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 232
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void OrderSelectedWorkersToGatherClosestResource(ResourceType desiredResource)
+    parameters:
+    - id: desiredResource
+      type: MinecaRTS.ResourceType
+    content.vb: Public Sub OrderSelectedWorkersToGatherClosestResource(desiredResource As ResourceType)
+  overload: MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding(MinecaRTS.Building)
+  commentId: M:MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding(MinecaRTS.Building)
+  id: OrderSelectedWorkerToConstructBuilding(MinecaRTS.Building)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: OrderSelectedWorkerToConstructBuilding(Building)
+  nameWithType: PlayerData.OrderSelectedWorkerToConstructBuilding(Building)
+  fullName: MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding(MinecaRTS.Building)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: OrderSelectedWorkerToConstructBuilding
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 249
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void OrderSelectedWorkerToConstructBuilding(Building building)
+    parameters:
+    - id: building
+      type: MinecaRTS.Building
+    content.vb: Public Sub OrderSelectedWorkerToConstructBuilding(building As Building)
+  overload: MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.OrderSelectedUnitsToStop
+  commentId: M:MinecaRTS.PlayerData.OrderSelectedUnitsToStop
+  id: OrderSelectedUnitsToStop
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: OrderSelectedUnitsToStop()
+  nameWithType: PlayerData.OrderSelectedUnitsToStop()
+  fullName: MinecaRTS.PlayerData.OrderSelectedUnitsToStop()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: OrderSelectedUnitsToStop
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 257
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void OrderSelectedUnitsToStop()
+    content.vb: Public Sub OrderSelectedUnitsToStop
+  overload: MinecaRTS.PlayerData.OrderSelectedUnitsToStop*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetClosestWorkerToPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.GetClosestWorkerToPos(Microsoft.Xna.Framework.Vector2)
+  id: GetClosestWorkerToPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetClosestWorkerToPos(Vector2)
+  nameWithType: PlayerData.GetClosestWorkerToPos(Vector2)
+  fullName: MinecaRTS.PlayerData.GetClosestWorkerToPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetClosestWorkerToPos
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 264
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Worker GetClosestWorkerToPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.Worker
+    content.vb: Public Function GetClosestWorkerToPos(pos As Vector2) As Worker
+  overload: MinecaRTS.PlayerData.GetClosestWorkerToPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetCollidingUnits(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.GetCollidingUnits(MinecaRTS.Unit)
+  id: GetCollidingUnits(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetCollidingUnits(Unit)
+  nameWithType: PlayerData.GetCollidingUnits(Unit)
+  fullName: MinecaRTS.PlayerData.GetCollidingUnits(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetCollidingUnits
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 285
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Unit> GetCollidingUnits(Unit unit)
+    parameters:
+    - id: unit
+      type: MinecaRTS.Unit
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Unit}
+    content.vb: Public Function GetCollidingUnits(unit As Unit) As List(Of Unit)
+  overload: MinecaRTS.PlayerData.GetCollidingUnits*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetUnitsInRadius(MinecaRTS.Unit,System.Single)
+  commentId: M:MinecaRTS.PlayerData.GetUnitsInRadius(MinecaRTS.Unit,System.Single)
+  id: GetUnitsInRadius(MinecaRTS.Unit,System.Single)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInRadius(Unit, Single)
+  nameWithType: PlayerData.GetUnitsInRadius(Unit, Single)
+  fullName: MinecaRTS.PlayerData.GetUnitsInRadius(MinecaRTS.Unit, System.Single)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInRadius
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 301
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Unit> GetUnitsInRadius(Unit unit, float radius)
+    parameters:
+    - id: unit
+      type: MinecaRTS.Unit
+    - id: radius
+      type: System.Single
+    return:
+      type: System.Collections.Generic.List{MinecaRTS.Unit}
+    content.vb: Public Function GetUnitsInRadius(unit As Unit, radius As Single) As List(Of Unit)
+  overload: MinecaRTS.PlayerData.GetUnitsInRadius*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.BuildingAtPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.BuildingAtPos(Microsoft.Xna.Framework.Vector2)
+  id: BuildingAtPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: BuildingAtPos(Vector2)
+  nameWithType: PlayerData.BuildingAtPos(Vector2)
+  fullName: MinecaRTS.PlayerData.BuildingAtPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: BuildingAtPos
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 322
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Building BuildingAtPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.Building
+    content.vb: Public Function BuildingAtPos(pos As Vector2) As Building
+  overload: MinecaRTS.PlayerData.BuildingAtPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.SelectFirstBuildingInRect(Microsoft.Xna.Framework.Rectangle)
+  commentId: M:MinecaRTS.PlayerData.SelectFirstBuildingInRect(Microsoft.Xna.Framework.Rectangle)
+  id: SelectFirstBuildingInRect(Microsoft.Xna.Framework.Rectangle)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: SelectFirstBuildingInRect(Rectangle)
+  nameWithType: PlayerData.SelectFirstBuildingInRect(Rectangle)
+  fullName: MinecaRTS.PlayerData.SelectFirstBuildingInRect(Microsoft.Xna.Framework.Rectangle)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SelectFirstBuildingInRect
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 333
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SelectFirstBuildingInRect(Rectangle rect)
+    parameters:
+    - id: rect
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public Sub SelectFirstBuildingInRect(rect As Rectangle)
+  overload: MinecaRTS.PlayerData.SelectFirstBuildingInRect*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.BuyBuilding(MinecaRTS.Building,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.BuyBuilding(MinecaRTS.Building,Microsoft.Xna.Framework.Vector2)
+  id: BuyBuilding(MinecaRTS.Building,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: BuyBuilding(Building, Vector2)
+  nameWithType: PlayerData.BuyBuilding(Building, Vector2)
+  fullName: MinecaRTS.PlayerData.BuyBuilding(MinecaRTS.Building, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: BuyBuilding
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 348
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool BuyBuilding(Building building, Vector2 pos)
+    parameters:
+    - id: building
+      type: MinecaRTS.Building
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Boolean
+    content.vb: Public Function BuyBuilding(building As Building, pos As Vector2) As Boolean
+  overload: MinecaRTS.PlayerData.BuyBuilding*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.SpendResourcesForUnitType(System.Type)
+  commentId: M:MinecaRTS.PlayerData.SpendResourcesForUnitType(System.Type)
+  id: SpendResourcesForUnitType(System.Type)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: SpendResourcesForUnitType(Type)
+  nameWithType: PlayerData.SpendResourcesForUnitType(Type)
+  fullName: MinecaRTS.PlayerData.SpendResourcesForUnitType(System.Type)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SpendResourcesForUnitType
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 391
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SpendResourcesForUnitType(Type unitType)
+    parameters:
+    - id: unitType
+      type: System.Type
+    content.vb: Public Sub SpendResourcesForUnitType(unitType As Type)
+  overload: MinecaRTS.PlayerData.SpendResourcesForUnitType*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.CanAffordEntityType(System.Type)
+  commentId: M:MinecaRTS.PlayerData.CanAffordEntityType(System.Type)
+  id: CanAffordEntityType(System.Type)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: CanAffordEntityType(Type)
+  nameWithType: PlayerData.CanAffordEntityType(Type)
+  fullName: MinecaRTS.PlayerData.CanAffordEntityType(System.Type)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CanAffordEntityType
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 404
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool CanAffordEntityType(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+    return:
+      type: System.Boolean
+    content.vb: Public Function CanAffordEntityType(entityType As Type) As Boolean
+  overload: MinecaRTS.PlayerData.CanAffordEntityType*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex(System.Int32)
+  commentId: M:MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex(System.Int32)
+  id: QueueUpProductionOnSelectedBuildingAtIndex(System.Int32)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: QueueUpProductionOnSelectedBuildingAtIndex(Int32)
+  nameWithType: PlayerData.QueueUpProductionOnSelectedBuildingAtIndex(Int32)
+  fullName: MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: QueueUpProductionOnSelectedBuildingAtIndex
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 410
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void QueueUpProductionOnSelectedBuildingAtIndex(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub QueueUpProductionOnSelectedBuildingAtIndex(index As Integer)
+  overload: MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.SpendResources(System.UInt32,System.UInt32)
+  commentId: M:MinecaRTS.PlayerData.SpendResources(System.UInt32,System.UInt32)
+  id: SpendResources(System.UInt32,System.UInt32)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: SpendResources(UInt32, UInt32)
+  nameWithType: PlayerData.SpendResources(UInt32, UInt32)
+  fullName: MinecaRTS.PlayerData.SpendResources(System.UInt32, System.UInt32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SpendResources
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 418
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SpendResources(uint wood, uint stone)
+    parameters:
+    - id: wood
+      type: System.UInt32
+    - id: stone
+      type: System.UInt32
+    content.vb: Public Sub SpendResources(wood As UInteger, stone As UInteger)
+  overload: MinecaRTS.PlayerData.SpendResources*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetClosestActiveBuilding``1(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.GetClosestActiveBuilding``1(MinecaRTS.Unit)
+  id: GetClosestActiveBuilding``1(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetClosestActiveBuilding<T>(Unit)
+  nameWithType: PlayerData.GetClosestActiveBuilding<T>(Unit)
+  fullName: MinecaRTS.PlayerData.GetClosestActiveBuilding<T>(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetClosestActiveBuilding
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 430
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: 'public T GetClosestActiveBuilding<T>(Unit u)where T : Building'
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetClosestActiveBuilding(Of T As Building)(u As Unit) As T
+  overload: MinecaRTS.PlayerData.GetClosestActiveBuilding*
+  nameWithType.vb: PlayerData.GetClosestActiveBuilding(Of T)(Unit)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MinecaRTS.PlayerData.GetClosestActiveBuilding(Of T)(MinecaRTS.Unit)
+  name.vb: GetClosestActiveBuilding(Of T)(Unit)
+- uid: MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo(Microsoft.Xna.Framework.Vector2)
+  id: SetSelectedBuildingRallyPointTo(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: SetSelectedBuildingRallyPointTo(Vector2)
+  nameWithType: PlayerData.SetSelectedBuildingRallyPointTo(Vector2)
+  fullName: MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SetSelectedBuildingRallyPointTo
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 452
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void SetSelectedBuildingRallyPointTo(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Sub SetSelectedBuildingRallyPointTo(pos As Vector2)
+  overload: MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.GetClosestResourceReturnPoint(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.PlayerData.GetClosestResourceReturnPoint(MinecaRTS.Unit)
+  id: GetClosestResourceReturnPoint(MinecaRTS.Unit)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: GetClosestResourceReturnPoint(Unit)
+  nameWithType: PlayerData.GetClosestResourceReturnPoint(Unit)
+  fullName: MinecaRTS.PlayerData.GetClosestResourceReturnPoint(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetClosestResourceReturnPoint
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 460
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Building GetClosestResourceReturnPoint(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    return:
+      type: MinecaRTS.Building
+    content.vb: Public Function GetClosestResourceReturnPoint(u As Unit) As Building
+  overload: MinecaRTS.PlayerData.GetClosestResourceReturnPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.PlayerData.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: PlayerData.Render(SpriteBatch)
+  fullName: MinecaRTS.PlayerData.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 482
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Sub Render(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.PlayerData.Render*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.RenderUI(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.PlayerData.RenderUI(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: RenderUI(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: RenderUI(SpriteBatch)
+  nameWithType: PlayerData.RenderUI(SpriteBatch)
+  fullName: MinecaRTS.PlayerData.RenderUI(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderUI
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 498
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RenderUI(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Sub RenderUI(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.PlayerData.RenderUI*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.PanelAtPos(System.String,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.PanelAtPos(System.String,Microsoft.Xna.Framework.Vector2)
+  id: PanelAtPos(System.String,Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: PanelAtPos(String, Vector2)
+  nameWithType: PlayerData.PanelAtPos(String, Vector2)
+  fullName: MinecaRTS.PlayerData.PanelAtPos(System.String, Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: PanelAtPos
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 527
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool PanelAtPos(string panelName, Vector2 pos)
+    parameters:
+    - id: panelName
+      type: System.String
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Boolean
+    content.vb: Public Function PanelAtPos(panelName As String, pos As Vector2) As Boolean
+  overload: MinecaRTS.PlayerData.PanelAtPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.PlayerData.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  id: ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: ButtonAtPos(Vector2)
+  nameWithType: PlayerData.ButtonAtPos(Vector2)
+  fullName: MinecaRTS.PlayerData.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ButtonAtPos
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 537
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Button ButtonAtPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.Button
+    content.vb: Public Function ButtonAtPos(pos As Vector2) As Button
+  overload: MinecaRTS.PlayerData.ButtonAtPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.ClickedOnUI
+  commentId: M:MinecaRTS.PlayerData.ClickedOnUI
+  id: ClickedOnUI
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: ClickedOnUI()
+  nameWithType: PlayerData.ClickedOnUI()
+  fullName: MinecaRTS.PlayerData.ClickedOnUI()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ClickedOnUI
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 551
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool ClickedOnUI()
+    return:
+      type: System.Boolean
+    content.vb: Public Function ClickedOnUI As Boolean
+  overload: MinecaRTS.PlayerData.ClickedOnUI*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.RenderMinimap(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.PlayerData.RenderMinimap(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: RenderMinimap(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: RenderMinimap(SpriteBatch)
+  nameWithType: PlayerData.RenderMinimap(SpriteBatch)
+  fullName: MinecaRTS.PlayerData.RenderMinimap(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderMinimap
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 570
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RenderMinimap(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Sub RenderMinimap(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.PlayerData.RenderMinimap*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.PlayerData.TestPathfindingCalculationTime
+  commentId: M:MinecaRTS.PlayerData.TestPathfindingCalculationTime
+  id: TestPathfindingCalculationTime
+  parent: MinecaRTS.PlayerData
+  langs:
+  - csharp
+  - vb
+  name: TestPathfindingCalculationTime()
+  nameWithType: PlayerData.TestPathfindingCalculationTime()
+  fullName: MinecaRTS.PlayerData.TestPathfindingCalculationTime()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/PlayerData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: TestPathfindingCalculationTime
+    path: ../MinecaRTS/Core/PlayerData.cs
+    startLine: 601
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void TestPathfindingCalculationTime()
+    content.vb: Public Sub TestPathfindingCalculationTime
+  overload: MinecaRTS.PlayerData.TestPathfindingCalculationTime*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.Building
+  commentId: T:MinecaRTS.Building
+  parent: MinecaRTS
+  isExternal: false
+  name: Building
+  nameWithType: Building
+  fullName: MinecaRTS.Building
+- uid: MinecaRTS.PlayerData.Team*
+  commentId: Overload:MinecaRTS.PlayerData.Team
+  isExternal: false
+  name: Team
+  nameWithType: PlayerData.Team
+  fullName: MinecaRTS.PlayerData.Team
+- uid: MinecaRTS.Team
+  commentId: T:MinecaRTS.Team
+  parent: MinecaRTS
+  isExternal: false
+  name: Team
+  nameWithType: Team
+  fullName: MinecaRTS.Team
+- uid: MinecaRTS.PlayerData.Wood*
+  commentId: Overload:MinecaRTS.PlayerData.Wood
+  isExternal: false
+  name: Wood
+  nameWithType: PlayerData.Wood
+  fullName: MinecaRTS.PlayerData.Wood
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: MinecaRTS.PlayerData.Stone*
+  commentId: Overload:MinecaRTS.PlayerData.Stone
+  isExternal: false
+  name: Stone
+  nameWithType: PlayerData.Stone
+  fullName: MinecaRTS.PlayerData.Stone
+- uid: MinecaRTS.PlayerData.MaxSupply*
+  commentId: Overload:MinecaRTS.PlayerData.MaxSupply
+  isExternal: false
+  name: MaxSupply
+  nameWithType: PlayerData.MaxSupply
+  fullName: MinecaRTS.PlayerData.MaxSupply
+- uid: MinecaRTS.PlayerData.SpareSupply*
+  commentId: Overload:MinecaRTS.PlayerData.SpareSupply
+  isExternal: false
+  name: SpareSupply
+  nameWithType: PlayerData.SpareSupply
+  fullName: MinecaRTS.PlayerData.SpareSupply
+- uid: MinecaRTS.PlayerData.SelectedWorker*
+  commentId: Overload:MinecaRTS.PlayerData.SelectedWorker
+  isExternal: false
+  name: SelectedWorker
+  nameWithType: PlayerData.SelectedWorker
+  fullName: MinecaRTS.PlayerData.SelectedWorker
+- uid: MinecaRTS.Worker
+  commentId: T:MinecaRTS.Worker
+  parent: MinecaRTS
+  isExternal: false
+  name: Worker
+  nameWithType: Worker
+  fullName: MinecaRTS.Worker
+- uid: MinecaRTS.PlayerData.#ctor*
+  commentId: Overload:MinecaRTS.PlayerData.#ctor
+  isExternal: false
+  name: PlayerData
+  nameWithType: PlayerData.PlayerData
+  fullName: MinecaRTS.PlayerData.PlayerData
+- uid: MinecaRTS.World
+  commentId: T:MinecaRTS.World
+  parent: MinecaRTS
+  isExternal: false
+  name: World
+  nameWithType: World
+  fullName: MinecaRTS.World
+- uid: MinecaRTS.PlayerData.Grid*
+  commentId: Overload:MinecaRTS.PlayerData.Grid
+  isExternal: false
+  name: Grid
+  nameWithType: PlayerData.Grid
+  fullName: MinecaRTS.PlayerData.Grid
+- uid: MinecaRTS.Grid
+  commentId: T:MinecaRTS.Grid
+  parent: MinecaRTS
+  isExternal: false
+  name: Grid
+  nameWithType: Grid
+  fullName: MinecaRTS.Grid
+- uid: MinecaRTS.PlayerData.RemoveUnitFromCollisionCells*
+  commentId: Overload:MinecaRTS.PlayerData.RemoveUnitFromCollisionCells
+  isExternal: false
+  name: RemoveUnitFromCollisionCells
+  nameWithType: PlayerData.RemoveUnitFromCollisionCells
+  fullName: MinecaRTS.PlayerData.RemoveUnitFromCollisionCells
+- uid: MinecaRTS.Unit
+  commentId: T:MinecaRTS.Unit
+  parent: MinecaRTS
+  isExternal: false
+  name: Unit
+  nameWithType: Unit
+  fullName: MinecaRTS.Unit
+- uid: MinecaRTS.PlayerData.AddUnitToCollisionCells*
+  commentId: Overload:MinecaRTS.PlayerData.AddUnitToCollisionCells
+  isExternal: false
+  name: AddUnitToCollisionCells
+  nameWithType: PlayerData.AddUnitToCollisionCells
+  fullName: MinecaRTS.PlayerData.AddUnitToCollisionCells
+- uid: MinecaRTS.PlayerData.UpdateFogOfWarForUnit*
+  commentId: Overload:MinecaRTS.PlayerData.UpdateFogOfWarForUnit
+  isExternal: false
+  name: UpdateFogOfWarForUnit
+  nameWithType: PlayerData.UpdateFogOfWarForUnit
+  fullName: MinecaRTS.PlayerData.UpdateFogOfWarForUnit
+- uid: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos*
+  commentId: Overload:MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos
+  isExternal: false
+  name: GetUnitsInCollisionCellsAroundPos
+  nameWithType: PlayerData.GetUnitsInCollisionCellsAroundPos
+  fullName: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundPos
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+  commentId: T:System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<HashSet<Unit>>
+  nameWithType: List<HashSet<Unit>>
+  fullName: System.Collections.Generic.List<System.Collections.Generic.HashSet<MinecaRTS.Unit>>
+  nameWithType.vb: List(Of HashSet(Of Unit))
+  fullName.vb: System.Collections.Generic.List(Of System.Collections.Generic.HashSet(Of MinecaRTS.Unit))
+  name.vb: List(Of HashSet(Of Unit))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit*
+  commentId: Overload:MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit
+  isExternal: false
+  name: GetUnitsInCollisionCellsAroundUnit
+  nameWithType: PlayerData.GetUnitsInCollisionCellsAroundUnit
+  fullName: MinecaRTS.PlayerData.GetUnitsInCollisionCellsAroundUnit
+- uid: MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit*
+  commentId: Overload:MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit
+  isExternal: false
+  name: GetUnitsInSameCollisionCellsAsUnit
+  nameWithType: PlayerData.GetUnitsInSameCollisionCellsAsUnit
+  fullName: MinecaRTS.PlayerData.GetUnitsInSameCollisionCellsAsUnit
+- uid: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+  commentId: T:System.Collections.Generic.HashSet{MinecaRTS.Unit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<Unit>
+  nameWithType: HashSet<Unit>
+  fullName: System.Collections.Generic.HashSet<MinecaRTS.Unit>
+  nameWithType.vb: HashSet(Of Unit)
+  fullName.vb: System.Collections.Generic.HashSet(Of MinecaRTS.Unit)
+  name.vb: HashSet(Of Unit)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.PlayerData.GetResourceFromCell*
+  commentId: Overload:MinecaRTS.PlayerData.GetResourceFromCell
+  isExternal: false
+  name: GetResourceFromCell
+  nameWithType: PlayerData.GetResourceFromCell
+  fullName: MinecaRTS.PlayerData.GetResourceFromCell
+- uid: MinecaRTS.Cell
+  commentId: T:MinecaRTS.Cell
+  parent: MinecaRTS
+  isExternal: false
+  name: Cell
+  nameWithType: Cell
+  fullName: MinecaRTS.Cell
+- uid: MinecaRTS.Resource
+  commentId: T:MinecaRTS.Resource
+  parent: MinecaRTS
+  isExternal: false
+  name: Resource
+  nameWithType: Resource
+  fullName: MinecaRTS.Resource
+- uid: MinecaRTS.PlayerData.GetTrackFromCell*
+  commentId: Overload:MinecaRTS.PlayerData.GetTrackFromCell
+  isExternal: false
+  name: GetTrackFromCell
+  nameWithType: PlayerData.GetTrackFromCell
+  fullName: MinecaRTS.PlayerData.GetTrackFromCell
+- uid: MinecaRTS.Track
+  commentId: T:MinecaRTS.Track
+  parent: MinecaRTS
+  isExternal: false
+  name: Track
+  nameWithType: Track
+  fullName: MinecaRTS.Track
+- uid: MinecaRTS.PlayerData.CellHasResource*
+  commentId: Overload:MinecaRTS.PlayerData.CellHasResource
+  isExternal: false
+  name: CellHasResource
+  nameWithType: PlayerData.CellHasResource
+  fullName: MinecaRTS.PlayerData.CellHasResource
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MinecaRTS.PlayerData.CellHasTrack*
+  commentId: Overload:MinecaRTS.PlayerData.CellHasTrack
+  isExternal: false
+  name: CellHasTrack
+  nameWithType: PlayerData.CellHasTrack
+  fullName: MinecaRTS.PlayerData.CellHasTrack
+- uid: MinecaRTS.PlayerData.AddUnit*
+  commentId: Overload:MinecaRTS.PlayerData.AddUnit
+  isExternal: false
+  name: AddUnit
+  nameWithType: PlayerData.AddUnit
+  fullName: MinecaRTS.PlayerData.AddUnit
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: MinecaRTS.PlayerData.GiveResources*
+  commentId: Overload:MinecaRTS.PlayerData.GiveResources
+  isExternal: false
+  name: GiveResources
+  nameWithType: PlayerData.GiveResources
+  fullName: MinecaRTS.PlayerData.GiveResources
+- uid: MinecaRTS.ResourceType
+  commentId: T:MinecaRTS.ResourceType
+  parent: MinecaRTS
+  isExternal: false
+  name: ResourceType
+  nameWithType: ResourceType
+  fullName: MinecaRTS.ResourceType
+- uid: MinecaRTS.PlayerData.SelectUnitsInRect*
+  commentId: Overload:MinecaRTS.PlayerData.SelectUnitsInRect
+  isExternal: false
+  name: SelectUnitsInRect
+  nameWithType: PlayerData.SelectUnitsInRect
+  fullName: MinecaRTS.PlayerData.SelectUnitsInRect
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: MinecaRTS.PlayerData.MoveSelectedUnitsTo*
+  commentId: Overload:MinecaRTS.PlayerData.MoveSelectedUnitsTo
+  isExternal: false
+  name: MoveSelectedUnitsTo
+  nameWithType: PlayerData.MoveSelectedUnitsTo
+  fullName: MinecaRTS.PlayerData.MoveSelectedUnitsTo
+- uid: MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource*
+  commentId: Overload:MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource
+  isExternal: false
+  name: OrderSelectedWorkersToGatherClosestResource
+  nameWithType: PlayerData.OrderSelectedWorkersToGatherClosestResource
+  fullName: MinecaRTS.PlayerData.OrderSelectedWorkersToGatherClosestResource
+- uid: MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding*
+  commentId: Overload:MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding
+  isExternal: false
+  name: OrderSelectedWorkerToConstructBuilding
+  nameWithType: PlayerData.OrderSelectedWorkerToConstructBuilding
+  fullName: MinecaRTS.PlayerData.OrderSelectedWorkerToConstructBuilding
+- uid: MinecaRTS.PlayerData.OrderSelectedUnitsToStop*
+  commentId: Overload:MinecaRTS.PlayerData.OrderSelectedUnitsToStop
+  isExternal: false
+  name: OrderSelectedUnitsToStop
+  nameWithType: PlayerData.OrderSelectedUnitsToStop
+  fullName: MinecaRTS.PlayerData.OrderSelectedUnitsToStop
+- uid: MinecaRTS.PlayerData.GetClosestWorkerToPos*
+  commentId: Overload:MinecaRTS.PlayerData.GetClosestWorkerToPos
+  isExternal: false
+  name: GetClosestWorkerToPos
+  nameWithType: PlayerData.GetClosestWorkerToPos
+  fullName: MinecaRTS.PlayerData.GetClosestWorkerToPos
+- uid: MinecaRTS.PlayerData.GetCollidingUnits*
+  commentId: Overload:MinecaRTS.PlayerData.GetCollidingUnits
+  isExternal: false
+  name: GetCollidingUnits
+  nameWithType: PlayerData.GetCollidingUnits
+  fullName: MinecaRTS.PlayerData.GetCollidingUnits
+- uid: System.Collections.Generic.List{MinecaRTS.Unit}
+  commentId: T:System.Collections.Generic.List{MinecaRTS.Unit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Unit>
+  nameWithType: List<Unit>
+  fullName: System.Collections.Generic.List<MinecaRTS.Unit>
+  nameWithType.vb: List(Of Unit)
+  fullName.vb: System.Collections.Generic.List(Of MinecaRTS.Unit)
+  name.vb: List(Of Unit)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.PlayerData.GetUnitsInRadius*
+  commentId: Overload:MinecaRTS.PlayerData.GetUnitsInRadius
+  isExternal: false
+  name: GetUnitsInRadius
+  nameWithType: PlayerData.GetUnitsInRadius
+  fullName: MinecaRTS.PlayerData.GetUnitsInRadius
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MinecaRTS.PlayerData.BuildingAtPos*
+  commentId: Overload:MinecaRTS.PlayerData.BuildingAtPos
+  isExternal: false
+  name: BuildingAtPos
+  nameWithType: PlayerData.BuildingAtPos
+  fullName: MinecaRTS.PlayerData.BuildingAtPos
+- uid: MinecaRTS.PlayerData.SelectFirstBuildingInRect*
+  commentId: Overload:MinecaRTS.PlayerData.SelectFirstBuildingInRect
+  isExternal: false
+  name: SelectFirstBuildingInRect
+  nameWithType: PlayerData.SelectFirstBuildingInRect
+  fullName: MinecaRTS.PlayerData.SelectFirstBuildingInRect
+- uid: MinecaRTS.PlayerData.BuyBuilding*
+  commentId: Overload:MinecaRTS.PlayerData.BuyBuilding
+  isExternal: false
+  name: BuyBuilding
+  nameWithType: PlayerData.BuyBuilding
+  fullName: MinecaRTS.PlayerData.BuyBuilding
+- uid: MinecaRTS.PlayerData.SpendResourcesForUnitType*
+  commentId: Overload:MinecaRTS.PlayerData.SpendResourcesForUnitType
+  isExternal: false
+  name: SpendResourcesForUnitType
+  nameWithType: PlayerData.SpendResourcesForUnitType
+  fullName: MinecaRTS.PlayerData.SpendResourcesForUnitType
+- uid: MinecaRTS.PlayerData.CanAffordEntityType*
+  commentId: Overload:MinecaRTS.PlayerData.CanAffordEntityType
+  isExternal: false
+  name: CanAffordEntityType
+  nameWithType: PlayerData.CanAffordEntityType
+  fullName: MinecaRTS.PlayerData.CanAffordEntityType
+- uid: MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex*
+  commentId: Overload:MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex
+  isExternal: false
+  name: QueueUpProductionOnSelectedBuildingAtIndex
+  nameWithType: PlayerData.QueueUpProductionOnSelectedBuildingAtIndex
+  fullName: MinecaRTS.PlayerData.QueueUpProductionOnSelectedBuildingAtIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MinecaRTS.PlayerData.SpendResources*
+  commentId: Overload:MinecaRTS.PlayerData.SpendResources
+  isExternal: false
+  name: SpendResources
+  nameWithType: PlayerData.SpendResources
+  fullName: MinecaRTS.PlayerData.SpendResources
+- uid: MinecaRTS.PlayerData.GetClosestActiveBuilding*
+  commentId: Overload:MinecaRTS.PlayerData.GetClosestActiveBuilding
+  isExternal: false
+  name: GetClosestActiveBuilding
+  nameWithType: PlayerData.GetClosestActiveBuilding
+  fullName: MinecaRTS.PlayerData.GetClosestActiveBuilding
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  isExternal: false
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo*
+  commentId: Overload:MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo
+  isExternal: false
+  name: SetSelectedBuildingRallyPointTo
+  nameWithType: PlayerData.SetSelectedBuildingRallyPointTo
+  fullName: MinecaRTS.PlayerData.SetSelectedBuildingRallyPointTo
+- uid: MinecaRTS.PlayerData.GetClosestResourceReturnPoint*
+  commentId: Overload:MinecaRTS.PlayerData.GetClosestResourceReturnPoint
+  isExternal: false
+  name: GetClosestResourceReturnPoint
+  nameWithType: PlayerData.GetClosestResourceReturnPoint
+  fullName: MinecaRTS.PlayerData.GetClosestResourceReturnPoint
+- uid: MinecaRTS.PlayerData.Render*
+  commentId: Overload:MinecaRTS.PlayerData.Render
+  isExternal: false
+  name: Render
+  nameWithType: PlayerData.Render
+  fullName: MinecaRTS.PlayerData.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics
+- uid: MinecaRTS.PlayerData.RenderUI*
+  commentId: Overload:MinecaRTS.PlayerData.RenderUI
+  isExternal: false
+  name: RenderUI
+  nameWithType: PlayerData.RenderUI
+  fullName: MinecaRTS.PlayerData.RenderUI
+- uid: MinecaRTS.PlayerData.PanelAtPos*
+  commentId: Overload:MinecaRTS.PlayerData.PanelAtPos
+  isExternal: false
+  name: PanelAtPos
+  nameWithType: PlayerData.PanelAtPos
+  fullName: MinecaRTS.PlayerData.PanelAtPos
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: MinecaRTS.PlayerData.ButtonAtPos*
+  commentId: Overload:MinecaRTS.PlayerData.ButtonAtPos
+  isExternal: false
+  name: ButtonAtPos
+  nameWithType: PlayerData.ButtonAtPos
+  fullName: MinecaRTS.PlayerData.ButtonAtPos
+- uid: MinecaRTS.Button
+  commentId: T:MinecaRTS.Button
+  parent: MinecaRTS
+  isExternal: false
+  name: Button
+  nameWithType: Button
+  fullName: MinecaRTS.Button
+- uid: MinecaRTS.PlayerData.ClickedOnUI*
+  commentId: Overload:MinecaRTS.PlayerData.ClickedOnUI
+  isExternal: false
+  name: ClickedOnUI
+  nameWithType: PlayerData.ClickedOnUI
+  fullName: MinecaRTS.PlayerData.ClickedOnUI
+- uid: MinecaRTS.PlayerData.RenderMinimap*
+  commentId: Overload:MinecaRTS.PlayerData.RenderMinimap
+  isExternal: false
+  name: RenderMinimap
+  nameWithType: PlayerData.RenderMinimap
+  fullName: MinecaRTS.PlayerData.RenderMinimap
+- uid: MinecaRTS.PlayerData.TestPathfindingCalculationTime*
+  commentId: Overload:MinecaRTS.PlayerData.TestPathfindingCalculationTime
+  isExternal: false
+  name: TestPathfindingCalculationTime
+  nameWithType: PlayerData.TestPathfindingCalculationTime
+  fullName: MinecaRTS.PlayerData.TestPathfindingCalculationTime

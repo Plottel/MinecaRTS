@@ -1,0 +1,843 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.SteeringBehaviours
+  commentId: T:MinecaRTS.SteeringBehaviours
+  id: SteeringBehaviours
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.SteeringBehaviours.#ctor(MinecaRTS.Unit,MinecaRTS.PlayerData)
+  - MinecaRTS.SteeringBehaviours.Calculate
+  - MinecaRTS.SteeringBehaviours.centreFeelerEnd
+  - MinecaRTS.SteeringBehaviours.closestUnpassableCellMid
+  - MinecaRTS.SteeringBehaviours.leftFeelerEnd
+  - MinecaRTS.SteeringBehaviours.LOOK_AHEAD_DISTANCE
+  - MinecaRTS.SteeringBehaviours.rightFeelerEnd
+  - MinecaRTS.SteeringBehaviours.Separation
+  - MinecaRTS.SteeringBehaviours.separationOn
+  - MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance
+  - MinecaRTS.SteeringBehaviours.wallPushForce
+  - MinecaRTS.SteeringBehaviours.ZeroOverlapCells
+  - MinecaRTS.SteeringBehaviours.ZeroOverlapUnits
+  langs:
+  - csharp
+  - vb
+  name: SteeringBehaviours
+  nameWithType: SteeringBehaviours
+  fullName: MinecaRTS.SteeringBehaviours
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SteeringBehaviours
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public class SteeringBehaviours
+    content.vb: Public Class SteeringBehaviours
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.SteeringBehaviours.LOOK_AHEAD_DISTANCE
+  commentId: F:MinecaRTS.SteeringBehaviours.LOOK_AHEAD_DISTANCE
+  id: LOOK_AHEAD_DISTANCE
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: LOOK_AHEAD_DISTANCE
+  nameWithType: SteeringBehaviours.LOOK_AHEAD_DISTANCE
+  fullName: MinecaRTS.SteeringBehaviours.LOOK_AHEAD_DISTANCE
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: LOOK_AHEAD_DISTANCE
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static int LOOK_AHEAD_DISTANCE
+    return:
+      type: System.Int32
+    content.vb: Public Shared LOOK_AHEAD_DISTANCE As Integer
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.SteeringBehaviours.separationOn
+  commentId: F:MinecaRTS.SteeringBehaviours.separationOn
+  id: separationOn
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: separationOn
+  nameWithType: SteeringBehaviours.separationOn
+  fullName: MinecaRTS.SteeringBehaviours.separationOn
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: separationOn
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 20
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public bool separationOn
+    return:
+      type: System.Boolean
+    content.vb: Public separationOn As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.centreFeelerEnd
+  commentId: F:MinecaRTS.SteeringBehaviours.centreFeelerEnd
+  id: centreFeelerEnd
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: centreFeelerEnd
+  nameWithType: SteeringBehaviours.centreFeelerEnd
+  fullName: MinecaRTS.SteeringBehaviours.centreFeelerEnd
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: centreFeelerEnd
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 24
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 centreFeelerEnd
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public centreFeelerEnd As Vector2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.leftFeelerEnd
+  commentId: F:MinecaRTS.SteeringBehaviours.leftFeelerEnd
+  id: leftFeelerEnd
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: leftFeelerEnd
+  nameWithType: SteeringBehaviours.leftFeelerEnd
+  fullName: MinecaRTS.SteeringBehaviours.leftFeelerEnd
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: leftFeelerEnd
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 24
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 leftFeelerEnd
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public leftFeelerEnd As Vector2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.rightFeelerEnd
+  commentId: F:MinecaRTS.SteeringBehaviours.rightFeelerEnd
+  id: rightFeelerEnd
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: rightFeelerEnd
+  nameWithType: SteeringBehaviours.rightFeelerEnd
+  fullName: MinecaRTS.SteeringBehaviours.rightFeelerEnd
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: rightFeelerEnd
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 24
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 rightFeelerEnd
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public rightFeelerEnd As Vector2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.wallPushForce
+  commentId: F:MinecaRTS.SteeringBehaviours.wallPushForce
+  id: wallPushForce
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: wallPushForce
+  nameWithType: SteeringBehaviours.wallPushForce
+  fullName: MinecaRTS.SteeringBehaviours.wallPushForce
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: wallPushForce
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 25
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 wallPushForce
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public wallPushForce As Vector2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.closestUnpassableCellMid
+  commentId: F:MinecaRTS.SteeringBehaviours.closestUnpassableCellMid
+  id: closestUnpassableCellMid
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: closestUnpassableCellMid
+  nameWithType: SteeringBehaviours.closestUnpassableCellMid
+  fullName: MinecaRTS.SteeringBehaviours.closestUnpassableCellMid
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: closestUnpassableCellMid
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 26
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 closestUnpassableCellMid
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public closestUnpassableCellMid As Vector2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.#ctor(MinecaRTS.Unit,MinecaRTS.PlayerData)
+  commentId: M:MinecaRTS.SteeringBehaviours.#ctor(MinecaRTS.Unit,MinecaRTS.PlayerData)
+  id: '#ctor(MinecaRTS.Unit,MinecaRTS.PlayerData)'
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: SteeringBehaviours(Unit, PlayerData)
+  nameWithType: SteeringBehaviours.SteeringBehaviours(Unit, PlayerData)
+  fullName: MinecaRTS.SteeringBehaviours.SteeringBehaviours(MinecaRTS.Unit, MinecaRTS.PlayerData)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 28
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public SteeringBehaviours(Unit owner, PlayerData data)
+    parameters:
+    - id: owner
+      type: MinecaRTS.Unit
+    - id: data
+      type: MinecaRTS.PlayerData
+    content.vb: Public Sub New(owner As Unit, data As PlayerData)
+  overload: MinecaRTS.SteeringBehaviours.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.Calculate
+  commentId: M:MinecaRTS.SteeringBehaviours.Calculate
+  id: Calculate
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: Calculate()
+  nameWithType: SteeringBehaviours.Calculate()
+  fullName: MinecaRTS.SteeringBehaviours.Calculate()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Calculate
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 38
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 Calculate()
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Function Calculate As Vector2
+  overload: MinecaRTS.SteeringBehaviours.Calculate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.Separation
+  commentId: M:MinecaRTS.SteeringBehaviours.Separation
+  id: Separation
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: Separation()
+  nameWithType: SteeringBehaviours.Separation()
+  fullName: MinecaRTS.SteeringBehaviours.Separation()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Separation
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 55
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 Separation()
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Function Separation As Vector2
+  overload: MinecaRTS.SteeringBehaviours.Separation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance
+  commentId: M:MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance
+  id: UnpassableCellAvoidance
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: UnpassableCellAvoidance()
+  nameWithType: SteeringBehaviours.UnpassableCellAvoidance()
+  fullName: MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UnpassableCellAvoidance
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 72
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 UnpassableCellAvoidance()
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Function UnpassableCellAvoidance As Vector2
+  overload: MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.ZeroOverlapCells
+  commentId: M:MinecaRTS.SteeringBehaviours.ZeroOverlapCells
+  id: ZeroOverlapCells
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: ZeroOverlapCells()
+  nameWithType: SteeringBehaviours.ZeroOverlapCells()
+  fullName: MinecaRTS.SteeringBehaviours.ZeroOverlapCells()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ZeroOverlapCells
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 164
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void ZeroOverlapCells()
+    content.vb: Public Sub ZeroOverlapCells
+  overload: MinecaRTS.SteeringBehaviours.ZeroOverlapCells*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.SteeringBehaviours.ZeroOverlapUnits
+  commentId: M:MinecaRTS.SteeringBehaviours.ZeroOverlapUnits
+  id: ZeroOverlapUnits
+  parent: MinecaRTS.SteeringBehaviours
+  langs:
+  - csharp
+  - vb
+  name: ZeroOverlapUnits()
+  nameWithType: SteeringBehaviours.ZeroOverlapUnits()
+  fullName: MinecaRTS.SteeringBehaviours.ZeroOverlapUnits()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Pathing/SteeringBehaviours.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ZeroOverlapUnits
+    path: MinecaRTS/Pathing/SteeringBehaviours.cs
+    startLine: 195
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void ZeroOverlapUnits()
+    content.vb: Public Sub ZeroOverlapUnits
+  overload: MinecaRTS.SteeringBehaviours.ZeroOverlapUnits*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.SteeringBehaviours.#ctor*
+  commentId: Overload:MinecaRTS.SteeringBehaviours.#ctor
+  isExternal: false
+  name: SteeringBehaviours
+  nameWithType: SteeringBehaviours.SteeringBehaviours
+  fullName: MinecaRTS.SteeringBehaviours.SteeringBehaviours
+- uid: MinecaRTS.Unit
+  commentId: T:MinecaRTS.Unit
+  parent: MinecaRTS
+  isExternal: false
+  name: Unit
+  nameWithType: Unit
+  fullName: MinecaRTS.Unit
+- uid: MinecaRTS.PlayerData
+  commentId: T:MinecaRTS.PlayerData
+  parent: MinecaRTS
+  isExternal: false
+  name: PlayerData
+  nameWithType: PlayerData
+  fullName: MinecaRTS.PlayerData
+- uid: MinecaRTS.SteeringBehaviours.Calculate*
+  commentId: Overload:MinecaRTS.SteeringBehaviours.Calculate
+  isExternal: false
+  name: Calculate
+  nameWithType: SteeringBehaviours.Calculate
+  fullName: MinecaRTS.SteeringBehaviours.Calculate
+- uid: MinecaRTS.SteeringBehaviours.Separation*
+  commentId: Overload:MinecaRTS.SteeringBehaviours.Separation
+  isExternal: false
+  name: Separation
+  nameWithType: SteeringBehaviours.Separation
+  fullName: MinecaRTS.SteeringBehaviours.Separation
+- uid: MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance*
+  commentId: Overload:MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance
+  isExternal: false
+  name: UnpassableCellAvoidance
+  nameWithType: SteeringBehaviours.UnpassableCellAvoidance
+  fullName: MinecaRTS.SteeringBehaviours.UnpassableCellAvoidance
+- uid: MinecaRTS.SteeringBehaviours.ZeroOverlapCells*
+  commentId: Overload:MinecaRTS.SteeringBehaviours.ZeroOverlapCells
+  isExternal: false
+  name: ZeroOverlapCells
+  nameWithType: SteeringBehaviours.ZeroOverlapCells
+  fullName: MinecaRTS.SteeringBehaviours.ZeroOverlapCells
+- uid: MinecaRTS.SteeringBehaviours.ZeroOverlapUnits*
+  commentId: Overload:MinecaRTS.SteeringBehaviours.ZeroOverlapUnits
+  isExternal: false
+  name: ZeroOverlapUnits
+  nameWithType: SteeringBehaviours.ZeroOverlapUnits
+  fullName: MinecaRTS.SteeringBehaviours.ZeroOverlapUnits

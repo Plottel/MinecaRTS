@@ -1,0 +1,1200 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.CollisionCellData
+  commentId: T:MinecaRTS.CollisionCellData
+  id: CollisionCellData
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.CollisionCellData.#ctor(MinecaRTS.Grid)
+  - MinecaRTS.CollisionCellData.AddUnit(MinecaRTS.Unit)
+  - MinecaRTS.CollisionCellData.GetCellIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(System.Int32,System.Int32)
+  - MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit(MinecaRTS.Unit)
+  - MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit(MinecaRTS.Unit)
+  - MinecaRTS.CollisionCellData.Grid
+  - MinecaRTS.CollisionCellData.Item(Microsoft.Xna.Framework.Point)
+  - MinecaRTS.CollisionCellData.Item(System.Int32,System.Int32)
+  - MinecaRTS.CollisionCellData.RemoveUnit(MinecaRTS.Unit)
+  - MinecaRTS.CollisionCellData.UnitMoved(MinecaRTS.Unit)
+  langs:
+  - csharp
+  - vb
+  name: CollisionCellData
+  nameWithType: CollisionCellData
+  fullName: MinecaRTS.CollisionCellData
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: CollisionCellData
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public class CollisionCellData
+    content.vb: Public Class CollisionCellData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.CollisionCellData.Item(System.Int32,System.Int32)
+  commentId: P:MinecaRTS.CollisionCellData.Item(System.Int32,System.Int32)
+  id: Item(System.Int32,System.Int32)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32, Int32]
+  nameWithType: CollisionCellData.Item[Int32, Int32]
+  fullName: MinecaRTS.CollisionCellData.Item[System.Int32, System.Int32]
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: this[]
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Unit> this[int col, int row] { get; }
+    parameters:
+    - id: col
+      type: System.Int32
+    - id: row
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+    content.vb: Public ReadOnly Property Item(col As Integer, row As Integer) As HashSet(Of Unit)
+  overload: MinecaRTS.CollisionCellData.Item*
+  nameWithType.vb: CollisionCellData.Item(Int32, Int32)
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: MinecaRTS.CollisionCellData.Item(System.Int32, System.Int32)
+  name.vb: Item(Int32, Int32)
+- uid: MinecaRTS.CollisionCellData.Item(Microsoft.Xna.Framework.Point)
+  commentId: P:MinecaRTS.CollisionCellData.Item(Microsoft.Xna.Framework.Point)
+  id: Item(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: Item[Point]
+  nameWithType: CollisionCellData.Item[Point]
+  fullName: MinecaRTS.CollisionCellData.Item[Microsoft.Xna.Framework.Point]
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: this[]
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 26
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Unit> this[Point cellIndex] { get; }
+    parameters:
+    - id: cellIndex
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+    content.vb: Public ReadOnly Property Item(cellIndex As Point) As HashSet(Of Unit)
+  overload: MinecaRTS.CollisionCellData.Item*
+  nameWithType.vb: CollisionCellData.Item(Point)
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: MinecaRTS.CollisionCellData.Item(Microsoft.Xna.Framework.Point)
+  name.vb: Item(Point)
+- uid: MinecaRTS.CollisionCellData.#ctor(MinecaRTS.Grid)
+  commentId: M:MinecaRTS.CollisionCellData.#ctor(MinecaRTS.Grid)
+  id: '#ctor(MinecaRTS.Grid)'
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: CollisionCellData(Grid)
+  nameWithType: CollisionCellData.CollisionCellData(Grid)
+  fullName: MinecaRTS.CollisionCellData.CollisionCellData(MinecaRTS.Grid)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 31
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public CollisionCellData(Grid grid)
+    parameters:
+    - id: grid
+      type: MinecaRTS.Grid
+    content.vb: Public Sub New(grid As Grid)
+  overload: MinecaRTS.CollisionCellData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.Grid
+  commentId: P:MinecaRTS.CollisionCellData.Grid
+  id: Grid
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: CollisionCellData.Grid
+  fullName: MinecaRTS.CollisionCellData.Grid
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Grid
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 46
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Grid Grid { get; }
+    parameters: []
+    return:
+      type: MinecaRTS.Grid
+    content.vb: Public ReadOnly Property Grid As Grid
+  overload: MinecaRTS.CollisionCellData.Grid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.CollisionCellData.AddUnit(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.CollisionCellData.AddUnit(MinecaRTS.Unit)
+  id: AddUnit(MinecaRTS.Unit)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: AddUnit(Unit)
+  nameWithType: CollisionCellData.AddUnit(Unit)
+  fullName: MinecaRTS.CollisionCellData.AddUnit(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddUnit
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 51
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddUnit(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub AddUnit(u As Unit)
+  overload: MinecaRTS.CollisionCellData.AddUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.RemoveUnit(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.CollisionCellData.RemoveUnit(MinecaRTS.Unit)
+  id: RemoveUnit(MinecaRTS.Unit)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: RemoveUnit(Unit)
+  nameWithType: CollisionCellData.RemoveUnit(Unit)
+  fullName: MinecaRTS.CollisionCellData.RemoveUnit(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RemoveUnit
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 56
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void RemoveUnit(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub RemoveUnit(u As Unit)
+  overload: MinecaRTS.CollisionCellData.RemoveUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.UnitMoved(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.CollisionCellData.UnitMoved(MinecaRTS.Unit)
+  id: UnitMoved(MinecaRTS.Unit)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: UnitMoved(Unit)
+  nameWithType: CollisionCellData.UnitMoved(Unit)
+  fullName: MinecaRTS.CollisionCellData.UnitMoved(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UnitMoved
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 61
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void UnitMoved(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    content.vb: Public Sub UnitMoved(u As Unit)
+  overload: MinecaRTS.CollisionCellData.UnitMoved*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos(Microsoft.Xna.Framework.Vector2)
+  id: GetUnitsInSameCellAsPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInSameCellAsPos(Vector2)
+  nameWithType: CollisionCellData.GetUnitsInSameCellAsPos(Vector2)
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInSameCellAsPos
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 67
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Unit> GetUnitsInSameCellAsPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+    content.vb: Public Function GetUnitsInSameCellAsPos(pos As Vector2) As HashSet(Of Unit)
+  overload: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  id: GetUnitsInCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInCellsAroundPos(Vector2)
+  nameWithType: CollisionCellData.GetUnitsInCellsAroundPos(Vector2)
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInCellsAroundPos
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 72
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<HashSet<Unit>> GetUnitsInCellsAroundPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+    content.vb: Public Function GetUnitsInCellsAroundPos(pos As Vector2) As List(Of HashSet(Of Unit))
+  overload: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit(MinecaRTS.Unit)
+  id: GetUnitsInSameCellAsUnit(MinecaRTS.Unit)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInSameCellAsUnit(Unit)
+  nameWithType: CollisionCellData.GetUnitsInSameCellAsUnit(Unit)
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInSameCellAsUnit
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 82
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Unit> GetUnitsInSameCellAsUnit(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+    content.vb: Public Function GetUnitsInSameCellAsUnit(u As Unit) As HashSet(Of Unit)
+  overload: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit(MinecaRTS.Unit)
+  id: GetUnitsInCellsAroundUnit(MinecaRTS.Unit)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInCellsAroundUnit(Unit)
+  nameWithType: CollisionCellData.GetUnitsInCellsAroundUnit(Unit)
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInCellsAroundUnit
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 87
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<HashSet<Unit>> GetUnitsInCellsAroundUnit(Unit u)
+    parameters:
+    - id: u
+      type: MinecaRTS.Unit
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+    content.vb: Public Function GetUnitsInCellsAroundUnit(u As Unit) As List(Of HashSet(Of Unit))
+  overload: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.GetCellIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.CollisionCellData.GetCellIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  id: GetCellIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: GetCellIndexesAroundPos(Vector2)
+  nameWithType: CollisionCellData.GetCellIndexesAroundPos(Vector2)
+  fullName: MinecaRTS.CollisionCellData.GetCellIndexesAroundPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetCellIndexesAroundPos
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 92
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public List<Point> GetCellIndexesAroundPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: System.Collections.Generic.List{Microsoft.Xna.Framework.Point}
+    content.vb: Public Function GetCellIndexesAroundPos(pos As Vector2) As List(Of Point)
+  overload: MinecaRTS.CollisionCellData.GetCellIndexesAroundPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(Microsoft.Xna.Framework.Point)
+  commentId: M:MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(Microsoft.Xna.Framework.Point)
+  id: GetUnitsInCellFromIndex(Microsoft.Xna.Framework.Point)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInCellFromIndex(Point)
+  nameWithType: CollisionCellData.GetUnitsInCellFromIndex(Point)
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(Microsoft.Xna.Framework.Point)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInCellFromIndex
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 111
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Unit> GetUnitsInCellFromIndex(Point index)
+    parameters:
+    - id: index
+      type: Microsoft.Xna.Framework.Point
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+    content.vb: Public Function GetUnitsInCellFromIndex(index As Point) As HashSet(Of Unit)
+  overload: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(System.Int32,System.Int32)
+  commentId: M:MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(System.Int32,System.Int32)
+  id: GetUnitsInCellFromIndex(System.Int32,System.Int32)
+  parent: MinecaRTS.CollisionCellData
+  langs:
+  - csharp
+  - vb
+  name: GetUnitsInCellFromIndex(Int32, Int32)
+  nameWithType: CollisionCellData.GetUnitsInCellFromIndex(Int32, Int32)
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Core/CollisionCellData.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GetUnitsInCellFromIndex
+    path: ../MinecaRTS/Core/CollisionCellData.cs
+    startLine: 116
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public HashSet<Unit> GetUnitsInCellFromIndex(int col, int row)
+    parameters:
+    - id: col
+      type: System.Int32
+    - id: row
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+    content.vb: Public Function GetUnitsInCellFromIndex(col As Integer, row As Integer) As HashSet(Of Unit)
+  overload: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.CollisionCellData.Item*
+  commentId: Overload:MinecaRTS.CollisionCellData.Item
+  isExternal: false
+  name: Item
+  nameWithType: CollisionCellData.Item
+  fullName: MinecaRTS.CollisionCellData.Item
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Collections.Generic.HashSet{MinecaRTS.Unit}
+  commentId: T:System.Collections.Generic.HashSet{MinecaRTS.Unit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<Unit>
+  nameWithType: HashSet<Unit>
+  fullName: System.Collections.Generic.HashSet<MinecaRTS.Unit>
+  nameWithType.vb: HashSet(Of Unit)
+  fullName.vb: System.Collections.Generic.HashSet(Of MinecaRTS.Unit)
+  name.vb: HashSet(Of Unit)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Microsoft.Xna.Framework.Point
+  commentId: T:Microsoft.Xna.Framework.Point
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: Microsoft.Xna.Framework.Point
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.CollisionCellData.#ctor*
+  commentId: Overload:MinecaRTS.CollisionCellData.#ctor
+  isExternal: false
+  name: CollisionCellData
+  nameWithType: CollisionCellData.CollisionCellData
+  fullName: MinecaRTS.CollisionCellData.CollisionCellData
+- uid: MinecaRTS.Grid
+  commentId: T:MinecaRTS.Grid
+  parent: MinecaRTS
+  isExternal: false
+  name: Grid
+  nameWithType: Grid
+  fullName: MinecaRTS.Grid
+- uid: MinecaRTS.CollisionCellData.Grid*
+  commentId: Overload:MinecaRTS.CollisionCellData.Grid
+  isExternal: false
+  name: Grid
+  nameWithType: CollisionCellData.Grid
+  fullName: MinecaRTS.CollisionCellData.Grid
+- uid: MinecaRTS.CollisionCellData.AddUnit*
+  commentId: Overload:MinecaRTS.CollisionCellData.AddUnit
+  isExternal: false
+  name: AddUnit
+  nameWithType: CollisionCellData.AddUnit
+  fullName: MinecaRTS.CollisionCellData.AddUnit
+- uid: MinecaRTS.Unit
+  commentId: T:MinecaRTS.Unit
+  parent: MinecaRTS
+  isExternal: false
+  name: Unit
+  nameWithType: Unit
+  fullName: MinecaRTS.Unit
+- uid: MinecaRTS.CollisionCellData.RemoveUnit*
+  commentId: Overload:MinecaRTS.CollisionCellData.RemoveUnit
+  isExternal: false
+  name: RemoveUnit
+  nameWithType: CollisionCellData.RemoveUnit
+  fullName: MinecaRTS.CollisionCellData.RemoveUnit
+- uid: MinecaRTS.CollisionCellData.UnitMoved*
+  commentId: Overload:MinecaRTS.CollisionCellData.UnitMoved
+  isExternal: false
+  name: UnitMoved
+  nameWithType: CollisionCellData.UnitMoved
+  fullName: MinecaRTS.CollisionCellData.UnitMoved
+- uid: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos*
+  commentId: Overload:MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos
+  isExternal: false
+  name: GetUnitsInSameCellAsPos
+  nameWithType: CollisionCellData.GetUnitsInSameCellAsPos
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsPos
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos*
+  commentId: Overload:MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos
+  isExternal: false
+  name: GetUnitsInCellsAroundPos
+  nameWithType: CollisionCellData.GetUnitsInCellsAroundPos
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundPos
+- uid: System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+  commentId: T:System.Collections.Generic.List{System.Collections.Generic.HashSet{MinecaRTS.Unit}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<HashSet<Unit>>
+  nameWithType: List<HashSet<Unit>>
+  fullName: System.Collections.Generic.List<System.Collections.Generic.HashSet<MinecaRTS.Unit>>
+  nameWithType.vb: List(Of HashSet(Of Unit))
+  fullName.vb: System.Collections.Generic.List(Of System.Collections.Generic.HashSet(Of MinecaRTS.Unit))
+  name.vb: List(Of HashSet(Of Unit))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: MinecaRTS.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit*
+  commentId: Overload:MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit
+  isExternal: false
+  name: GetUnitsInSameCellAsUnit
+  nameWithType: CollisionCellData.GetUnitsInSameCellAsUnit
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInSameCellAsUnit
+- uid: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit*
+  commentId: Overload:MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit
+  isExternal: false
+  name: GetUnitsInCellsAroundUnit
+  nameWithType: CollisionCellData.GetUnitsInCellsAroundUnit
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInCellsAroundUnit
+- uid: MinecaRTS.CollisionCellData.GetCellIndexesAroundPos*
+  commentId: Overload:MinecaRTS.CollisionCellData.GetCellIndexesAroundPos
+  isExternal: false
+  name: GetCellIndexesAroundPos
+  nameWithType: CollisionCellData.GetCellIndexesAroundPos
+  fullName: MinecaRTS.CollisionCellData.GetCellIndexesAroundPos
+- uid: System.Collections.Generic.List{Microsoft.Xna.Framework.Point}
+  commentId: T:System.Collections.Generic.List{Microsoft.Xna.Framework.Point}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Point>
+  nameWithType: List<Point>
+  fullName: System.Collections.Generic.List<Microsoft.Xna.Framework.Point>
+  nameWithType.vb: List(Of Point)
+  fullName.vb: System.Collections.Generic.List(Of Microsoft.Xna.Framework.Point)
+  name.vb: List(Of Point)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Microsoft.Xna.Framework.Point
+    name: Point
+    nameWithType: Point
+    fullName: Microsoft.Xna.Framework.Point
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Microsoft.Xna.Framework.Point
+    name: Point
+    nameWithType: Point
+    fullName: Microsoft.Xna.Framework.Point
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex*
+  commentId: Overload:MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex
+  isExternal: false
+  name: GetUnitsInCellFromIndex
+  nameWithType: CollisionCellData.GetUnitsInCellFromIndex
+  fullName: MinecaRTS.CollisionCellData.GetUnitsInCellFromIndex

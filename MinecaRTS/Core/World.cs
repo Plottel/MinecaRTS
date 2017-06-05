@@ -54,6 +54,9 @@ namespace MinecaRTS
         public readonly CollisionCellData collisionCells;
         public readonly FogOfWarData fogOfWar;
 
+        public readonly InfluenceMapData playerOneInfluence;
+        public readonly InfluenceMapData playerTwoInfluence;
+
 
         public World()
         {
@@ -75,6 +78,9 @@ namespace MinecaRTS
             Buildings = new List<Building>();
             Resources = new Dictionary<Cell, Resource>();
             Tracks = new Dictionary<Cell, Track>();
+
+            playerOneInfluence = new InfluenceMapData(Grid);
+            playerTwoInfluence = new InfluenceMapData(Grid);
 
             SelectedUnits = new List<Unit>();
             _playerOneData = new PlayerData(this, Team.One);
@@ -275,6 +281,11 @@ namespace MinecaRTS
             fogOfWar.UnitAdded(u);
             collisionCells.AddUnit(u);
 
+            if (team == Team.One)
+                playerOneInfluence.InfluencerAdded(u);
+            else if (team == Team.Two)
+                playerTwoInfluence.InfluencerAdded(u);
+
             u.MoveTowards(rallyPoint);
 
             Units.Add(u);
@@ -302,7 +313,12 @@ namespace MinecaRTS
 
                 foreach (Cell cell in Grid.CellsInRect(building.CollisionRect))
                     cell.Passable = false;
-            }                
+            }
+
+            if (building.Team == Team.One)
+                playerOneInfluence.InfluencerAdded(building);
+            else if (building.Team == Team.Two)
+                playerTwoInfluence.InfluencerAdded(building);
         }
 
         public void AddResourceToCell(Resource resource, Cell cell)
@@ -428,6 +444,11 @@ namespace MinecaRTS
                         spriteBatch.DrawString(MinecaRTS.largeFont, units.Count.ToString(), CoarseGrid[col, row].RenderMid, Color.White);
                     }
                 }
+            }
+
+            if (Debug.IsOn(DebugOp.ShowInfluence))
+            {
+                playerOneInfluence.Render(spriteBatch);
             }
         }
     }

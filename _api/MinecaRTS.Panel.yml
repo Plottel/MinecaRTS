@@ -1,0 +1,684 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Panel
+  commentId: T:MinecaRTS.Panel
+  id: Panel
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Panel.#ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Panel.AddButton(MinecaRTS.Button)
+  - MinecaRTS.Panel.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  - MinecaRTS.Panel.Pos
+  - MinecaRTS.Panel.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  - MinecaRTS.Panel.RenderRect
+  - MinecaRTS.Panel.Scale
+  langs:
+  - csharp
+  - vb
+  name: Panel
+  nameWithType: Panel
+  fullName: MinecaRTS.Panel
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Panel
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nRepresents a UI element containing a collection of buttons.\nKnows the locations of each of its buttons.\n"
+  example: []
+  syntax:
+    content: public class Panel
+    content.vb: Public Class Panel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.Panel.Pos
+  commentId: P:MinecaRTS.Panel.Pos
+  id: Pos
+  parent: MinecaRTS.Panel
+  langs:
+  - csharp
+  - vb
+  name: Pos
+  nameWithType: Panel.Pos
+  fullName: MinecaRTS.Panel.Pos
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Pos
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 Pos { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Property Pos As Vector2
+  overload: MinecaRTS.Panel.Pos*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Panel.Scale
+  commentId: P:MinecaRTS.Panel.Scale
+  id: Scale
+  parent: MinecaRTS.Panel
+  langs:
+  - csharp
+  - vb
+  name: Scale
+  nameWithType: Panel.Scale
+  fullName: MinecaRTS.Panel.Scale
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Scale
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 18
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Vector2 Scale { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Property Scale As Vector2
+  overload: MinecaRTS.Panel.Scale*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Panel.RenderRect
+  commentId: P:MinecaRTS.Panel.RenderRect
+  id: RenderRect
+  parent: MinecaRTS.Panel
+  langs:
+  - csharp
+  - vb
+  name: RenderRect
+  nameWithType: Panel.RenderRect
+  fullName: MinecaRTS.Panel.RenderRect
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RenderRect
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 23
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Rectangle RenderRect { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Rectangle
+    content.vb: Public ReadOnly Property RenderRect As Rectangle
+  overload: MinecaRTS.Panel.RenderRect*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MinecaRTS.Panel.#ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Panel.#ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+  id: '#ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)'
+  parent: MinecaRTS.Panel
+  langs:
+  - csharp
+  - vb
+  name: Panel(String, Vector2, Vector2)
+  nameWithType: Panel.Panel(String, Vector2, Vector2)
+  fullName: MinecaRTS.Panel.Panel(System.String, Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 31
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Panel(string name, Vector2 pos, Vector2 scale)
+    parameters:
+    - id: name
+      type: System.String
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    - id: scale
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Sub New(name As String, pos As Vector2, scale As Vector2)
+  overload: MinecaRTS.Panel.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Panel.AddButton(MinecaRTS.Button)
+  commentId: M:MinecaRTS.Panel.AddButton(MinecaRTS.Button)
+  id: AddButton(MinecaRTS.Button)
+  parent: MinecaRTS.Panel
+  langs:
+  - csharp
+  - vb
+  name: AddButton(Button)
+  nameWithType: Panel.AddButton(Button)
+  fullName: MinecaRTS.Panel.AddButton(MinecaRTS.Button)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: AddButton
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 38
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void AddButton(Button button)
+    parameters:
+    - id: button
+      type: MinecaRTS.Button
+    content.vb: Public Sub AddButton(button As Button)
+  overload: MinecaRTS.Panel.AddButton*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Panel.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  commentId: M:MinecaRTS.Panel.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  id: ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  parent: MinecaRTS.Panel
+  langs:
+  - csharp
+  - vb
+  name: ButtonAtPos(Vector2)
+  nameWithType: Panel.ButtonAtPos(Vector2)
+  fullName: MinecaRTS.Panel.ButtonAtPos(Microsoft.Xna.Framework.Vector2)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ButtonAtPos
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 44
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Button ButtonAtPos(Vector2 pos)
+    parameters:
+    - id: pos
+      type: Microsoft.Xna.Framework.Vector2
+    return:
+      type: MinecaRTS.Button
+    content.vb: Public Function ButtonAtPos(pos As Vector2) As Button
+  overload: MinecaRTS.Panel.ButtonAtPos*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Panel.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Panel.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Panel
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: Panel.Render(SpriteBatch)
+  fullName: MinecaRTS.Panel.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Render/Panel.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: MinecaRTS/Render/Panel.cs
+    startLine: 55
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Sub Render(spriteBatch As SpriteBatch)
+  overload: MinecaRTS.Panel.Render*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.Panel.Pos*
+  commentId: Overload:MinecaRTS.Panel.Pos
+  isExternal: false
+  name: Pos
+  nameWithType: Panel.Pos
+  fullName: MinecaRTS.Panel.Pos
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.Panel.Scale*
+  commentId: Overload:MinecaRTS.Panel.Scale
+  isExternal: false
+  name: Scale
+  nameWithType: Panel.Scale
+  fullName: MinecaRTS.Panel.Scale
+- uid: MinecaRTS.Panel.RenderRect*
+  commentId: Overload:MinecaRTS.Panel.RenderRect
+  isExternal: false
+  name: RenderRect
+  nameWithType: Panel.RenderRect
+  fullName: MinecaRTS.Panel.RenderRect
+- uid: Microsoft.Xna.Framework.Rectangle
+  commentId: T:Microsoft.Xna.Framework.Rectangle
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: Microsoft.Xna.Framework.Rectangle
+- uid: MinecaRTS.Panel.#ctor*
+  commentId: Overload:MinecaRTS.Panel.#ctor
+  isExternal: false
+  name: Panel
+  nameWithType: Panel.Panel
+  fullName: MinecaRTS.Panel.Panel
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: MinecaRTS.Panel.AddButton*
+  commentId: Overload:MinecaRTS.Panel.AddButton
+  isExternal: false
+  name: AddButton
+  nameWithType: Panel.AddButton
+  fullName: MinecaRTS.Panel.AddButton
+- uid: MinecaRTS.Button
+  commentId: T:MinecaRTS.Button
+  parent: MinecaRTS
+  isExternal: false
+  name: Button
+  nameWithType: Button
+  fullName: MinecaRTS.Button
+- uid: MinecaRTS.Panel.ButtonAtPos*
+  commentId: Overload:MinecaRTS.Panel.ButtonAtPos
+  isExternal: false
+  name: ButtonAtPos
+  nameWithType: Panel.ButtonAtPos
+  fullName: MinecaRTS.Panel.ButtonAtPos
+- uid: MinecaRTS.Panel.Render*
+  commentId: Overload:MinecaRTS.Panel.Render
+  isExternal: false
+  name: Render
+  nameWithType: Panel.Render
+  fullName: MinecaRTS.Panel.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics

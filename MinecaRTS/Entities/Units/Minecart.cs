@@ -52,16 +52,15 @@ namespace MinecaRTS
 
         public override void Update()
         {
-            Debug.HookText("Following path? " + FollowPath.ToString());
             if (Data.CellHasTrack(Data.Grid.CellAt(Mid)))
             {
                 Speed = TRACK_SPEED;
-                Steering.separationOn = false;
+                Steering.separationIsOn = false;
             }
             else
             {
                 Speed = BASE_SPEED;
-                Steering.separationOn = true;
+                Steering.separationIsOn = true;
             }
 
             _fsm.Execute();

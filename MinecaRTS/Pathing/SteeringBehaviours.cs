@@ -18,7 +18,7 @@ namespace MinecaRTS
         private PlayerData _data;
         private List<Unit> _neighbours;
 
-        public bool separationOn = true;
+        public bool separationIsOn = true;
 
         // Vectors for Obstacle Avoidance calculation - primarly debug.
         // TODO: Clean this up!!!!
@@ -42,7 +42,7 @@ namespace MinecaRTS
 
             _neighbours = _data.GetUnitsInRadius(_owner, Unit.NEIGHBOUR_RADIUS);
 
-            if (separationOn)
+            if (separationIsOn)
                 force += Separation();
 
             //force += UnpassableCellAvoidance();

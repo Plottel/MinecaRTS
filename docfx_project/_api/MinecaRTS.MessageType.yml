@@ -1,0 +1,312 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.MessageType
+  commentId: T:MinecaRTS.MessageType
+  id: MessageType
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.MessageType.BuildingComplete
+  - MinecaRTS.MessageType.GiveMeResources
+  - MinecaRTS.MessageType.ProductionBuildingTaskComplete
+  - MinecaRTS.MessageType.ResourceDepleted
+  - MinecaRTS.MessageType.SearchComplete
+  - MinecaRTS.MessageType.SupplyChanged
+  - MinecaRTS.MessageType.UnitMoved
+  - MinecaRTS.MessageType.UnitSpawned
+  langs:
+  - csharp
+  - vb
+  name: MessageType
+  nameWithType: MessageType
+  fullName: MinecaRTS.MessageType
+  type: Enum
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MessageType
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 8
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public enum MessageType
+    content.vb: Public Enum MessageType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: MinecaRTS.MessageType.ResourceDepleted
+  commentId: F:MinecaRTS.MessageType.ResourceDepleted
+  id: ResourceDepleted
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: ResourceDepleted
+  nameWithType: MessageType.ResourceDepleted
+  fullName: MinecaRTS.MessageType.ResourceDepleted
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ResourceDepleted
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 10
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ResourceDepleted = 0
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.MessageType.GiveMeResources
+  commentId: F:MinecaRTS.MessageType.GiveMeResources
+  id: GiveMeResources
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: GiveMeResources
+  nameWithType: MessageType.GiveMeResources
+  fullName: MinecaRTS.MessageType.GiveMeResources
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: GiveMeResources
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: GiveMeResources = 1
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.MessageType.UnitSpawned
+  commentId: F:MinecaRTS.MessageType.UnitSpawned
+  id: UnitSpawned
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: UnitSpawned
+  nameWithType: MessageType.UnitSpawned
+  fullName: MinecaRTS.MessageType.UnitSpawned
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UnitSpawned
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 12
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: UnitSpawned = 2
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.MessageType.UnitMoved
+  commentId: F:MinecaRTS.MessageType.UnitMoved
+  id: UnitMoved
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: UnitMoved
+  nameWithType: MessageType.UnitMoved
+  fullName: MinecaRTS.MessageType.UnitMoved
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UnitMoved
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 13
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: UnitMoved = 3
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.MessageType.SearchComplete
+  commentId: F:MinecaRTS.MessageType.SearchComplete
+  id: SearchComplete
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: SearchComplete
+  nameWithType: MessageType.SearchComplete
+  fullName: MinecaRTS.MessageType.SearchComplete
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SearchComplete
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 14
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: SearchComplete = 4
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.MessageType.ProductionBuildingTaskComplete
+  commentId: F:MinecaRTS.MessageType.ProductionBuildingTaskComplete
+  id: ProductionBuildingTaskComplete
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: ProductionBuildingTaskComplete
+  nameWithType: MessageType.ProductionBuildingTaskComplete
+  fullName: MinecaRTS.MessageType.ProductionBuildingTaskComplete
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ProductionBuildingTaskComplete
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: ProductionBuildingTaskComplete = 5
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.MessageType.SupplyChanged
+  commentId: F:MinecaRTS.MessageType.SupplyChanged
+  id: SupplyChanged
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: SupplyChanged
+  nameWithType: MessageType.SupplyChanged
+  fullName: MinecaRTS.MessageType.SupplyChanged
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SupplyChanged
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 16
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: SupplyChanged = 6
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: MinecaRTS.MessageType.BuildingComplete
+  commentId: F:MinecaRTS.MessageType.BuildingComplete
+  id: BuildingComplete
+  parent: MinecaRTS.MessageType
+  langs:
+  - csharp
+  - vb
+  name: BuildingComplete
+  nameWithType: MessageType.BuildingComplete
+  fullName: MinecaRTS.MessageType.BuildingComplete
+  type: Field
+  source:
+    remote:
+      path: MinecaRTS/Messaging/MessageType.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: BuildingComplete
+    path: ../MinecaRTS/Messaging/MessageType.cs
+    startLine: 17
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: BuildingComplete = 7
+    return:
+      type: MinecaRTS.MessageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: MinecaRTS.MessageType
+  commentId: T:MinecaRTS.MessageType
+  parent: MinecaRTS
+  isExternal: false
+  name: MessageType
+  nameWithType: MessageType
+  fullName: MinecaRTS.MessageType

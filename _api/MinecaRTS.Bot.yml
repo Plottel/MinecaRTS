@@ -1,0 +1,869 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Bot
+  commentId: T:MinecaRTS.Bot
+  id: Bot
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Bot.#ctor(MinecaRTS.PlayerData)
+  - MinecaRTS.Bot.HandleInput
+  - MinecaRTS.Bot.HandleMessage(MinecaRTS.Message)
+  - MinecaRTS.Bot.OnBuildingComplete(MinecaRTS.Building)
+  - MinecaRTS.Bot.OnProductionBuildingTaskComplete(MinecaRTS.ProductionBuilding)
+  - MinecaRTS.Bot.OnSupplyChange
+  - MinecaRTS.Bot.OnUnitSpawn(MinecaRTS.Unit)
+  - MinecaRTS.Bot.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  langs:
+  - csharp
+  - vb
+  name: Bot
+  nameWithType: Bot
+  fullName: MinecaRTS.Bot
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Bot
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 9
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: 'public abstract class Bot : Player, IHandleMessages'
+    content.vb: >-
+      Public MustInherit Class Bot
+          Inherits Player
+          Implements IHandleMessages
+  inheritance:
+  - System.Object
+  - MinecaRTS.Player
+  derivedClasses:
+  - MinecaRTS.MinecartO
+  implements:
+  - MinecaRTS.IHandleMessages
+  inheritedMembers:
+  - MinecaRTS.Player.ID
+  - MinecaRTS.Player.Data
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: MinecaRTS.Bot.#ctor(MinecaRTS.PlayerData)
+  commentId: M:MinecaRTS.Bot.#ctor(MinecaRTS.PlayerData)
+  id: '#ctor(MinecaRTS.PlayerData)'
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: Bot(PlayerData)
+  nameWithType: Bot.Bot(PlayerData)
+  fullName: MinecaRTS.Bot.Bot(MinecaRTS.PlayerData)
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 11
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public Bot(PlayerData data)
+    parameters:
+    - id: data
+      type: MinecaRTS.PlayerData
+    content.vb: Public Sub New(data As PlayerData)
+  overload: MinecaRTS.Bot.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.Bot.HandleInput
+  commentId: M:MinecaRTS.Bot.HandleInput
+  id: HandleInput
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: HandleInput()
+  nameWithType: Bot.HandleInput()
+  fullName: MinecaRTS.Bot.HandleInput()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleInput
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 15
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void HandleInput()
+    content.vb: Public Overrides Sub HandleInput
+  overridden: MinecaRTS.Player.HandleInput
+  overload: MinecaRTS.Bot.HandleInput*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.Bot.OnUnitSpawn(MinecaRTS.Unit)
+  commentId: M:MinecaRTS.Bot.OnUnitSpawn(MinecaRTS.Unit)
+  id: OnUnitSpawn(MinecaRTS.Unit)
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: OnUnitSpawn(Unit)
+  nameWithType: Bot.OnUnitSpawn(Unit)
+  fullName: MinecaRTS.Bot.OnUnitSpawn(MinecaRTS.Unit)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: OnUnitSpawn
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 19
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public abstract void OnUnitSpawn(Unit newUnit)
+    parameters:
+    - id: newUnit
+      type: MinecaRTS.Unit
+    content.vb: Public MustOverride Sub OnUnitSpawn(newUnit As Unit)
+  overload: MinecaRTS.Bot.OnUnitSpawn*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: MinecaRTS.Bot.OnProductionBuildingTaskComplete(MinecaRTS.ProductionBuilding)
+  commentId: M:MinecaRTS.Bot.OnProductionBuildingTaskComplete(MinecaRTS.ProductionBuilding)
+  id: OnProductionBuildingTaskComplete(MinecaRTS.ProductionBuilding)
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: OnProductionBuildingTaskComplete(ProductionBuilding)
+  nameWithType: Bot.OnProductionBuildingTaskComplete(ProductionBuilding)
+  fullName: MinecaRTS.Bot.OnProductionBuildingTaskComplete(MinecaRTS.ProductionBuilding)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: OnProductionBuildingTaskComplete
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 20
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public abstract void OnProductionBuildingTaskComplete(ProductionBuilding prodBuild)
+    parameters:
+    - id: prodBuild
+      type: MinecaRTS.ProductionBuilding
+    content.vb: Public MustOverride Sub OnProductionBuildingTaskComplete(prodBuild As ProductionBuilding)
+  overload: MinecaRTS.Bot.OnProductionBuildingTaskComplete*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: MinecaRTS.Bot.OnSupplyChange
+  commentId: M:MinecaRTS.Bot.OnSupplyChange
+  id: OnSupplyChange
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: OnSupplyChange()
+  nameWithType: Bot.OnSupplyChange()
+  fullName: MinecaRTS.Bot.OnSupplyChange()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: OnSupplyChange
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 21
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public abstract void OnSupplyChange()
+    content.vb: Public MustOverride Sub OnSupplyChange
+  overload: MinecaRTS.Bot.OnSupplyChange*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: MinecaRTS.Bot.OnBuildingComplete(MinecaRTS.Building)
+  commentId: M:MinecaRTS.Bot.OnBuildingComplete(MinecaRTS.Building)
+  id: OnBuildingComplete(MinecaRTS.Building)
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: OnBuildingComplete(Building)
+  nameWithType: Bot.OnBuildingComplete(Building)
+  fullName: MinecaRTS.Bot.OnBuildingComplete(MinecaRTS.Building)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: OnBuildingComplete
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 22
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public abstract void OnBuildingComplete(Building building)
+    parameters:
+    - id: building
+      type: MinecaRTS.Building
+    content.vb: Public MustOverride Sub OnBuildingComplete(building As Building)
+  overload: MinecaRTS.Bot.OnBuildingComplete*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: MinecaRTS.Bot.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.Bot.HandleMessage(MinecaRTS.Message)
+  id: HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: HandleMessage(Message)
+  nameWithType: Bot.HandleMessage(Message)
+  fullName: MinecaRTS.Bot.HandleMessage(MinecaRTS.Message)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleMessage
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 24
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override sealed void HandleMessage(Message message)
+    parameters:
+    - id: message
+      type: MinecaRTS.Message
+    content.vb: Public NotOverridable Overrides Sub HandleMessage(message As Message)
+  overridden: MinecaRTS.Player.HandleMessage(MinecaRTS.Message)
+  overload: MinecaRTS.Bot.HandleMessage*
+  modifiers.csharp:
+  - public
+  - override
+  - sealed
+  modifiers.vb:
+  - Public
+  - Overrides
+  - NotOverridable
+- uid: MinecaRTS.Bot.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Bot.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  id: Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Bot
+  langs:
+  - csharp
+  - vb
+  name: Render(SpriteBatch)
+  nameWithType: Bot.Render(SpriteBatch)
+  fullName: MinecaRTS.Bot.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Bots/Bot.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Render
+    path: MinecaRTS/Bots/Bot.cs
+    startLine: 42
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void Render(SpriteBatch spriteBatch)
+    parameters:
+    - id: spriteBatch
+      type: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    content.vb: Public Overrides Sub Render(spriteBatch As SpriteBatch)
+  overridden: MinecaRTS.Player.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  overload: MinecaRTS.Bot.Render*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: MinecaRTS.Player
+  commentId: T:MinecaRTS.Player
+  parent: MinecaRTS
+  isExternal: false
+  name: Player
+  nameWithType: Player
+  fullName: MinecaRTS.Player
+- uid: MinecaRTS.IHandleMessages
+  commentId: T:MinecaRTS.IHandleMessages
+  parent: MinecaRTS
+  isExternal: false
+  name: IHandleMessages
+  nameWithType: IHandleMessages
+  fullName: MinecaRTS.IHandleMessages
+- uid: MinecaRTS.Player.ID
+  commentId: P:MinecaRTS.Player.ID
+  parent: MinecaRTS.Player
+  isExternal: false
+  name: ID
+  nameWithType: Player.ID
+  fullName: MinecaRTS.Player.ID
+- uid: MinecaRTS.Player.Data
+  commentId: P:MinecaRTS.Player.Data
+  parent: MinecaRTS.Player
+  isExternal: false
+  name: Data
+  nameWithType: Player.Data
+  fullName: MinecaRTS.Player.Data
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.Bot.#ctor*
+  commentId: Overload:MinecaRTS.Bot.#ctor
+  isExternal: false
+  name: Bot
+  nameWithType: Bot.Bot
+  fullName: MinecaRTS.Bot.Bot
+- uid: MinecaRTS.PlayerData
+  commentId: T:MinecaRTS.PlayerData
+  parent: MinecaRTS
+  isExternal: false
+  name: PlayerData
+  nameWithType: PlayerData
+  fullName: MinecaRTS.PlayerData
+- uid: MinecaRTS.Player.HandleInput
+  commentId: M:MinecaRTS.Player.HandleInput
+  parent: MinecaRTS.Player
+  isExternal: false
+  name: HandleInput()
+  nameWithType: Player.HandleInput()
+  fullName: MinecaRTS.Player.HandleInput()
+  spec.csharp:
+  - uid: MinecaRTS.Player.HandleInput
+    name: HandleInput
+    nameWithType: Player.HandleInput
+    fullName: MinecaRTS.Player.HandleInput
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Player.HandleInput
+    name: HandleInput
+    nameWithType: Player.HandleInput
+    fullName: MinecaRTS.Player.HandleInput
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Bot.HandleInput*
+  commentId: Overload:MinecaRTS.Bot.HandleInput
+  isExternal: false
+  name: HandleInput
+  nameWithType: Bot.HandleInput
+  fullName: MinecaRTS.Bot.HandleInput
+- uid: MinecaRTS.Bot.OnUnitSpawn*
+  commentId: Overload:MinecaRTS.Bot.OnUnitSpawn
+  isExternal: false
+  name: OnUnitSpawn
+  nameWithType: Bot.OnUnitSpawn
+  fullName: MinecaRTS.Bot.OnUnitSpawn
+- uid: MinecaRTS.Unit
+  commentId: T:MinecaRTS.Unit
+  parent: MinecaRTS
+  isExternal: false
+  name: Unit
+  nameWithType: Unit
+  fullName: MinecaRTS.Unit
+- uid: MinecaRTS.Bot.OnProductionBuildingTaskComplete*
+  commentId: Overload:MinecaRTS.Bot.OnProductionBuildingTaskComplete
+  isExternal: false
+  name: OnProductionBuildingTaskComplete
+  nameWithType: Bot.OnProductionBuildingTaskComplete
+  fullName: MinecaRTS.Bot.OnProductionBuildingTaskComplete
+- uid: MinecaRTS.ProductionBuilding
+  commentId: T:MinecaRTS.ProductionBuilding
+  parent: MinecaRTS
+  isExternal: false
+  name: ProductionBuilding
+  nameWithType: ProductionBuilding
+  fullName: MinecaRTS.ProductionBuilding
+- uid: MinecaRTS.Bot.OnSupplyChange*
+  commentId: Overload:MinecaRTS.Bot.OnSupplyChange
+  isExternal: false
+  name: OnSupplyChange
+  nameWithType: Bot.OnSupplyChange
+  fullName: MinecaRTS.Bot.OnSupplyChange
+- uid: MinecaRTS.Bot.OnBuildingComplete*
+  commentId: Overload:MinecaRTS.Bot.OnBuildingComplete
+  isExternal: false
+  name: OnBuildingComplete
+  nameWithType: Bot.OnBuildingComplete
+  fullName: MinecaRTS.Bot.OnBuildingComplete
+- uid: MinecaRTS.Building
+  commentId: T:MinecaRTS.Building
+  parent: MinecaRTS
+  isExternal: false
+  name: Building
+  nameWithType: Building
+  fullName: MinecaRTS.Building
+- uid: MinecaRTS.Player.HandleMessage(MinecaRTS.Message)
+  commentId: M:MinecaRTS.Player.HandleMessage(MinecaRTS.Message)
+  parent: MinecaRTS.Player
+  isExternal: false
+  name: HandleMessage(Message)
+  nameWithType: Player.HandleMessage(Message)
+  fullName: MinecaRTS.Player.HandleMessage(MinecaRTS.Message)
+  spec.csharp:
+  - uid: MinecaRTS.Player.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: Player.HandleMessage
+    fullName: MinecaRTS.Player.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Player.HandleMessage(MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: Player.HandleMessage
+    fullName: MinecaRTS.Player.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Bot.HandleMessage*
+  commentId: Overload:MinecaRTS.Bot.HandleMessage
+  isExternal: false
+  name: HandleMessage
+  nameWithType: Bot.HandleMessage
+  fullName: MinecaRTS.Bot.HandleMessage
+- uid: MinecaRTS.Message
+  commentId: T:MinecaRTS.Message
+  parent: MinecaRTS
+  isExternal: false
+  name: Message
+  nameWithType: Message
+  fullName: MinecaRTS.Message
+- uid: MinecaRTS.Player.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  commentId: M:MinecaRTS.Player.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  parent: MinecaRTS.Player
+  isExternal: true
+  name: Render(SpriteBatch)
+  nameWithType: Player.Render(SpriteBatch)
+  fullName: MinecaRTS.Player.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+  spec.csharp:
+  - uid: MinecaRTS.Player.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: Render
+    nameWithType: Player.Render
+    fullName: MinecaRTS.Player.Render
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.Player.Render(Microsoft.Xna.Framework.Graphics.SpriteBatch)
+    name: Render
+    nameWithType: Player.Render
+    fullName: MinecaRTS.Player.Render
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    name: SpriteBatch
+    nameWithType: SpriteBatch
+    fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.Bot.Render*
+  commentId: Overload:MinecaRTS.Bot.Render
+  isExternal: false
+  name: Render
+  nameWithType: Bot.Render
+  fullName: MinecaRTS.Bot.Render
+- uid: Microsoft.Xna.Framework.Graphics.SpriteBatch
+  commentId: T:Microsoft.Xna.Framework.Graphics.SpriteBatch
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: SpriteBatch
+  nameWithType: SpriteBatch
+  fullName: Microsoft.Xna.Framework.Graphics.SpriteBatch
+- uid: Microsoft.Xna.Framework.Graphics
+  commentId: N:Microsoft.Xna.Framework.Graphics
+  isExternal: false
+  name: Microsoft.Xna.Framework.Graphics
+  nameWithType: Microsoft.Xna.Framework.Graphics
+  fullName: Microsoft.Xna.Framework.Graphics

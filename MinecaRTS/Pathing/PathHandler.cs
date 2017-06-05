@@ -307,7 +307,13 @@ namespace MinecaRTS
 
         protected float GreedyScoreMethod(Cell cell, Cell Target)
         {
-            return Vector2.Distance(cell.Mid, Target.Mid);
+            Point idxOne = grid.IndexAt(cell.Pos);
+            Point idxTwo = grid.IndexAt(Target.Pos);
+
+            int dx = Math.Abs(idxOne.Col() - idxTwo.Col());
+            int dy = Math.Abs(idxOne.Row() - idxTwo.Row());
+
+            return dx + dy;
         }
         #endregion Search Conditions
     }

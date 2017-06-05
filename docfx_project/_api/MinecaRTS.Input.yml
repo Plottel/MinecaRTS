@@ -1,0 +1,1053 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.Input
+  commentId: T:MinecaRTS.Input
+  id: Input
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.Input.KeyDown(Microsoft.Xna.Framework.Input.Keys)
+  - MinecaRTS.Input.KeyReleased(Microsoft.Xna.Framework.Input.Keys)
+  - MinecaRTS.Input.KeyTyped(Microsoft.Xna.Framework.Input.Keys)
+  - MinecaRTS.Input.LeftMouseClicked
+  - MinecaRTS.Input.LeftMouseDown
+  - MinecaRTS.Input.LeftMousePressed
+  - MinecaRTS.Input.MousePos
+  - MinecaRTS.Input.MouseX
+  - MinecaRTS.Input.MouseY
+  - MinecaRTS.Input.RightMouseClicked
+  - MinecaRTS.Input.RightMouseDown
+  - MinecaRTS.Input.RightMousePressed
+  - MinecaRTS.Input.SetMaxMouseX(System.Int32)
+  - MinecaRTS.Input.SetMaxMouseY(System.Int32)
+  - MinecaRTS.Input.UpdateStates
+  langs:
+  - csharp
+  - vb
+  name: Input
+  nameWithType: Input
+  fullName: MinecaRTS.Input
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Input
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 29
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nDefines the core Input handling methods for the program.\n\nKey States are defined as:\nDown        - the key is currently being pressed.\nTyped       - the key was pressed this tick.\nReleased    - the key was released this tick.\n\nMouse States are defined as:\nDown        - the button is currently being pressed.\nPressed     - the button was pressed this tick.\nClicked     - the button was released this tick.\n"
+  example: []
+  syntax:
+    content: public static class Input
+    content.vb: Public Module Input
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: MinecaRTS.Input.MouseX
+  commentId: P:MinecaRTS.Input.MouseX
+  id: MouseX
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: MouseX
+  nameWithType: Input.MouseX
+  fullName: MinecaRTS.Input.MouseX
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MouseX
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 59
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nReturns the current x position of the mouse.\n"
+  example: []
+  syntax:
+    content: public static int MouseX { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property MouseX As Integer
+  overload: MinecaRTS.Input.MouseX*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.Input.MouseY
+  commentId: P:MinecaRTS.Input.MouseY
+  id: MouseY
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: MouseY
+  nameWithType: Input.MouseY
+  fullName: MinecaRTS.Input.MouseY
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MouseY
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 70
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nReturns the current y position of the mouse.\n"
+  example: []
+  syntax:
+    content: public static int MouseY { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property MouseY As Integer
+  overload: MinecaRTS.Input.MouseY*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.Input.MousePos
+  commentId: P:MinecaRTS.Input.MousePos
+  id: MousePos
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: MousePos
+  nameWithType: Input.MousePos
+  fullName: MinecaRTS.Input.MousePos
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: MousePos
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 81
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nReturns the mouse x / y positions as a Vector2.\n"
+  example: []
+  syntax:
+    content: public static Vector2 MousePos { get; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Vector2
+    content.vb: Public Shared ReadOnly Property MousePos As Vector2
+  overload: MinecaRTS.Input.MousePos*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.Input.UpdateStates
+  commentId: M:MinecaRTS.Input.UpdateStates
+  id: UpdateStates
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: UpdateStates()
+  nameWithType: Input.UpdateStates()
+  fullName: MinecaRTS.Input.UpdateStates()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: UpdateStates
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 93
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nThe Input process method to be called once per tick. Updates the current and previous keyboard and mouse states.\n"
+  example: []
+  syntax:
+    content: public static void UpdateStates()
+    content.vb: Public Shared Sub UpdateStates
+  overload: MinecaRTS.Input.UpdateStates*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.KeyDown(Microsoft.Xna.Framework.Input.Keys)
+  commentId: M:MinecaRTS.Input.KeyDown(Microsoft.Xna.Framework.Input.Keys)
+  id: KeyDown(Microsoft.Xna.Framework.Input.Keys)
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: KeyDown(Keys)
+  nameWithType: Input.KeyDown(Keys)
+  fullName: MinecaRTS.Input.KeyDown(Microsoft.Xna.Framework.Input.Keys)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: KeyDown
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 108
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the passed in key is currently being pressed.\n"
+  example: []
+  syntax:
+    content: public static bool KeyDown(Keys key)
+    parameters:
+    - id: key
+      type: Microsoft.Xna.Framework.Input.Keys
+      description: The key to check.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function KeyDown(key As Keys) As Boolean
+  overload: MinecaRTS.Input.KeyDown*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.KeyTyped(Microsoft.Xna.Framework.Input.Keys)
+  commentId: M:MinecaRTS.Input.KeyTyped(Microsoft.Xna.Framework.Input.Keys)
+  id: KeyTyped(Microsoft.Xna.Framework.Input.Keys)
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: KeyTyped(Keys)
+  nameWithType: Input.KeyTyped(Keys)
+  fullName: MinecaRTS.Input.KeyTyped(Microsoft.Xna.Framework.Input.Keys)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: KeyTyped
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 117
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the passed in key was pressed this tick.\n"
+  example: []
+  syntax:
+    content: public static bool KeyTyped(Keys key)
+    parameters:
+    - id: key
+      type: Microsoft.Xna.Framework.Input.Keys
+      description: The key to check.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function KeyTyped(key As Keys) As Boolean
+  overload: MinecaRTS.Input.KeyTyped*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.KeyReleased(Microsoft.Xna.Framework.Input.Keys)
+  commentId: M:MinecaRTS.Input.KeyReleased(Microsoft.Xna.Framework.Input.Keys)
+  id: KeyReleased(Microsoft.Xna.Framework.Input.Keys)
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: KeyReleased(Keys)
+  nameWithType: Input.KeyReleased(Keys)
+  fullName: MinecaRTS.Input.KeyReleased(Microsoft.Xna.Framework.Input.Keys)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: KeyReleased
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 126
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the passed in key was released this tick.\n"
+  example: []
+  syntax:
+    content: public static bool KeyReleased(Keys key)
+    parameters:
+    - id: key
+      type: Microsoft.Xna.Framework.Input.Keys
+      description: The key to check.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function KeyReleased(key As Keys) As Boolean
+  overload: MinecaRTS.Input.KeyReleased*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.LeftMouseDown
+  commentId: M:MinecaRTS.Input.LeftMouseDown
+  id: LeftMouseDown
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: LeftMouseDown()
+  nameWithType: Input.LeftMouseDown()
+  fullName: MinecaRTS.Input.LeftMouseDown()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: LeftMouseDown
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 134
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the left mouse button is currently held down.\n"
+  example: []
+  syntax:
+    content: public static bool LeftMouseDown()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function LeftMouseDown As Boolean
+  overload: MinecaRTS.Input.LeftMouseDown*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.LeftMousePressed
+  commentId: M:MinecaRTS.Input.LeftMousePressed
+  id: LeftMousePressed
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: LeftMousePressed()
+  nameWithType: Input.LeftMousePressed()
+  fullName: MinecaRTS.Input.LeftMousePressed()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: LeftMousePressed
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 142
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the left mouse button was pushed down this tick.\n"
+  example: []
+  syntax:
+    content: public static bool LeftMousePressed()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function LeftMousePressed As Boolean
+  overload: MinecaRTS.Input.LeftMousePressed*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.LeftMouseClicked
+  commentId: M:MinecaRTS.Input.LeftMouseClicked
+  id: LeftMouseClicked
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: LeftMouseClicked()
+  nameWithType: Input.LeftMouseClicked()
+  fullName: MinecaRTS.Input.LeftMouseClicked()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: LeftMouseClicked
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 150
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the left mouse button was released this tick.\n"
+  example: []
+  syntax:
+    content: public static bool LeftMouseClicked()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function LeftMouseClicked As Boolean
+  overload: MinecaRTS.Input.LeftMouseClicked*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.RightMouseDown
+  commentId: M:MinecaRTS.Input.RightMouseDown
+  id: RightMouseDown
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: RightMouseDown()
+  nameWithType: Input.RightMouseDown()
+  fullName: MinecaRTS.Input.RightMouseDown()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RightMouseDown
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 159
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the right mouse button is currently held down.\n"
+  example: []
+  syntax:
+    content: public static bool RightMouseDown()
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Function RightMouseDown As Boolean
+  overload: MinecaRTS.Input.RightMouseDown*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.RightMousePressed
+  commentId: M:MinecaRTS.Input.RightMousePressed
+  id: RightMousePressed
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: RightMousePressed()
+  nameWithType: Input.RightMousePressed()
+  fullName: MinecaRTS.Input.RightMousePressed()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RightMousePressed
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 167
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the right mouse button was pushed down this tick.\n"
+  example: []
+  syntax:
+    content: public static bool RightMousePressed()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RightMousePressed As Boolean
+  overload: MinecaRTS.Input.RightMousePressed*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.RightMouseClicked
+  commentId: M:MinecaRTS.Input.RightMouseClicked
+  id: RightMouseClicked
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: RightMouseClicked()
+  nameWithType: Input.RightMouseClicked()
+  fullName: MinecaRTS.Input.RightMouseClicked()
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: RightMouseClicked
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 175
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSpecifies if the right mouse button was released this tick.\n"
+  example: []
+  syntax:
+    content: public static bool RightMouseClicked()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RightMouseClicked As Boolean
+  overload: MinecaRTS.Input.RightMouseClicked*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.SetMaxMouseX(System.Int32)
+  commentId: M:MinecaRTS.Input.SetMaxMouseX(System.Int32)
+  id: SetMaxMouseX(System.Int32)
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: SetMaxMouseX(Int32)
+  nameWithType: Input.SetMaxMouseX(Int32)
+  fullName: MinecaRTS.Input.SetMaxMouseX(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SetMaxMouseX
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 183
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSets the maximum returnable X value of the mouse position.\n"
+  example: []
+  syntax:
+    content: public static void SetMaxMouseX(int max)
+    parameters:
+    - id: max
+      type: System.Int32
+    content.vb: Public Shared Sub SetMaxMouseX(max As Integer)
+  overload: MinecaRTS.Input.SetMaxMouseX*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MinecaRTS.Input.SetMaxMouseY(System.Int32)
+  commentId: M:MinecaRTS.Input.SetMaxMouseY(System.Int32)
+  id: SetMaxMouseY(System.Int32)
+  parent: MinecaRTS.Input
+  langs:
+  - csharp
+  - vb
+  name: SetMaxMouseY(Int32)
+  nameWithType: Input.SetMaxMouseY(Int32)
+  fullName: MinecaRTS.Input.SetMaxMouseY(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/Utils/Input.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: SetMaxMouseY
+    path: ../MinecaRTS/Utils/Input.cs
+    startLine: 191
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  summary: "\nSets the maximum returnable Y value of the mouse position.\n"
+  example: []
+  syntax:
+    content: public static void SetMaxMouseY(int max)
+    parameters:
+    - id: max
+      type: System.Int32
+    content.vb: Public Shared Sub SetMaxMouseY(max As Integer)
+  overload: MinecaRTS.Input.SetMaxMouseY*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.Input.MouseX*
+  commentId: Overload:MinecaRTS.Input.MouseX
+  isExternal: false
+  name: MouseX
+  nameWithType: Input.MouseX
+  fullName: MinecaRTS.Input.MouseX
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MinecaRTS.Input.MouseY*
+  commentId: Overload:MinecaRTS.Input.MouseY
+  isExternal: false
+  name: MouseY
+  nameWithType: Input.MouseY
+  fullName: MinecaRTS.Input.MouseY
+- uid: MinecaRTS.Input.MousePos*
+  commentId: Overload:MinecaRTS.Input.MousePos
+  isExternal: false
+  name: MousePos
+  nameWithType: Input.MousePos
+  fullName: MinecaRTS.Input.MousePos
+- uid: Microsoft.Xna.Framework.Vector2
+  commentId: T:Microsoft.Xna.Framework.Vector2
+  parent: Microsoft.Xna.Framework
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Microsoft.Xna.Framework.Vector2
+- uid: Microsoft.Xna.Framework
+  commentId: N:Microsoft.Xna.Framework
+  isExternal: false
+  name: Microsoft.Xna.Framework
+  nameWithType: Microsoft.Xna.Framework
+  fullName: Microsoft.Xna.Framework
+- uid: MinecaRTS.Input.UpdateStates*
+  commentId: Overload:MinecaRTS.Input.UpdateStates
+  isExternal: false
+  name: UpdateStates
+  nameWithType: Input.UpdateStates
+  fullName: MinecaRTS.Input.UpdateStates
+- uid: MinecaRTS.Input.KeyDown*
+  commentId: Overload:MinecaRTS.Input.KeyDown
+  isExternal: false
+  name: KeyDown
+  nameWithType: Input.KeyDown
+  fullName: MinecaRTS.Input.KeyDown
+- uid: Microsoft.Xna.Framework.Input.Keys
+  commentId: T:Microsoft.Xna.Framework.Input.Keys
+  parent: Microsoft.Xna.Framework.Input
+  isExternal: true
+  name: Keys
+  nameWithType: Keys
+  fullName: Microsoft.Xna.Framework.Input.Keys
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Microsoft.Xna.Framework.Input
+  commentId: N:Microsoft.Xna.Framework.Input
+  isExternal: false
+  name: Microsoft.Xna.Framework.Input
+  nameWithType: Microsoft.Xna.Framework.Input
+  fullName: Microsoft.Xna.Framework.Input
+- uid: MinecaRTS.Input.KeyTyped*
+  commentId: Overload:MinecaRTS.Input.KeyTyped
+  isExternal: false
+  name: KeyTyped
+  nameWithType: Input.KeyTyped
+  fullName: MinecaRTS.Input.KeyTyped
+- uid: MinecaRTS.Input.KeyReleased*
+  commentId: Overload:MinecaRTS.Input.KeyReleased
+  isExternal: false
+  name: KeyReleased
+  nameWithType: Input.KeyReleased
+  fullName: MinecaRTS.Input.KeyReleased
+- uid: MinecaRTS.Input.LeftMouseDown*
+  commentId: Overload:MinecaRTS.Input.LeftMouseDown
+  isExternal: false
+  name: LeftMouseDown
+  nameWithType: Input.LeftMouseDown
+  fullName: MinecaRTS.Input.LeftMouseDown
+- uid: MinecaRTS.Input.LeftMousePressed*
+  commentId: Overload:MinecaRTS.Input.LeftMousePressed
+  isExternal: false
+  name: LeftMousePressed
+  nameWithType: Input.LeftMousePressed
+  fullName: MinecaRTS.Input.LeftMousePressed
+- uid: MinecaRTS.Input.LeftMouseClicked*
+  commentId: Overload:MinecaRTS.Input.LeftMouseClicked
+  isExternal: false
+  name: LeftMouseClicked
+  nameWithType: Input.LeftMouseClicked
+  fullName: MinecaRTS.Input.LeftMouseClicked
+- uid: MinecaRTS.Input.RightMouseDown*
+  commentId: Overload:MinecaRTS.Input.RightMouseDown
+  isExternal: false
+  name: RightMouseDown
+  nameWithType: Input.RightMouseDown
+  fullName: MinecaRTS.Input.RightMouseDown
+- uid: MinecaRTS.Input.RightMousePressed*
+  commentId: Overload:MinecaRTS.Input.RightMousePressed
+  isExternal: false
+  name: RightMousePressed
+  nameWithType: Input.RightMousePressed
+  fullName: MinecaRTS.Input.RightMousePressed
+- uid: MinecaRTS.Input.RightMouseClicked*
+  commentId: Overload:MinecaRTS.Input.RightMouseClicked
+  isExternal: false
+  name: RightMouseClicked
+  nameWithType: Input.RightMouseClicked
+  fullName: MinecaRTS.Input.RightMouseClicked
+- uid: MinecaRTS.Input.SetMaxMouseX*
+  commentId: Overload:MinecaRTS.Input.SetMaxMouseX
+  isExternal: false
+  name: SetMaxMouseX
+  nameWithType: Input.SetMaxMouseX
+  fullName: MinecaRTS.Input.SetMaxMouseX
+- uid: MinecaRTS.Input.SetMaxMouseY*
+  commentId: Overload:MinecaRTS.Input.SetMaxMouseY
+  isExternal: false
+  name: SetMaxMouseY
+  nameWithType: Input.SetMaxMouseY
+  fullName: MinecaRTS.Input.SetMaxMouseY

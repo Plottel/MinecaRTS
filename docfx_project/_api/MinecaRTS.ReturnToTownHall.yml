@@ -1,0 +1,1027 @@
+### YamlMime:ManagedReference
+items:
+- uid: MinecaRTS.ReturnToTownHall
+  commentId: T:MinecaRTS.ReturnToTownHall
+  id: ReturnToTownHall
+  parent: MinecaRTS
+  children:
+  - MinecaRTS.ReturnToTownHall.#ctor
+  - MinecaRTS.ReturnToTownHall.Enter(MinecaRTS.Minecart)
+  - MinecaRTS.ReturnToTownHall.Execute(MinecaRTS.Minecart)
+  - MinecaRTS.ReturnToTownHall.Exit(MinecaRTS.Minecart)
+  - MinecaRTS.ReturnToTownHall.HandleMessage(MinecaRTS.Minecart,MinecaRTS.Message)
+  - MinecaRTS.ReturnToTownHall.Instance
+  langs:
+  - csharp
+  - vb
+  name: ReturnToTownHall
+  nameWithType: ReturnToTownHall
+  fullName: MinecaRTS.ReturnToTownHall
+  type: Class
+  source:
+    remote:
+      path: MinecaRTS/States/MinecartStates.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: ReturnToTownHall
+    path: ../MinecaRTS/States/MinecartStates.cs
+    startLine: 57
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: 'public class ReturnToTownHall : State<Minecart>'
+    content.vb: >-
+      Public Class ReturnToTownHall
+          Inherits State(Of Minecart)
+  inheritance:
+  - System.Object
+  - MinecaRTS.State{MinecaRTS.Minecart}
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: MinecaRTS.ReturnToTownHall.Instance
+  commentId: P:MinecaRTS.ReturnToTownHall.Instance
+  id: Instance
+  parent: MinecaRTS.ReturnToTownHall
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: ReturnToTownHall.Instance
+  fullName: MinecaRTS.ReturnToTownHall.Instance
+  type: Property
+  source:
+    remote:
+      path: MinecaRTS/States/MinecartStates.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Instance
+    path: ../MinecaRTS/States/MinecartStates.cs
+    startLine: 61
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public static ReturnToTownHall Instance { get; }
+    parameters: []
+    return:
+      type: MinecaRTS.ReturnToTownHall
+    content.vb: Public Shared ReadOnly Property Instance As ReturnToTownHall
+  overload: MinecaRTS.ReturnToTownHall.Instance*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MinecaRTS.ReturnToTownHall.#ctor
+  commentId: M:MinecaRTS.ReturnToTownHall.#ctor
+  id: '#ctor'
+  parent: MinecaRTS.ReturnToTownHall
+  langs:
+  - csharp
+  - vb
+  name: ReturnToTownHall()
+  nameWithType: ReturnToTownHall.ReturnToTownHall()
+  fullName: MinecaRTS.ReturnToTownHall.ReturnToTownHall()
+  type: Constructor
+  source:
+    remote:
+      path: MinecaRTS/States/MinecartStates.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: .ctor
+    path: ../MinecaRTS/States/MinecartStates.cs
+    startLine: 66
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public ReturnToTownHall()
+    content.vb: Public Sub New
+  overload: MinecaRTS.ReturnToTownHall.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MinecaRTS.ReturnToTownHall.Enter(MinecaRTS.Minecart)
+  commentId: M:MinecaRTS.ReturnToTownHall.Enter(MinecaRTS.Minecart)
+  id: Enter(MinecaRTS.Minecart)
+  parent: MinecaRTS.ReturnToTownHall
+  langs:
+  - csharp
+  - vb
+  name: Enter(Minecart)
+  nameWithType: ReturnToTownHall.Enter(Minecart)
+  fullName: MinecaRTS.ReturnToTownHall.Enter(MinecaRTS.Minecart)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/States/MinecartStates.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Enter
+    path: ../MinecaRTS/States/MinecartStates.cs
+    startLine: 74
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void Enter(Minecart owner)
+    parameters:
+    - id: owner
+      type: MinecaRTS.Minecart
+    content.vb: Public Overrides Sub Enter(owner As Minecart)
+  overridden: MinecaRTS.State{MinecaRTS.Minecart}.Enter(MinecaRTS.Minecart)
+  overload: MinecaRTS.ReturnToTownHall.Enter*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.ReturnToTownHall.Exit(MinecaRTS.Minecart)
+  commentId: M:MinecaRTS.ReturnToTownHall.Exit(MinecaRTS.Minecart)
+  id: Exit(MinecaRTS.Minecart)
+  parent: MinecaRTS.ReturnToTownHall
+  langs:
+  - csharp
+  - vb
+  name: Exit(Minecart)
+  nameWithType: ReturnToTownHall.Exit(Minecart)
+  fullName: MinecaRTS.ReturnToTownHall.Exit(MinecaRTS.Minecart)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/States/MinecartStates.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Exit
+    path: ../MinecaRTS/States/MinecartStates.cs
+    startLine: 82
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void Exit(Minecart owner)
+    parameters:
+    - id: owner
+      type: MinecaRTS.Minecart
+    content.vb: Public Overrides Sub Exit(owner As Minecart)
+  overridden: MinecaRTS.State{MinecaRTS.Minecart}.Exit(MinecaRTS.Minecart)
+  overload: MinecaRTS.ReturnToTownHall.Exit*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.ReturnToTownHall.Execute(MinecaRTS.Minecart)
+  commentId: M:MinecaRTS.ReturnToTownHall.Execute(MinecaRTS.Minecart)
+  id: Execute(MinecaRTS.Minecart)
+  parent: MinecaRTS.ReturnToTownHall
+  langs:
+  - csharp
+  - vb
+  name: Execute(Minecart)
+  nameWithType: ReturnToTownHall.Execute(Minecart)
+  fullName: MinecaRTS.ReturnToTownHall.Execute(MinecaRTS.Minecart)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/States/MinecartStates.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: Execute
+    path: ../MinecaRTS/States/MinecartStates.cs
+    startLine: 87
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void Execute(Minecart owner)
+    parameters:
+    - id: owner
+      type: MinecaRTS.Minecart
+    content.vb: Public Overrides Sub Execute(owner As Minecart)
+  overridden: MinecaRTS.State{MinecaRTS.Minecart}.Execute(MinecaRTS.Minecart)
+  overload: MinecaRTS.ReturnToTownHall.Execute*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MinecaRTS.ReturnToTownHall.HandleMessage(MinecaRTS.Minecart,MinecaRTS.Message)
+  commentId: M:MinecaRTS.ReturnToTownHall.HandleMessage(MinecaRTS.Minecart,MinecaRTS.Message)
+  id: HandleMessage(MinecaRTS.Minecart,MinecaRTS.Message)
+  parent: MinecaRTS.ReturnToTownHall
+  langs:
+  - csharp
+  - vb
+  name: HandleMessage(Minecart, Message)
+  nameWithType: ReturnToTownHall.HandleMessage(Minecart, Message)
+  fullName: MinecaRTS.ReturnToTownHall.HandleMessage(MinecaRTS.Minecart, MinecaRTS.Message)
+  type: Method
+  source:
+    remote:
+      path: MinecaRTS/States/MinecartStates.cs
+      branch: master
+      repo: https://github.com/Plottel/MinecaRTS.git
+    id: HandleMessage
+    path: ../MinecaRTS/States/MinecartStates.cs
+    startLine: 97
+  assemblies:
+  - MinecaRTS
+  namespace: MinecaRTS
+  syntax:
+    content: public override void HandleMessage(Minecart owner, Message message)
+    parameters:
+    - id: owner
+      type: MinecaRTS.Minecart
+    - id: message
+      type: MinecaRTS.Message
+    content.vb: Public Overrides Sub HandleMessage(owner As Minecart, message As Message)
+  overridden: MinecaRTS.State{MinecaRTS.Minecart}.HandleMessage(MinecaRTS.Minecart,MinecaRTS.Message)
+  overload: MinecaRTS.ReturnToTownHall.HandleMessage*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: MinecaRTS
+  commentId: N:MinecaRTS
+  isExternal: false
+  name: MinecaRTS
+  nameWithType: MinecaRTS
+  fullName: MinecaRTS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: MinecaRTS.State{MinecaRTS.Minecart}
+  commentId: T:MinecaRTS.State{MinecaRTS.Minecart}
+  parent: MinecaRTS
+  definition: MinecaRTS.State`1
+  name: State<Minecart>
+  nameWithType: State<Minecart>
+  fullName: MinecaRTS.State<MinecaRTS.Minecart>
+  nameWithType.vb: State(Of Minecart)
+  fullName.vb: MinecaRTS.State(Of MinecaRTS.Minecart)
+  name.vb: State(Of Minecart)
+  spec.csharp:
+  - uid: MinecaRTS.State`1
+    name: State
+    nameWithType: State
+    fullName: MinecaRTS.State
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: MinecaRTS.State`1
+    name: State
+    nameWithType: State
+    fullName: MinecaRTS.State
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MinecaRTS.State`1
+  commentId: T:MinecaRTS.State`1
+  isExternal: false
+  name: State<T>
+  nameWithType: State<T>
+  fullName: MinecaRTS.State<T>
+  nameWithType.vb: State(Of T)
+  fullName.vb: MinecaRTS.State(Of T)
+  name.vb: State(Of T)
+  spec.csharp:
+  - uid: MinecaRTS.State`1
+    name: State
+    nameWithType: State
+    fullName: MinecaRTS.State
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: MinecaRTS.State`1
+    name: State
+    nameWithType: State
+    fullName: MinecaRTS.State
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ReturnToTownHall.Instance*
+  commentId: Overload:MinecaRTS.ReturnToTownHall.Instance
+  isExternal: false
+  name: Instance
+  nameWithType: ReturnToTownHall.Instance
+  fullName: MinecaRTS.ReturnToTownHall.Instance
+- uid: MinecaRTS.ReturnToTownHall
+  commentId: T:MinecaRTS.ReturnToTownHall
+  parent: MinecaRTS
+  isExternal: false
+  name: ReturnToTownHall
+  nameWithType: ReturnToTownHall
+  fullName: MinecaRTS.ReturnToTownHall
+- uid: MinecaRTS.ReturnToTownHall.#ctor*
+  commentId: Overload:MinecaRTS.ReturnToTownHall.#ctor
+  isExternal: false
+  name: ReturnToTownHall
+  nameWithType: ReturnToTownHall.ReturnToTownHall
+  fullName: MinecaRTS.ReturnToTownHall.ReturnToTownHall
+- uid: MinecaRTS.State{MinecaRTS.Minecart}.Enter(MinecaRTS.Minecart)
+  commentId: M:MinecaRTS.State{MinecaRTS.Minecart}.Enter(MinecaRTS.Minecart)
+  parent: MinecaRTS.State{MinecaRTS.Minecart}
+  definition: MinecaRTS.State`1.Enter(`0)
+  name: Enter(Minecart)
+  nameWithType: State<Minecart>.Enter(Minecart)
+  fullName: MinecaRTS.State<MinecaRTS.Minecart>.Enter(MinecaRTS.Minecart)
+  nameWithType.vb: State(Of Minecart).Enter(Minecart)
+  fullName.vb: MinecaRTS.State(Of MinecaRTS.Minecart).Enter(MinecaRTS.Minecart)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.Enter(`0)
+    name: Enter
+    nameWithType: State<Minecart>.Enter
+    fullName: MinecaRTS.State<MinecaRTS.Minecart>.Enter
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.Enter(`0)
+    name: Enter
+    nameWithType: State(Of Minecart).Enter
+    fullName: MinecaRTS.State(Of MinecaRTS.Minecart).Enter
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ReturnToTownHall.Enter*
+  commentId: Overload:MinecaRTS.ReturnToTownHall.Enter
+  isExternal: false
+  name: Enter
+  nameWithType: ReturnToTownHall.Enter
+  fullName: MinecaRTS.ReturnToTownHall.Enter
+- uid: MinecaRTS.Minecart
+  commentId: T:MinecaRTS.Minecart
+  parent: MinecaRTS
+  isExternal: false
+  name: Minecart
+  nameWithType: Minecart
+  fullName: MinecaRTS.Minecart
+- uid: MinecaRTS.State`1.Enter(`0)
+  commentId: M:MinecaRTS.State`1.Enter(`0)
+  isExternal: false
+  name: Enter(T)
+  nameWithType: State<T>.Enter(T)
+  fullName: MinecaRTS.State<T>.Enter(T)
+  nameWithType.vb: State(Of T).Enter(T)
+  fullName.vb: MinecaRTS.State(Of T).Enter(T)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.Enter(`0)
+    name: Enter
+    nameWithType: State<T>.Enter
+    fullName: MinecaRTS.State<T>.Enter
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.Enter(`0)
+    name: Enter
+    nameWithType: State(Of T).Enter
+    fullName: MinecaRTS.State(Of T).Enter
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.State{MinecaRTS.Minecart}.Exit(MinecaRTS.Minecart)
+  commentId: M:MinecaRTS.State{MinecaRTS.Minecart}.Exit(MinecaRTS.Minecart)
+  parent: MinecaRTS.State{MinecaRTS.Minecart}
+  definition: MinecaRTS.State`1.Exit(`0)
+  name: Exit(Minecart)
+  nameWithType: State<Minecart>.Exit(Minecart)
+  fullName: MinecaRTS.State<MinecaRTS.Minecart>.Exit(MinecaRTS.Minecart)
+  nameWithType.vb: State(Of Minecart).Exit(Minecart)
+  fullName.vb: MinecaRTS.State(Of MinecaRTS.Minecart).Exit(MinecaRTS.Minecart)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.Exit(`0)
+    name: Exit
+    nameWithType: State<Minecart>.Exit
+    fullName: MinecaRTS.State<MinecaRTS.Minecart>.Exit
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.Exit(`0)
+    name: Exit
+    nameWithType: State(Of Minecart).Exit
+    fullName: MinecaRTS.State(Of MinecaRTS.Minecart).Exit
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ReturnToTownHall.Exit*
+  commentId: Overload:MinecaRTS.ReturnToTownHall.Exit
+  isExternal: false
+  name: Exit
+  nameWithType: ReturnToTownHall.Exit
+  fullName: MinecaRTS.ReturnToTownHall.Exit
+- uid: MinecaRTS.State`1.Exit(`0)
+  commentId: M:MinecaRTS.State`1.Exit(`0)
+  isExternal: false
+  name: Exit(T)
+  nameWithType: State<T>.Exit(T)
+  fullName: MinecaRTS.State<T>.Exit(T)
+  nameWithType.vb: State(Of T).Exit(T)
+  fullName.vb: MinecaRTS.State(Of T).Exit(T)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.Exit(`0)
+    name: Exit
+    nameWithType: State<T>.Exit
+    fullName: MinecaRTS.State<T>.Exit
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.Exit(`0)
+    name: Exit
+    nameWithType: State(Of T).Exit
+    fullName: MinecaRTS.State(Of T).Exit
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.State{MinecaRTS.Minecart}.Execute(MinecaRTS.Minecart)
+  commentId: M:MinecaRTS.State{MinecaRTS.Minecart}.Execute(MinecaRTS.Minecart)
+  parent: MinecaRTS.State{MinecaRTS.Minecart}
+  definition: MinecaRTS.State`1.Execute(`0)
+  name: Execute(Minecart)
+  nameWithType: State<Minecart>.Execute(Minecart)
+  fullName: MinecaRTS.State<MinecaRTS.Minecart>.Execute(MinecaRTS.Minecart)
+  nameWithType.vb: State(Of Minecart).Execute(Minecart)
+  fullName.vb: MinecaRTS.State(Of MinecaRTS.Minecart).Execute(MinecaRTS.Minecart)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.Execute(`0)
+    name: Execute
+    nameWithType: State<Minecart>.Execute
+    fullName: MinecaRTS.State<MinecaRTS.Minecart>.Execute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.Execute(`0)
+    name: Execute
+    nameWithType: State(Of Minecart).Execute
+    fullName: MinecaRTS.State(Of MinecaRTS.Minecart).Execute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ReturnToTownHall.Execute*
+  commentId: Overload:MinecaRTS.ReturnToTownHall.Execute
+  isExternal: false
+  name: Execute
+  nameWithType: ReturnToTownHall.Execute
+  fullName: MinecaRTS.ReturnToTownHall.Execute
+- uid: MinecaRTS.State`1.Execute(`0)
+  commentId: M:MinecaRTS.State`1.Execute(`0)
+  isExternal: false
+  name: Execute(T)
+  nameWithType: State<T>.Execute(T)
+  fullName: MinecaRTS.State<T>.Execute(T)
+  nameWithType.vb: State(Of T).Execute(T)
+  fullName.vb: MinecaRTS.State(Of T).Execute(T)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.Execute(`0)
+    name: Execute
+    nameWithType: State<T>.Execute
+    fullName: MinecaRTS.State<T>.Execute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.Execute(`0)
+    name: Execute
+    nameWithType: State(Of T).Execute
+    fullName: MinecaRTS.State(Of T).Execute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.State{MinecaRTS.Minecart}.HandleMessage(MinecaRTS.Minecart,MinecaRTS.Message)
+  commentId: M:MinecaRTS.State{MinecaRTS.Minecart}.HandleMessage(MinecaRTS.Minecart,MinecaRTS.Message)
+  parent: MinecaRTS.State{MinecaRTS.Minecart}
+  definition: MinecaRTS.State`1.HandleMessage(`0,MinecaRTS.Message)
+  name: HandleMessage(Minecart, Message)
+  nameWithType: State<Minecart>.HandleMessage(Minecart, Message)
+  fullName: MinecaRTS.State<MinecaRTS.Minecart>.HandleMessage(MinecaRTS.Minecart, MinecaRTS.Message)
+  nameWithType.vb: State(Of Minecart).HandleMessage(Minecart, Message)
+  fullName.vb: MinecaRTS.State(Of MinecaRTS.Minecart).HandleMessage(MinecaRTS.Minecart, MinecaRTS.Message)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.HandleMessage(`0,MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: State<Minecart>.HandleMessage
+    fullName: MinecaRTS.State<MinecaRTS.Minecart>.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.HandleMessage(`0,MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: State(Of Minecart).HandleMessage
+    fullName: MinecaRTS.State(Of MinecaRTS.Minecart).HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MinecaRTS.Minecart
+    name: Minecart
+    nameWithType: Minecart
+    fullName: MinecaRTS.Minecart
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MinecaRTS.ReturnToTownHall.HandleMessage*
+  commentId: Overload:MinecaRTS.ReturnToTownHall.HandleMessage
+  isExternal: false
+  name: HandleMessage
+  nameWithType: ReturnToTownHall.HandleMessage
+  fullName: MinecaRTS.ReturnToTownHall.HandleMessage
+- uid: MinecaRTS.Message
+  commentId: T:MinecaRTS.Message
+  parent: MinecaRTS
+  isExternal: false
+  name: Message
+  nameWithType: Message
+  fullName: MinecaRTS.Message
+- uid: MinecaRTS.State`1.HandleMessage(`0,MinecaRTS.Message)
+  commentId: M:MinecaRTS.State`1.HandleMessage(`0,MinecaRTS.Message)
+  isExternal: false
+  name: HandleMessage(T, Message)
+  nameWithType: State<T>.HandleMessage(T, Message)
+  fullName: MinecaRTS.State<T>.HandleMessage(T, MinecaRTS.Message)
+  nameWithType.vb: State(Of T).HandleMessage(T, Message)
+  fullName.vb: MinecaRTS.State(Of T).HandleMessage(T, MinecaRTS.Message)
+  spec.csharp:
+  - uid: MinecaRTS.State`1.HandleMessage(`0,MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: State<T>.HandleMessage
+    fullName: MinecaRTS.State<T>.HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: MinecaRTS.State`1.HandleMessage(`0,MinecaRTS.Message)
+    name: HandleMessage
+    nameWithType: State(Of T).HandleMessage
+    fullName: MinecaRTS.State(Of T).HandleMessage
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: MinecaRTS.Message
+    name: Message
+    nameWithType: Message
+    fullName: MinecaRTS.Message
+  - name: )
+    nameWithType: )
+    fullName: )
