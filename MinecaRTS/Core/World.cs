@@ -12,6 +12,7 @@ namespace MinecaRTS
 { 
     public class World : IHandleMessages
     {
+        public static Random rand = new Random();
         private static ulong _gameTime = 0;
 
         public static ulong GameTime
@@ -84,8 +85,8 @@ namespace MinecaRTS
 
             SelectedUnits = new List<Unit>();
             _playerOneData = new PlayerData(this, Team.One);
-            _playerOne = new HumanPlayer(_playerOneData);
-            //_playerOne = new MinecartO(_playerOneData);            
+            //_playerOne = new HumanPlayer(_playerOneData);
+            _playerOne = new MinecartO(_playerOneData);            
         }
 
         public void Setup()
@@ -159,6 +160,29 @@ namespace MinecaRTS
                 foreach (Building b in Buildings)
                     b.Construct();
             }
+
+            if (Input.KeyDown(Keys.N))
+                playerOneInfluence.CalculateInfluenceBorderAroundCell(Grid.CellAt(Buildings[0].Mid));
+
+            // Move camera with arrow keys.
+            if (Input.KeyDown(Keys.Left))
+                Camera.MoveBy(-20, 0);
+            if (Input.KeyDown(Keys.Right))
+                Camera.MoveBy(20, 0);
+            if (Input.KeyDown(Keys.Up))
+                Camera.MoveBy(0, -20);
+            if (Input.KeyDown(Keys.Down))
+                Camera.MoveBy(0, 20);
+
+            // Move camera if mouse is at edge of screen
+            if (Input.MouseX <= 5)
+                Camera.MoveBy(-20, 0);
+            if (Input.MouseX >= Camera.WIDTH - 50)
+                Camera.MoveBy(20, 0);
+            if (Input.MouseY <= 5)
+                Camera.MoveBy(0, -20);
+            if (Input.MouseY >= Camera.HEIGHT - 50)
+                Camera.MoveBy(0, 20);
         }
 
         public void Update()

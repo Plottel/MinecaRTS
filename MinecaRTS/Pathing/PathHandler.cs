@@ -130,6 +130,7 @@ namespace MinecaRTS
                 else
                 {
                     owner.FollowPath = false;
+                    path = new List<Cell>();
                     force = Vector2.Zero;
                 }                   
             }

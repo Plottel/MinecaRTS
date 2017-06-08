@@ -15,6 +15,7 @@ namespace MinecaRTS
     {
         private Grid _grid;
         private InfluenceMap _influence;
+        private List<Cell> _influenceBorder;
 
         public float this[int col, int row]
         {
@@ -39,10 +40,16 @@ namespace MinecaRTS
             private set { this[cellIndex.Col(), cellIndex.Row()] = value; }
         }
 
+        public List<Cell> InfluenceBorder
+        {
+            get { return _influenceBorder; }
+        }
+
         public InfluenceMapData(Grid grid)
         {
             _grid = grid;
             _influence = new List<List<float>>();
+            _influenceBorder = new List<Cell>();
 
             for (int col = 0; col < grid.Cols; col++)
             {
@@ -68,9 +75,14 @@ namespace MinecaRTS
             float strength = 0;
 
             if (influencer is Building)
-                strength = 100;
+            {
+                if (influencer is TownHall)
+                    strength = 100;
+                else if (influencer is House)
+                    strength = 15;
+            }
             else if (influencer is Unit)
-                strength = 30;
+                strength = 0;
 
             foreach (Point index in _grid.IndexesInRect(influencer.CollisionRect))
                 this[index] += strength;
@@ -89,15 +101,38 @@ namespace MinecaRTS
             }
         }
 
-        public void InfluencerMoved(Entity influencer)
+        public void CalculateInfluenceBorderAroundCell(Cell startingCell)
         {
-            // Decrement influence in old area
-            // Increment influence in new area
-        }
+            _influenceBorder = new List<Cell>();
+            var open = new List<Cell>();
+            var closed = new List<Cell>();
+            var current = startingCell;
 
-        public void InfluencerRemoved(Entity influencer)
-        {
-            // Decrement influence in area
+            open.Add(startingCell);
+
+            while (open.Count > 0)
+            {
+                current = open[0];
+
+                bool isBorderCell = false;
+
+                foreach (Cell cell in current.Neighbours)
+                {
+                    if (!open.Contains(cell) && !closed.Contains(cell))
+                    {
+                        if (this[_grid.IndexAt(cell.Mid)] > 0)
+                            open.Add(cell);
+                        else
+                            isBorderCell = true;
+                    }
+                }
+
+                if (isBorderCell)
+                    _influenceBorder.Add(current);
+
+                open.Remove(current);
+                closed.Add(current);
+            }
         }
 
         public void Render(SpriteBatch spriteBatch)
@@ -131,10 +166,14 @@ namespace MinecaRTS
                     {
                         int color = (int)(this[col, row] * colorScale);
                         spriteBatch.FillRectangle(_grid[col, row].RenderRect, new Color(0, 0, color + 50, 150));
-                        //spriteBatch.DrawString(MinecaRTS.smallFont, ((int)(this[col, row])).ToString(), _grid[col, row].RenderMid, Color.White);
+                        spriteBatch.DrawString(MinecaRTS.smallFont, ((int)(this[col, row])).ToString(), _grid[col, row].RenderMid, Color.White);
                     }
                 }
             }
+
+            foreach (Cell cell in _influenceBorder)
+                spriteBatch.FillRectangle(cell.RenderRect, Color.White);
+            
         }
     }
 }

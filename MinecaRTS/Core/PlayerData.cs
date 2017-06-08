@@ -49,6 +49,11 @@ namespace MinecaRTS
             get { return _stone; }
         }
 
+        public uint Supply
+        {
+            get { return _currentSupply; }
+        }
+
         // 10 + (houses * 10)
         public uint MaxSupply
         {
@@ -125,6 +130,11 @@ namespace MinecaRTS
             get { return _world.Grid; }
         }
 
+        public Grid CoarseGrid
+        {
+            get { return _world.CoarseGrid; }
+        }
+
         public void RemoveUnitFromCollisionCells(Unit u)
         {
             _world.collisionCells.RemoveUnit(u);
@@ -138,6 +148,11 @@ namespace MinecaRTS
         public void UpdateFogOfWarForUnit(Unit u)
         {
             _world.fogOfWar.UnitMoved(u);
+        }
+
+        public bool HasExploredCoarseCell(Cell cell)
+        {
+            return _world.fogOfWar.TeamHasExploredCell(_team, CoarseGrid.IndexAt(cell.Mid));
         }
 
         public List<HashSet<Unit>> GetUnitsInCollisionCellsAroundPos(Vector2 pos)
@@ -262,7 +277,7 @@ namespace MinecaRTS
         }
 
         // TODO: SLOW - can be optimised with a floodfill using spatial partion cells.
-        public Worker GetClosestWorkerToPos(Vector2 pos)
+        public Worker GetClosestFreeWorkerToPos(Vector2 pos)
         {
             float closestDistance = float.MaxValue;
             Worker closestWorker = null;
@@ -271,13 +286,18 @@ namespace MinecaRTS
             {
                 if (u is Worker)
                 {
-                    var distance = Vector2.Distance(pos, u.Mid);
+                    Worker w = u as Worker;
 
-                    if (distance < closestDistance)
+                    if (w.FSM.CurrentState != MoveToConstructBuilding.Instance && w.FSM.CurrentState != ConstructBuilding.Instance)
                     {
-                        closestDistance = distance;
-                        closestWorker = u as Worker;
-                    }
+                        var distance = Vector2.Distance(pos, u.Mid);
+
+                        if (distance < closestDistance)
+                        {
+                            closestDistance = distance;
+                            closestWorker = u as Worker;
+                        }
+                    }                    
                 }
             }
             return closestWorker;
@@ -478,6 +498,91 @@ namespace MinecaRTS
             }
 
             return closestBuilding;
+        }
+
+        public Vector2 GetHousePlacementPos()
+        {
+            InfluenceMapData infMap;
+            var open = new List<Cell>();
+            var closed = new List<Cell>();
+
+
+            // If player doesn't own a house, start from town centre - otherwise, start from existing house.
+            Cell current = null;
+
+            foreach (Building b in _world.Buildings)
+            {
+                if (b is House)
+                {
+                    current = Grid.CellAt(b.Mid);
+                    break;
+                }
+            }
+
+            if (current == null)
+                current = Grid.CellAt(_world.Buildings[0].Mid);
+
+            if (_team == Team.One)
+                infMap = _world.playerOneInfluence;
+            else
+                infMap = _world.playerTwoInfluence;
+
+            open.Add(current);
+
+            while (open.Count > 0)
+            {
+                current = open[0];
+
+                foreach (Cell cell in current.Neighbours)
+                {
+                    if (!closed.Contains(cell) && !open.Contains(cell))
+                    {
+                        open.Add(cell);
+
+                        if (IsGoodHousePos(cell))
+                            return cell.Pos;
+                    }
+                }
+
+                open.Remove(current);
+                closed.Add(current);
+            }
+
+            // Return zero vector if valid house pos could not be found.
+            return Vector2.Zero;
+
+
+            bool IsGoodHousePos(Cell cellToCheck)
+            {
+                Point checkIdx = Grid.IndexAt(cellToCheck.Mid);
+                float influence = infMap[checkIdx];
+
+                // Influence must be between 20 and 70.
+                if (influence < 20 || influence > 70)
+                    return false;
+
+                // Must not be within 4 x 4 space of resources.
+                foreach (Cell cell in Grid.CellsInRect(cellToCheck.CollisionRect.GetInflated(128, 128)))
+                {
+                    if (_world.CellHasResource(cell))
+                        return false;
+                }
+
+                // Must actually fit with house size. No walls or minecart tracks.
+                var houseCells = new List<Cell> { cellToCheck };
+                Grid.AddCell(Grid[checkIdx.Col() + 1, checkIdx.Row()], houseCells);
+                Grid.AddCell(Grid[checkIdx.Col() + 1, checkIdx.Row() + 1], houseCells);
+                Grid.AddCell(Grid[checkIdx.Col(), checkIdx.Row() + 1], houseCells);
+
+                foreach (Cell cell in houseCells)
+                {
+                    if (CellHasTrack(cell) || !cell.Passable)
+                        return false;
+                }
+
+                // Good house position!
+                return true;                
+            }
         }
 
         public void Render(SpriteBatch spriteBatch)

@@ -4,20 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace MinecaRTS
 {
     public class MinecartO : Bot
     {
-        private Vector2 _buildHousesAt = new Vector2(320, 156);
+        private Stack<Goal<Worker>> goals;
 
         public MinecartO(PlayerData data) : base(data)
         {
+            goals = new Stack<Goal<Worker>>();
         }
 
         public override void HandleInput()
         {
-            // Logic loop
+            Debug.HookText("Number of Goals: " + goals.Count.ToString());
+            if (Input.KeyTyped(Keys.R))
+            {
+                goals.Push(new GoalFindResource(Data.GetClosestFreeWorkerToPos(Vector2.Zero), ResourceType.Stone));
+                goals.Peek().Activate();
+            }
+                
+
+            if (goals.Count > 0)
+            {
+                goals.Peek().Process();
+
+                if (goals.Peek().State == GoalState.Complete)
+                {
+                    goals.Pop();
+                }
+            }
+                
         }
 
         public override void OnUnitSpawn(Unit newUnit)
@@ -39,24 +58,26 @@ namespace MinecaRTS
         public override void OnSupplyChange()
         {
             if (Data.SpareSupply <= 4)
-            { 
-                House house = BuildingFactory.CreateHouse(Data, _buildHousesAt);
+            {
+                Vector2 housePos = Data.GetHousePlacementPos();
 
-                if (Data.BuyBuilding(house, _buildHousesAt))
+                if (housePos != Vector2.Zero)
                 {
-                    Worker worker = Data.GetClosestWorkerToPos(_buildHousesAt);
+                    House house = BuildingFactory.CreateHouse(Data, housePos);
 
-                    if (worker != null)
-                        worker.GoConstructBuilding(house);
-                }                
+                    if (Data.BuyBuilding(house, housePos))
+                    {
+                        Worker worker = Data.GetClosestFreeWorkerToPos(housePos);
+
+                        if (worker != null)
+                            worker.GoConstructBuilding(house);
+                    }
+                }                      
             }                
         }
 
         public override void OnBuildingComplete(Building building)
         {
-            if (building is House)
-                _buildHousesAt.X += 64;
-
             foreach (HashSet<Unit> unitsInCell in Data.GetUnitsInCollisionCellsAroundPos(building.Mid))
             {
                 foreach (Unit unit in unitsInCell)
