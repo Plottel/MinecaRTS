@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MinecaRTS
 {
+    /// <summary>
+    /// All possible debug options.
+    /// </summary>
     public enum DebugOp
     {
         ShowPaths = 1,
@@ -22,17 +25,44 @@ namespace MinecaRTS
         ShowFogOfWar = 9,
         EnableTimeSlicedPathing = 10,
         ShowInfluence = 11,
-        Count = 12 // For easy iteration
+        GroupPathing = 12,
+        Count = 13 // For easy iteration
     }
 
+    /// <summary>
+    /// Class responsible for keeping track of and updating status of debug options.
+    /// Also keeps track of a list of strings to be rendered as debug text.
+    /// </summary>
     public static class Debug
     {
+        /// <summary>
+        /// Font used for debug text.
+        /// </summary>
         public static SpriteFont debugFont;
-        private static Color _debugColor = Color.White;
-        private static Dictionary<DebugOp, bool> _settings = new Dictionary<DebugOp, bool>();
-        private static List<string> _hookedText = new List<string>();
-        private static Point _hookedTextStart = new Point(1000, 5);
 
+        /// <summary>
+        /// Color used for debug text.
+        /// </summary>
+        private static Color _debugColor = Color.White;
+
+        /// <summary>
+        /// Maps debug options to a bool indicating if they are active or not.
+        /// </summary>
+        private static Dictionary<DebugOp, bool> _settings = new Dictionary<DebugOp, bool>();
+
+        /// <summary>
+        /// Strings to be rendered as debug text.
+        /// </summary>
+        private static List<string> _hookedText = new List<string>();
+
+        /// <summary>
+        /// Position for the first string in _hookedText to be rendered.
+        /// </summary>
+        private static Point _hookedTextStart = new Point(1000, 30);
+
+        /// <summary>
+        /// Sets up debug options as false.
+        /// </summary>
         public static void Init()
         {
             _settings.Add(DebugOp.ShowPaths, false);
@@ -46,8 +76,14 @@ namespace MinecaRTS
             _settings.Add(DebugOp.ShowFogOfWar, false);
             _settings.Add(DebugOp.EnableTimeSlicedPathing, false);
             _settings.Add(DebugOp.ShowInfluence, false);
+            _settings.Add(DebugOp.GroupPathing, false);
         }
 
+        /// <summary>
+        /// User input method for debug.
+        /// Turns settings on or off when Numbers are typed corresponding to the DebugOp enum value.
+        /// Special cases after 0 where 'G' for group pathfinding and 'I' for influence map.
+        /// </summary>
         public static void HandleInput()
         {
             if (Input.KeyTyped(Keys.D1))
@@ -82,13 +118,24 @@ namespace MinecaRTS
 
             if (Input.KeyTyped(Keys.I))
                 _settings[DebugOp.ShowInfluence] = !_settings[DebugOp.ShowInfluence];
+
+            if (Input.KeyTyped(Keys.G))
+                _settings[DebugOp.GroupPathing] = !_settings[DebugOp.GroupPathing];
         }
 
+        /// <summary>
+        /// Returns whether or not the passed in DebugOp is currently active.
+        /// </summary>
+        /// <param name="setting">The debugOp to check</param>
         public static bool IsOn(DebugOp setting)
         {
             return _settings[setting];
         }
 
+        /// <summary>
+        /// Renders the current status of each debug option.
+        /// </summary>
+        /// <param name="spriteBatch">The SpriteBatch to render to.</param>
         public static void RenderDebugOptionStates(SpriteBatch spriteBatch)
         {
             for (int i = 1; i < (int)DebugOp.Count; i++)
@@ -98,21 +145,38 @@ namespace MinecaRTS
             }            
         }
 
+        /// <summary>
+        /// Clears the list of strings setup to be rendered as debug text.
+        /// </summary>
         public static void ClearHookedText()
         {
             _hookedText = new List<string>();
         }
 
+        /// <summary>
+        /// Adds a string to be rendered as debug text.
+        /// </summary>
+        /// <param name="text">The string</param>
         public static void HookText(string text)
         {
             _hookedText.Add(text);
         }
 
+        /// <summary>
+        /// Renders the strings set up as debug text.
+        /// Renders one per line and accounts for indentation by tracking number of "\t" in the string.
+        /// </summary>
+        /// <param name="spriteBatch">The SpriteBatch to render to.</param>
         public static void RenderHookedText(SpriteBatch spriteBatch)
         {
             for (int i = 0; i < _hookedText.Count; i++)
             {
-                spriteBatch.DrawString(debugFont, _hookedText[i], new Vector2(_hookedTextStart.X, _hookedTextStart.Y + (i * 15)), _debugColor);
+                string oldString = _hookedText[i];
+                string newString = _hookedText[i].Replace("\t", "");
+
+                int numTabs = oldString.Length - newString.Length;
+
+                spriteBatch.DrawString(debugFont, newString, new Vector2(_hookedTextStart.X + (numTabs * 30), _hookedTextStart.Y + (i * 15)), _debugColor);
             }                
         }
     }

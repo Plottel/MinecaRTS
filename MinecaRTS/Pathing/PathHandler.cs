@@ -35,7 +35,7 @@ namespace MinecaRTS
             get { return _id; }
         }
 
-        protected Pathfinder pathfinder;
+        public Pathfinder pathfinder;
 
         /// <summary>
         /// The grid used for path handling.
@@ -95,6 +95,7 @@ namespace MinecaRTS
                         path = new List<Cell>();
                     else if (searchState == SearchState.Complete)
                     {
+                        pathfinder.path.RemoveAt(0);
                         path = pathfinder.path;
                         FinalisePath();
                     }
@@ -141,7 +142,13 @@ namespace MinecaRTS
         public int GetEstimatedTicksToReachCell(Cell cell)
         {
             float distance = Vector2.Distance(cell.Mid, owner.Mid);
-            return (int)((distance / owner.Speed) * 1.5);
+
+            int estimatedTicks = (int)((distance / owner.Speed) * 1.2);
+
+            if (estimatedTicks < 10)
+                estimatedTicks = 10;
+
+            return estimatedTicks;
         }
 
         /// <summary>
@@ -164,7 +171,13 @@ namespace MinecaRTS
             var distanceFromCell = (cell.Mid - owner.Mid).Length();
 
             return distanceFromCell <= _waypointThreshold;
-        }             
+        }
+        
+        public void SetPath(List<Cell> path)
+        {
+            this.path = path;
+            FinalisePath();
+        }
 
         public void FinalisePath()
         {
@@ -183,7 +196,7 @@ namespace MinecaRTS
         /// If owner is set to follow paths, this will orient owner towards first cell in path.
         /// </summary>
         /// <param name="targetPos"></param>
-        public virtual void GetPathTo(Vector2 targetPos)
+        public virtual void GetPathTo(Vector2 targetPos, bool smoothed = true)
         {
             var sourceCell = grid.CellAt(owner.Mid);
             var targetCell = new List<Cell> { grid.CellAt(targetPos) };
@@ -191,20 +204,19 @@ namespace MinecaRTS
             
             if (Debug.IsOn(DebugOp.EnableTimeSlicedPathing))
             {
-                pathfinder.SetupGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+                pathfinder.SetupGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, smoothed);
 
-                owner.FollowPath = false;
-                path = new List<Cell>();
+                path = new List<Cell> { grid.CellAt(targetPos) };
+                FinalisePath();
                 TimeSlicedPathManager.AddSearch(pathfinder);
 
-                // TODO: Some kind of seek behaviour towards target so they don't just stand there.
             }
             else
             {
-                path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, true);
+                path = pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, GreedyScoreMethod, smoothed);
                 FinalisePath();
-            }
-                 
+                owner.ExitState();
+            }                 
         }        
 
         public void RenderPath(SpriteBatch spriteBatch)
@@ -295,18 +307,18 @@ namespace MinecaRTS
         }
 
         // Consideration condition for a standard path.
-        protected bool GreedyConsiderationCondition(Cell cell)
+        public bool GreedyConsiderationCondition(Cell cell)
         {
             return cell.Passable;
         }
 
         // Termination condition for a standard path.
-        protected bool GreedyTerminationCondition(Cell current, List<Cell> targets)
+        public  bool GreedyTerminationCondition(Cell current, List<Cell> targets)
         {
             return targets.Contains(current);
         }
 
-        protected float GreedyScoreMethod(Cell cell, Cell Target)
+        public float GreedyScoreMethod(Cell cell, Cell Target)
         {
             Point idxOne = grid.IndexAt(cell.Pos);
             Point idxTwo = grid.IndexAt(Target.Pos);

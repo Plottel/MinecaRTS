@@ -10,13 +10,17 @@ using MonoGame.Extended;
 namespace MinecaRTS
 {
     /// <summary>
-    /// 2D array of cells with a whoooooole bunch of helper functions!
-    /// MORE LINES OF STUFF
+    /// 2D list of cells which forms the core level data.
+    /// Defines various helper functions for locating and fetching cells.
     /// </summary>
     public class Grid
     {
         private int _cellSize;
 
+        /// <summary>
+        /// Gets the size of the cells in the grid.
+        /// All cells are square.
+        /// </summary>
         public int CellSize
         {
             get { return _cellSize; }
@@ -62,6 +66,9 @@ namespace MinecaRTS
             set { _cells[col][row] = value; }
         }
 
+        /// <summary>
+        /// Overload for Point instead of col / row
+        /// </summary>
         public Cell this[Point cellIndex]
         {
             get { return this[cellIndex.Col(), cellIndex.Row()]; }
@@ -143,6 +150,10 @@ namespace MinecaRTS
             SetupCellNeighbours();
         }
 
+        /// <summary>
+        /// Updates the Neighbours lists in each cells.
+        /// Only creates Orthogonal neighbours.
+        /// </summary>
         private void SetupCellNeighbours()
         {
             for (int col = 0; col < Cols; col++)
@@ -210,6 +221,11 @@ namespace MinecaRTS
             return new Point(col, row);
         }
 
+        /// <summary>
+        /// Returns the cells in a 3x3 grid around the passed in index.
+        /// Any null cells (out of bounds) will be excluded automatically.
+        /// </summary>
+        /// <param name="index">The index to fetch the grid around.</param>
         public List<Point> Get33GridIndexesAroundIndex(Point index)
         {
             var result = new List<Point>();
@@ -228,6 +244,11 @@ namespace MinecaRTS
             return result;
         }
 
+        /// <summary>
+        /// Sames as Get33GridIndexesAroundIndex but first converts passed in pos to Point Index.
+        /// </summary>
+        /// <param name="pos">The position to fetch grid indexes around.</param>
+        /// <returns></returns>
         public List<Point> Get33GridIndexesAroundPos(Vector2 pos)
         {
             return Get33GridIndexesAroundIndex(IndexAt(pos));
@@ -269,6 +290,10 @@ namespace MinecaRTS
             return result;
         }
 
+        /// <summary>
+        /// Returns a list of cell indexes the passed in Rectangle touches.
+        /// </summary>
+        /// <param name="rect">The rectangle.</param>
         public List<Point> IndexesInRect(Rectangle rect)
         {
             var result = new List<Point>();
@@ -302,6 +327,13 @@ namespace MinecaRTS
             return result;
         }
 
+        /// <summary>
+        /// Returns all cells touching the line formed by two passed in Vectors.
+        /// Runs a Bresenham line traversal to calculate it.
+        /// </summary>
+        /// <param name="v1">Start line point</param>
+        /// <param name="v2">End line point</param>
+        /// <returns></returns>
         public HashSet<Cell> CellsOnLine(Vector2 v1, Vector2 v2)
         {
             var result = new HashSet<Cell>();

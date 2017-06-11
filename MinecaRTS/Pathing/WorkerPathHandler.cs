@@ -16,7 +16,7 @@ namespace MinecaRTS
             _owner = owner;
         }
 
-        public override void GetPathTo(Vector2 targetPos)
+        public override void GetPathTo(Vector2 targetPos, bool smoothed = true)
         {
             Building buildingAtPos = _owner.Data.BuildingAtPos(targetPos);
 
@@ -30,7 +30,7 @@ namespace MinecaRTS
                 if (resource != null)
                     GetPathToResource(resource);
                 else
-                    base.GetPathTo(targetPos);
+                    base.GetPathTo(targetPos, smoothed);
             }
 
             FinalisePath();         

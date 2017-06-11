@@ -27,7 +27,7 @@ namespace MinecaRTS
         {
             if (owner.TargetDepositBox != null)
                 owner.pathHandler.GetPathTo(owner.TargetDepositBox.Mid);
-            // TODO: else find path to closest deposit box
+            // TODO: else fetch path to nearest deposit box.
 
             //owner.ChangeAnimation(WorkerAnimation.Walk);
         }

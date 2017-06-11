@@ -61,12 +61,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bots\Bot.cs" />
+    <Compile Include="GoalBuildPerimeter.cs" />
+    <Compile Include="Goals\GoalBuildTrackNetwork.cs" />
+    <Compile Include="Goals\CompositeGoal.cs" />
     <Compile Include="Core\CollisionCellData.cs" />
     <Compile Include="Core\FogOfWarData.cs" />
     <Compile Include="Bots\Player.cs" />
     <Compile Include="Bots\MinecartO.cs" />
     <Compile Include="Core\InfluenceMapData.cs" />
-    <Compile Include="GoalFindResource.cs" />
+    <Compile Include="Goals\GoalBuildExpansion.cs" />
+    <Compile Include="Goals\GoalConstructBuilding.cs" />
+    <Compile Include="Goals\GoalFindResource.cs" />
     <Compile Include="Goals\Goal.cs" />
     <Compile Include="Goals\GoalState.cs" />
     <Compile Include="Render\Button.cs" />
@@ -123,6 +128,7 @@
     <Compile Include="Core\World.cs" />
     <Compile Include="EditAndDebug\WorldEditor.cs" />
     <Compile Include="Pathing\WorkerPathHandler.cs" />
+    <Compile Include="Entities\Buildings\Wall.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

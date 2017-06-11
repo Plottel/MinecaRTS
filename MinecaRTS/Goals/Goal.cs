@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MinecaRTS
 {
-    public abstract class Goal<T>
+    public abstract class Goal<T1, T2> where T2 : Bot
     {
-        protected T owner;
+        protected T1 owner;
+        protected T2 bot;
 
         private GoalState _state;
 
@@ -18,14 +19,27 @@ namespace MinecaRTS
             protected set { _state = value; }
         }
 
-        protected Goal(T owner)
+        protected Goal(T1 owner, T2 bot)
         {
             this.owner = owner;
+            this.bot = bot;
         }
 
         public abstract void Activate();
         public abstract GoalState Process();
-        public abstract void Terminate();
-        public abstract void AddSubgoal(Goal<T> goal);
+        public virtual void Terminate() { }
+        public virtual void AddSubgoal(Goal<T1, T2> goal) { }
+
+        public string ToString(int depth)
+        {
+            string result = "";
+
+            for (int i = 0; i < depth; i++)
+                result += "\t";
+
+            result += this.GetType().Name;
+
+            return result;
+        }
     }
 }

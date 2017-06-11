@@ -9,14 +9,35 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    // To simplify reasoning and save the hands!
     using InfluenceMap = List<List<float>>;
 
+    /// <summary>
+    /// The class used to store and calculate influence.
+    /// Currently just keeps track of buildings and influence refers purely to existence of buildings.
+    /// </summary>
     public class InfluenceMapData
     {
+        /// <summary>
+        /// The grid used to map values to an area.
+        /// </summary>
         private Grid _grid;
+
+        /// <summary>
+        /// The influence values.
+        /// </summary>
         private InfluenceMap _influence;
+
+        /// <summary>
+        /// The border formed from all non-zero influence values.
+        /// </summary>
         private List<Cell> _influenceBorder;
 
+        /// <summary>
+        /// Gets or sets the influence value at the given column and row index.
+        /// </summary>
+        /// <param name="col">Column index</param>
+        /// <param name="row">Row index</param>
         public float this[int col, int row]
         {
             get
@@ -34,23 +55,34 @@ namespace MinecaRTS
             }
         }
 
+        /// <summary>
+        /// Overload for Point instead of col / row
+        /// </summary>
         public float this[Point cellIndex]
         {
             get { return this[cellIndex.Col(), cellIndex.Row()]; }
             private set { this[cellIndex.Col(), cellIndex.Row()] = value; }
         }
 
+        /// <summary>
+        /// Gets the list of cells forming the border from all non-zero influence values.
+        /// </summary>
         public List<Cell> InfluenceBorder
         {
             get { return _influenceBorder; }
         }
 
+        /// <summary>
+        /// Initializes a new InfluenceMapData
+        /// </summary>
+        /// <param name="grid">The grid to convert values to space.</param>
         public InfluenceMapData(Grid grid)
         {
             _grid = grid;
             _influence = new List<List<float>>();
             _influenceBorder = new List<Cell>();
 
+            // Initialise influence values to zero.
             for (int col = 0; col < grid.Cols; col++)
             {
                 _influence.Add(new List<float>());
@@ -61,7 +93,10 @@ namespace MinecaRTS
             }
         }
 
-        // TODO: Calculate 4 edges instead of getting bigger rectangle and excluding center.
+        /// <summary>
+        /// Returns the indexes at the border of the passed in rectangle
+        /// </summary>
+        /// <param name="rect">The rectangle.</param>
         public List<Point> GetBorderIndexes(Rectangle rect)
         {
             var inflatedCells = _grid.IndexesInRect(rect.GetInflated(20, 20));
@@ -70,37 +105,59 @@ namespace MinecaRTS
             return inflatedCells.Where(element => !currentCells.Contains(element)).ToList();
         }
 
+        /// <summary>
+        /// Called whenever a new influencer (building) is added.
+        /// Updates influence values around the influencer by linear propogation.
+        /// </summary>
+        /// <param name="influencer">The new influencer.</param>
         public void InfluencerAdded(Entity influencer)
         {
             float strength = 0;
 
+            // Assign influence value based on type.
+            // TODO: This should be a dictionary
             if (influencer is Building)
             {
                 if (influencer is TownHall)
                     strength = 100;
                 else if (influencer is House)
                     strength = 15;
+                else if (influencer is Track)
+                    strength = 30;
+                else if (influencer is DepositBox)
+                    strength = 50;
             }
             else if (influencer is Unit)
                 strength = 0;
 
+            // Increment influence at cells the entity touches.
             foreach (Point index in _grid.IndexesInRect(influencer.CollisionRect))
                 this[index] += strength;
 
+            // First propogation drop-off
             strength -= 10;
 
+            // How many times influence has propogated to a new ring of cells.
             int numExpansions = 0; 
 
+            // While there is still influence to propogate.
             while (strength > 1)
             {
+                // Increment influence in next ring of cells.
                 foreach (Point index in GetBorderIndexes(influencer.CollisionRect.GetInflated(20 * numExpansions, 20 * numExpansions)))
                     this[index] += strength;
 
+                // Drop off the propogation value.
                 ++numExpansions;
                 strength -= 10;
             }
         }
 
+        /// <summary>
+        /// Runs a floodfill to get the border of influence from the passed in starting cell.
+        /// The border is decided by the layer of cells before influence reaches zero.
+        /// </summary>
+        /// <param name="startingCell">The starting cell for the floodfill</param>
         public void CalculateInfluenceBorderAroundCell(Cell startingCell)
         {
             _influenceBorder = new List<Cell>();
@@ -135,6 +192,11 @@ namespace MinecaRTS
             }
         }
 
+        /// <summary>
+        /// Renders the InfluenceMap to the screen.
+        /// Higher blue value for higher influence, displays influence value at center of cell.
+        /// </summary>
+        /// <param name="spriteBatch">The SpriteBatch to render to.</param>
         public void Render(SpriteBatch spriteBatch)
         {
             // Find maximum influence value for color scaling.

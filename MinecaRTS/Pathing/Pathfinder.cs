@@ -607,7 +607,7 @@ namespace MinecaRTS
 
             MinecaRTS.Instance.GraphicsDevice.Present();
 
-            System.Threading.Thread.Sleep(50);
+            System.Threading.Thread.Sleep(200);
         }   
         
         private void ShowPathSmoothingDebug(Cell from, Cell to, Point from1, Point to1, Point from2, Point to2, HashSet<Cell> cellsInRect)
@@ -643,7 +643,7 @@ namespace MinecaRTS
 
             MinecaRTS.Instance.GraphicsDevice.Present();
 
-            System.Threading.Thread.Sleep(50);
+            System.Threading.Thread.Sleep(200);
         }
         #endregion PATHFINDING DEBUG DISPLAY METHODS
     }

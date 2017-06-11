@@ -152,6 +152,7 @@ namespace MinecaRTS
 
         public static void LookAt(Point pos)
         {
+            return;
             X = pos.X - WIDTH / 2;
             Y = pos.Y - HEIGHT / 2;
         }

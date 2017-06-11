@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework;
 
 namespace MinecaRTS
 {
+    /// <summary>
+    /// Factory class to normalize all building construction methods to take a PlayerData and position as parameters.
+    /// </summary>
     public static class BuildingFactory
     {
         public static TownHall CreateTownHall(PlayerData data, Vector2 pos)
@@ -30,6 +33,11 @@ namespace MinecaRTS
         public static DepositBox CreateDepositBox(PlayerData data, Vector2 pos)
         {
             return new DepositBox(pos, data.Team);
+        }
+
+        public static Wall CreateWall(PlayerData data, Vector2 pos)
+        {
+            return new Wall(pos, data.Team);
         }
     }
 }

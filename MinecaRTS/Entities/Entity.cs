@@ -39,6 +39,11 @@ namespace MinecaRTS
             get { return _id; }
         }
 
+        /// <summary>
+        /// Initializes a new Entity.
+        /// </summary>
+        /// <param name="pos">The position the entity is created at.</param>
+        /// <param name="scale">The size</param>
         protected Entity(Vector2 pos, Vector2 scale)
         {
             _id = MsgHandlerRegistry.NextID;
@@ -53,6 +58,9 @@ namespace MinecaRTS
             MsgHandlerRegistry.RemoveEntity(this);
         }
 
+        /// <summary>
+        /// The top left corner of the entity in screen co-ordinates
+        /// </summary>
         public Vector2 RenderPos
         {
             get { return Camera.VecToScreen(Pos); }

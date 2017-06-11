@@ -9,10 +9,19 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    /// <summary>
+    /// Represents an individual cell in the game. Used as part of a grid for various positional purposes.
+    /// </summary>
     public class Cell
     {
+        /// <summary>
+        /// The size of the cell. All cells are square.
+        /// </summary>
         private int _size;
 
+        /// <summary>
+        /// The size of the cell. All cells are square.
+        /// </summary>
         public int Size
         {
             get { return _size; }
@@ -28,11 +37,11 @@ namespace MinecaRTS
         /// </summary>
         public Color Color { get; set; }
 
-        // TODO: This will need to be taken out of the data structure to allow facade to operate properly.
-        // For path planning, each team will have a different view of what is passable.
-        #region     /------ Pathfinding Details ------\
+        /// <summary>
+        /// The cells directly connected to this cell. Can be diagonal or orthogonal 
+        /// depending on the grid the cell belongs to.
+        /// </summary>
         public List<Cell> Neighbours;
-
 
         /// <summary>
         /// Whether or not the cell can be walked on.
@@ -48,7 +57,7 @@ namespace MinecaRTS
         /// The score associated with this cell in the path being calculated.
         /// </summary>
         public float Score;
-        #endregion  /------ Pathfinding Details ------\
+
 
         /// <summary>
         /// The world coordinate rectangle used for collisions.
@@ -96,7 +105,7 @@ namespace MinecaRTS
         }
 
         /// <summary>
-        /// Renders a black rectangle around the cell border.
+        /// Renders the area covered by the cell in its Color variable.
         /// </summary>
         /// <param name="spriteBatch">The SpriteBatch to render to.</param>
         public void Render(SpriteBatch spriteBatch)

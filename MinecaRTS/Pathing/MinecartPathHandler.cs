@@ -37,7 +37,7 @@ namespace MinecaRTS
             }
         }
 
-        public override void GetPathTo(Vector2 targetPos)
+        public override void GetPathTo(Vector2 targetPos, bool smoothed = false)
         {
             Building buildingAtPos = owner.Data.BuildingAtPos(targetPos);
 
@@ -57,7 +57,11 @@ namespace MinecaRTS
             _tempPathToTrack = GetPathToNearbyTrack();
 
             if (_tempPathToTrack.Count > 0)
+            {
                 sourceCell = _tempPathToTrack.Last();
+                // Remove last node so we don't double up since it also is the start node of greedy search.
+                _tempPathToTrack.Remove(_tempPathToTrack.Last());
+            }
             else
                 sourceCell = grid.CellAt(owner.Mid);
 
@@ -67,18 +71,20 @@ namespace MinecaRTS
                 TimeSlicedPathManager.AddSearch(pathfinder);
             }
             else
-            {
-                // Remove last node so we don't double up since it also is the start node of greedy search.
-                _tempPathToTrack.Remove(_tempPathToTrack.Last());
+            {                
                 path = _tempPathToTrack;
                 path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, targetCell, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
                 _tempPathToTrack = new List<Cell>();
             }
-
         }
 
         public void GetPathToBuildingFollowingTracks(Building building)
         {
+            if (building is Track)
+            {
+                GetPathToPosFollowingTracks(building.Mid);
+                return;
+            }
             Cell sourceCell;
 
             var inflatedBuildingCells = grid.CellsInRect(building.CollisionRect.GetInflated(16, 16));
@@ -90,7 +96,10 @@ namespace MinecaRTS
             _tempPathToTrack = GetPathToNearbyTrack();
 
             if (_tempPathToTrack.Count > 0)
-                sourceCell = path.Last();
+            {
+                sourceCell = _tempPathToTrack.Last();
+                _tempPathToTrack.Remove(_tempPathToTrack.Last());
+            }
             else
                 sourceCell = grid.CellAt(owner.Mid);
 
@@ -100,7 +109,7 @@ namespace MinecaRTS
                 TimeSlicedPathManager.AddSearch(pathfinder);
             }
             else
-            {
+            {               
                 path = _tempPathToTrack;
                 path.AddRange(pathfinder.SearchGreedy(grid, sourceCell, borderCells, owner, GreedyConsiderationCondition, GreedyTerminationCondition, TrackScoreMethod, false));
                 _tempPathToTrack = new List<Cell>();

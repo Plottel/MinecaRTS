@@ -10,28 +10,58 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    /// <summary>
+    /// The class defining all behaviour for a HumanPlayer.
+    /// Handles keyboard, mouse and various UI events. 
+    /// </summary>
     public class HumanPlayer : Player
     {
+        /// <summary>
+        /// Whether or not the HumanPlayer is currently creating a selection box.
+        /// This happens while left mouse is held down.
+        /// </summary>
         private bool _isBoxing = false;
+
+        /// <summary>
+        /// Whether or not the HumanPlayer is currently setting a rally point on a building.
+        /// This happens when a building is selected and R has been typed.
+        /// </summary>
         private bool _isSettingRallyPoint = false;
+
+        /// <summary>
+        /// The starting point of the selection box. Used for determining the selection area when mouse is released.
+        /// </summary>
         private Point _boxStart = Point.Zero;
+
+        /// <summary>
+        /// THe selection box. Used in conjunction with _boxStart to determine the selection area when mouse is released.
+        /// </summary>
         private Rectangle _box = Rectangle.Empty;
 
-        // TODO: This gives too much power to the bot.
-        // Should be something like "select a building (enum)" and "select a position",
-        // then send a request to PlayerData to actually handle it.
+        /// <summary>
+        /// Whether or not the HumanPlayer is placing a building. This will disable other UI interactions while it is active.
+        /// </summary>
         private bool _isPlacingBuilding = false;
+
+        /// <summary>
+        /// The building currently being placed by the HumanPlayer. Used for visualization and showing valid placement locations.
+        /// </summary>
         private Building _buildingToPlace = null;
 
+        /// <summary>
+        /// Initializes a new HumanPlayer
+        /// </summary>
+        /// <param name="data">The PlayerData through which all queries are filtered.</param>
         public HumanPlayer(PlayerData data) : base(data)
         {
         }
 
+        /// <summary>
+        /// The method called once per tick defining all logic for the HumanPlayer.
+        /// Unlike an AI bot which has decision making logic, this simply handles UI events.
+        /// </summary>
         public override void HandleInput()
         {
-            //if (Input.KeyTyped(Keys.T))
-              //  Data.TestPathfindingCalculationTime();
-
             // Move camera with arrow keys.
             if (Input.KeyDown(Keys.Left))
                 Camera.MoveBy(-20, 0);
@@ -134,12 +164,16 @@ namespace MinecaRTS
                     {
                         Data.OrderSelectedWorkerToConstructBuilding(_buildingToPlace);
 
-                        // Can create tracks without re-selecting building options.
-                        if (!(_buildingToPlace is Track))
+                        // Can create tracks and wallswithout re-selecting building options.
+
+                        if (!(_buildingToPlace is Track || _buildingToPlace is Wall))
                             _isPlacingBuilding = false;
                         else
                         {
-                            _buildingToPlace = BuildingFactory.CreateTrack(Data, Vector2.Zero);
+                            if (_buildingToPlace is Track)
+                                _buildingToPlace = BuildingFactory.CreateTrack(Data, Vector2.Zero);
+                            else if (_buildingToPlace is Wall)
+                                _buildingToPlace = BuildingFactory.CreateWall(Data, Vector2.Zero);
                         }
                     }                        
                 }
@@ -189,6 +223,9 @@ namespace MinecaRTS
 
                 if (Input.KeyTyped(Keys.D))
                     _buildingToPlace = BuildingFactory.CreateDepositBox(Data, Vector2.Zero);
+
+                if (Input.KeyTyped(Keys.F))
+                    _buildingToPlace = BuildingFactory.CreateWall(Data, Vector2.Zero);
             }
 
             // C for cancel - stop placing building mode
@@ -215,10 +252,19 @@ namespace MinecaRTS
 
         }
 
+        /// <summary>
+        /// Blank. Needs to be overridden to keep with common Bot interface.
+        /// </summary>
+        /// <param name="message">The message.</param>
         public override void HandleMessage(Message message)
         {
         }
 
+        /// <summary>
+        /// The render function for the HumanPlayer. Renders relevant UI aspects such as selection box and
+        /// building being placed.
+        /// </summary>
+        /// <param name="spriteBatch">The spriteBatch to render to.</param>
         public override void Render(SpriteBatch spriteBatch)
         {
             if (_isBoxing)
@@ -242,9 +288,10 @@ namespace MinecaRTS
                 // Render building selection information
                 Vector2 buildingPos = _buildingToPlace.RenderPos;
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(H) House", buildingPos, Color.White);
-                spriteBatch.DrawString(MinecaRTS.smallFont, "(P) Production", new Vector2(buildingPos.X, buildingPos.Y + 10), Color.White);
+                spriteBatch.DrawString(MinecaRTS.smallFont, "(P) Town Hall", new Vector2(buildingPos.X, buildingPos.Y + 10), Color.White);
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(T) Track", new Vector2(buildingPos.X, buildingPos.Y + 20), Color.White);
                 spriteBatch.DrawString(MinecaRTS.smallFont, "(D) Deposit Box", new Vector2(buildingPos.X, buildingPos.Y + 30), Color.White);
+                spriteBatch.DrawString(MinecaRTS.smallFont, "(F) Wall", new Vector2(buildingPos.X, buildingPos.Y + 40), Color.White);
             }
         }
     }

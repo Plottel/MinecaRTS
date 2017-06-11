@@ -9,12 +9,13 @@ namespace MinecaRTS
     public enum MessageType
     {
         ResourceDepleted,
+        ResourcesReceived,
         GiveMeResources,
         UnitSpawned,
         UnitMoved,
         SearchComplete,
         ProductionBuildingTaskComplete,
         SupplyChanged,
-        BuildingComplete
+        BuildingComplete,
     }
 }

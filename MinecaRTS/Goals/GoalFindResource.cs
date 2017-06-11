@@ -7,21 +7,20 @@ using Microsoft.Xna.Framework;
 
 namespace MinecaRTS
 {
-    public class GoalFindResource : Goal<Worker>
+    public class GoalFindResource : Goal<Worker, MinecartO>
     {
         public ResourceType Type;
         public Cell prevCoarseCell;
         public Cell curCoarseCell;
-        public Cell resourceCell;
 
-        public GoalFindResource(Worker owner, ResourceType resourceType) : base(owner)
+        public GoalFindResource(Worker owner, MinecartO bot, ResourceType resourceType) : base(owner, bot)
         {
             Type = resourceType;
         }
 
         public override void Activate()
         {
-            State = GoalState.Active;
+            State = GoalState.Active;           
 
             // Find a coarse grid cell that can't be seen
             var open = new List<Cell>();
@@ -81,7 +80,12 @@ namespace MinecaRTS
                                 if (owner.Data.GetResourceFromCell(cell).Type == Type)
                                 {
                                     State = GoalState.Complete;
-                                    resourceCell = cell;
+
+                                    if (Type == ResourceType.Wood)
+                                        bot.knownWoodCells.Add(cell);
+                                    else if (Type == ResourceType.Stone)
+                                        bot.knownStoneCells.Add(cell);
+
                                     return State;
                                 }
                                     
@@ -95,10 +99,6 @@ namespace MinecaRTS
         }
 
         public override void Terminate()
-        {
-        }
-
-        public override void AddSubgoal(Goal<Worker> goal)
         {
         }
     }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MinecaRTS
 {
+    /// <summary>
+    /// All possible team values.
+    /// </summary>
     public enum Team
     {
         One,

@@ -6,6 +6,10 @@ using MonoGame.Extended;
 
 namespace MinecaRTS
 {
+    /// <summary>
+    /// The game class itself. Inherits from Xna.Game
+    /// Defines the game loop for us.
+    /// </summary>
     public class MinecaRTS : Game
     {
         /// <summary>
@@ -13,6 +17,7 @@ namespace MinecaRTS
         /// Sometimes for debug it's just easier to have everything wherever we need it.
         /// </summary>
         public static MinecaRTS Instance;
+
 
         public static SpriteFont smallFont;
         public static SpriteFont largeFont;
@@ -38,45 +43,45 @@ namespace MinecaRTS
             new MoveToDepositBox();
             new ReturnToTownHall();
 
-            ProductionBuilding.productionTimes.Add(typeof(Worker), 240);
-            ProductionBuilding.productionTimes.Add(typeof(Minecart), 120);
+            // Setup time taken to produce units.
+            ProductionBuilding.productionTimes.Add(typeof(Worker), 360);
+            ProductionBuilding.productionTimes.Add(typeof(Minecart), 480);
 
-            // Setup Entity costs
+            // Setup cost values to produce all entities.
+            // In the format:
             // WOOD, STONE, SUPPLY
             World.entityCosts.Add(typeof(Worker), new Cost(50, 0, 1));
             World.entityCosts.Add(typeof(House), new Cost(100, 0, 0));
             World.entityCosts.Add(typeof(TownHall), new Cost(0, 0, 0));
-            World.entityCosts.Add(typeof(Track), new Cost(0, 0, 0));
+            World.entityCosts.Add(typeof(Track), new Cost(25, 0, 0));
             World.entityCosts.Add(typeof(Minecart), new Cost(0, 0, 0));
             World.entityCosts.Add(typeof(DepositBox), new Cost(0, 0, 0));
+            World.entityCosts.Add(typeof(Wall), new Cost(0, 0, 0));
 
+            // Set camera dimensions.
             Camera.WIDTH = 1366;
             Camera.HEIGHT = 768;            
 
+            // Set window dimensions.
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1366;
             graphics.PreferredBackBufferHeight = 768;            
 
+            // Restrict mouse to stay within the window.
             Input.SetMaxMouseX(graphics.PreferredBackBufferWidth);
             Input.SetMaxMouseY(graphics.PreferredBackBufferHeight);
 
+            // Setup default debug values.
             Debug.Init();
-
             editMode = false;
             debugMode = false;
-
 
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
             // MUST BE CREATED FIRST TO HAVE ID OF 0.
             world = new World();
-
             world.Grid.ShowGrid = false;
-
-
-            //graphics.ToggleFullScreen();
-
         }
 
         protected override void Initialize()
@@ -93,28 +98,27 @@ namespace MinecaRTS
             smallFont = Content.Load<SpriteFont>("SmallFont");
             largeFont = Content.Load<SpriteFont>("largeFont");
 
+            // Load textures for buildings.
             TownHall.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/town_hall");
             TownHall.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/town_hall_construction");
-
             House.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/house");
             House.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/house_construction");
-
             Track.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
             Track.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/track");
-
             DepositBox.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box_empty");
             DepositBox.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/deposit_box_empty");
-
             Resource.WOOD_TEXTURE = Content.Load<Texture2D>("images/resources/tree");
             Resource.WOOD_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/tree_stump");
-
             Resource.STONE_TEXTURE = Content.Load<Texture2D>("images/resources/stone");
             Resource.STONE_DEPLETED_TEXTURE = Content.Load<Texture2D>("images/resources/half_stone");
+            Wall.ACTIVE_TEXTURE = Content.Load<Texture2D>("images/buildings/wall");
+            Wall.CONSTRUCTION_TEXTURE = Content.Load<Texture2D>("images/buildings/wall");
 
             Minecart.emptySS = GameResources.LoadSpriteSheet(this, "images/minecart/minecart_empty", 1, 8);
 
             GameResources.CreateMinecartEmptyAnimation();
 
+            // Create spritesheets for units.
             Worker.spriteSheets.Add(WkrAnim.Walk, GameResources.LoadSpriteSheet(this, "images/worker/worker_walk", 7, 8));
             Worker.spriteSheets.Add(WkrAnim.Chop, GameResources.LoadSpriteSheet(this, "images/worker/worker_chop", 5, 8));
             Worker.spriteSheets.Add(WkrAnim.Logs, GameResources.LoadSpriteSheet(this, "images/worker/worker_logs", 7, 8));
@@ -122,7 +126,7 @@ namespace MinecaRTS
             Worker.spriteSheets.Add(WkrAnim.Bag, GameResources.LoadSpriteSheet(this, "images/worker/worker_bag", 7, 8));
             Worker.spriteSheets.Add(WkrAnim.Build, GameResources.LoadSpriteSheet(this, "images/worker/worker_build", 6, 8));
 
-            //public static void CreateWorkerAnimation(SpriteSheet newSS, WorkerAnimation animType, uint frameDuration)
+            // Create animations for units.
             GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Walk], WkrAnim.Walk, 4);
             GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Chop], WkrAnim.Chop, 7);
             GameResources.CreateWorkerAnimation(Worker.spriteSheets[WkrAnim.Logs], WkrAnim.Logs, 4);
