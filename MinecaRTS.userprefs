@@ -1,0 +1,9 @@
+﻿<Properties StartupConfiguration="{3B04053E-210A-4673-8C57-7B58BCE16D1F}|Default">
+  <MonoDevelop.Ide.ItemProperties.MinecaRTS PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench />
+</Properties>
